@@ -1,41 +1,43 @@
-"use client";
-
-import { Header } from './components/Header';
-import { HeroSection } from './components/HeroSection';
-import { WhyNexoraSection } from './components/WhyNexoraSection';
-import { TrustMetricsSection } from './components/TrustMetricsSection';
-import { ProblemComparisonSection } from './components/ProblemComparisonSection';
-import { PlatformOverviewSection } from './components/PlatformOverviewSection';
-import { FeaturesGridSection } from './components/FeaturesGridSection';
-import { PerformanceSection } from './components/PerformanceSection';
-import { HowItWorksSection } from './components/HowItWorksSection';
-import { CompatibilitySection } from './components/CompatibilitySection';
-import { UseCasesSection } from './components/UseCasesSection';
-import { DeveloperExperienceSection } from './components/DeveloperExperienceSection';
-import { RoadmapSection } from './components/RoadmapSection';
-import { FAQSection } from './components/FAQSection';
-import { FinalCTASection } from './components/FinalCTASection';
-import { Footer } from './components/Footer';
+import { Header } from '@/components/layout/Header';
+import { Hero } from '@/components/sections/Hero';
+import { TrustMetrics } from '@/components/sections/TrustMetrics';
+import { WhyNexora } from '@/components/sections/WhyNexora';
+import { ProblemComparison } from '@/components/sections/ProblemComparison';
+import { PlatformOverview } from '@/components/sections/PlatformOverview';
+import { ArchitectureFlow } from '@/components/sections/ArchitectureFlow';
+import { SecurityGhost } from '@/components/sections/SecurityGhost';
+import { FeaturesGrid } from '@/components/sections/FeaturesGrid';
+import { PerformanceVisualization } from '@/components/sections/PerformanceVisualization';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { Compatibility } from '@/components/sections/Compatibility';
+import { UseCases } from '@/components/sections/UseCases';
+import { DeveloperExperience } from '@/components/sections/DeveloperExperience';
+import { PlatformVision } from '@/components/sections/PlatformVision';
+import { FAQ } from '@/components/sections/FAQ';
+import { FinalCTA } from '@/components/sections/FinalCTA';
+import { Footer } from '@/components/layout/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen bg-bg">
       <Header />
       <main>
-        <HeroSection />
-        <WhyNexoraSection />
-        <TrustMetricsSection />
-        <ProblemComparisonSection />
-        <PlatformOverviewSection />
-        <FeaturesGridSection />
-        <PerformanceSection />
-        <HowItWorksSection />
-        <CompatibilitySection />
-        <UseCasesSection />
-        <DeveloperExperienceSection />
-        <RoadmapSection />
-        <FAQSection />
-        <FinalCTASection />
+        <Hero />
+        <TrustMetrics />
+        <WhyNexora />
+        <ProblemComparison />
+        <PlatformOverview />
+        <ArchitectureFlow />
+        <SecurityGhost />
+        <FeaturesGrid />
+        <PerformanceVisualization />
+        <HowItWorks />
+        <Compatibility />
+        <UseCases />
+        <DeveloperExperience />
+        <PlatformVision />
+        <FAQ />
+        <FinalCTA />
       </main>
       <Footer />
     </div>
