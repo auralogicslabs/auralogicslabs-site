@@ -16,8 +16,11 @@ export function SecurityGhost() {
   ];
 
   return (
-    <section className="bg-bg py-24 px-6 lg:px-12">
-      <div className="mx-auto max-w-[1280px]">
+    <section className="bg-bg py-24 px-6 lg:px-12 relative overflow-hidden">
+      {/* Architectural Grid Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:32px_32px] opacity-40 pointer-events-none" />
+      
+      <div className="mx-auto max-w-[1280px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

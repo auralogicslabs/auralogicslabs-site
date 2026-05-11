@@ -55,7 +55,7 @@ export function PlatformOverview() {
   const CurrentIcon = current.icon;
 
   return (
-    <section id="platform" className="bg-bg py-24 px-6 lg:px-12">
+    <section id="platform" className="bg-brand-tint/20 py-24 px-6 lg:px-12 border-y border-border">
       <div className="mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

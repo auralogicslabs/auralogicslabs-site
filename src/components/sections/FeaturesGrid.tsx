@@ -94,17 +94,22 @@ export function FeaturesGrid() {
                   delay: index * 0.06,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="bg-white border border-border rounded-[12px] p-6 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-250"
+                className="group relative bg-white border border-border rounded-[12px] p-6 shadow-card hover:shadow-hover hover:-translate-y-1 hover:border-brand/30 transition-all duration-300 overflow-hidden"
               >
-                <div className="h-10 w-10 rounded-md bg-surface-soft border border-border flex items-center justify-center mb-5">
-                  <feature.icon className="h-5 w-5 text-brand" />
+                {/* Spotlight hover background */}
+                <div className="absolute inset-0 bg-brand-tint opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="h-10 w-10 rounded-md bg-surface-soft border border-border flex items-center justify-center mb-5 group-hover:bg-brand group-hover:border-brand transition-colors duration-300">
+                    <feature.icon className="h-5 w-5 text-brand group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h4 className="text-[18px] font-semibold text-text-primary mb-3">
+                    {feature.title}
+                  </h4>
+                  <p className="text-[14px] text-text-secondary leading-[1.6]">
+                    {feature.description}
+                  </p>
                 </div>
-                <h4 className="text-[18px] font-semibold text-text-primary mb-3">
-                  {feature.title}
-                </h4>
-                <p className="text-[14px] text-text-secondary leading-[1.6]">
-                  {feature.description}
-                </p>
               </motion.div>
             ))}
           </motion.div>

@@ -1,93 +1,79 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { trustMetrics } from "@/data/metrics";
 
-/** Parse '22 ms' → { num: 22, suffix: ' ms' }. Returns null for non-numeric values. */
-function parseMetric(value: string): { num: number; suffix: string } | null {
-  const m = value.match(/^(\d+(?:\.\d+)?)(.*)/);
-  if (!m) return null;
-  return { num: parseFloat(m[1]), suffix: m[2] };
-}
-
-function AnimatedValue({ value }: { value: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
-  const [display, setDisplay] = useState("0");
-
-  const parsed = parseMetric(value);
+function AnimatedNumber({ value, suffix }: { value: number, suffix: string }) {
+  const [count, setCount] = useState(0);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    if (!parsed || !inView) return;
-    const { num, suffix } = parsed;
-    const duration = 1200;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = num * eased;
-      // Render with correct decimals
-      setDisplay(
-        Number.isInteger(num)
-          ? String(Math.round(current))
-          : current.toFixed(1)
-      );
-      if (progress < 1) requestAnimationFrame(tick);
-      else setDisplay(String(num));
-    };
-
-    requestAnimationFrame(tick);
-  }, [inView, value]);
-
-  if (!parsed) {
-    return <span ref={ref}>{value}</span>;
-  }
+    if (!inView) return;
+    let start = 0;
+    const end = value;
+    if (start === end) return;
+    
+    let totalDuration = 1500;
+    let incrementTime = (totalDuration / end);
+    
+    let timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start === end) clearInterval(timer);
+    }, incrementTime);
+    
+    return () => clearInterval(timer);
+  }, [value, inView]);
 
   return (
-    <span ref={ref}>
-      {display}
-      {parsed.suffix}
-    </span>
+    <motion.span 
+      onViewportEnter={() => setInView(true)}
+      viewport={{ once: true }}
+    >
+      {count}{suffix}
+    </motion.span>
   );
 }
 
-const trustMetrics = [
-  { value: "22 ms", label: "TTFB on production Nginx" },
-  { value: "100%", label: "Static delivery on cache hit" },
-  { value: "0", label: "PHP execution on cache hit" },
-  { value: "Universal", label: "Apache · Nginx · LiteSpeed · IIS" },
-  { value: "Auto", label: "Regeneration on edit" },
-  { value: "Native", label: "Elementor · Gutenberg · Bricks" },
-];
-
 export function TrustMetrics() {
   return (
-    <section className="bg-surface py-12 px-6 lg:px-12 border-y border-border">
-      <div className="mx-auto max-w-[1280px]">
+    <section className="bg-surface py-12 px-6 lg:px-12 border-y border-border relative overflow-hidden">
+      {/* Background Architectural Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#E2E8F0_1px,transparent_1px),linear-gradient(to_bottom,#E2E8F0_1px,transparent_1px)] bg-[size:48px_48px] opacity-40" />
+
+      <div className="mx-auto max-w-[1280px] relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {trustMetrics.map((metric, index) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="bg-white border border-border rounded-[12px] p-6 shadow-card hover:shadow-hover hover:-translate-y-0.5 transition-all duration-200"
-            >
-              <div className="font-mono text-[24px] font-medium text-text-primary mb-2 tabular-nums">
-                <AnimatedValue value={metric.value} />
-              </div>
-              <div className="text-[14px] text-text-muted leading-[1.5]">
-                {metric.label}
-              </div>
-            </motion.div>
-          ))}
+          {trustMetrics.map((metric, index) => {
+            // Extract numeric part for animation if it's a number-based metric
+            const isTTFB = metric.label.includes('TTFB');
+            const isPercent = metric.value.includes('%');
+            const isZero = metric.value === '0';
+            
+            return (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative bg-white border border-border rounded-[12px] p-6 shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+              >
+                {/* Hover Glow */}
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-brand transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+
+                <div className="font-mono text-[28px] font-semibold text-text-primary mb-2 tracking-tight flex items-baseline">
+                  {isTTFB ? <AnimatedNumber value={22} suffix=" ms" /> : 
+                   isPercent ? <AnimatedNumber value={100} suffix="%" /> : 
+                   isZero ? <AnimatedNumber value={0} suffix="" /> : 
+                   metric.value}
+                </div>
+                <div className="text-[14px] text-text-muted leading-[1.5]">
+                  {metric.label}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

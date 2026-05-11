@@ -2,17 +2,22 @@
 
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export function PerformanceVisualization() {
+  const [inView, setInView] = useState(false);
+  const bars = [20, 40, 80, 90, 70, 50, 30, 20, 15, 10, 8, 5, 4, 3, 3, 2, 2, 1, 1];
+
   return (
-    <section className="bg-bg py-24 px-6 lg:px-12">
+    <section className="bg-bg py-24 px-6 lg:px-12 border-y border-border relative overflow-hidden">
       <div className="mx-auto max-w-[1280px]">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          onViewportEnter={() => setInView(true)}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="text-center mb-16 relative z-10"
         >
           <h2 className="text-[40px] md:text-[56px] font-semibold text-text-primary tracking-[-0.03em] mb-6">
             Real infrastructure performance.
@@ -22,7 +27,7 @@ export function PerformanceVisualization() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
           {/* Panel 1 - TTFB Distribution */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -33,27 +38,24 @@ export function PerformanceVisualization() {
           >
             <div className="text-[14px] font-medium text-text-primary mb-6">TTFB · Last 1,000 requests</div>
             <div className="flex-grow flex items-end gap-[2px] h-[160px] mb-4 relative">
-              {/* Fake SVG Bar Chart */}
+              {/* Animated SVG Bar Chart */}
               <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" className="opacity-80">
-                <rect x="0" y="80" width="3" height="20" fill="var(--color-brand-soft)" />
-                <rect x="4" y="60" width="3" height="40" fill="var(--color-brand)" />
-                <rect x="8" y="20" width="3" height="80" fill="var(--color-brand)" />
-                <rect x="12" y="10" width="3" height="90" fill="var(--color-brand)" />
-                <rect x="16" y="30" width="3" height="70" fill="var(--color-brand)" />
-                <rect x="20" y="50" width="3" height="50" fill="var(--color-brand)" />
-                <rect x="24" y="70" width="3" height="30" fill="var(--color-brand-soft)" />
-                <rect x="28" y="80" width="3" height="20" fill="var(--color-brand-soft)" />
-                <rect x="32" y="85" width="3" height="15" fill="var(--color-brand-soft)" />
-                <rect x="36" y="90" width="3" height="10" fill="var(--color-border-strong)" />
-                <rect x="40" y="92" width="3" height="8" fill="var(--color-border-strong)" />
-                <rect x="44" y="95" width="3" height="5" fill="var(--color-border-strong)" />
-                <rect x="48" y="96" width="3" height="4" fill="var(--color-border-strong)" />
-                <rect x="52" y="97" width="3" height="3" fill="var(--color-border-strong)" />
-                <rect x="56" y="97" width="3" height="3" fill="var(--color-border-strong)" />
-                <rect x="60" y="98" width="3" height="2" fill="var(--color-border-strong)" />
-                <rect x="64" y="98" width="3" height="2" fill="var(--color-border-strong)" />
-                <rect x="68" y="99" width="3" height="1" fill="var(--color-border-strong)" />
-                <rect x="72" y="99" width="3" height="1" fill="var(--color-border-strong)" />
+                {bars.map((height, i) => (
+                  <motion.rect
+                    key={i}
+                    x={i * 4}
+                    y={100 - height}
+                    width="3"
+                    height={height}
+                    fill={i < 6 ? "var(--color-brand)" : i < 9 ? "var(--color-brand-soft)" : "var(--color-border-strong)"}
+                    initial={{ height: 0, y: 100 }}
+                    animate={inView ? { height: height, y: 100 - height } : { height: 0, y: 100 }}
+                    transition={{ duration: 0.6, delay: 0.2 + (i * 0.02), ease: "easeOut" }}
+                    className="hover:opacity-60 transition-opacity cursor-pointer"
+                  >
+                    <title>{`${20 + i * 2}ms - ${height * 10} requests`}</title>
+                  </motion.rect>
+                ))}
               </svg>
               {/* Markers */}
               <div className="absolute top-0 bottom-0 left-[12%] border-l border-dashed border-text-primary z-10">
@@ -92,24 +94,34 @@ export function PerformanceVisualization() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-white border border-border rounded-[12px] p-6 shadow-card hover:shadow-hover transition-all flex items-center justify-center relative min-h-[200px]"
+            className="bg-brand-tint border border-brand/20 rounded-[12px] p-6 shadow-card hover:shadow-hover transition-all flex items-center justify-center relative min-h-[200px]"
           >
             <svg viewBox="0 0 36 36" className="w-32 h-32">
               <path
-                className="text-border"
+                className="text-white drop-shadow-sm"
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 fill="none" stroke="currentColor" strokeWidth="3"
               />
-              <path
+              <motion.path
                 className="text-brand"
-                strokeDasharray="96, 100"
+                strokeDasharray="100, 100"
+                initial={{ strokeDashoffset: 100 }}
+                animate={inView ? { strokeDashoffset: 4 } : { strokeDashoffset: 100 }}
+                transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                fill="none" stroke="currentColor" strokeWidth="3"
+                fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"
               />
             </svg>
             <div className="absolute flex flex-col items-center justify-center">
-              <span className="text-[28px] font-semibold text-text-primary">96%</span>
-              <span className="text-[12px] text-text-muted">Cache hit rate</span>
+              <motion.span 
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.5, delay: 1 }}
+                className="text-[28px] font-semibold text-text-primary"
+              >
+                96%
+              </motion.span>
+              <span className="text-[12px] font-medium text-brand">Cache hit rate</span>
             </div>
           </motion.div>
 
@@ -123,38 +135,27 @@ export function PerformanceVisualization() {
           >
             <div className="text-[14px] font-medium text-text-primary mb-4">Recent Captures</div>
             <ul className="space-y-4 text-[13px] font-mono">
-              <li className="flex items-center text-text-secondary">
-                <CheckCircle2 className="h-4 w-4 text-success mr-2" />
-                <span>/about-us</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">2 min ago</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">78 KB</span>
-              </li>
-              <li className="flex items-center text-text-secondary">
-                <CheckCircle2 className="h-4 w-4 text-success mr-2" />
-                <span>/services</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">12 min ago</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">92 KB</span>
-              </li>
-              <li className="flex items-center text-text-secondary">
-                <CheckCircle2 className="h-4 w-4 text-success mr-2" />
-                <span>/contact-us</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">1h ago</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">56 KB</span>
-              </li>
-              <li className="flex items-center text-text-secondary">
-                <CheckCircle2 className="h-4 w-4 text-success mr-2" />
-                <span>/insights/post-32</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">3h ago</span>
-                <span className="mx-2 text-border-strong">•</span>
-                <span className="text-text-muted">84 KB</span>
-              </li>
+              {[
+                { path: "/about-us", time: "2 min ago", size: "78 KB" },
+                { path: "/services", time: "12 min ago", size: "92 KB" },
+                { path: "/contact-us", time: "1h ago", size: "56 KB" },
+                { path: "/insights/post-32", time: "3h ago", size: "84 KB" }
+              ].map((item, i) => (
+                <motion.li 
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                  transition={{ duration: 0.3, delay: 0.6 + (i * 0.1) }}
+                  className="flex items-center text-text-secondary group hover:bg-surface-soft p-1 rounded-sm -mx-1 transition-colors"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-success mr-2 group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:text-text-primary transition-colors">{item.path}</span>
+                  <span className="mx-2 text-border-strong">•</span>
+                  <span className="text-text-muted">{item.time}</span>
+                  <span className="mx-2 text-border-strong">•</span>
+                  <span className="text-text-muted">{item.size}</span>
+                </motion.li>
+              ))}
             </ul>
           </motion.div>
         </div>
