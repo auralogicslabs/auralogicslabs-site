@@ -1,7 +1,29 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <div
+      aria-hidden="true"
+      className="absolute bottom-0 left-0 h-[2px] bg-brand transition-none will-change-[width]"
+      style={{ width: `${progress}%` }}
+    />
+  );
+}
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,6 +39,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-white/72 backdrop-blur-[12px] transition-colors">
+      {/* Scroll progress indicator */}
+      <ScrollProgressBar />
+
       <div className="mx-auto max-w-[1280px] px-6 lg:px-12">
         <div className="flex h-16 md:h-[72px] items-center justify-between">
           <div className="flex items-center gap-2">
@@ -36,7 +61,10 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors">
+            <a
+              href="#"
+              className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+            >
               Sign In
             </a>
             <button className="rounded-md bg-brand px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-bright transition-colors">
@@ -67,7 +95,10 @@ export function Header() {
                 </a>
               ))}
               <div className="pt-4 mt-2 border-t border-border flex flex-col gap-4">
-                <a href="#" className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors">
+                <a
+                  href="#"
+                  className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+                >
                   Sign In
                 </a>
                 <button className="w-full rounded-md bg-brand px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-bright transition-colors">
