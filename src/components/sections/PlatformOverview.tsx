@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Zap, ShieldCheck, Workflow, CheckCircle2, Plus } from "lucide-react";
+import { Zap, ShieldCheck, Workflow, CheckCircle2, Plus, Terminal, Activity } from "lucide-react";
 
 const pillars = [
   {
@@ -55,7 +55,7 @@ export function PlatformOverview() {
   const CurrentIcon = current.icon;
 
   return (
-    <section id="platform" className="bg-white py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+    <section id="platform" className="bg-white py-24 px-8 lg:px-24 border-y border-border relative overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
@@ -65,21 +65,24 @@ export function PlatformOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20"
+          className="mb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-16"
         >
-          <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-[12px] font-bold uppercase tracking-wider rounded-full mb-6">
-            Foundation
-          </span>
-          <h2 className="text-[40px] md:text-[56px] font-bold text-obsidian tracking-[-0.04em] leading-tight mb-8">
-            Three layers. One infrastructure platform.
-          </h2>
-          <p className="max-w-[720px] text-[18px] text-text-secondary leading-[1.6] mb-12 font-medium">
-            Nexora Engine combines static delivery, identity cloaking, and
-            intelligent automation into a single coherent delivery system.
-          </p>
+          <div className="max-w-[720px]">
+            <div className="flex items-center gap-4 mb-8">
+               <div className="h-0.5 w-12 bg-[#F39A09]" />
+               <span className="font-mono text-[10px] font-bold text-brand uppercase tracking-[0.3em]">Engineering Foundation</span>
+            </div>
+            <h2 className="text-[32px] md:text-[50px] font-extrabold text-obsidian tracking-[-0.05em] leading-tight mb-8">
+              Three layers. <br /> One infrastructure platform.
+            </h2>
+            <p className="text-[16px] text-text-secondary leading-[1.6] font-medium">
+              Nexora Engine combines static delivery, identity cloaking, and
+              intelligent automation into a single coherent delivery system.
+            </p>
+          </div>
 
-          {/* Tab selector */}
-          <div className="flex flex-wrap gap-3 bg-surface-soft/50 p-2 rounded-2xl border border-border w-fit">
+          {/* Standardized Tab Selector */}
+          <div className="flex flex-wrap gap-3 bg-surface-soft/50 border border-border p-3 rounded-[32px] backdrop-blur-xl h-fit">
             {pillars.map((p) => {
               const TabIcon = p.icon;
               const isActive = activeId === p.id;
@@ -87,13 +90,13 @@ export function PlatformOverview() {
                 <button
                   key={p.id}
                   onClick={() => setActiveId(p.id)}
-                  className={`inline-flex items-center gap-3 rounded-xl px-5 py-3 text-[14px] font-bold transition-all duration-300 ${
+                  className={`inline-flex items-center gap-3 rounded-2xl px-8 py-4 text-[14px] font-bold transition-all duration-500 ${
                     isActive
-                      ? "bg-obsidian text-white shadow-xl"
+                      ? "bg-[#050B25] text-white shadow-xl scale-105"
                       : "text-text-muted hover:text-obsidian hover:bg-white"
                   }`}
                 >
-                  <TabIcon size={16} />
+                  <TabIcon size={16} className={isActive ? 'text-brand' : ''} />
                   {p.title}
                 </button>
               );
@@ -109,47 +112,68 @@ export function PlatformOverview() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] rounded-[32px] border border-border bg-white shadow-2xl overflow-hidden group"
+            className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] rounded-[48px] border border-border bg-white shadow-[0_48px_96px_rgba(2,6,23,0.08)] overflow-hidden group"
           >
-            {/* Left: description + stat badge */}
-            <div className="p-10 lg:p-16 relative overflow-hidden">
-               <Plus className="absolute top-6 left-6 h-5 w-5 text-border-strong opacity-40" />
+            {/* Left: Description + Stat Badge */}
+            <div className="p-10 lg:p-20 relative overflow-hidden flex flex-col justify-center">
+               <Plus className="absolute top-8 left-8 h-6 w-6 text-border-strong opacity-40 group-hover:rotate-90 transition-transform duration-1000" />
                <div className="relative z-10">
-                <div className="h-16 w-16 rounded-2xl bg-brand/5 border border-brand/10 flex items-center justify-center mb-10 group-hover:bg-brand group-hover:border-brand transition-all duration-500">
+                <div className="h-16 w-16 rounded-[24px] bg-brand/5 border border-brand/10 flex items-center justify-center mb-10 group-hover:bg-[#050B25] group-hover:border-brand/40 transition-all duration-500">
                   <CurrentIcon className="h-8 w-8 text-brand group-hover:text-white transition-colors duration-500" />
                 </div>
-                <h3 className="text-[32px] font-bold text-obsidian mb-6 tracking-tight">
+                <h3 className="text-[24px] font-bold text-obsidian mb-6 tracking-tight">
                   {current.title}
                 </h3>
-                <p className="text-[18px] text-text-secondary leading-[1.7] mb-10">
+                <p className="text-[15px] text-text-secondary leading-[1.7] mb-10 font-medium max-w-[440px]">
                   {current.description}
                 </p>
-                <div className="rounded-xl bg-obsidian text-white px-5 py-4 inline-block font-mono text-[13px] font-bold tracking-wider">
+                <div className="rounded-2xl bg-[#050B25] text-white px-8 py-5 inline-block font-mono text-[11px] font-bold tracking-widest border border-brand/20 shadow-xl">
                   {current.stats}
                 </div>
                </div>
             </div>
 
-            {/* Right: feature list */}
-            <div className="border-t border-border p-10 lg:border-l lg:border-t-0 lg:p-16 bg-surface-soft/30">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted mb-10">
-                Technical Capabilities
-              </p>
-              <ul className="space-y-8">
-                {current.features.map((f) => (
-                  <li key={f.label} className="flex items-start gap-5">
-                    <div className="mt-1 h-6 w-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 size={14} className="text-success" />
+            {/* Right: Feature List + Empty Space Utilization */}
+            <div className="border-t border-border p-10 lg:border-l lg:border-t-0 lg:p-20 bg-surface-soft/30 flex flex-col justify-between">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand mb-12">
+                  Technical Capabilities
+                </p>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                  {current.features.map((f) => (
+                    <li key={f.label} className="flex items-start gap-5 group/item">
+                      <div className="mt-1 h-6 w-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 group-hover/item:bg-success transition-all duration-300">
+                        <CheckCircle2 size={12} className="text-success group-hover/item:text-white transition-colors" />
+                      </div>
+                      <div>
+                        <p className="text-[15px] font-bold text-obsidian mb-1">
+                          {f.label}
+                        </p>
+                        <p className="text-[13px] text-text-muted font-medium leading-relaxed">{f.note}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Space Utilization: Quick Infrastructure Audit Component */}
+              <div className="mt-20 pt-10 border-t border-border/50">
+                 <div className="bg-white border border-border rounded-3xl p-8 flex items-center justify-between shadow-sm hover:shadow-xl transition-all duration-700 group/audit">
+                    <div className="flex items-center gap-6">
+                       <div className="h-12 w-12 rounded-2xl bg-brand/5 border border-brand/10 flex items-center justify-center group-hover/audit:bg-[#050B25] group-hover/audit:border-brand transition-all duration-500">
+                          <Terminal size={20} className="text-brand group-hover/audit:text-white transition-colors" />
+                       </div>
+                       <div>
+                          <div className="text-[14px] font-bold text-obsidian mb-0.5">Automated Integrity Audit</div>
+                          <div className="text-[11px] text-text-muted font-medium">Verify system layers against Auralogics standards.</div>
+                       </div>
                     </div>
-                    <div>
-                      <p className="text-[17px] font-bold text-obsidian mb-1">
-                        {f.label}
-                      </p>
-                      <p className="text-[15px] text-text-muted font-medium">{f.note}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                    <button className="flex items-center gap-2 px-6 py-3 bg-surface-soft hover:bg-obsidian hover:text-white rounded-xl text-[12px] font-bold transition-all duration-500">
+                       <Activity size={14} className="text-brand" />
+                       Run Audit
+                    </button>
+                 </div>
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>

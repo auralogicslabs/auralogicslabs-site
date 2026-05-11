@@ -1,11 +1,14 @@
 import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/sections/Hero';
-import { TrustMetrics } from '@/components/sections/TrustMetrics';
+import { PerformanceAudit } from '@/components/sections/PerformanceAudit';
 import { WhyNexora } from '@/components/sections/WhyNexora';
+import { TrustMetrics } from '@/components/sections/TrustMetrics';
 import { ProblemComparison } from '@/components/sections/ProblemComparison';
 import { PlatformOverview } from '@/components/sections/PlatformOverview';
 import { ArchitectureFlow } from '@/components/sections/ArchitectureFlow';
+import { MethodologyDetail } from '@/components/sections/MethodologyDetail';
 import { SecurityGhost } from '@/components/sections/SecurityGhost';
+import { Pricing } from '@/components/sections/Pricing';
 import { FeaturesGrid } from '@/components/sections/FeaturesGrid';
 import { PerformanceVisualization } from '@/components/sections/PerformanceVisualization';
 import { HowItWorks } from '@/components/sections/HowItWorks';
@@ -22,12 +25,15 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <TrustMetrics />
         <WhyNexora />
-        <ProblemComparison />
+        <TrustMetrics />
         <PlatformOverview />
+        <MethodologyDetail />
+        <PerformanceAudit />
+        <ProblemComparison />
         <ArchitectureFlow />
         <SecurityGhost />
+        <Pricing />
         <FeaturesGrid />
         <PerformanceVisualization />
         <HowItWorks />

@@ -1,14 +1,25 @@
-import { ArrowUpRight, Twitter, Github, Linkedin, Plus } from 'lucide-react';
+import { ArrowUpRight, Twitter, Facebook, Youtube, Linkedin, Plus } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
   const footerLinks = {
-    Platform: ['Nexora Engine', 'Architecture', 'Performance', 'Security'],
-    Resources: ['Documentation', 'System Status', 'GitHub'],
+    Platform: [
+      { label: 'Nexora Engine', href: '/#platform' },
+      { label: 'Methodology', href: '/#methodology' },
+      { label: 'Pricing', href: '/#pricing' },
+      { label: 'Security', href: '/#security' }
+    ],
+    Resources: [
+      { label: 'Live Demo', href: '/demo' },
+      { label: 'Run Audit', href: '/#audit' },
+      { label: 'Documentation', href: '/docs' },
+    ],
   };
 
   const socials = [
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "X" },
+    { icon: Youtube, href: "#", label: "YouTube" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
@@ -29,9 +40,12 @@ export function Footer() {
                 className="h-11 w-auto transition-transform group-hover:scale-105" 
               />
             </div>
-            <p className="text-[20px] text-text-secondary leading-[1.6] font-medium">
+            <p className="text-[20px] text-text-secondary leading-[1.6] font-medium mb-6">
               Infrastructure intelligence for the web you already have. Modern headless performance without the headless rebuild.
             </p>
+            <a href="mailto:hello@auralogicslabs.com" className="text-[16px] font-bold text-brand hover:text-obsidian transition-colors flex items-center gap-3">
+               hello@auralogicslabs.com
+            </a>
           </div>
 
           {/* Links Grid */}
@@ -41,16 +55,26 @@ export function Footer() {
                 <h3 className="text-[11px] font-bold text-obsidian uppercase tracking-[0.2em] mb-8">{category}</h3>
                 <ul className="space-y-5">
                   {links.map((link) => (
-                    <li key={link}>
-                      <a 
-                        href="#" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
-                      >
-                        {link}
-                        <ArrowUpRight className="ml-2 h-4 w-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
-                      </a>
+                    <li key={link.label}>
+                      {link.href.startsWith('http') ? (
+                        <a 
+                          href={link.href} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
+                        >
+                          {link.label}
+                          <ArrowUpRight className="ml-2 h-4 w-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
+                        </a>
+                      ) : (
+                        <Link 
+                          href={link.href} 
+                          className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
+                        >
+                          {link.label}
+                          <ArrowUpRight className="ml-2 h-4 w-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -64,8 +88,8 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-[14px] font-bold text-text-muted">
             <p className="uppercase tracking-widest">© {new Date().getFullYear()} Auralogics Labs.</p>
             <div className="hidden md:block h-1 w-1 rounded-full bg-border-strong" />
-            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
+            <a href="#" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
+            <a href="#" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
           </div>
           
           {/* Social Links */}

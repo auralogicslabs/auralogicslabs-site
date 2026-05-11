@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { Edit3, ServerCog, Shield, FileOutput, Zap, ChevronRight, Plus, RefreshCcw } from "lucide-react";
+import { Edit3, ServerCog, Shield, FileOutput, Zap, ChevronRight, Plus, RefreshCcw, Activity, Terminal, Database, ShieldAlert, Code2 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 export function HowItWorks() {
@@ -12,28 +12,43 @@ export function HowItWorks() {
   const steps = [
     {
       icon: Edit3,
-      title: "Editor saves a page",
-      description: "WordPress fires save_post. Nexora schedules a capture with a 30-second debounce window.",
+      title: "Snapshot Capture",
+      label: "STEP 01",
+      description: "WordPress fires the save_post hook. Nexora schedules an atomic capture with a 30-second debounce window to ensure bulk edits are coalesced.",
+      details: ["save_post hook intercepted", "30s debounce window", "Registry integrity check"],
+      code: "ncx_schedule_capture(post_id);"
     },
     {
       icon: ServerCog,
-      title: "Capture engine fires",
-      description: "An HMAC-signed loopback request renders the page server-side. Elementor CSS is pre-primed before render.",
+      title: "Headless Render",
+      label: "STEP 02",
+      description: "An HMAC-signed internal request renders the page. Elementor/Gutenberg CSS is pre-primed before the render fires to ensure identical styling.",
+      details: ["HMAC signature verified", "CSS assets pre-primed", "Isolated SSR environment"],
+      code: "curl -H 'X-NCX-HMAC: ***' /page/"
     },
     {
-      icon: Shield,
-      title: "Snapshot is sanitized",
-      description: "Ghost Protocol strips fingerprints. Inline scripts are scanned. Paths are masked. Nonces are placeholdered.",
+      icon: ShieldAlert,
+      title: "Ghost Sanitization",
+      label: "STEP 03",
+      description: "Ghost Protocol strips WordPress fingerprints. Paths are masked, version strings removed, and the window.wp namespace is cloaked to window.ncx.",
+      details: ["Strip generator meta", "Mask /wp-content/ paths", "Cloak window.wp namespace"],
+      code: "ncx_ghost_protocol_filter($html);"
     },
     {
-      icon: FileOutput,
-      title: "Static file written",
-      description: "Atomic write to /wp-content/uploads/nexora-static. Manifest updated. Asset references validated against disk.",
+      icon: Database,
+      title: "Atomic Publication",
+      label: "STEP 04",
+      description: "The verified snapshot is written to a temporary buffer and validated via checksum before being atomically swapped into the static delivery root.",
+      details: ["Checksum verification", "Atomic file swap", "Rollback safety confirmed"],
+      code: "ncx_publish_snapshot($path);"
     },
     {
       icon: Zap,
-      title: "Drop-in serves visitors",
-      description: "Next request matches the static file. WordPress never boots. Response delivered in 22 milliseconds.",
+      title: "Edge Delivery",
+      label: "STEP 05",
+      description: "The advanced-cache.php drop-in intercepts requests at the earliest phase. WordPress never boots. Static HTML is served in 22 milliseconds.",
+      details: ["22ms benchmark TTFB", "Zero PHP execution", "Full ETag negotiation"],
+      code: "die(readfile($static_file));"
     },
   ];
 
@@ -41,142 +56,137 @@ export function HowItWorks() {
     if (isAutoPlaying) {
       autoPlayRef.current = setInterval(() => {
         setActiveStep((prev) => (prev + 1) % steps.length);
-      }, 5000);
+      }, 6000);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
   }, [isAutoPlaying, steps.length]);
 
-  const handleStepClick = (index: number) => {
-    setActiveStep(index);
-    setIsAutoPlaying(false); // Pause auto-play on user interaction
-  };
-
   return (
-    <section className="bg-surface-soft py-32 px-8 lg:px-24 border-y border-border overflow-hidden relative">
-       {/* Architectural Traits */}
-       <Plus className="absolute top-12 left-12 h-5 w-5 text-border-strong opacity-40" />
-       <Plus className="absolute bottom-12 right-12 h-5 w-5 text-border-strong opacity-40" />
-
+    <section id="how-it-works" className="bg-white py-32 px-8 lg:px-24 border-y border-border overflow-hidden relative">
+      {/* Architectural Background Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
+      
       <div className="w-full max-w-[1700px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-24"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-24 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-16"
         >
-          <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-[12px] font-bold uppercase tracking-wider rounded-full mb-6">
-            The Pipeline
-          </span>
-          <h2 className="text-[40px] md:text-[56px] font-bold text-obsidian tracking-[-0.04em] mb-6">
-            From editor to edge in five steps.
-          </h2>
-          <p className="text-text-secondary text-[18px] max-w-[700px] mx-auto">
-            Click any step to dive deeper into the infrastructure logic.
-          </p>
-        </motion.div>
-
-        <div className="relative w-full">
-          {/* Main Horizontal Timeline Line */}
-          <div className="absolute left-0 right-0 top-[48px] h-[2px] bg-border z-0 hidden md:block">
-            <motion.div 
-              className="absolute left-0 top-0 h-full bg-brand origin-left"
-              animate={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            />
+          <div className="max-w-[800px]">
+             <div className="flex items-center gap-4 mb-8">
+                <div className="h-0.5 w-12 bg-brand" />
+                <span className="font-mono text-[11px] font-bold text-brand uppercase tracking-[0.3em]">Operational Pipeline</span>
+             </div>
+            <h2 className="text-[32px] md:text-[50px] lg:text-[62px] font-extrabold text-obsidian tracking-[-0.05em] leading-[1.05]">
+              Strict delivery logic, <br /> 
+              step by step.
+            </h2>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 relative z-10">
-            {steps.map((step, index) => {
-              const isActive = index === activeStep;
-              const isPast = index < activeStep;
-
-              return (
-                <div
-                  key={index}
-                  className="group flex flex-row md:flex-col items-start md:items-center cursor-pointer relative"
-                  onClick={() => handleStepClick(index)}
-                  onMouseEnter={() => setIsAutoPlaying(false)}
-                  onMouseLeave={() => !isPast && !isActive && setIsAutoPlaying(true)}
-                >
-                  {/* Circle and Icon */}
-                  <div className="relative">
-                    <motion.div 
-                      className={`h-[96px] w-[96px] rounded-[32px] flex items-center justify-center transition-all duration-500 border-2 ${
-                        isActive 
-                          ? 'bg-obsidian border-obsidian shadow-[0_32px_64px_rgba(2,6,23,0.3)]' 
-                          : 'bg-white border-border group-hover:border-brand/40 group-hover:shadow-xl'
-                      }`}
-                      animate={{ 
-                        scale: isActive ? 1.1 : 1,
-                        y: isActive ? -12 : 0
-                      }}
-                    >
-                      <step.icon className={`h-10 w-10 transition-colors duration-500 ${isActive ? 'text-white' : 'text-text-muted group-hover:text-brand'}`} />
-                    </motion.div>
-                    
-                    {/* Step Number Badge */}
-                    <div className={`absolute -top-4 -right-4 h-10 w-10 rounded-full flex items-center justify-center font-mono text-[14px] font-bold border-2 transition-colors duration-500 shadow-sm ${
-                      isActive ? 'bg-brand text-white border-white' : 'bg-white text-text-muted border-border'
-                    }`}>
-                      {index + 1}
-                    </div>
-
-                    {/* Individual Progress Bar (Story Style) */}
-                    {isActive && isAutoPlaying && (
-                      <div className="absolute -bottom-6 left-0 right-0 h-1.5 bg-border rounded-full overflow-hidden">
-                        <motion.div 
-                          className="h-full bg-brand"
-                          initial={{ width: "0%" }}
-                          animate={{ width: "100%" }}
-                          transition={{ duration: 5, ease: "linear" }}
-                        />
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Content */}
-                  <div className={`ml-8 md:ml-0 md:mt-12 md:text-center transition-all duration-500 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-50 md:group-hover:opacity-100 translate-y-4'}`}>
-                    <h3 className={`text-[22px] font-bold mb-4 ${isActive ? 'text-obsidian' : 'text-text-secondary'}`}>
-                      {step.title}
-                    </h3>
-                    <p className={`text-[15px] leading-[1.6] font-medium ${isActive ? 'text-text-secondary' : 'text-text-muted'}`}>
-                      {step.description}
-                    </p>
-                    
-                    {isActive && (
-                      <motion.div 
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="mt-6 flex items-center justify-center text-brand text-[12px] font-bold uppercase tracking-widest"
-                      >
-                        Active Phase <ChevronRight className="h-4 w-4 ml-1" />
-                      </motion.div>
-                    )}
-                  </div>
-
-                  {/* Vertical Line for Mobile */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute left-[48px] top-[96px] bottom-[-48px] w-[2px] bg-border md:hidden" />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Play/Pause Control Hint */}
-        <div className="mt-24 flex justify-center">
           <button 
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-border shadow-sm text-[11px] font-mono font-bold text-text-muted hover:text-brand hover:border-brand transition-all group"
+            className="flex items-center gap-4 bg-surface-soft border border-border p-3 px-6 rounded-[32px] backdrop-blur-xl hover:bg-white transition-all duration-500 group h-fit"
           >
-            <div className={`h-2.5 w-2.5 rounded-full ${isAutoPlaying ? 'bg-success animate-pulse' : 'bg-border-strong'}`} />
-            {isAutoPlaying ? 'PIPELINE: AUTO-PLAY' : 'PAUSED (CLICK TO RESUME)'}
-            <RefreshCcw className={`h-3.5 w-3.5 ml-1 transition-transform duration-500 group-hover:rotate-180`} />
+             <div className={`h-2.5 w-2.5 rounded-full ${isAutoPlaying ? 'bg-success animate-pulse' : 'bg-text-muted'}`} />
+             <span className="font-mono text-[10px] font-extrabold text-text-muted tracking-[0.2em] uppercase">
+                {isAutoPlaying ? 'Orchestration: Active' : 'Orchestration: Paused'}
+             </span>
+             <RefreshCcw size={14} className={`text-brand group-hover:rotate-180 transition-transform duration-700 ${isAutoPlaying ? 'animate-spin-slow' : ''}`} />
           </button>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          {/* Left: Step Progression Vertical List */}
+          <div className="lg:col-span-5 space-y-4">
+             {steps.map((step, index) => {
+               const isActive = index === activeStep;
+               return (
+                 <button
+                   key={index}
+                   onClick={() => { setActiveStep(index); setIsAutoPlaying(false); }}
+                   className={`w-full text-left p-8 rounded-[40px] transition-all duration-700 border flex items-center gap-8 group ${
+                     isActive 
+                       ? 'bg-[#050B25] border-brand/20 shadow-[0_32px_64px_rgba(2,6,23,0.15)] scale-[1.02]' 
+                       : 'bg-white border-border hover:bg-surface-soft hover:translate-x-2'
+                   }`}
+                 >
+                    <div className={`h-16 w-16 rounded-[24px] flex items-center justify-center flex-shrink-0 transition-all duration-700 ${
+                      isActive ? 'bg-brand text-white shadow-[0_0_30px_rgba(26,63,216,0.5)]' : 'bg-surface-soft text-text-muted group-hover:bg-white group-hover:text-brand group-hover:shadow-md'
+                    }`}>
+                       <step.icon size={28} />
+                    </div>
+                    <div>
+                       <div className={`font-mono text-[10px] font-bold tracking-[0.3em] mb-2 ${isActive ? 'text-[#F39A09]' : 'text-text-muted/60'}`}>
+                          {step.label}
+                       </div>
+                       <div className={`text-[20px] font-bold tracking-tight ${isActive ? 'text-white' : 'text-obsidian'}`}>
+                          {step.title}
+                       </div>
+                    </div>
+                 </button>
+               );
+             })}
+          </div>
+
+          {/* Right: Step Technical Deep Dive */}
+          <div className="lg:col-span-7">
+             <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeStep}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="bg-[#050B25] border border-brand/20 rounded-[60px] p-12 lg:p-20 shadow-[0_64px_128px_rgba(2,6,23,0.3)] relative overflow-hidden h-full flex flex-col justify-between"
+                >
+                   {/* Background Elements */}
+                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(26,63,216,0.1),transparent)]" />
+                   <Terminal className="absolute -bottom-10 -right-10 h-64 w-64 text-brand/5 rotate-[-15deg] pointer-events-none" />
+                   
+                   <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-12">
+                         <div className="h-0.5 w-10 bg-brand" />
+                         <span className="font-mono text-[11px] font-bold text-white/70 uppercase tracking-[0.3em]">Phase Description</span>
+                      </div>
+                      
+                      <h3 className="text-white text-[32px] md:text-[44px] font-extrabold tracking-tight mb-8 leading-tight">
+                         {steps[activeStep].title}
+                      </h3>
+                      
+                      <p className="text-white/90 text-[18px] leading-relaxed mb-12 max-w-[500px]">
+                         {steps[activeStep].description}
+                      </p>
+                      
+                      <ul className="space-y-6">
+                         {steps[activeStep].details.map((detail, i) => (
+                           <li key={i} className="flex items-center gap-4 text-white/80 font-bold">
+                              <div className="h-1.5 w-1.5 rounded-full bg-brand shadow-[0_0_10px_rgba(26,63,216,1)]" />
+                              {detail}
+                           </li>
+                         ))}
+                      </ul>
+                   </div>
+                   
+                   <div className="mt-20 pt-10 border-t border-white/20 relative z-10">
+                      <div className="bg-black/60 border border-white/10 rounded-3xl p-8 font-mono">
+                         <div className="flex items-center justify-between mb-4">
+                            <span className="text-white/40 text-[10px] uppercase tracking-widest font-bold italic">Registry Output</span>
+                            <div className="flex gap-1.5">
+                               {[1,2,3].map(i => <div key={i} className="h-2 w-2 rounded-full bg-white/10" />)}
+                            </div>
+                         </div>
+                         <div className="text-brand font-bold text-[15px]">
+                            {steps[activeStep].code}
+                         </div>
+                      </div>
+                   </div>
+                </motion.div>
+             </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowRight, Plus } from "lucide-react";
+import Link from "next/link";
 
 const navLinks = [
-  { name: "Product", href: "#platform" },
-  { name: "Features", href: "#features" },
-  { name: "Architecture", href: "#architecture" },
-  { name: "Vision", href: "#vision" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Methodology", href: "/#methodology" },
+  { name: "Pricing", href: "/#pricing" },
+  { name: "Audit", href: "/#audit" },
+  { name: "Demo", href: "/demo" },
+  { name: "Registry", href: "/#features" },
 ];
 
 function ScrollProgressBar() {
@@ -47,18 +48,18 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-500 border-b ${scrolled ? 'bg-white/80 backdrop-blur-[20px] border-border/50 py-0 shadow-sm' : 'bg-transparent border-transparent py-2'} px-8 lg:px-24`}>
+    <header className={`absolute top-0 z-50 w-full transition-all duration-500 ${scrolled ? 'sticky bg-white/90 backdrop-blur-[20px] border-b border-border/50 py-0 shadow-sm' : 'bg-transparent border-transparent py-4'} px-8 lg:px-24`}>
       <ScrollProgressBar />
 
       <div className="w-full max-w-[1700px] mx-auto relative z-10">
         <div className="flex h-20 items-center justify-between">
-          <div className="flex items-center gap-3 group cursor-pointer">
+          <Link href="/" className="flex items-center gap-3 group cursor-pointer">
             <img 
               src="/auralogicslabs.svg" 
               alt="Auralogics Labs" 
               className="h-10 w-auto transition-transform group-hover:scale-105" 
             />
-          </div>
+          </Link>
 
           <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
@@ -71,9 +72,12 @@ export function Header() {
               </a>
             ))}
             <div className="h-4 w-px bg-border mx-2" />
-            <button className="rounded-xl bg-obsidian px-6 py-2.5 text-[14px] font-bold text-white shadow-lg hover:-translate-y-0.5 transition-all">
+            <Link 
+              href="/portal"
+              className="rounded-xl bg-obsidian px-6 py-2.5 text-[14px] font-bold text-white shadow-lg hover:-translate-y-0.5 transition-all"
+            >
               Sign In
-            </button>
+            </Link>
           </nav>
 
           <button
@@ -107,9 +111,13 @@ export function Header() {
                   </motion.a>
                 ))}
                 <div className="pt-8 mt-4 border-t border-border flex flex-col gap-6">
-                   <button className="w-full rounded-2xl bg-obsidian py-5 text-[18px] font-bold text-white shadow-xl">
-                    Get Started
-                  </button>
+                   <Link 
+                     href="/portal"
+                     className="w-full rounded-2xl bg-obsidian py-5 text-center text-[18px] font-bold text-white shadow-xl"
+                     onClick={() => setMobileMenuOpen(false)}
+                   >
+                     Access Portal
+                   </Link>
                 </div>
               </nav>
             </motion.div>

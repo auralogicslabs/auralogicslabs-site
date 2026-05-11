@@ -34,11 +34,17 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="w-full sm:w-auto rounded-2xl bg-obsidian px-12 py-6 text-[20px] font-bold text-white shadow-[0_32px_64px_rgba(2,6,23,0.3)] hover:shadow-[0_48px_96px_rgba(2,6,23,0.4)] hover:-translate-y-1.5 transition-all duration-300 group">
+            <button 
+              onClick={() => window.location.href = '/portal'}
+              className="w-full sm:w-auto rounded-2xl bg-obsidian px-12 py-6 text-[20px] font-bold text-white shadow-[0_32px_64px_rgba(2,6,23,0.3)] hover:shadow-[0_48px_96px_rgba(2,6,23,0.4)] hover:-translate-y-1.5 transition-all duration-300 group"
+            >
               Start Your Trial
               <ArrowRight className="ml-3 h-6 w-6 inline-block transition-transform duration-300 group-hover:translate-x-1" />
             </button>
-            <button className="w-full sm:w-auto rounded-2xl border-2 border-border bg-white/50 backdrop-blur-sm px-12 py-6 text-[20px] font-bold text-obsidian hover:bg-white hover:border-obsidian/20 transition-all duration-300">
+            <button 
+              onClick={() => window.location.href = 'mailto:hello@auralogicslabs.com'}
+              className="w-full sm:w-auto rounded-2xl border-2 border-border bg-white/50 backdrop-blur-sm px-12 py-6 text-[20px] font-bold text-obsidian hover:bg-white hover:border-obsidian/20 transition-all duration-300"
+            >
               Talk to Engineering
             </button>
           </div>

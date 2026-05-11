@@ -58,36 +58,43 @@ export function ArchitectureFlow() {
   }, [isAutoPlaying]);
 
   return (
-    <section id="architecture" className="bg-surface-soft py-32 px-8 lg:px-24 border-y border-border overflow-hidden">
+    <section id="architecture" className="bg-surface-soft py-24 px-8 lg:px-24 border-y border-border overflow-hidden">
       <div className="w-full max-w-[1700px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-24"
+          className="text-center mb-20"
         >
-          <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-[12px] font-bold uppercase tracking-wider rounded-full mb-6">
+          <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-[10px] font-bold uppercase tracking-wider rounded-full mb-6">
             Structural Integrity
           </span>
-          <h2 className="text-[40px] md:text-[56px] font-bold text-obsidian tracking-[-0.04em] mb-6">
-            Headless architecture without complexity.
+          <h2 className="text-[32px] md:text-[50px] lg:text-[62px] font-extrabold text-obsidian tracking-[-0.05em] leading-[1.05] mb-8">
+            Headless architecture <br /> without complexity.
           </h2>
-          <p className="mx-auto max-w-[720px] text-[18px] text-text-secondary leading-[1.6]">
+          <p className="mx-auto max-w-[650px] text-[17px] text-text-secondary leading-[1.6] font-medium">
             Interact with the layers to see how Nexora Engine transforms your WordPress delivery pipeline.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Left: The Flow Visualization */}
-          <div className="lg:col-span-8 relative bg-white border border-border rounded-[32px] p-10 md:p-20 shadow-2xl min-h-[500px] flex flex-col justify-between overflow-hidden">
+          <div className="lg:col-span-8 relative bg-white border border-border rounded-[40px] p-8 md:p-16 shadow-[0_48px_96px_rgba(2,6,23,0.08)] min-h-[550px] flex flex-col justify-between overflow-hidden">
             {/* Background Grid */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:32px_32px] opacity-40 rounded-[32px] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at:1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:32px_32px] opacity-40 rounded-[40px] pointer-events-none" />
 
-            {/* SVG Connecting Paths */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              {/* Static Base Path */}
-              <path d="M 120 180 L 700 180 L 700 380 L 400 380" fill="none" stroke="var(--color-border)" strokeWidth="2" strokeDasharray="4 4" className="hidden md:block" />
+            {/* SVG Connecting Paths - Responsive Viewbox */}
+            <svg viewBox="0 0 800 500" className="absolute inset-0 w-full h-full pointer-events-none z-0">
+              {/* Responsive Path: Connects top nodes and loops back to browser */}
+              <path 
+                d="M 100 150 L 700 150 C 750 150 750 200 750 250 C 750 380 450 380 400 380" 
+                fill="none" 
+                stroke="var(--color-border)" 
+                strokeWidth="1.5" 
+                strokeDasharray="6 6" 
+                className="hidden md:block" 
+              />
               
               {/* Active Animated Flow Path */}
               <AnimatePresence>
@@ -96,11 +103,11 @@ export function ArchitectureFlow() {
                     initial={{ pathLength: 0, opacity: 0 }}
                     animate={{ pathLength: 1, opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    d="M 120 180 L 700 180 L 700 380 L 400 380"
+                    d="M 100 150 L 700 150 C 750 150 750 200 750 250 C 750 380 450 380 400 380"
                     fill="none"
                     stroke="var(--color-brand)"
-                    strokeWidth="3"
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    strokeWidth="2.5"
+                    transition={{ duration: 1.5, ease: "easeInOut" }}
                     className="hidden md:block"
                   />
                 )}
@@ -108,59 +115,59 @@ export function ArchitectureFlow() {
 
               {/* Data Packets (Animated Dots) */}
               {activeNode && (
-                <motion.circle r="4" fill="var(--color-brand)">
+                <motion.circle r="3.5" fill="var(--color-brand)" shadow="0 0 10px var(--color-brand)">
                   <animateMotion
-                    dur="3s"
+                    dur="4s"
                     repeatCount="indefinite"
-                    path="M 120 180 L 700 180 L 700 380 L 400 380"
+                    path="M 100 150 L 700 150 C 750 150 750 200 750 250 C 750 380 450 380 400 380"
                   />
                 </motion.circle>
               )}
             </svg>
 
             {/* Top Row: The Infrastructure */}
-            <div className="relative z-10 flex flex-wrap md:flex-nowrap justify-between gap-6 mb-12">
+            <div className="relative z-10 flex flex-wrap md:flex-nowrap justify-between gap-4 mb-12">
               {nodes.map((node, idx) => (
                 <motion.div
                   key={node.id}
                   onMouseEnter={() => { setActiveNode(node.id); setIsAutoPlaying(false); }}
                   onMouseLeave={() => setIsAutoPlaying(true)}
-                  className={`flex-1 min-w-[140px] bg-white border rounded-[20px] p-6 cursor-pointer transition-all duration-500 relative group ${
+                  className={`flex-1 min-w-[130px] bg-white border rounded-[24px] p-5 cursor-pointer transition-all duration-500 relative group ${
                     activeNode === node.id 
-                      ? 'border-brand shadow-xl scale-105' 
+                      ? 'border-brand shadow-[0_20px_40px_rgba(26,63,216,0.15)] scale-105' 
                       : 'border-border hover:border-brand/40 shadow-sm'
                   }`}
                 >
                   <Plus className="absolute top-3 right-3 h-3 w-3 text-border-strong opacity-40" />
-                  <div className={`h-10 w-10 rounded-xl flex items-center justify-center mb-5 transition-all duration-500 ${activeNode === node.id ? 'bg-brand text-white shadow-lg shadow-brand/20' : 'bg-surface-soft text-text-muted group-hover:bg-brand-tint group-hover:text-brand'}`}>
-                    <node.icon size={20} />
+                  <div className={`h-10 w-10 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 ${activeNode === node.id ? 'bg-brand text-white shadow-lg' : 'bg-surface-soft text-text-muted group-hover:bg-brand-tint group-hover:text-brand'}`}>
+                    <node.icon size={18} />
                   </div>
-                  <div className={`text-[14px] font-bold mb-1 transition-colors ${activeNode === node.id ? 'text-brand' : 'text-obsidian'}`}>{node.label}</div>
-                  <div className="text-[10px] text-text-muted font-bold tracking-widest">{node.sub}</div>
+                  <div className={`text-[13px] font-extrabold mb-1 transition-colors ${activeNode === node.id ? 'text-brand' : 'text-obsidian'}`}>{node.label}</div>
+                  <div className="text-[9px] text-text-muted font-bold tracking-widest">{node.sub}</div>
                   
                   {idx < nodes.length - 1 && (
-                    <ArrowRight className="absolute -right-4 top-1/2 -translate-y-1/2 text-border-strong hidden md:block" size={16} />
+                    <ArrowRight className="absolute -right-3 top-1/2 -translate-y-1/2 text-border-strong hidden md:block opacity-30" size={14} />
                   )}
                 </motion.div>
               ))}
             </div>
 
-            {/* Bottom Row: The Visitor */}
-            <div className="relative z-10 flex justify-center mt-auto pt-12">
+            {/* Bottom Row: The Visitor Browser */}
+            <div className="relative z-10 flex justify-center mt-auto">
               <motion.div
                 onMouseEnter={() => { setActiveNode('browser'); setIsAutoPlaying(false); }}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className={`w-[320px] bg-obsidian border rounded-[24px] p-8 cursor-pointer transition-all duration-700 shadow-[0_32px_64px_rgba(2,6,23,0.4)] relative group ${
-                  activeNode === 'browser' ? 'ring-2 ring-brand ring-offset-8 ring-offset-white' : 'border-white/10'
+                className={`w-[280px] bg-obsidian border rounded-[32px] p-6 cursor-pointer transition-all duration-700 shadow-[0_32px_64px_rgba(2,6,23,0.4)] relative group ${
+                  activeNode === 'browser' ? 'ring-2 ring-brand ring-offset-4 ring-offset-white' : 'border-white/10'
                 }`}
               >
-                <div className="flex items-center gap-5">
-                  <div className="h-14 w-14 rounded-2xl bg-brand/20 flex items-center justify-center text-brand">
-                    <Monitor size={28} />
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-brand/20 flex items-center justify-center text-brand">
+                    <Monitor size={24} />
                   </div>
                   <div>
-                    <div className="text-white font-bold text-[18px] mb-1">Visitor Browser</div>
-                    <div className="text-white/40 text-[11px] font-mono font-bold uppercase tracking-widest">200 OK • 22ms</div>
+                    <div className="text-white font-extrabold text-[16px] mb-0.5">Visitor Browser</div>
+                    <div className="text-white/40 text-[10px] font-mono font-bold uppercase tracking-widest">200 OK • 22ms</div>
                   </div>
                 </div>
               </motion.div>
@@ -176,37 +183,37 @@ export function ArchitectureFlow() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-white border border-border rounded-[32px] p-10 shadow-2xl relative overflow-hidden"
+                  className="bg-white border border-border rounded-[32px] p-10 shadow-[0_32px_64px_rgba(2,6,23,0.08)] relative overflow-hidden"
                 >
-                  <Plus className="absolute bottom-6 right-6 h-5 w-5 text-border-strong opacity-40" />
+                  <Plus className="absolute bottom-6 right-6 h-4 w-4 text-border-strong opacity-40" />
                   <div className="flex items-center gap-5 mb-8">
-                    <div className="h-14 w-14 rounded-2xl bg-brand/10 text-brand flex items-center justify-center shadow-inner">
-                      {activeNode === 'browser' ? <Monitor size={28} /> : nodes.find(n => n.id === activeNode)?.icon && <div className="h-7 w-7"><Server /></div>}
+                    <div className="h-14 w-14 rounded-2xl bg-brand/5 text-brand flex items-center justify-center shadow-inner border border-brand/10">
+                      {activeNode === 'browser' ? <Monitor size={28} /> : <div className="h-7 w-7"><Server /></div>}
                     </div>
                     <div>
-                      <h4 className="font-bold text-obsidian text-[22px] leading-none mb-2">
+                      <h4 className="font-extrabold text-obsidian text-[20px] leading-none mb-2 tracking-tight">
                         {activeNode === 'browser' ? 'Universal Delivery' : nodes.find(n => n.id === activeNode)?.label}
                       </h4>
-                      <div className="text-brand font-mono text-[11px] font-bold uppercase tracking-[0.2em]">
+                      <div className="text-brand font-mono text-[10px] font-bold uppercase tracking-[0.2em]">
                         {activeNode === 'browser' ? 'EDGE NAVIGATION' : nodes.find(n => n.id === activeNode)?.detail}
                       </div>
                     </div>
                   </div>
                   
-                  <p className="text-text-secondary text-[16px] leading-[1.8] mb-10">
+                  <p className="text-text-secondary text-[15px] leading-[1.7] mb-10 font-medium">
                     {activeNode === 'browser' 
                       ? 'Subsequent clicks fetch raw JSON payloads from the delivery engine and rehydrate instantly, providing a true Single Page Application (SPA) experience without full page reloads.' 
                       : nodes.find(n => n.id === activeNode)?.desc}
                   </p>
 
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between p-4 rounded-2xl bg-surface-soft border border-border text-[14px]">
-                      <span className="text-text-muted font-bold uppercase tracking-wider text-[10px]">Processing</span>
-                      <span className="font-mono font-bold text-obsidian">INTELLIGENT</span>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-4 rounded-2xl bg-surface-soft border border-border">
+                      <span className="text-text-muted font-bold uppercase tracking-wider text-[9px]">Processing</span>
+                      <span className="font-mono font-bold text-obsidian text-[12px]">INTELLIGENT</span>
                     </div>
-                    <div className="flex items-center justify-between p-4 rounded-2xl bg-surface-soft border border-border text-[14px]">
-                      <span className="text-text-muted font-bold uppercase tracking-wider text-[10px]">Integrity</span>
-                      <span className="font-mono font-bold text-success">VERIFIED</span>
+                    <div className="flex items-center justify-between p-4 rounded-2xl bg-surface-soft border border-border">
+                      <span className="text-text-muted font-bold uppercase tracking-wider text-[9px]">Integrity</span>
+                      <span className="font-mono font-bold text-emerald-500 text-[12px]">VERIFIED</span>
                     </div>
                   </div>
                 </motion.div>
@@ -215,13 +222,13 @@ export function ArchitectureFlow() {
                   key="empty"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="bg-surface-soft border-2 border-dashed border-border rounded-[32px] p-10 flex flex-col items-center justify-center text-center min-h-[400px]"
+                  className="bg-white border-2 border-dashed border-border rounded-[32px] p-10 flex flex-col items-center justify-center text-center min-h-[400px] shadow-sm"
                 >
-                  <div className="h-20 w-20 rounded-full bg-white border border-border flex items-center justify-center mb-8 shadow-xl animate-bounce">
-                    <ArrowRight className="text-brand" size={32} />
+                  <div className="h-16 w-16 rounded-full bg-surface-soft border border-border flex items-center justify-center mb-8 animate-bounce">
+                    <ArrowRight className="text-brand" size={24} />
                   </div>
-                  <h4 className="font-bold text-obsidian text-[20px] mb-3">Explore the Flow</h4>
-                  <p className="text-text-muted text-[15px] max-w-[240px]">Hover over any infrastructure component to view the technical breakdown.</p>
+                  <h4 className="font-bold text-obsidian text-[18px] mb-2">Explore the Flow</h4>
+                  <p className="text-text-muted text-[14px] max-w-[240px] font-medium">Hover over any component to view the technical breakdown.</p>
                 </motion.div>
               )}
             </AnimatePresence>
