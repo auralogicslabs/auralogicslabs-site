@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Search, Zap, Shield, BarChart3, ArrowRight, CheckCircle2, Globe, Cpu, Loader2, Sparkles, Activity, Terminal, Database, Code2, Mail, Lock, AlertCircle, RefreshCw } from "lucide-react";
+import { sendAuditReport } from "@/app/actions/email";
 
 export function PerformanceAudit() {
   const [url, setUrl] = useState("");
@@ -64,12 +65,14 @@ export function PerformanceAudit() {
     setProgress(0);
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+    
+    // Call the server action
+    await sendAuditReport(email, url, results);
+    
     setStatus('full');
-    // Simulated notification
-    alert(`Full Engineering Report for ${url} has been dispatched to ${email}. Our team (hello@auralogicslabs.com) is available for deployment support.`);
   };
 
   return (

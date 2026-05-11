@@ -115,7 +115,7 @@ export function ArchitectureFlow() {
 
               {/* Data Packets (Animated Dots) */}
               {activeNode && (
-                <motion.circle r="3.5" fill="var(--color-brand)" shadow="0 0 10px var(--color-brand)">
+                <motion.circle r="3.5" fill="var(--color-brand)" style={{ filter: "drop-shadow(0 0 10px var(--color-brand))" }}>
                   <animateMotion
                     dur="4s"
                     repeatCount="indefinite"
