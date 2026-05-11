@@ -10,8 +10,7 @@ import { FeaturesGrid } from '@/components/sections/FeaturesGrid';
 import { PerformanceVisualization } from '@/components/sections/PerformanceVisualization';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Compatibility } from '@/components/sections/Compatibility';
-import { UseCases } from '@/components/sections/UseCases';
-import { DeveloperExperience } from '@/components/sections/DeveloperExperience';
+import { PersonaFocus } from '@/components/sections/PersonaFocus';
 import { PlatformVision } from '@/components/sections/PlatformVision';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -33,8 +32,7 @@ export default function Home() {
         <PerformanceVisualization />
         <HowItWorks />
         <Compatibility />
-        <UseCases />
-        <DeveloperExperience />
+        <PersonaFocus />
         <PlatformVision />
         <FAQ />
         <FinalCTA />

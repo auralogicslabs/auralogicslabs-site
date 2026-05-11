@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "../styles/index.css";
 
 const geistSans = Geist({
@@ -54,6 +55,11 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
     },
   },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -90,16 +96,16 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <head>
-        <script
+      <body className="min-h-full flex flex-col font-sans">
+        {children}
+        
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {/* Plausible Analytics setup */}
-        <script defer data-domain="auralogicslabs.com" src="https://plausible.io/js/script.js"></script>
-      </head>
-      <body className="min-h-full flex flex-col font-sans">
-        {children}
+        <Script defer data-domain="auralogicslabs.com" src="https://plausible.io/js/script.js" />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Zap, ShieldCheck, Workflow, CheckCircle2 } from "lucide-react";
+import { Zap, ShieldCheck, Workflow, CheckCircle2, Plus } from "lucide-react";
 
 const pillars = [
   {
@@ -10,8 +10,8 @@ const pillars = [
     icon: Zap,
     title: "Speed Infrastructure",
     description:
-      "Pre-rendered HTML snapshots served before WordPress boots. A universal drop-in cache delivers static files on Apache, Nginx, LiteSpeed, and IIS — with ETag and Last-Modified negotiation, 304 handling, and zero PHP execution on hit.",
-    stats: "22ms TTFB · 100% cache hit on static · CDN-ready",
+      "Pre-rendered HTML snapshots served before WordPress boots. A universal drop-in cache delivers static files on Apache, Nginx, LiteSpeed, and IIS — with zero PHP execution on hit.",
+    stats: "22ms TTFB · 100% cache hit · CDN-ready",
     features: [
       { label: "Static HTML served before PHP boots", note: "advanced-cache.php drop-in fires first" },
       { label: "ETag + 304 negotiation built in", note: "Browser cache fully utilized" },
@@ -24,8 +24,8 @@ const pillars = [
     icon: ShieldCheck,
     title: "Ghost Protocol",
     description:
-      "WordPress fingerprints removed at every layer. Generator meta, REST discovery, version strings, body class signatures, and emoji scripts are stripped or renamed. The window.wp namespace is cloaked. Wappalyzer reports Nginx, not WordPress.",
-    stats: "Headers · Body classes · REST · Inline scripts · Asset paths",
+      "WordPress fingerprints removed at every layer. Generator meta, REST discovery, and body class signatures are stripped or renamed. Wappalyzer reports Nginx, not WordPress.",
+    stats: "Headers · Body classes · REST · Asset paths",
     features: [
       { label: "Generator meta and version strings stripped", note: "No WP version disclosed in HTML" },
       { label: "REST API discovery removed from <head>", note: "wp-json link tag eliminated" },
@@ -38,12 +38,12 @@ const pillars = [
     icon: Workflow,
     title: "Intelligent Automation",
     description:
-      "Snapshots regenerate automatically when content changes — debounced, validated, and conflict-aware. Asset references are verified against disk before publication. Competing caching plugins are detected and surfaced with resolution guidance.",
+      "Snapshots regenerate automatically when content changes — debounced, validated, and conflict-aware. Asset references are verified against disk before publication.",
     stats: "30s debounce · Asset validation · Conflict detection",
     features: [
       { label: "30-second debounce on save_post", note: "Bulk edits coalesce into one capture" },
       { label: "Asset validation before serving", note: "Broken CSS/JS surfaces in admin diagnostics" },
-      { label: "Conflict detection on install", note: "Identifies WP Rocket, W3TC, Hummingbird, and more" },
+      { label: "Conflict detection on install", note: "Identifies WP Rocket, W3TC, and more" },
       { label: "Atomic writes with rollback safety", note: "Snapshot swap is all-or-nothing" },
     ],
   },
@@ -55,25 +55,31 @@ export function PlatformOverview() {
   const CurrentIcon = current.icon;
 
   return (
-    <section id="platform" className="bg-brand-tint/20 py-24 px-6 lg:px-12 border-y border-border">
-      <div className="mx-auto max-w-[1280px]">
+    <section id="platform" className="bg-white py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
+
+      <div className="w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12"
+          className="mb-20"
         >
-          <h2 className="text-[40px] md:text-[56px] font-semibold text-text-primary tracking-[-0.03em] mb-6">
+          <span className="inline-block px-3 py-1 bg-brand/10 text-brand text-[12px] font-bold uppercase tracking-wider rounded-full mb-6">
+            Foundation
+          </span>
+          <h2 className="text-[40px] md:text-[56px] font-bold text-obsidian tracking-[-0.04em] leading-tight mb-8">
             Three layers. One infrastructure platform.
           </h2>
-          <p className="max-w-[720px] text-[18px] text-text-secondary leading-[1.6] mb-8">
+          <p className="max-w-[720px] text-[18px] text-text-secondary leading-[1.6] mb-12 font-medium">
             Nexora Engine combines static delivery, identity cloaking, and
             intelligent automation into a single coherent delivery system.
           </p>
 
           {/* Tab selector */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3 bg-surface-soft/50 p-2 rounded-2xl border border-border w-fit">
             {pillars.map((p) => {
               const TabIcon = p.icon;
               const isActive = activeId === p.id;
@@ -81,13 +87,13 @@ export function PlatformOverview() {
                 <button
                   key={p.id}
                   onClick={() => setActiveId(p.id)}
-                  className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-[13px] font-semibold transition-all duration-200 ${
+                  className={`inline-flex items-center gap-3 rounded-xl px-5 py-3 text-[14px] font-bold transition-all duration-300 ${
                     isActive
-                      ? "bg-brand text-white shadow-sm"
-                      : "bg-surface border border-border text-text-muted hover:border-brand/40 hover:text-brand"
+                      ? "bg-obsidian text-white shadow-xl"
+                      : "text-text-muted hover:text-obsidian hover:bg-white"
                   }`}
                 >
-                  <TabIcon size={14} />
+                  <TabIcon size={16} />
                   {p.title}
                 </button>
               );
@@ -99,47 +105,47 @@ export function PlatformOverview() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeId}
-            initial={{ opacity: 0, y: 14 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] rounded-[12px] border border-border bg-white shadow-card overflow-hidden"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] rounded-[32px] border border-border bg-white shadow-2xl overflow-hidden group"
           >
             {/* Left: description + stat badge */}
-            <div className="p-8 lg:p-10">
-              <div className="h-12 w-12 rounded-md bg-surface-soft border border-border flex items-center justify-center mb-6">
-                <CurrentIcon className="h-6 w-6 text-brand" />
-              </div>
-              <h3 className="text-[24px] font-semibold text-text-primary mb-4">
-                {current.title}
-              </h3>
-              <p className="text-[16px] text-text-secondary leading-[1.6] mb-6">
-                {current.description}
-              </p>
-              <div className="rounded-md bg-surface border border-border px-4 py-3">
-                <span className="font-mono text-[13px] font-medium text-text-muted">
+            <div className="p-10 lg:p-16 relative overflow-hidden">
+               <Plus className="absolute top-6 left-6 h-5 w-5 text-border-strong opacity-40" />
+               <div className="relative z-10">
+                <div className="h-16 w-16 rounded-2xl bg-brand/5 border border-brand/10 flex items-center justify-center mb-10 group-hover:bg-brand group-hover:border-brand transition-all duration-500">
+                  <CurrentIcon className="h-8 w-8 text-brand group-hover:text-white transition-colors duration-500" />
+                </div>
+                <h3 className="text-[32px] font-bold text-obsidian mb-6 tracking-tight">
+                  {current.title}
+                </h3>
+                <p className="text-[18px] text-text-secondary leading-[1.7] mb-10">
+                  {current.description}
+                </p>
+                <div className="rounded-xl bg-obsidian text-white px-5 py-4 inline-block font-mono text-[13px] font-bold tracking-wider">
                   {current.stats}
-                </span>
-              </div>
+                </div>
+               </div>
             </div>
 
             {/* Right: feature list */}
-            <div className="border-t border-border p-8 lg:border-l lg:border-t-0 lg:p-10">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-muted mb-6">
-                How it works
+            <div className="border-t border-border p-10 lg:border-l lg:border-t-0 lg:p-16 bg-surface-soft/30">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted mb-10">
+                Technical Capabilities
               </p>
-              <ul className="space-y-5">
+              <ul className="space-y-8">
                 {current.features.map((f) => (
-                  <li key={f.label} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={17}
-                      className="mt-0.5 flex-shrink-0 text-brand"
-                    />
+                  <li key={f.label} className="flex items-start gap-5">
+                    <div className="mt-1 h-6 w-6 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 size={14} className="text-success" />
+                    </div>
                     <div>
-                      <p className="text-[15px] font-semibold text-text-primary">
+                      <p className="text-[17px] font-bold text-obsidian mb-1">
                         {f.label}
                       </p>
-                      <p className="text-[14px] text-text-secondary">{f.note}</p>
+                      <p className="text-[15px] text-text-muted font-medium">{f.note}</p>
                     </div>
                   </li>
                 ))}
