@@ -6,7 +6,7 @@ import {
   Search, Zap, Shield, ArrowRight, CheckCircle2, Globe,
   Loader2, Sparkles, Activity, Code2, Mail, AlertCircle,
   RefreshCw, BarChart3, Clock, TrendingDown, ExternalLink,
-  AlertTriangle, Server, Gauge, Lock, Cpu
+  AlertTriangle, Server, Gauge, Lock, Cpu, Layers
 } from "lucide-react";
 import { sendAuditReport } from "@/app/actions/email";
 import { fetchSiteMetrics, type SiteMetrics } from "@/app/actions/metrics";
