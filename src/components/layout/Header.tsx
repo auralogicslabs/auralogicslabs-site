@@ -48,7 +48,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`absolute top-0 z-50 w-full transition-all duration-500 ${scrolled ? 'sticky bg-white/90 backdrop-blur-[20px] border-b border-border/50 py-0 shadow-sm' : 'bg-transparent border-transparent py-4'} px-8 lg:px-24`}>
+    <header className={`fixed top-0 z-50 w-full transition-all duration-500 px-8 lg:px-24 ${scrolled ? 'bg-white/85 backdrop-blur-xl border-b border-border/40 shadow-sm' : 'bg-transparent border-transparent'}`}>
       <ScrollProgressBar />
 
       <div className="w-full max-w-[1700px] mx-auto relative z-10">

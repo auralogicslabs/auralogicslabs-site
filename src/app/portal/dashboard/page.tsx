@@ -13,17 +13,19 @@ import {
   Clock,
   Database,
   Terminal,
-  Cpu,
   Lock,
-  Search,
   ExternalLink,
   Sparkles,
   Mail
 } from "lucide-react";
 import { useState } from "react";
+import { sendLeadEmail } from "@/app/actions/email";
 
 export default function DashboardOverview() {
   const [showClaimForm, setShowClaimForm] = useState(false);
+  const [claimEmail, setClaimEmail] = useState("");
+  const [claimSent, setClaimSent] = useState(false);
+  const [claimLoading, setClaimLoading] = useState(false);
 
   const stats = [
     { label: "Global TTFB", value: "22ms", trend: "-95%", icon: Zap, color: "text-brand", bg: "bg-brand/5" },
@@ -223,22 +225,41 @@ export default function DashboardOverview() {
                  <h3 className="text-[28px] font-extrabold text-obsidian mb-4 tracking-tight">Connect Your Own Site.</h3>
                  <p className="text-text-muted text-[15px] font-medium leading-relaxed mb-10">Connect your WordPress infrastructure to the Auralogics command portal. We will send the integration protocol to your email.</p>
                  
-                 <form className="space-y-6">
-                    <div className="bg-surface-soft border border-border rounded-2xl p-4 px-6 flex items-center gap-4">
-                       <Mail size={18} className="text-text-muted" />
-                       <input 
-                         type="email" 
-                         placeholder="hello@company.com"
-                         className="w-full bg-transparent border-none text-[16px] font-bold text-obsidian focus:ring-0 placeholder:text-text-muted/40"
-                       />
+                  {claimSent ? (
+                    <div className="text-center py-6">
+                      <CheckCircle2 size={48} className="text-emerald-500 mx-auto mb-4" />
+                      <p className="text-[16px] font-bold text-obsidian">Request received.</p>
+                      <p className="text-text-muted text-[14px] mt-2">Our team will reach out to <strong>{claimEmail}</strong> shortly.</p>
                     </div>
-                    <button 
-                      onClick={(e) => { e.preventDefault(); setShowClaimForm(false); }}
-                      className="w-full bg-brand text-white py-5 rounded-2xl font-extrabold text-[16px] shadow-xl hover:scale-105 transition-transform"
-                    >
-                       Initialize My Node
-                    </button>
-                 </form>
+                  ) : (
+                  <form className="space-y-6" onSubmit={async (e) => {
+                    e.preventDefault();
+                    if (!claimEmail) return;
+                    setClaimLoading(true);
+                    await sendLeadEmail(claimEmail, "Dashboard — Connect Your Site");
+                    setClaimLoading(false);
+                    setClaimSent(true);
+                  }}>
+                     <div className="bg-surface-soft border border-border rounded-2xl p-4 px-6 flex items-center gap-4">
+                        <Mail size={18} className="text-text-muted" />
+                        <input 
+                          type="email"
+                          required
+                          value={claimEmail}
+                          onChange={e => setClaimEmail(e.target.value)}
+                          placeholder="hello@company.com"
+                          className="w-full bg-transparent border-none text-[16px] font-bold text-obsidian focus:ring-0 placeholder:text-text-muted/40"
+                        />
+                     </div>
+                     <button 
+                       type="submit"
+                       disabled={claimLoading}
+                       className="w-full bg-brand text-white py-5 rounded-2xl font-extrabold text-[16px] shadow-xl hover:scale-105 transition-transform disabled:opacity-60"
+                     >
+                        {claimLoading ? "Sending..." : "Initialize My Node"}
+                     </button>
+                  </form>
+                  )}
               </div>
            </motion.div>
         </div>
