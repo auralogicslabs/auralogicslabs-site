@@ -206,44 +206,7 @@ export function Hero() {
           </Link>
         </motion.div>
 
-        {/* Brand manifesto strip — wider, more breathing room */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6 }}
-          className="w-full max-w-[1200px] rounded-[28px] border border-border/60 bg-white/60 backdrop-blur-xl shadow-[0_20px_60px_rgba(2,6,23,0.06)] overflow-hidden"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border/50">
-            {[
-              {
-                label: "Our Mission",
-                text: "Remove every millisecond of friction between the web and its users.",
-                accent: "bg-brand",
-                href: "/#why-nexora"
-              },
-              {
-                label: "Our Approach",
-                text: "Infrastructure that installs in minutes and disappears into the stack.",
-                accent: "bg-[#F39A09]",
-                href: "/#methodology"
-              },
-              {
-                label: "Our Standard",
-                text: "If it doesn't perform at the edge, it doesn't ship from our lab.",
-                accent: "bg-emerald-500",
-                href: "/#audit"
-              },
-            ].map((item) => (
-              <a key={item.label} href={item.href} className="px-10 py-8 text-left group hover:bg-surface-soft/50 transition-colors flex flex-col gap-3 cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <div className={`h-1.5 w-5 rounded-full ${item.accent}`} />
-                  <span className="text-[10px] font-black text-text-muted uppercase tracking-[0.3em]">{item.label}</span>
-                </div>
-                <p className="text-[14px] font-semibold text-obsidian leading-[1.65]">{item.text}</p>
-              </a>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
 
       {/* Scroll arrow — clicks to next section */}
