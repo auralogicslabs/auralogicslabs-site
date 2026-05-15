@@ -2,17 +2,17 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import {
-  Zap, Globe, Activity, Plus, CheckCircle2, Clock, ExternalLink,
+  Zap, Globe, Activity, CheckCircle2, Clock, ExternalLink,
   ArrowRight, Trash2, MoreVertical, MessageSquare, RefreshCw,
-  Users, Mail, Download, BarChart3, AlertTriangle
+  Users, Mail, Download, BarChart3, Loader2
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { useInfrastructure } from "@/context/InfrastructureStore";
 import Link from "next/link";
 
-export default function DashboardOverview() {
+function DashboardInner() {
   const searchParams = useSearchParams();
   const { user, pendingSite, setPendingSite, allUsers } = useAuth();
   const { sites, refreshInfrastructure, deactivateSite, addSite } = useInfrastructure();
@@ -30,13 +30,15 @@ export default function DashboardOverview() {
     const siteName = searchParams.get('site_name');
     const ncxToken = searchParams.get('ncx_token');
 
-    if (siteUrl && !pendingSite) {
-      setPendingSite({ url: siteUrl, name: siteName || siteUrl, token: ncxToken || undefined });
+    if (siteUrl) {
+      // Always clean the URL immediately — even if pendingSite is already set from
+      // portal/page.tsx — so params don't re-trigger the banner on refresh.
       setHasProcessedParams(true);
-      
-      // Smart UX: Clean up the URL so params don't persist on refresh
-      const newUrl = window.location.pathname;
-      window.history.replaceState({}, '', newUrl);
+      window.history.replaceState({}, '', window.location.pathname);
+
+      if (!pendingSite) {
+        setPendingSite({ url: siteUrl, name: siteName || siteUrl, token: ncxToken || undefined });
+      }
     }
   }, [searchParams, pendingSite, setPendingSite, hasProcessedParams]);
 
@@ -45,22 +47,20 @@ export default function DashboardOverview() {
   const handleConnectPending = async () => {
     if (!pendingSite?.url) return;
     setIsRefreshing(true);
+    const siteUrl = pendingSite.url;
     const success = await addSite({
-      url: pendingSite.url,
+      url: siteUrl,
       name: pendingSite.name,
       token: pendingSite.token,
       isPluginActive: !!pendingSite.token,
       userId: user?.id,
     });
-    if (success) {
-      setShowHandshakeSuccess(true);
-      setLastConnectedSite(pendingSite.url);
-      setPendingSite(null);
-    } else {
-      // If addSite returns false because it already exists, still show success banner
-      setShowHandshakeSuccess(true);
-      setLastConnectedSite(pendingSite.url);
-      setPendingSite(null);
+    // Clear the banner first, then show success — prevents both showing simultaneously
+    setPendingSite(null);
+    setShowHandshakeSuccess(true);
+    setLastConnectedSite(siteUrl);
+    if (!success) {
+      // Site already existed — still report as connected
     }
     setIsRefreshing(false);
   };
@@ -131,7 +131,7 @@ export default function DashboardOverview() {
               <div>
                 <div className="text-[17px] font-black">Site connected successfully.</div>
                 <div className="text-white/70 text-[13px] font-medium mt-0.5">
-                  Click "Return to WordPress" to complete setup in your plugin.
+                  Click &quot;Return to WordPress&quot; to complete setup in your plugin.
                 </div>
               </div>
             </div>
@@ -568,5 +568,21 @@ export default function DashboardOverview() {
 
       {activeMenu && <div className="fixed inset-0 z-40" onClick={() => setActiveMenu(null)} />}
     </div>
+  );
+}
+
+function DashboardLoading() {
+  return (
+    <div className="flex items-center justify-center min-h-[40vh]">
+      <Loader2 className="h-8 w-8 text-brand animate-spin" />
+    </div>
+  );
+}
+
+export default function DashboardOverview() {
+  return (
+    <Suspense fallback={<DashboardLoading />}>
+      <DashboardInner />
+    </Suspense>
   );
 }

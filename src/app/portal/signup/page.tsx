@@ -3,11 +3,11 @@
 import { motion } from "motion/react";
 import { ArrowRight, Lock, User, Mail, Loader2, CheckCircle2, Globe, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
-export default function SignupPage() {
+function SignupPageInner() {
   const searchParams = useSearchParams();
   const [name, setName]             = useState("");
   const [email, setEmail]           = useState("");
@@ -104,7 +104,7 @@ export default function SignupPage() {
                 Check your inbox.
               </h2>
               <p className="text-white/40 font-medium leading-relaxed mb-8">
-                We've sent a verification link to{' '}
+                We&apos;ve sent a verification link to{' '}
                 <span className="text-white font-bold">{email}</span>.
                 Click it to confirm your account.
               </p>
@@ -238,5 +238,21 @@ export default function SignupPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-[#020617] flex items-center justify-center">
+      <Loader2 className="h-8 w-8 text-brand animate-spin" />
+    </div>
+  );
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <SignupPageInner />
+    </Suspense>
   );
 }

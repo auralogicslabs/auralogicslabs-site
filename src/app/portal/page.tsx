@@ -3,17 +3,18 @@
 import { motion } from "motion/react";
 import { ArrowRight, Lock, User, Key, Loader2, Globe } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
-export default function PortalPage() {
+function PortalPageInner() {
   const searchParams = useSearchParams();
   const [email, setEmail]       = useState("");
   const [password, setPassword] = useState("");
   const [error, setError]       = useState("");
   const { login, isAuthenticated, isLoading, setPendingSite, verifyEmail } = useAuth();
   const router = useRouter();
+  const verifiedRef = useRef(false);
 
   const siteUrl  = searchParams.get('site_url');
   const siteName = searchParams.get('site_name');
@@ -28,11 +29,16 @@ export default function PortalPage() {
 
   // Handle email verification link return + redirect when authenticated
   useEffect(() => {
-    const isVerified   = searchParams.get('verified') === 'true';
+    const isVerified    = searchParams.get('verified') === 'true';
     const verifiedEmail = searchParams.get('email');
 
-    if (isVerified && verifiedEmail && !isAuthenticated) {
+    // Call verifyEmail regardless of auth state — the !isAuthenticated guard was wrong
+    // (user may click the link from a new tab while already logged in)
+    if (isVerified && verifiedEmail && !verifiedRef.current) {
+      verifiedRef.current = true;
       verifyEmail(verifiedEmail);
+      // verifyEmail updates user state; the effect re-runs and the isAuthenticated
+      // branch below handles the redirect.
       return;
     }
 
@@ -165,5 +171,21 @@ export default function PortalPage() {
         </div>
       </motion.div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-[#020617] flex items-center justify-center">
+      <Loader2 className="h-8 w-8 text-brand animate-spin" />
+    </div>
+  );
+}
+
+export default function PortalPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <PortalPageInner />
+    </Suspense>
   );
 }
