@@ -1,157 +1,102 @@
 "use client";
 
-import { motion } from "motion/react";
-import { 
-  LayoutDashboard, 
-  Globe, 
-  ShieldCheck, 
-  Zap, 
-  Activity, 
-  Settings, 
-  LogOut, 
-  Plus, 
-  Search, 
-  Bell,
-  Cpu,
-  Layers,
-  Database,
-  ArrowUpRight,
-  MoreVertical,
-  CheckCircle2,
-  AlertTriangle,
-  Clock
-} from "lucide-react";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "motion/react";
+import { Loader2, ShieldCheck } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+import { Sidebar } from "@/components/portal/Sidebar";
+import { Header } from "@/components/portal/Header";
+import Script from "next/script";
 
-export default function PortalLayout({ children }: { children: React.ReactNode }) {
-  const [activeTab, setActiveTab] = useState("overview");
-  const [isAuthorized, setIsAuthorized] = useState(false);
-  const router = useRouter();
+/**
+ * PORTAL DASHBOARD ARCHITECTURE
+ * 
+ * Provides the primary SaaS Command Center shell.
+ * Includes: Auth Route Guard, Global Layout, Sidebar, and Header.
+ */
+
+export default function PortalDashboardLayout({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, isLoading, isDemoMode } = useAuth();
+  const [isClient, setIsClient] = useState(false);
+  const router   = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    // ROUTE GUARD: Ensure user is authenticated via demo/demo bypass
-    const auth = sessionStorage.getItem('ncx_auth');
-    if (auth !== 'active') {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient && !isLoading && !isAuthenticated) {
       router.push('/portal');
-    } else {
-      setIsAuthorized(true);
     }
-  }, [router]);
+  }, [isClient, isLoading, isAuthenticated, router]);
 
-  const handleSignOut = () => {
-    sessionStorage.removeItem('ncx_auth');
-    router.push('/portal');
-  };
+  // Prevent hydration mismatch and flicker
+  if (!isClient || isLoading) {
+    return (
+      <div className="min-h-screen bg-[#020617] flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="h-10 w-10 text-brand animate-spin mx-auto mb-6" />
+          <p className="text-white/40 font-mono text-[11px] uppercase tracking-[0.3em]">Establishing Secure Connection</p>
+        </div>
+      </div>
+    );
+  }
 
-  const sidebarLinks = [
-    { id: "overview", label: "Overview", icon: LayoutDashboard },
-    { id: "sites", label: "Connected Sites", icon: Globe },
-    { id: "performance", label: "Global Performance", icon: Zap },
-    { id: "security", label: "Ghost Protocol", icon: ShieldCheck },
-    { id: "infrastructure", label: "Infrastructure", icon: Cpu },
-  ];
-
-  if (!isAuthorized) return null; // Prevents UI flicker while checking auth
+  // Final Auth Check
+  if (!isAuthenticated) return null;
 
   return (
     <div className="min-h-screen bg-[#F8FAFF] flex">
-      {/* Sidebar */}
-      <aside className="w-72 bg-[#050B25] flex flex-col border-r border-white/5 fixed h-full z-20">
-        <div className="p-8 mb-4">
-          <Link href="/">
-             <img 
-               src="/auralogicslabs.svg" 
-               alt="Auralogics Labs" 
-               className="h-8 w-auto brightness-0 invert" 
-             />
-          </Link>
-        </div>
+      {/* SaaS Sidebar */}
+      <Sidebar />
 
-        <nav className="flex-1 px-4 space-y-1">
-          {sidebarLinks.map((link) => (
-            <button
-              key={link.id}
-              onClick={() => setActiveTab(link.id)}
-              className={`w-full flex items-center gap-4 px-6 py-4 rounded-2xl text-[14px] font-bold transition-all duration-300 ${
-                activeTab === link.id 
-                  ? "bg-brand text-white shadow-lg" 
-                  : "text-white/40 hover:text-white hover:bg-white/5"
-              }`}
+      {/* Main Orchestration Area */}
+      <div className="flex-1 ml-72 flex flex-col min-h-screen">
+        <Header />
+        
+        {/* Portal Page Body */}
+        <main className="flex-1 p-12 relative">
+          {/* Demo Mode Persistence Indicator */}
+          {isDemoMode && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 bg-brand/5 border border-brand/10 rounded-2xl p-4 px-6 flex items-center justify-between"
             >
-              <link.icon size={18} />
-              {link.label}
-            </button>
-          ))}
-        </nav>
-
-        <div className="p-6 border-t border-white/5 space-y-4">
-           <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-              <div className="flex items-center gap-3 mb-3">
-                 <div className="h-2 w-2 rounded-full bg-brand animate-pulse" />
-                 <span className="text-[10px] font-bold text-white/60 uppercase tracking-widest">Enterprise API</span>
+              <div className="flex items-center gap-3">
+                <ShieldCheck size={16} className="text-brand" />
+                <span className="text-[13px] font-bold text-obsidian tracking-tight">
+                  Preview Mode Active. <span className="text-text-muted font-medium">Data shown is for demonstration purposes only.</span>
+                </span>
               </div>
-              <p className="text-[12px] text-white/40 font-medium leading-relaxed mb-4">You are using the Community Core version.</p>
-              <button className="w-full bg-white/10 text-white py-3 rounded-xl text-[12px] font-bold hover:bg-brand transition-colors">
-                 Upgrade to Pro
+              <button className="text-[11px] font-black text-brand uppercase tracking-widest hover:underline">
+                Create Account
               </button>
-           </div>
-           
-           <button className="w-full flex items-center gap-4 px-6 py-4 text-white/40 hover:text-white text-[14px] font-bold transition-colors">
-              <Settings size={18} />
-              Settings
-           </button>
-           <button 
-             onClick={handleSignOut}
-             className="w-full flex items-center gap-4 px-6 py-4 text-white/40 hover:text-[#FF4D4D] text-[14px] font-bold transition-colors"
-           >
-              <LogOut size={18} />
-              Sign Out
-           </button>
-        </div>
-      </aside>
+            </motion.div>
+          )}
 
-      {/* Main Content Area */}
-      <main className="flex-1 ml-72 min-h-screen">
-        {/* Top Header */}
-        <header className="h-20 bg-white border-b border-border px-12 flex items-center justify-between sticky top-0 z-10">
-           <div className="flex items-center gap-4">
-              <h2 className="text-[18px] font-extrabold text-obsidian uppercase tracking-tight">System Overview</h2>
-              <div className="h-4 w-px bg-border" />
-              <span className="text-[12px] text-text-muted font-medium">Last Global Sync: 2 mins ago</span>
-           </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={pathname}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              {children}
+            </motion.div>
+          </AnimatePresence>
+        </main>
 
-           <div className="flex items-center gap-6">
-              <div className="relative group hidden md:block">
-                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" size={16} />
-                 <input 
-                   type="text" 
-                   placeholder="Search infrastructure..."
-                   className="bg-surface-soft border border-border rounded-xl pl-12 pr-4 py-2.5 text-[13px] font-medium focus:ring-1 focus:ring-brand w-64 transition-all"
-                 />
-              </div>
-              <button className="relative p-2.5 bg-surface-soft rounded-xl hover:bg-white border border-transparent hover:border-border transition-all">
-                 <Bell size={18} className="text-obsidian" />
-                 <div className="absolute top-2 right-2 h-2 w-2 bg-brand rounded-full border-2 border-white" />
-              </button>
-              <div className="flex items-center gap-4 ml-4 group cursor-pointer">
-                 <div className="h-10 w-10 rounded-xl bg-obsidian text-white flex items-center justify-center font-bold text-[14px]">
-                    NC
-                 </div>
-                 <div className="hidden lg:block text-right">
-                    <div className="text-[13px] font-bold text-obsidian">Nexora Core</div>
-                    <div className="text-[11px] text-text-muted font-bold uppercase tracking-widest">Alpha Node 01</div>
-                 </div>
-              </div>
+        <footer className="p-8 border-t border-border flex justify-between items-center bg-white/50 backdrop-blur-sm">
+           <p className="text-[11px] text-text-muted font-medium">© 2026 Auralogics Labs. Infrastructure Intelligence Platform.</p>
+           <div className="flex gap-6">
+              <a href="#" className="text-[11px] text-text-muted hover:text-brand font-bold uppercase tracking-widest transition-colors">Documentation</a>
+              <a href="#" className="text-[11px] text-text-muted hover:text-brand font-bold uppercase tracking-widest transition-colors">API Status</a>
            </div>
-        </header>
-
-        {/* Page Body */}
-        <div className="p-12">
-          {children}
-        </div>
-      </main>
+        </footer>
+      </div>
     </div>
   );
 }

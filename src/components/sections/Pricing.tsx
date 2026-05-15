@@ -6,7 +6,7 @@ import { Check, Zap, Shield, Globe, Cpu, Sparkles, ArrowRight, ShieldCheck, Lock
 const plans = [
   {
     name: "Free",
-    tagline: "Nexora Core",
+    tagline: "Nexora Engine",
     price: "0",
     description: "Essential static engine for single-site developers and community users.",
     features: [

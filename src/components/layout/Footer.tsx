@@ -88,8 +88,8 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-[14px] font-bold text-text-muted">
             <p className="uppercase tracking-widest">© {new Date().getFullYear()} Auralogics Labs.</p>
             <div className="hidden md:block h-1 w-1 rounded-full bg-border-strong" />
-            <a href="#" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
-            <a href="#" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
+            <a href="javascript:void(0)" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
+            <a href="javascript:void(0)" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
           </div>
           
           {/* Social Links */}

@@ -425,7 +425,7 @@ export function PerformanceAudit() {
                   <div className="relative z-10">
                     <Zap size={36} className="text-white mb-10" />
                     <h4 className="text-[32px] font-black text-white mb-6 leading-tight">Apply <br />Optimisations.</h4>
-                    <p className="text-white/80 font-medium mb-12 leading-relaxed">Infrastructure report sent to {email}. Deploy Nexora Core to bridge your origin to the edge.</p>
+                    <p className="text-white/80 font-medium mb-12 leading-relaxed">Infrastructure report sent to {email}. Deploy Nexora Engine to bridge your origin to the edge.</p>
                   </div>
                   
                   <div className="space-y-4 relative z-10">

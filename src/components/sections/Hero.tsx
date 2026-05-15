@@ -273,7 +273,7 @@ export function Hero() {
                       <div className="bg-surface-soft border border-border rounded-3xl p-8 flex items-center justify-between hover:border-brand cursor-pointer transition-all mb-6">
                         <div className="flex items-center gap-5">
                           <Code2 className="text-brand" size={26} />
-                          <div className="text-[16px] font-black text-obsidian">Nexora Core (.zip)</div>
+                          <div className="text-[16px] font-black text-obsidian">Nexora Engine (.zip)</div>
                         </div>
                         <Plus className="text-brand" size={22} />
                       </div>
