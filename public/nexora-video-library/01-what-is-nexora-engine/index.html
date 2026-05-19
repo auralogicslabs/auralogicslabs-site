@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nexora Engine Explainer Video 01</title>
+  <link rel="stylesheet" href="assets/video.css">
+</head>
+<body>
+  <main class="video-shell" aria-label="Nexora Engine explainer animation">
+    <section class="stage" id="stage">
+      <div class="brand-strip">
+        <div class="brand-mark">N</div>
+        <div>
+          <strong>Nexora Engine</strong>
+          <span>Static Delivery for WordPress</span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-fill" id="timelineFill"></div>
+      </div>
+
+      <article class="scene scene-1 active" data-scene="0">
+        <div class="scene-copy">
+          <span class="eyebrow">The WordPress request problem</span>
+          <h1>Every uncached request wakes the whole stack.</h1>
+          <p>PHP boots, plugins load, themes render, and database queries run before the visitor gets HTML.</p>
+        </div>
+        <div class="request-rail" aria-hidden="true">
+          <div class="node browser">Browser</div>
+          <div class="pulse-line"></div>
+          <div class="node php">PHP</div>
+          <div class="pulse-line slow"></div>
+          <div class="node plugins">Plugins</div>
+          <div class="pulse-line slower"></div>
+          <div class="node db">Database</div>
+        </div>
+        <div class="load-meter" aria-hidden="true">
+          <span>Server work</span>
+          <strong>High</strong>
+          <div><i></i></div>
+        </div>
+      </article>
+
+      <article class="scene scene-2" data-scene="1">
+        <div class="scene-copy">
+          <span class="eyebrow">Nexora capture layer</span>
+          <h1>Pre-render WordPress into clean static HTML.</h1>
+          <p>Nexora captures production-ready snapshots from the existing site. No rebuild. No frontend migration.</p>
+        </div>
+        <div class="capture-stack" aria-hidden="true">
+          <div class="wp-card">
+            <span>WordPress</span>
+            <b>Gutenberg</b>
+            <b>Elementor</b>
+            <b>Theme + SEO</b>
+          </div>
+          <div class="capture-beam">
+            <span>Capture</span>
+          </div>
+          <div class="html-snapshots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <strong>Static HTML</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="scene scene-3" data-scene="2">
+        <div class="scene-copy">
+          <span class="eyebrow">Static delivery path</span>
+          <h1>Serve pages without executing PHP.</h1>
+          <p>Visitors hit static HTML first. PHP, plugin loading, and database work stay out of the request path.</p>
+        </div>
+        <div class="fast-path" aria-hidden="true">
+          <div class="visitor-card">Visitor</div>
+          <div class="fast-arrow"><i></i><span>Static response</span></div>
+          <div class="speed-card">
+            <span>TTFB</span>
+            <strong>22ms</strong>
+            <small>zero PHP execution</small>
+          </div>
+          <div class="bypass-card">
+            <span>Bypassed on public hit</span>
+            <b>PHP</b>
+            <b>Plugins</b>
+            <b>Database</b>
+          </div>
+        </div>
+      </article>
+
+      <article class="scene scene-4" data-scene="3">
+        <div class="scene-copy">
+          <span class="eyebrow">Zero workflow change</span>
+          <h1>Editors keep using WordPress normally.</h1>
+          <p>Gutenberg, Elementor, WooCommerce, SEO plugins, and your existing theme stay inside WordPress.</p>
+        </div>
+        <div class="editor-view" aria-hidden="true">
+          <div class="editor-top">
+            <span></span><span></span><span></span>
+            <button>Update</button>
+          </div>
+          <div class="editor-grid">
+            <aside>
+              <b>Blocks</b>
+              <span>Heading</span>
+              <span>Image</span>
+              <span>Loop</span>
+            </aside>
+            <section>
+              <h2>Landing Page</h2>
+              <div class="content-line wide"></div>
+              <div class="content-line"></div>
+              <div class="image-row"><i></i><i></i><i></i></div>
+            </section>
+          </div>
+          <div class="nexora-badge">Nexora refreshes the static layer</div>
+        </div>
+      </article>
+
+      <article class="scene scene-5" data-scene="4">
+        <div class="scene-copy">
+          <span class="eyebrow">Production-friendly performance</span>
+          <h1>WordPress authoring. Static delivery speed.</h1>
+          <p>Faster pages, lower server load, and a safer path to headless-style performance without replacing the stack.</p>
+        </div>
+        <div class="result-board" aria-hidden="true">
+          <div><span>Public request</span><strong>Static first</strong></div>
+          <div><span>Server load</span><strong>Reduced</strong></div>
+          <div><span>Workflow</span><strong>Unchanged</strong></div>
+          <div><span>Delivery</span><strong>22ms</strong></div>
+        </div>
+      </article>
+
+      <article class="scene scene-6" data-scene="5">
+        <div class="final-lockup">
+          <div class="final-logo">N</div>
+          <h1>Nexora Engine</h1>
+          <p>Turn WordPress into a static delivery machine.</p>
+          <a href="https://auralogicslabs.com/nexora-engine">auralogicslabs.com/nexora-engine</a>
+        </div>
+      </article>
+
+      <div class="caption-card" id="captionCard">
+        <span id="captionTime">00:00</span>
+        <p id="captionText"></p>
+      </div>
+
+    </section>
+
+    <div class="public-controls" id="publicControls" aria-label="Video controls">
+      <button id="publicPlayPause" type="button" aria-label="Play video">Play</button>
+      <button id="publicRestart" type="button" aria-label="Restart video">Restart</button>
+      <input id="publicScrubber" type="range" min="0" max="75" value="0" step="0.1" aria-label="Video timeline">
+      <span id="publicTime">00:00 / 01:15</span>
+    </div>
+
+    <aside class="control-panel">
+      <h2>Video 1 Controls</h2>
+      <p>Use this page for screen recording. Play it full screen at 16:9 and record the stage area.</p>
+      <div class="buttons">
+        <button id="playBtn">Play</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="restartBtn">Restart</button>
+      </div>
+      <label>
+        Timeline
+        <input id="scrubber" type="range" min="0" max="75" value="0" step="0.1">
+      </label>
+      <div class="script-box">
+        <h3>Voiceover</h3>
+        <ol id="scriptList"></ol>
+      </div>
+    </aside>
+  </main>
+
+  <script src="assets/video.js"></script>
+</body>
+</html>

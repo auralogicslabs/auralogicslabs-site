@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Users, Building2, Newspaper, Code2, CheckCircle2, ArrowRight, Plus, Copy, Check, Sparkles, Globe, Shield, Zap, Fingerprint } from "lucide-react";
+import Link from "next/link";
 
 const useCases = [
   {
@@ -284,10 +285,10 @@ export function PersonaFocus() {
               </div>
 
               <div className="mt-16 pt-10 border-t border-brand/10">
-                <button className="group inline-flex items-center gap-4 text-[18px] font-extrabold text-brand hover:text-obsidian transition-colors duration-300">
-                  Engineering Review
+                <Link href="/nexora-engine/docs" className="group inline-flex items-center gap-4 text-[18px] font-extrabold text-brand hover:text-obsidian transition-colors duration-300">
+                  Engineering Docs
                   <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { ArrowRight, Cloud, Shield, BarChart3, Activity, Brain, Network, Plus } from "lucide-react";
+import Link from "next/link";
 
 const roadmapPhases = [
   {
@@ -169,10 +170,10 @@ export function PlatformVision() {
             <p className="text-white/60 text-[18px] font-medium max-w-[500px]">Our engineering team provides custom infrastructure design for high-traffic networks.</p>
           </div>
           
-          <button className="whitespace-nowrap inline-flex items-center justify-center rounded-2xl bg-white px-10 py-5 text-[18px] font-bold text-obsidian shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <Link href="mailto:hello@auralogicslabs.com" className="whitespace-nowrap inline-flex items-center justify-center rounded-2xl bg-white px-10 py-5 text-[18px] font-bold text-obsidian shadow-xl hover:-translate-y-1 transition-all duration-300">
             Request Early Access
             <ArrowRight className="ml-3 h-5 w-5" />
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Check, Zap, Shield, Globe, Cpu, Sparkles, ArrowRight, ShieldCheck, Lock, Activity, Terminal, Database, Code2, Layers, Search, Globe2, AlertCircle } from "lucide-react";
+import Link from "next/link";
 
 const plans = [
   {
@@ -19,7 +20,8 @@ const plans = [
       "Basic WP-CLI Commands",
       "REST Page Payload API"
     ],
-    button: "Download Core",
+    button: "Download Free",
+    href: "/nexora-engine/docs/getting-started",
     pro: false,
     enterprise: false
   },
@@ -29,9 +31,9 @@ const plans = [
     price: "99",
     description: "Advanced automation and analytics for high-traffic publishers and developers.",
     features: [
+      "Everything in Free",
       "Hybrid Rendering Mode",
       "GSC Integration (Analytics)",
-      "Next.js Export API",
       "Broken Link Checker",
       "XML Sitemap Generator",
       "Redirect Manager (301/302)",
@@ -43,6 +45,7 @@ const plans = [
       "Priority Engineering Support"
     ],
     button: "Get Pro License",
+    href: "/portal",
     pro: true,
     enterprise: false
   },
@@ -52,6 +55,7 @@ const plans = [
     price: "Custom",
     description: "Managed global infrastructure and dedicated security for large networks.",
     features: [
+      "Everything in Pro",
       "Nexora Cloud CDN (Q3 2026)",
       "Nexora Shield (WAF/DDoS)",
       "Multisite Intelligence Layer",
@@ -62,6 +66,7 @@ const plans = [
       "AI Auto-Optimization"
     ],
     button: "Contact Sales",
+    href: "mailto:hello@auralogicslabs.com",
     pro: false,
     enterprise: true
   }
@@ -150,16 +155,16 @@ export function Pricing() {
                 ))}
               </div>
 
-              <button className={`w-full py-5 rounded-2xl font-extrabold text-[15px] transition-all duration-300 flex items-center justify-center gap-3 ${
-                plan.pro 
-                  ? 'bg-brand text-white hover:bg-brand-soft shadow-xl' 
+              <Link href={plan.href} className={`w-full py-5 rounded-2xl font-extrabold text-[15px] transition-all duration-300 flex items-center justify-center gap-3 ${
+                plan.pro
+                  ? 'bg-brand text-white hover:bg-brand-soft shadow-xl'
                   : plan.enterprise
                   ? 'bg-obsidian text-white hover:bg-brand'
                   : 'bg-surface-soft text-obsidian border border-border hover:bg-white hover:shadow-md'
               }`}>
                 {plan.button}
                 <ArrowRight size={18} />
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -172,9 +177,9 @@ export function Pricing() {
               <h4 className="text-[18px] font-extrabold text-obsidian mb-2">Agency White Label Orchestration</h4>
               <p className="text-[14px] text-text-muted font-medium">Replace Nexora branding with your agency identity. Full control over client-facing emails, logs, and dashboard visuals. Included in Pro and Enterprise tiers.</p>
            </div>
-           <button className="whitespace-nowrap bg-white text-brand px-8 py-4 rounded-xl font-extrabold shadow-sm hover:scale-105 transition-transform">
+           <Link href="/portal" className="whitespace-nowrap bg-white text-brand px-8 py-4 rounded-xl font-extrabold shadow-sm hover:scale-105 transition-transform">
               Learn about White Label
-           </button>
+           </Link>
         </div>
       </div>
     </section>

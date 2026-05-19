@@ -92,8 +92,8 @@ export default function PortalDashboardLayout({ children }: { children: React.Re
         <footer className="p-8 border-t border-border flex justify-between items-center bg-white/50 backdrop-blur-sm">
            <p className="text-[11px] text-text-muted font-medium">© 2026 Auralogics Labs. Infrastructure Intelligence Platform.</p>
            <div className="flex gap-6">
-              <a href="#" className="text-[11px] text-text-muted hover:text-brand font-bold uppercase tracking-widest transition-colors">Documentation</a>
-              <a href="#" className="text-[11px] text-text-muted hover:text-brand font-bold uppercase tracking-widest transition-colors">API Status</a>
+              <a href="/nexora-engine/docs" className="text-[11px] text-text-muted hover:text-brand font-bold uppercase tracking-widest transition-colors">Documentation</a>
+              <a href="/nexora-engine/support" className="text-[11px] text-text-muted hover:text-brand font-bold uppercase tracking-widest transition-colors">Support</a>
            </div>
         </footer>
       </div>

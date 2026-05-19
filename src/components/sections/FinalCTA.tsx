@@ -2,13 +2,14 @@
 
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles, Plus } from "lucide-react";
+import Link from "next/link";
 
 export function FinalCTA() {
   return (
     <section className="relative py-40 px-8 lg:px-24 overflow-hidden bg-surface-soft border-t border-border flex justify-center">
       {/* Dense Architectural Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#CBD5E1_1px,transparent_1px),linear-gradient(to_bottom,#CBD5E1_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 pointer-events-none" />
-      
+
       {/* Ambient center glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-brand/10 blur-[120px] rounded-[100%]" />
 
@@ -28,25 +29,25 @@ export function FinalCTA() {
           <h2 className="text-[48px] md:text-[80px] font-bold text-obsidian leading-[1] tracking-[-0.05em] mb-12">
             The web you have, <br /> but 10x faster.
           </h2>
-          
+
           <p className="text-[20px] md:text-[24px] text-text-secondary leading-[1.6] mb-16 font-medium max-w-[700px] mx-auto">
-            Join the engineering teams modernizing WordPress with Nexora Engine. Start your 14-day free trial today.
+            Join the engineering teams modernizing WordPress with Nexora Engine. Free to download, Pro when you need it.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button 
-              onClick={() => window.location.href = '/portal'}
+            <Link
+              href="/nexora-engine/docs/getting-started"
               className="w-full sm:w-auto rounded-2xl bg-obsidian px-12 py-6 text-[20px] font-bold text-white shadow-[0_32px_64px_rgba(2,6,23,0.3)] hover:shadow-[0_48px_96px_rgba(2,6,23,0.4)] hover:-translate-y-1.5 transition-all duration-300 group"
             >
-              Start Your Trial
+              Download Free
               <ArrowRight className="ml-3 h-6 w-6 inline-block transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-            <button 
-              onClick={() => window.location.href = 'mailto:hello@auralogicslabs.com'}
+            </Link>
+            <Link
+              href="mailto:hello@auralogicslabs.com"
               className="w-full sm:w-auto rounded-2xl border-2 border-border bg-white/50 backdrop-blur-sm px-12 py-6 text-[20px] font-bold text-obsidian hover:bg-white hover:border-obsidian/20 transition-all duration-300"
             >
               Talk to Engineering
-            </button>
+            </Link>
           </div>
 
           <div className="mt-20 flex flex-wrap justify-center gap-12 grayscale opacity-40">

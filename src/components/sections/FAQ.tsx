@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Plus, HelpCircle } from "lucide-react";
+import Link from "next/link";
 
 export function FAQ() {
   return (
@@ -42,7 +43,7 @@ export function FAQ() {
                 <Plus className="absolute top-4 right-4 h-4 w-4 text-border-strong opacity-40 group-hover:rotate-90 transition-transform duration-500" />
                 <p className="text-[15px] font-bold text-obsidian mb-2">Still have questions?</p>
                 <p className="text-[14px] text-text-secondary mb-6">Our engineering team is available for deep technical consultations.</p>
-                <button className="text-[14px] font-bold text-brand hover:underline">Contact Engineering Support →</button>
+                <Link href="/nexora-engine/support" className="text-[14px] font-bold text-brand hover:underline">Contact Engineering Support →</Link>
               </div>
             </motion.div>
           </div>

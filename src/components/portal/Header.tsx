@@ -148,14 +148,14 @@ export function Header() {
                        <h3 className="text-[15px] font-black text-obsidian">Assistance</h3>
                     </div>
                     <div className="p-2 space-y-1">
-                       <a href="#" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
+                       <a href="/nexora-engine/docs" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
                           <BookOpen size={16} className="text-brand" /> Documentation
                        </a>
-                       <a href="#" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
-                          <MessageSquare size={16} className="text-brand" /> Live Support
+                       <a href="/nexora-engine/support" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
+                          <MessageSquare size={16} className="text-brand" /> Support
                        </a>
-                       <a href="#" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
-                          <LifeBuoy size={16} className="text-brand" /> System Status
+                       <a href="mailto:hello@auralogicslabs.com" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
+                          <LifeBuoy size={16} className="text-brand" /> Contact Us
                        </a>
                     </div>
                   </motion.div>

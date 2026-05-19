@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">What is Nexora Engine?</title>
+  <desc id="desc">Thumbnail for Nexora Engine video one.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F8FA"/>
+      <stop offset="0.58" stop-color="#EBF0FF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0252FA"/>
+      <stop offset="1" stop-color="#063CE6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#063CE6" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" rx="42" fill="url(#bg)"/>
+  <g opacity="0.38">
+    <path d="M0 120h1280M0 240h1280M0 360h1280M0 480h1280M0 600h1280M160 0v720M320 0v720M480 0v720M640 0v720M800 0v720M960 0v720M1120 0v720" stroke="#063CE6" stroke-width="1"/>
+  </g>
+  <g transform="translate(86 78)">
+    <rect width="74" height="74" rx="20" fill="url(#blue)" filter="url(#shadow)"/>
+    <text x="37" y="51" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="38" font-weight="800" fill="#fff">N</text>
+    <text x="96" y="31" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#0F172A">Nexora Engine</text>
+    <text x="96" y="62" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" fill="#435162">Video 01</text>
+  </g>
+  <g transform="translate(86 218)">
+    <text font-family="Segoe UI, Arial, sans-serif" font-size="72" font-weight="800" fill="#0F172A">
+      <tspan x="0" y="0">What is</tspan>
+      <tspan x="0" y="84">Nexora Engine?</tspan>
+    </text>
+    <text x="0" y="204" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600" fill="#435162">Turn WordPress into a static delivery machine.</text>
+    <g transform="translate(0 264)">
+      <rect width="196" height="54" rx="27" fill="#0252FA"/>
+      <polygon points="78,17 78,37 96,27" fill="#fff"/>
+      <text x="112" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="800" fill="#fff">Watch</text>
+    </g>
+  </g>
+  <g transform="translate(752 180)" filter="url(#shadow)">
+    <rect width="392" height="302" rx="28" fill="#fff" stroke="#DCE0E8"/>
+    <rect x="34" y="36" width="324" height="48" rx="14" fill="#EBF0FF"/>
+    <rect x="34" y="108" width="220" height="34" rx="12" fill="#DCE0E8"/>
+    <rect x="34" y="162" width="284" height="34" rx="12" fill="#DCE0E8"/>
+    <rect x="34" y="216" width="154" height="34" rx="12" fill="#F39A09" opacity="0.24"/>
+  </g>
+  <g transform="translate(664 328)">
+    <path d="M0 0h122" stroke="#0252FA" stroke-width="12" stroke-linecap="round"/>
+    <path d="M112-22l38 22-38 22z" fill="#0252FA"/>
+  </g>
+  <g transform="translate(1018 512)">
+    <rect width="164" height="74" rx="22" fill="#0F172A"/>
+    <text x="82" y="31" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#94A3B8">TTFB</text>
+    <text x="82" y="58" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="900" fill="#F39A09">22ms</text>
+  </g>
+</svg>

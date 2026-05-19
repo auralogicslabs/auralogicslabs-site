@@ -9,8 +9,8 @@ const navLinks = [
   { name: "Methodology", href: "/#methodology" },
   { name: "Pricing", href: "/#pricing" },
   { name: "Audit", href: "/#audit" },
-  { name: "Demo", href: "/demo" },
-  { name: "Registry", href: "/#features" },
+  { name: "Demo", href: "/nexora-engine/demo" },
+  { name: "Docs", href: "/nexora-engine/docs" },
 ];
 
 function ScrollProgressBar() {

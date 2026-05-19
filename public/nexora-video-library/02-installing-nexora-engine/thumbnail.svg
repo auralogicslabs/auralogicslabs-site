@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F7F8FA"/><stop offset=".6" stop-color="#EBF0FF"/><stop offset="1" stop-color="#fff"/></linearGradient><linearGradient id="p" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0252FA"/><stop offset="1" stop-color="#063CE6"/></linearGradient></defs>
+  <rect width="1280" height="720" rx="42" fill="url(#b)"/>
+  <g opacity=".35" stroke="#063CE6"><path d="M0 140h1280M0 280h1280M0 420h1280M0 560h1280M160 0v720M320 0v720M480 0v720M640 0v720M800 0v720M960 0v720M1120 0v720"/></g>
+  <rect x="84" y="76" width="74" height="74" rx="20" fill="url(#p)"/><text x="121" y="127" text-anchor="middle" font-family="Segoe UI,Arial" font-size="38" font-weight="900" fill="#fff">N</text>
+  <text x="182" y="108" font-family="Segoe UI,Arial" font-size="26" font-weight="900" fill="#0F172A">Nexora Engine</text><text x="182" y="140" font-family="Segoe UI,Arial" font-size="18" font-weight="700" fill="#435162">Video 02</text>
+  <text x="84" y="292" font-family="Segoe UI,Arial" font-size="72" font-weight="900" fill="#0F172A"><tspan x="84" dy="0">Installing</tspan><tspan x="84" dy="84">Nexora Engine</tspan></text>
+  <text x="84" y="468" font-family="Segoe UI,Arial" font-size="28" font-weight="650" fill="#435162">Upload, activate, run the wizard, and verify static delivery.</text>
+  <g transform="translate(800 182)"><rect width="330" height="360" rx="28" fill="#fff" stroke="#DCE0E8"/><rect x="34" y="38" width="262" height="54" rx="14" fill="#EBF0FF"/><rect x="34" y="120" width="262" height="54" rx="14" fill="#EBF0FF"/><rect x="34" y="202" width="262" height="54" rx="14" fill="#EBF0FF"/><rect x="74" y="290" width="182" height="48" rx="24" fill="#0252FA"/><text x="165" y="322" text-anchor="middle" font-family="Segoe UI,Arial" font-size="18" font-weight="900" fill="#fff">Activate</text></g>
+</svg>

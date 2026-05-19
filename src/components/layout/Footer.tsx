@@ -10,9 +10,12 @@ export function Footer() {
       { label: 'Security', href: '/#security' }
     ],
     Resources: [
-      { label: 'Live Demo', href: '/demo' },
-      { label: 'Run Audit', href: '/#audit' },
-      { label: 'Documentation', href: '/docs' },
+      { label: 'Getting Started', href: '/nexora-engine/docs/getting-started' },
+      { label: 'Documentation', href: '/nexora-engine/docs' },
+      { label: 'Video Tutorials', href: '/nexora-engine/tutorials' },
+      { label: 'Feature Request', href: '/nexora-engine/feature-request' },
+      { label: 'Support', href: '/nexora-engine/support' },
+      { label: 'Live Demo', href: '/nexora-engine/demo' },
     ],
   };
 
@@ -88,8 +91,8 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-[14px] font-bold text-text-muted">
             <p className="uppercase tracking-widest">© {new Date().getFullYear()} Auralogics Labs.</p>
             <div className="hidden md:block h-1 w-1 rounded-full bg-border-strong" />
-            <a href="javascript:void(0)" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
-            <a href="javascript:void(0)" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
+            <a href="mailto:hello@auralogicslabs.com?subject=Privacy Policy" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
+            <a href="mailto:hello@auralogicslabs.com?subject=Terms of Service" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
           </div>
           
           {/* Social Links */}
