@@ -41,7 +41,7 @@ export default function DemoPage() {
       <Header />
 
       <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1700px] mx-auto">
+        <div className="w-full max-w-[1600px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

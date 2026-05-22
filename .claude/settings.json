@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Anand/Local Sites/nexora/app/public/wp-content/plugins/nexora-engine/admin/views/**)",
+      "Read(//c/Users/Anand/Local Sites/nexora/app/public/wp-content/plugins/nexora-engine/includes/**)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Anand\\\\Local Sites\\\\nexora\\\\app\\\\public\\\\wp-content\\\\plugins\\\\nexora-engine\\\\\" -Recurse -File | Select-Object -First 50 | Format-Table FullName)"
+    ]
+  }
+}

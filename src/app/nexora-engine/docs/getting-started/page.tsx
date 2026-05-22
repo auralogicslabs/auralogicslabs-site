@@ -87,7 +87,7 @@ export default function GettingStartedPage() {
       <Header />
 
       <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1700px] mx-auto">
+        <div className="w-full max-w-[1600px] mx-auto">
 
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-[13px] font-bold text-text-muted mb-12 uppercase tracking-widest">

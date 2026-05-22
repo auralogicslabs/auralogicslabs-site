@@ -59,7 +59,7 @@ export function ArchitectureFlow() {
 
   return (
     <section id="architecture" className="bg-surface-soft py-24 px-8 lg:px-24 border-y border-border overflow-hidden">
-      <div className="w-full max-w-[1700px] mx-auto">
+      <div className="w-full max-w-[1600px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

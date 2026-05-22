@@ -26,3 +26,177 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(26, 63, 216, 0.1);
   color: #1a3fd8;
 }
+
+/* ─── Interactive Grid & Static Acceleration Streams ─── */
+@keyframes streamHorizontal {
+  0% {
+    stroke-dashoffset: 1500;
+  }
+  100% {
+    stroke-dashoffset: -1500;
+  }
+}
+
+@keyframes streamVertical {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: -1200;
+  }
+}
+
+.animate-stream-h {
+  stroke-dasharray: 120 480;
+  animation: streamHorizontal 7s linear infinite;
+}
+
+.animate-stream-v {
+  stroke-dasharray: 100 400;
+  animation: streamVertical 9s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* ─── Enhanced Particle System ─── */
+@keyframes particleFloat {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 0px), var(--ty, -100px)) scale(0);
+  }
+}
+
+.particle {
+  animation: particleFloat 1.2s ease-out forwards;
+  pointer-events: none;
+}
+
+/* ─── Wave Ripple Effect ─── */
+@keyframes waveRipple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.wave-ripple {
+  animation: waveRipple 0.8s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+  pointer-events: none;
+}
+
+/* ─── Enhanced Glow Pulse ─── */
+@keyframes enhancedGlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-enhanced-glow {
+  animation: enhancedGlow 3s ease-in-out infinite;
+}
+
+/* ─── Node Proximity Glow ─── */
+@keyframes proximityPulse {
+  0%, 100% {
+    r: 4;
+    opacity: 0.6;
+  }
+  50% {
+    r: 8;
+    opacity: 1;
+  }
+}
+
+.node-proximity {
+  animation: proximityPulse 0.6s ease-in-out;
+}
+
+/* ─── Floating Animation ─── */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-4px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(0px);
+  }
+  75% {
+    transform: translateY(-4px) translateX(-2px);
+  }
+}
+
+.animate-floating {
+  animation: floating 4s ease-in-out infinite;
+}
+
+/* ─── Gradient Shift Animation ─── */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ─── Enhanced Spotlight Tracking ─── */
+@keyframes spotlightIntensity {
+  0%, 100% {
+    filter: blur(80px);
+    opacity: 0.1;
+  }
+  50% {
+    filter: blur(60px);
+    opacity: 0.15;
+  }
+}
+
+.animate-spotlight {
+  animation: spotlightIntensity 2s ease-in-out infinite;
+}
+
+/* ─── Line Accent Animation ─── */
+@keyframes lineAccent {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+.animate-line-accent {
+  animation: lineAccent 2s ease-in-out infinite;
+}
+

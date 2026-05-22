@@ -1,304 +1,640 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { ArrowRight, Sparkles, Globe, Zap, Code2, ChevronDown, X, CheckCircle2, Plus, ChevronRight, Layers } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { ArrowRight, ChevronRight, Zap, CheckCircle2, Activity, Globe, TrendingDown } from "lucide-react";
 import Link from "next/link";
 
-// Subtle drifting particle
-function Particle({ delay, x }: { delay: number; x: number }) {
+function StatBadge({
+  value, label, sub, color, delay, className,
+}: {
+  value: string; label: string; sub?: string; color: string; delay: number; className: string;
+}) {
   return (
     <motion.div
-      className="absolute bottom-0 w-px h-px rounded-full bg-brand/30 pointer-events-none"
-      style={{ left: `${x}%` }}
-      animate={{ y: [0, -800], opacity: [0, 0.4, 0] }}
-      transition={{ duration: 10 + delay, repeat: Infinity, delay, ease: "easeOut" }}
-    />
+      initial={{ opacity: 0, scale: 0.75, y: 10 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={`absolute z-20 bg-white rounded-[16px] border border-white/80 shadow-[0_12px_40px_rgba(2,6,23,0.18)] px-4 py-3 ${className}`}
+    >
+      <div className="flex items-center gap-3">
+        <div
+          className="h-8 w-8 rounded-[10px] flex items-center justify-center flex-shrink-0"
+          style={{ background: `${color}15`, border: `1px solid ${color}25` }}
+        >
+          <Activity className="h-3.5 w-3.5" style={{ color }} />
+        </div>
+        <div>
+          <div className="font-mono text-[17px] font-black leading-none tracking-tight" style={{ color }}>
+            {value}
+          </div>
+          <div className="text-[9px] text-[#94A3B8] font-bold uppercase tracking-[0.2em] mt-0.5">
+            {label}
+          </div>
+        </div>
+      </div>
+      {sub && (
+        <div className="mt-2 pt-2 border-t border-[#E2E8F0] flex items-center gap-1.5">
+          <TrendingDown className="h-3 w-3 text-emerald-500" />
+          <span className="text-[10px] text-emerald-600 font-bold">{sub}</span>
+        </div>
+      )}
+    </motion.div>
   );
 }
 
-// Typewriter for rotating brand statements
-const statements = [
-  "We engineer what speed looks like.",
-  "We rebuild what infrastructure means.",
-  "We redefine what WordPress can do.",
-  "We are Auralogics Labs.",
-];
+function AdminMock() {
+  return (
+    <div
+      className="w-full rounded-[16px] overflow-hidden border border-white/12"
+      style={{ boxShadow: "0 40px 100px rgba(2,6,23,0.55), 0 0 0 1px rgba(255,255,255,0.06)" }}
+    >
+      {/* Browser chrome */}
+      <div className="flex items-center gap-2 px-4 py-2.5 bg-[#181F30] border-b border-white/6">
+        <div className="flex gap-1.5">
+          <div className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+          <div className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+          <div className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+        </div>
+        <div className="flex-1 mx-3">
+          <div className="bg-white/6 border border-white/8 rounded-[8px] px-3 py-1 flex items-center gap-2">
+            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500/80 animate-pulse flex-shrink-0" />
+            <span className="text-[10px] font-mono text-white/35 truncate">
+              dashboard.nexora.io · Nexora Engine
+            </span>
+            <div className="ml-auto flex items-center gap-1.5">
+              <div className="h-1.5 w-1.5 rounded-full bg-brand/60" />
+              <span className="text-[9px] text-brand/60 font-bold">LIVE</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-export function Hero() {
-  const [showWizard, setShowWizard] = useState(false);
-  const [wizardStep, setWizardStep] = useState(1);
-  const [url, setUrl] = useState("");
-  const [isUrlValid, setIsUrlValid] = useState(false);
-  const [statementIdx, setStatementIdx] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [typing, setTyping] = useState(true);
+      {/* App shell */}
+      <div className="bg-[#0F1521] flex" style={{ minHeight: 248 }}>
+        {/* Sidebar */}
+        <div className="w-[152px] flex-shrink-0 bg-[#0A0F1A] border-r border-white/5 p-4 flex flex-col gap-3 hidden sm:flex">
+          <div className="h-7 w-7 rounded-[10px] bg-brand/25 border border-brand/35 flex items-center justify-center mb-3">
+            <Zap className="h-3.5 w-3.5 text-brand-soft" />
+          </div>
+          {/* Nav skeleton */}
+          {[
+            { w: "70%", active: true },
+            { w: "55%", active: false },
+            { w: "65%", active: false },
+            { w: "45%", active: false },
+            { w: "60%", active: false },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2 px-2 py-1.5 rounded-[8px] transition-colors"
+              style={{ background: item.active ? "rgba(26,63,216,0.15)" : "transparent" }}
+            >
+              <div
+                className="h-2 w-2 rounded-[4px] flex-shrink-0"
+                style={{ background: item.active ? "#1A3FD8" : "rgba(255,255,255,0.08)" }}
+              />
+              <div
+                className="h-1.5 rounded-full"
+                style={{
+                  background: item.active ? "rgba(96,165,250,0.4)" : "rgba(255,255,255,0.07)",
+                  width: item.w,
+                }}
+              />
+            </div>
+          ))}
+        </div>
 
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+        {/* Main content */}
+        <div className="flex-1 p-5 flex flex-col gap-3.5">
+          {/* Top bar */}
+          <div className="flex items-center justify-between mb-1">
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="h-2 w-24 rounded-full bg-white/8" />
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-6 w-20 rounded-[8px] bg-brand/20 border border-brand/30 flex items-center justify-center">
+                <span className="text-[9px] font-black text-brand-soft uppercase tracking-wider">Engine Active</span>
+              </div>
+            </div>
+          </div>
 
-  const particles = [
-    { delay: 0, x: 8 }, { delay: 2, x: 22 }, { delay: 4, x: 38 },
-    { delay: 1, x: 55 }, { delay: 3, x: 70 }, { delay: 1.5, x: 85 },
-    { delay: 2.5, x: 15 }, { delay: 0.5, x: 48 }, { delay: 3.5, x: 92 },
-  ];
+          {/* KPI strip */}
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { v: "22ms",  l: "TTFB",    c: "#1A3FD8", up: false },
+              { v: "100%",  l: "Cache Hit", c: "#059669", up: true  },
+              { v: "↓ 70%", l: "Payload",  c: "#7C3AED", up: false },
+            ].map((s, i) => (
+              <div
+                key={i}
+                className="rounded-[12px] p-3 relative overflow-hidden"
+                style={{
+                  background: `${s.c}10`,
+                  border: `1px solid ${s.c}22`,
+                }}
+              >
+                <div className="font-mono text-[16px] font-black leading-none tracking-tight" style={{ color: s.c }}>
+                  {s.v}
+                </div>
+                <div className="text-[8px] text-white/28 font-bold uppercase tracking-wider mt-1">{s.l}</div>
+                {/* Mini sparkline */}
+                <svg className="absolute bottom-2 right-2 opacity-30" width="28" height="14" viewBox="0 0 28 14">
+                  <polyline
+                    points={s.up ? "0,12 7,8 14,10 21,4 28,2" : "0,10 7,12 14,6 21,4 28,2"}
+                    fill="none"
+                    stroke={s.c}
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            ))}
+          </div>
 
-  // Typewriter effect
+          {/* Cache table rows */}
+          {[
+            { url: "/shop/product-1",    status: "HIT",  ms: "19ms", fresh: true },
+            { url: "/blog/2024-update",  status: "HIT",  ms: "22ms", fresh: true },
+            { url: "/about",             status: "BUILD", ms: "—",   fresh: false },
+          ].map((row, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3 rounded-[10px] bg-white/[0.025] border border-white/5 px-3 py-2"
+            >
+              <div
+                className="h-1.5 w-1.5 rounded-full flex-shrink-0"
+                style={{ background: row.fresh ? "#10B981" : "#F59E0B" }}
+              />
+              <span className="text-[10px] font-mono text-white/30 flex-1 truncate">{row.url}</span>
+              <span
+                className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-[6px]"
+                style={{
+                  color: row.fresh ? "#10B981" : "#F59E0B",
+                  background: row.fresh ? "rgba(16,185,129,0.1)" : "rgba(245,158,11,0.1)",
+                }}
+              >
+                {row.status}
+              </span>
+              <span className="text-[9px] font-mono text-white/20">{row.ms}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function InteractiveGridBackground() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; color: string }>>([]);
+  const particleIdRef = useRef(0);
+  const lastParticleTimeRef = useRef(0);
+
   useEffect(() => {
-    const target = statements[statementIdx];
-    let i = displayed.length;
-    if (typing) {
-      if (i >= target.length) {
-        setTimeout(() => setTyping(false), 2400);
-        return;
-      }
-      const t = setTimeout(() => setDisplayed(target.slice(0, i + 1)), 38);
-      return () => clearTimeout(t);
-    } else {
-      if (i === 0) {
-        setStatementIdx(prev => (prev + 1) % statements.length);
-        setTyping(true);
-        return;
-      }
-      const t = setTimeout(() => setDisplayed(target.slice(0, i - 1)), 18);
-      return () => clearTimeout(t);
-    }
-  }, [displayed, typing, statementIdx]);
+    const container = containerRef.current;
+    if (!container) return;
 
-  // URL validation
-  useEffect(() => {
-    const pattern = new RegExp(
-      "^(https?:\\/\\/)?" +
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|((\\d{1,3}\\.){3}\\d{1,3}))" +
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*(\\?[;&a-z\\d%_.~+=-]*)?(\\#[-a-z\\d%_.~+@]*)?$", "i"
-    );
-    setIsUrlValid(!!pattern.test(url));
-  }, [url]);
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      container.style.setProperty("--mouse-x", `${x}px`);
+      container.style.setProperty("--mouse-y", `${y}px`);
 
-  const handleNext = () => {
-    if (wizardStep === 1 && !isUrlValid) return;
-    setWizardStep(prev => prev + 1);
-  };
+      // Throttled particle generation
+      const now = Date.now();
+      if (now - lastParticleTimeRef.current > 50 && isHovered) {
+        const colors = ["#60A5FA", "#818CF8", "#C084FC", "#A78BFA"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 40 + Math.random() * 60;
+        
+        const newParticle = {
+          id: particleIdRef.current++,
+          x,
+          y,
+          color: randomColor,
+        };
+        
+        setParticles((prev) => [...prev.slice(-20), newParticle]);
+        lastParticleTimeRef.current = now;
+
+        // Remove particle after animation
+        setTimeout(() => {
+          setParticles((prev) => prev.filter((p) => p.id !== newParticle.id));
+        }, 1200);
+      }
+    };
+
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+      setParticles([]);
+    };
+
+    const handleClick = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Create ripple effect
+      const ripple = document.createElement("div");
+      ripple.className = "wave-ripple";
+      ripple.style.position = "absolute";
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      ripple.style.width = "2px";
+      ripple.style.height = "2px";
+      ripple.style.borderRadius = "50%";
+      ripple.style.border = "2px solid rgba(96, 165, 250, 0.8)";
+      ripple.style.transform = "translate(-50%, -50%)";
+      
+      container.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 800);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+    container.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (container) {
+        container.removeEventListener("mouseenter", handleMouseEnter);
+        container.removeEventListener("mouseleave", handleMouseLeave);
+        container.removeEventListener("click", handleClick);
+      }
+    };
+  }, [isHovered]);
 
   return (
-    <section
+    <div
       ref={containerRef}
-      className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden bg-white"
+      className="absolute inset-0 pointer-events-none overflow-hidden z-0"
+      style={{
+        "--mouse-x": "-9999px",
+        "--mouse-y": "-9999px",
+      } as React.CSSProperties}
     >
-      {/* Brand-colored Dot Matrix */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#1A3FD8_1px,transparent_0)] bg-[size:40px_40px] opacity-[0.06] pointer-events-none" />
-
-      {/* Concentric Circles + Orange Rings — exact center */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        {/* Blue concentric rings */}
-        <motion.svg
-          className="absolute w-[900px] h-[900px] opacity-[0.08]"
-          viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg"
-          animate={{ scale: [1, 1.03, 1], opacity: [0.08, 0.11, 0.08] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {[80, 160, 240, 320, 400, 450].map((r) => (
-            <circle key={r} cx="450" cy="450" r={r} stroke="#1A3FD8" strokeWidth="1" />
-          ))}
-        </motion.svg>
-        {/* Orange dashed accent rings */}
-        <motion.svg
-          className="absolute w-[900px] h-[900px]"
-          viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg"
-          animate={{ scale: [1, 1.05, 1], opacity: [0.18, 0.26, 0.18] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        >
-          <circle cx="450" cy="450" r="420" stroke="#f39a09" strokeWidth="1.5" strokeDasharray="6 10" />
-          <circle cx="450" cy="450" r="340" stroke="#f39a09" strokeWidth="1" strokeDasharray="3 12" />
-        </motion.svg>
-      </div>
-
-      {/* Atmospheric glows — centered */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Blue top-left balance */}
-        <motion.div
-          style={{ opacity, background: 'rgba(26,63,216,0.07)' }}
-          className="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full blur-[140px]"
-        />
-        {/* Orange warm glow — exact center */}
-        <motion.div
-          style={{ background: 'rgba(243,154,9,0.18)' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[160px]"
-          animate={{ scale: [1, 1.08, 1], opacity: [0.18, 0.26, 0.18] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        />
-        {/* Blue bottom-right balance */}
-        <motion.div
-          style={{ background: 'rgba(26,63,216,0.05)' }}
-          className="absolute -bottom-[15%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[120px]"
-          animate={{ scale: [1, 1.05, 1], opacity: [0.05, 0.08, 0.05] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
-      </div>
-
-      {/* Premium Noise Overlay */}
+      {/* Background static lines - very faint and premium */}
       <div
-        className="absolute inset-0 opacity-[0.025] mix-blend-overlay pointer-events-none"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+          backgroundPosition: "center top",
+        }}
       />
 
-      {/* Particles */}
-      {particles.map((p, i) => <Particle key={i} delay={p.delay} x={p.x} />)}
+      {/* Dynamic line glow highlight following cursor */}
+      <div
+        className="absolute inset-0 transition-opacity duration-300 ease-out"
+        style={{
+          opacity: isHovered ? 0.28 : 0.05,
+          backgroundImage: `
+            linear-gradient(to right, #60A5FA 1px, transparent 1px),
+            linear-gradient(to bottom, #C084FC 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+          backgroundPosition: "center top",
+          WebkitMaskImage: "radial-gradient(240px circle at var(--mouse-x) var(--mouse-y), black 0%, transparent 100%)",
+          maskImage: "radial-gradient(240px circle at var(--mouse-x) var(--mouse-y), black 0%, transparent 100%)",
+        }}
+      />
 
-      <div className="w-full max-w-[1300px] mx-auto px-8 lg:px-24 relative z-10 flex flex-col items-center text-center">
+      {/* Enhanced atmospheric spotlight centered on mouse cursor */}
+      <div
+        className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+        style={{
+          opacity: isHovered ? 0.22 : 0,
+          background: "radial-gradient(380px circle at var(--mouse-x) var(--mouse-y), rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.12) 60%, transparent 100%)",
+        }}
+      />
 
-        {/* Brand pill */}
+      {/* Secondary spotlight for enhanced effect */}
+      <div
+        className="absolute inset-0 transition-opacity duration-700 pointer-events-none"
+        style={{
+          opacity: isHovered ? 0.12 : 0,
+          background: "radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), rgba(168, 85, 247, 0.15) 0%, transparent 80%)",
+        }}
+      />
+
+      {/* Particle System */}
+      {particles.map((particle) => {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 30 + Math.random() * 100;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance - 50;
+        
+        return (
+          <div
+            key={particle.id}
+            className="particle"
+            style={{
+              position: "absolute",
+              left: `${particle.x}px`,
+              top: `${particle.y}px`,
+              width: "4px",
+              height: "4px",
+              borderRadius: "50%",
+              backgroundColor: particle.color,
+              boxShadow: `0 0 8px ${particle.color}`,
+              "--tx": `${tx}px`,
+              "--ty": `${ty}px`,
+            } as React.CSSProperties}
+          />
+        );
+      })}
+
+      {/* Moving Static Data Accelerated Light Streams */}
+      <svg className="absolute inset-0 w-full h-full opacity-40">
+        <defs>
+          <linearGradient id="streamGradH" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#60A5FA" stopOpacity="0" />
+            <stop offset="50%" stopColor="#818CF8" stopOpacity="1" />
+            <stop offset="100%" stopColor="#C084FC" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="streamGradV" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#C084FC" stopOpacity="0" />
+            <stop offset="50%" stopColor="#818CF8" stopOpacity="1" />
+            <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+
+        {/* 4 horizontal streaming accelerated lanes */}
+        {[18, 38, 58, 78].map((yPercent, i) => (
+          <g key={`h-stream-${i}`}>
+            <line
+              x1="0%"
+              y1={`${yPercent}%`}
+              x2="100%"
+              y2={`${yPercent}%`}
+              stroke="rgba(255,255,255,0.012)"
+              strokeWidth="1"
+            />
+            <path
+              d={`M -200,${yPercent}0 H 2200`}
+              fill="none"
+              stroke="url(#streamGradH)"
+              strokeWidth="1.5"
+              className="animate-stream-h"
+              style={{
+                animationDelay: `${i * 1.8}s`,
+                animationDuration: `${7 + i * 2.5}s`,
+              }}
+            />
+          </g>
+        ))}
+
+        {/* 4 vertical streaming accelerated lanes */}
+        {[22, 42, 62, 82].map((xPercent, i) => (
+          <g key={`v-stream-${i}`}>
+            <line
+              x1={`${xPercent}%`}
+              y1="0%"
+              x2={`${xPercent}%`}
+              y2="100%"
+              stroke="rgba(255,255,255,0.012)"
+              strokeWidth="1"
+            />
+            <path
+              d={`M ${xPercent}0,-200 V 2200`}
+              fill="none"
+              stroke="url(#streamGradV)"
+              strokeWidth="1.5"
+              className="animate-stream-v"
+              style={{
+                animationDelay: `${i * 2.2}s`,
+                animationDuration: `${9 + i * 3.1}s`,
+              }}
+            />
+          </g>
+        ))}
+
+        {/* Dynamic highlighted intersection nodes with enhanced glow */}
+        {[
+          { x: "22%", y: "38%" },
+          { x: "62%", y: "18%" },
+          { x: "42%", y: "58%" },
+          { x: "82%", y: "38%" },
+          { x: "22%", y: "78%" },
+          { x: "62%", y: "78%" },
+        ].map((node, i) => (
+          <g key={`node-${i}`} className="opacity-40">
+            {/* Outer glow */}
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="8"
+              fill={["#60A5FA", "#818CF8", "#C084FC", "#A78BFA"][i % 4]}
+              opacity="0.1"
+              className="animate-pulse-glow"
+              style={{ animationDelay: `${i * 0.7}s` }}
+            />
+            {/* Main glow circle */}
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="4"
+              fill="#60A5FA"
+              className="animate-pulse-glow"
+              style={{ animationDelay: `${i * 0.7}s` }}
+            />
+            {/* Center dot */}
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="1.5"
+              fill="#FFFFFF"
+            />
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
+
+export function Hero() {
+  const reducedMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollY } = useScroll();
+  const mockScale = useTransform(scrollY, [0, 600], [0.95, 1.15], { clamp: false });
+  const mockY = useTransform(scrollY, [0, 600], [100, -80]);
+
+  return (
+    <section ref={containerRef} className="relative bg-obsidian overflow-hidden" style={{ minHeight: "100svh" }}>
+
+      {/* ── Layered atmosphere ── */}
+      {/* Primary brand radial */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 55% at 50% -5%, rgba(26,63,216,0.28) 0%, transparent 65%)",
+        }}
+      />
+      {/* Purple depth orb */}
+      <div className="absolute -bottom-32 right-0 w-[900px] h-[600px] bg-purple-700/8 blur-[200px] rounded-full pointer-events-none" />
+      {/* Emerald left accent */}
+      <div className="absolute top-1/4 -left-60 w-[600px] h-[600px] bg-emerald-500/5 blur-[180px] rounded-full pointer-events-none" />
+
+      {/* Interactive Grid & Acceleration Line Network */}
+      <InteractiveGridBackground />
+
+      {/* ── Content ── */}
+      <div className="w-full max-w-[1600px] mx-auto px-8 lg:px-24 relative z-10 flex flex-col items-center pt-32 pb-0">
+
+        {/* Headline — LARGE and dominant */}
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-3 bg-white/90 border border-border px-6 py-2.5 rounded-full shadow-sm mb-14"
+          transition={{ duration: 0.8, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-7 max-w-[1100px]"
         >
-          <div className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
-          <span className="text-[11px] font-bold text-obsidian uppercase tracking-[0.28em]">Auralogics Labs</span>
-          <span className="text-border-strong mx-1">·</span>
-          <span className="text-[11px] font-semibold text-text-muted uppercase tracking-[0.18em]">Infrastructure Intelligence</span>
+          <h1 className="text-[60px] md:text-[82px] lg:text-[108px] font-extrabold text-white leading-[0.9] tracking-[-0.05em]">
+            Built to make
+            <br />
+            <span className="relative inline-block">
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #818CF8 45%, #C084FC 100%)",
+                }}
+              >
+                the web impossibly fast.
+              </span>
+              {/* Underline */}
+              <motion.svg
+                className="absolute -bottom-3 left-0 w-full overflow-visible"
+                height="8"
+                viewBox="0 0 200 8"
+                preserveAspectRatio="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+              >
+                <motion.path
+                  d="M0,6 Q50,1 100,4 Q150,7 200,3"
+                  stroke="url(#heroUnder)"
+                  strokeWidth="2.5"
+                  fill="none"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
+                />
+                <defs>
+                  <linearGradient id="heroUnder" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="#C084FC" stopOpacity="0.5" />
+                  </linearGradient>
+                </defs>
+              </motion.svg>
+            </span>
+          </h1>
         </motion.div>
 
-        {/* Headline — brand statement, no product detail */}
-        <motion.h1
-          style={{ y, opacity }}
-          className="text-[50px] md:text-[72px] lg:text-[88px] font-extrabold text-obsidian leading-[0.90] tracking-[-0.055em] mb-8 max-w-[1050px]"
-        >
-          Built to make the web <br className="hidden md:block" />
-          <span className="text-brand">impossibly fast.</span>
-        </motion.h1>
-
-        {/* Rotating typewriter — brand voice, not product spec */}
-        <motion.div style={{ opacity }} className="h-10 mb-8 flex items-center justify-center">
-          <p className="text-[20px] md:text-[22px] font-medium text-text-muted tracking-tight">
-            {displayed}<span className="inline-block w-0.5 h-5 bg-brand ml-0.5 animate-pulse align-middle" />
-          </p>
-        </motion.div>
-
-        {/* Sub copy — company level, not product metrics */}
+        {/* Subheadline */}
         <motion.p
-          style={{ opacity }}
-          className="text-[17px] md:text-[18px] text-text-secondary max-w-[620px] leading-[1.7] mb-14 font-medium"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.18 }}
+          className="text-center text-[18px] md:text-[20px] text-white/42 font-medium leading-[1.6] max-w-[560px] mx-auto mb-12"
         >
-          Auralogics Labs designs infrastructure that closes the gap between how the web performs
-          and how it should. Our products run quietly in the background, so your users never wait.
+          Auralogics Labs designs infrastructure that closes the gap between how the web performs and how it should. Our products run quietly in the background, so your users never wait.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div style={{ opacity }} className="flex flex-col sm:flex-row items-center gap-5 mb-16">
-          <button
-            onClick={() => { setShowWizard(true); setWizardStep(1); }}
-            className="rounded-2xl bg-obsidian px-12 py-5 text-[17px] font-bold text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group flex items-center gap-3"
-          >
-            Start a Project
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.26 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-20"
+        >
           <Link
-            href="/#why-nexora"
-            className="rounded-2xl border-2 border-border bg-white px-12 py-5 text-[17px] font-bold text-obsidian hover:bg-surface-soft transition-all duration-300 flex items-center gap-3 group"
+            href="#products"
+            className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-[14px] bg-white text-obsidian px-8 py-4 text-[15px] font-black shadow-[0_8px_32px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.9)] hover:shadow-[0_12px_48px_rgba(26,63,216,0.5),0_0_0_1px_rgba(26,63,216,1)] hover:bg-brand hover:text-white hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
           >
-            <Layers className="h-5 w-5 text-brand" />
-            Explore Platform
-            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            Explore Our Products
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
+          <a
+            href="mailto:hello@auralogicslabs.com?subject=Let's chat about infrastructure"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-[14px] border border-white/12 bg-white/5 backdrop-blur-sm text-white/80 px-8 py-4 text-[15px] font-bold hover:bg-white/8 hover:border-white/20 hover:text-white transition-all duration-300"
+          >
+            Get in Touch
+            <ChevronRight className="h-4 w-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+          </a>
         </motion.div>
 
+        {/* ── Mock with Scroll Enlarge ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 60, rotateX: 8 }}
+          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 1.1, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          className="relative w-full max-w-[900px] mx-auto"
+          style={{
+            perspective: 1200,
+            scale: mockScale,
+            y: mockY,
+          }}
+        >
+          {/* Glow under the mock */}
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[700px] h-[160px] bg-brand/18 blur-[90px] rounded-full pointer-events-none" />
 
+          {/* Live pill above mock */}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 1.0 }}
+            className="absolute -top-4 left-1/2 -translate-x-1/2 z-30 bg-white rounded-full border border-white/70 shadow-[0_4px_24px_rgba(2,6,23,0.16)] px-4 py-1.5 flex items-center gap-2 whitespace-nowrap"
+          >
+            <Globe className="h-3.5 w-3.5 text-emerald-500" />
+            <span className="text-[11px] font-bold text-obsidian">your-site.com</span>
+            <div className="h-1.5 w-px bg-[#E2E8F0]" />
+            <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] font-black text-emerald-600">Nexora active</span>
+          </motion.div>
+
+          <AdminMock />
+
+          {/* Floating stat badges */}
+          <StatBadge
+            value="22ms"
+            label="Avg. TTFB"
+            sub="was 850ms before"
+            color="#1A3FD8"
+            delay={0.85}
+            className="-left-4 sm:-left-16 bottom-20"
+          />
+          <StatBadge
+            value="100%"
+            label="Cache Hit Rate"
+            color="#059669"
+            delay={1.0}
+            className="-right-4 sm:-right-16 top-16"
+          />
+
+          {/* Bottom fade */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-10"
+            style={{
+              background:
+                "linear-gradient(to bottom, transparent 0%, rgba(2,6,23,0.7) 60%, #020617 100%)",
+            }}
+          />
+        </motion.div>
       </div>
-
-      {/* Scroll arrow — clicks to next section */}
-      <motion.button
-        style={{ opacity }}
-        onClick={() => document.getElementById('why-nexora')?.scrollIntoView({ behavior: 'smooth' })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 group cursor-pointer"
-      >
-        <span className="text-[9px] font-bold text-text-muted uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity">Scroll</span>
-        <ChevronDown size={22} className="text-brand animate-bounce group-hover:text-obsidian transition-colors" />
-      </motion.button>
-
-      {/* ── WIZARD MODAL ── */}
-      <AnimatePresence>
-        {showWizard && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 md:p-12">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setShowWizard(false)} className="absolute inset-0 bg-obsidian/80 backdrop-blur-2xl" />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 40 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 40 }}
-              className="relative w-full max-w-[1000px] bg-white rounded-[48px] shadow-[0_80px_160px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col md:flex-row"
-            >
-              <div className="hidden md:flex w-2/5 bg-[#050B25] p-16 flex-col justify-between text-white">
-                <div>
-                  <Sparkles className="text-brand mb-8" size={36} />
-                  <h3 className="text-[28px] font-extrabold tracking-tight mb-4 leading-tight">Project<br />Initialization.</h3>
-                  <p className="text-white/40 text-[14px] font-medium leading-relaxed">Connect your site to the Nexora Mothership.</p>
-                </div>
-                <div className="space-y-7">
-                  {[{ s: 1, t: "Site Identification" }, { s: 2, t: "Deployment Core" }, { s: 3, t: "Mothership Sync" }].map(step => (
-                    <div key={step.s} className="flex items-center gap-5">
-                      <div className={`h-9 w-9 rounded-xl flex items-center justify-center font-black text-[13px] transition-all duration-500 ${wizardStep >= step.s ? "bg-brand text-white" : "bg-white/10 text-white/20"}`}>
-                        {wizardStep > step.s ? <CheckCircle2 size={16} /> : step.s}
-                      </div>
-                      <span className={`text-[13px] font-bold ${wizardStep >= step.s ? "text-white" : "text-white/20"}`}>{step.t}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="flex-1 p-12 lg:p-20 bg-white relative">
-                <button onClick={() => setShowWizard(false)} className="absolute top-8 right-8 h-10 w-10 flex items-center justify-center rounded-full bg-surface-soft hover:bg-obsidian hover:text-white transition-all">
-                  <X size={20} />
-                </button>
-                <AnimatePresence mode="wait">
-                  {wizardStep === 1 && (
-                    <motion.div key="s1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="h-full flex flex-col justify-center">
-                      <h2 className="text-[32px] font-extrabold text-obsidian mb-3 tracking-tight">Register Origin.</h2>
-                      <p className="text-text-muted text-[15px] font-medium mb-10">Enter your WordPress site URL to begin.</p>
-                      <div className={`flex items-center gap-4 bg-surface-soft border-2 rounded-[20px] p-3 transition-all ${url ? (isUrlValid ? "border-emerald-500/50" : "border-[#FF4D4D]/50") : "border-border focus-within:border-brand"}`}>
-                        <Globe className={`ml-2 flex-shrink-0 ${url ? (isUrlValid ? "text-emerald-500" : "text-[#FF4D4D]") : "text-text-muted"}`} size={22} />
-                        <input type="text" placeholder="https://your-site.com" className="flex-1 bg-transparent border-none text-[18px] font-bold text-obsidian focus:ring-0 py-3" value={url} onChange={e => setUrl(e.target.value)} />
-                      </div>
-                      <button disabled={!isUrlValid} onClick={handleNext} className={`w-full mt-8 py-5 rounded-2xl font-black text-[17px] shadow-xl transition-all ${isUrlValid ? "bg-brand text-white hover:scale-[1.02]" : "bg-surface-soft text-text-muted cursor-not-allowed opacity-50"}`}>
-                        Start Deployment
-                      </button>
-                      <div className="mt-10 p-5 bg-surface-soft rounded-2xl border border-border flex gap-4">
-                        <Zap className="text-brand flex-shrink-0 mt-0.5" size={18} />
-                        <p className="text-[12px] text-text-muted font-medium">Use <span className="text-brand font-black">demo / demo</span> in the portal for an instant preview.</p>
-                      </div>
-                    </motion.div>
-                  )}
-                  {wizardStep === 2 && (
-                    <motion.div key="s2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="h-full flex flex-col justify-center">
-                      <h2 className="text-[32px] font-extrabold text-obsidian mb-10 tracking-tight">Deploy Core.</h2>
-                      <div className="bg-surface-soft border border-border rounded-3xl p-8 flex items-center justify-between hover:border-brand cursor-pointer transition-all mb-6">
-                        <div className="flex items-center gap-5">
-                          <Code2 className="text-brand" size={26} />
-                          <div className="text-[16px] font-black text-obsidian">Nexora Engine (.zip)</div>
-                        </div>
-                        <Plus className="text-brand" size={22} />
-                      </div>
-                      <button onClick={handleNext} className="w-full bg-brand text-white py-5 rounded-2xl font-black text-[17px] shadow-xl hover:scale-[1.02] transition-transform">
-                        I've Installed the Core
-                      </button>
-                    </motion.div>
-                  )}
-                  {wizardStep === 3 && (
-                    <motion.div key="s3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="h-full flex flex-col justify-center text-center">
-                      <div className="h-28 w-28 bg-emerald-500/10 border-2 border-emerald-500 rounded-[36px] flex items-center justify-center mx-auto mb-10">
-                        <CheckCircle2 className="text-emerald-500" size={56} strokeWidth={2.5} />
-                      </div>
-                      <h2 className="text-[40px] font-black text-obsidian tracking-tighter leading-none mb-4">Mothership<br />Connected.</h2>
-                      <button onClick={() => window.location.href = "/portal"} className="w-full bg-brand text-white py-5 rounded-2xl font-black text-[18px] shadow-2xl hover:scale-[1.04] transition-transform mt-8">
-                        Enter Command Portal
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

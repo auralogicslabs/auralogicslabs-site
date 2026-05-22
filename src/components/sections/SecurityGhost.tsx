@@ -30,7 +30,7 @@ export function SecurityGhost() {
       {/* Background Architectural Traits */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
       
-      <div className="w-full max-w-[1700px] mx-auto relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           
           {/* Left Column: The Cinematic "Cloaking" Visual */}

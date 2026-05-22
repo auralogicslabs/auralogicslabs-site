@@ -71,7 +71,7 @@ export function ProblemComparison() {
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-[1700px] mx-auto relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,11 +104,13 @@ export function ProblemComparison() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative overflow-hidden rounded-[40px] p-10 transition-all duration-700 border ${
-                  isHovered ? 'shadow-[0_64px_128px_rgba(2,6,23,0.15)] -translate-y-4' : 'shadow-sm'
+                className={`relative overflow-hidden rounded-[40px] p-10 border ${
+                  isHovered 
+                    ? 'shadow-[0_64px_128px_rgba(2,6,23,0.15)] -translate-y-4' 
+                    : 'shadow-sm'
                 } ${isDimmed ? 'opacity-40 grayscale-[0.8] scale-[0.98]' : 'opacity-100'} ${
                   col.isDark ? 'bg-[#050B25] text-white border-brand/20' : 'bg-white border-border text-obsidian'
-                }`}
+                } transition-all duration-700`}
               >
                 {/* Background Pattern for Dark Card */}
                 {col.isDark && (

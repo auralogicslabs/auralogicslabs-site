@@ -12,7 +12,7 @@ export function PerformanceVisualization() {
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
       
-      <div className="w-full max-w-[1700px] mx-auto relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto relative z-10">
         {/* Centered Header with Full Narrative Data */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

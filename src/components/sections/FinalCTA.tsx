@@ -1,66 +1,94 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight, Sparkles, Plus } from "lucide-react";
+import { ArrowRight, Sparkles, Mail } from "lucide-react";
 import Link from "next/link";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-40 px-8 lg:px-24 overflow-hidden bg-surface-soft border-t border-border flex justify-center">
-      {/* Dense Architectural Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#CBD5E1_1px,transparent_1px),linear-gradient(to_bottom,#CBD5E1_1px,transparent_1px)] bg-[size:64px_64px] opacity-30 pointer-events-none" />
+    <section className="relative pt-32 pb-40 px-8 lg:px-24 overflow-hidden bg-obsidian flex justify-center rounded-tl-[40px] rounded-tr-[40px] -mt-10 z-10">
 
-      {/* Ambient center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-brand/10 blur-[120px] rounded-[100%]" />
+      {/* Architectural grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
 
-      <div className="w-full max-w-[1700px] relative z-10 text-center">
+      {/* Deep center glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-brand/15 blur-[160px] rounded-[100%] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/8 blur-[120px] rounded-[100%] pointer-events-none" />
+
+      <div className="w-full max-w-[1600px] relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 32, scale: 0.98 }}
+          initial={{ opacity: 0, y: 36, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-[900px] mx-auto"
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-[860px] mx-auto"
         >
-          <div className="inline-flex items-center gap-3 bg-white border border-border px-5 py-2 rounded-full shadow-sm mb-10">
-            <Sparkles className="h-4 w-4 text-brand" />
-            <span className="text-[12px] font-bold text-obsidian uppercase tracking-[0.2em]">Ready to scale?</span>
+          {/* Eyebrow pill */}
+          <div className="inline-flex items-center gap-2.5 bg-white/[0.06] border border-white/[0.1] px-5 py-2 rounded-full mb-10">
+            <Sparkles className="h-3.5 w-3.5 text-brand-soft" />
+            <span className="text-[12px] font-bold text-white/60 uppercase tracking-[0.22em]">Get Started Today</span>
           </div>
 
-          <h2 className="text-[48px] md:text-[80px] font-bold text-obsidian leading-[1] tracking-[-0.05em] mb-12">
-            The web you have, <br /> but 10x faster.
+          {/* Headline */}
+          <h2 className="text-[52px] md:text-[80px] lg:text-[96px] font-extrabold text-white leading-[0.95] tracking-[-0.05em] mb-10">
+            Ready to make
+            <br />
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #818CF8 100%)" }}
+            >
+              the web faster?
+            </span>
           </h2>
 
-          <p className="text-[20px] md:text-[24px] text-text-secondary leading-[1.6] mb-16 font-medium max-w-[700px] mx-auto">
-            Join the engineering teams modernizing WordPress with Nexora Engine. Free to download, Pro when you need it.
+          {/* Subhead */}
+          <p className="text-[18px] md:text-[22px] text-white/45 leading-[1.65] mb-14 font-medium max-w-[640px] mx-auto">
+            Start with any of our products today. All plans include a 14-day free trial.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link
-              href="/nexora-engine/docs/getting-started"
-              className="w-full sm:w-auto rounded-2xl bg-obsidian px-12 py-6 text-[20px] font-bold text-white shadow-[0_32px_64px_rgba(2,6,23,0.3)] hover:shadow-[0_48px_96px_rgba(2,6,23,0.4)] hover:-translate-y-1.5 transition-all duration-300 group"
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+            <motion.div
+              whileHover={{ y: -4 }}
+              whileTap={{ y: -1 }}
+              className="w-full sm:w-auto"
             >
-              Download Free
-              <ArrowRight className="ml-3 h-6 w-6 inline-block transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="mailto:hello@auralogicslabs.com"
-              className="w-full sm:w-auto rounded-2xl border-2 border-border bg-white/50 backdrop-blur-sm px-12 py-6 text-[20px] font-bold text-obsidian hover:bg-white hover:border-obsidian/20 transition-all duration-300"
+              <Link
+                href="/products/nexora-engine"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-[16px] bg-white text-obsidian px-10 py-5 text-[16px] font-black shadow-[0_20px_60px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.9)] hover:bg-brand hover:text-white hover:shadow-[0_24px_64px_rgba(26,63,216,0.55)] transition-all duration-300 group"
+              >
+                Explore Nexora Engine
+                <motion.div whileHover={{ x: 2 }}>
+                  <ArrowRight className="h-5 w-5" />
+                </motion.div>
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ y: -4 }}
+              whileTap={{ y: -1 }}
+              className="w-full sm:w-auto"
             >
-              Talk to Engineering
-            </Link>
+              <a
+                href="mailto:hello@auralogicslabs.com?subject=Let's discuss infrastructure"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-[16px] border border-white/15 bg-white/[0.06] backdrop-blur-sm px-10 py-5 text-[16px] font-bold text-white hover:bg-white/[0.1] hover:border-white/30 transition-all duration-300 group"
+              >
+                <Mail className="h-4.5 w-4.5 opacity-60" style={{ width: 18, height: 18 }} />
+                Contact Sales
+              </a>
+            </motion.div>
           </div>
 
-          <div className="mt-20 flex flex-wrap justify-center gap-12 grayscale opacity-40">
-             <div className="flex items-center gap-2 font-mono font-bold text-[14px]">
-                <Plus className="h-4 w-4" /> 22MS TTFB
-             </div>
-             <div className="flex items-center gap-2 font-mono font-bold text-[14px]">
-                <Plus className="h-4 w-4" /> ZERO REBUILD
-             </div>
-             <div className="flex items-center gap-2 font-mono font-bold text-[14px]">
-                <Plus className="h-4 w-4" /> 100% CLOAKED
-             </div>
-          </div>
+          {/* Bottom message */}
+          <p className="text-white/40 text-sm">
+            All products are trusted by leading agencies, enterprises, and developers worldwide.
+          </p>
         </motion.div>
       </div>
     </section>

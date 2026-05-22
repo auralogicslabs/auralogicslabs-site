@@ -1,21 +1,25 @@
-import { ArrowUpRight, Twitter, Facebook, Youtube, Linkedin, Plus } from 'lucide-react';
+import { ArrowUpRight, Twitter, Facebook, Youtube, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
   const footerLinks = {
-    Platform: [
-      { label: 'Nexora Engine', href: '/#platform' },
-      { label: 'Methodology', href: '/#methodology' },
-      { label: 'Pricing', href: '/#pricing' },
-      { label: 'Security', href: '/#security' }
+    Products: [
+      { label: 'Nexora Engine', href: '/products/nexora-engine' },
+      { label: 'Nexora Media', href: '/products/nexora-media' },
+      { label: 'Nexora Insights', href: '/products/nexora-insights' },
     ],
     Resources: [
       { label: 'Getting Started', href: '/nexora-engine/docs/getting-started' },
       { label: 'Documentation', href: '/nexora-engine/docs' },
-      { label: 'Video Tutorials', href: '/nexora-engine/tutorials' },
       { label: 'Feature Request', href: '/nexora-engine/feature-request' },
       { label: 'Support', href: '/nexora-engine/support' },
       { label: 'Live Demo', href: '/nexora-engine/demo' },
+    ],
+    Company: [
+      { label: 'About', href: '/#about' },
+      { label: 'Portal', href: '/portal' },
+      { label: 'Privacy Policy', href: 'mailto:hello@auralogicslabs.com?subject=Privacy Policy' },
+      { label: 'Terms of Service', href: 'mailto:hello@auralogicslabs.com?subject=Terms of Service' },
     ],
   };
 
@@ -31,7 +35,7 @@ export function Footer() {
       {/* Architectural Grid Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-[1700px] mx-auto relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-20 lg:gap-32 mb-32">
           
           {/* Brand Column */}
@@ -44,7 +48,7 @@ export function Footer() {
               />
             </div>
             <p className="text-[20px] text-text-secondary leading-[1.6] font-medium mb-6">
-              Infrastructure intelligence for the web you already have. Modern headless performance without the headless rebuild.
+              Performance infrastructure for WordPress. Drop-in plugins that deliver static speed, modern image formats, and deep analytics — without the rebuild.
             </p>
             <a href="mailto:hello@auralogicslabs.com" className="text-[16px] font-bold text-brand hover:text-obsidian transition-colors flex items-center gap-3">
                hello@auralogicslabs.com
@@ -59,19 +63,18 @@ export function Footer() {
                 <ul className="space-y-5">
                   {links.map((link) => (
                     <li key={link.label}>
-                      {link.href.startsWith('http') ? (
-                        <a 
-                          href={link.href} 
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      {link.href.startsWith('http') || link.href.startsWith('mailto:') ? (
+                        <a
+                          href={link.href}
+                          {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                           className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
                         >
                           {link.label}
                           <ArrowUpRight className="ml-2 h-4 w-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
                         </a>
                       ) : (
-                        <Link 
-                          href={link.href} 
+                        <Link
+                          href={link.href}
                           className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
                         >
                           {link.label}
@@ -91,8 +94,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-[14px] font-bold text-text-muted">
             <p className="uppercase tracking-widest">© {new Date().getFullYear()} Auralogics Labs.</p>
             <div className="hidden md:block h-1 w-1 rounded-full bg-border-strong" />
-            <a href="mailto:hello@auralogicslabs.com?subject=Privacy Policy" className="hover:text-obsidian transition-colors uppercase tracking-widest">Privacy Policy</a>
-            <a href="mailto:hello@auralogicslabs.com?subject=Terms of Service" className="hover:text-obsidian transition-colors uppercase tracking-widest">Terms of Service</a>
+            <span className="uppercase tracking-widest">All rights reserved.</span>
           </div>
           
           {/* Social Links */}

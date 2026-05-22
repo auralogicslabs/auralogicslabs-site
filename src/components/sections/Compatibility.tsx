@@ -18,7 +18,7 @@ export function Compatibility() {
       <Plus className="absolute top-12 left-12 h-5 w-5 text-border-strong opacity-40" />
       <Plus className="absolute bottom-12 right-12 h-5 w-5 text-border-strong opacity-40" />
 
-      <div className="w-full max-w-[1700px] mx-auto relative z-10">
+      <div className="w-full max-w-[1600px] mx-auto relative z-10">
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

@@ -113,17 +113,22 @@ export function UseCases() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeId}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 14, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.96 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] rounded-[12px] border border-border bg-white shadow-card overflow-hidden"
           >
             {/* Left: context + stat */}
             <div className="bg-surface p-8 lg:p-10">
-              <div className="h-12 w-12 rounded-md bg-white border border-border shadow-sm flex items-center justify-center mb-6">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="h-12 w-12 rounded-md bg-white border border-border shadow-sm flex items-center justify-center mb-6"
+              >
                 <CurrentIcon className="h-6 w-6 text-brand" />
-              </div>
+              </motion.div>
               <h3 className="text-[22px] font-semibold text-text-primary leading-snug mb-4">
                 {current.tagline}
               </h3>
@@ -131,14 +136,19 @@ export function UseCases() {
                 {current.description}
               </p>
               {/* Stat callout */}
-              <div className="mt-8 rounded-[10px] border border-border bg-white p-5">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="mt-8 rounded-[10px] border border-border bg-white p-5 hover:border-brand/30 hover:shadow-md transition-all duration-300"
+              >
                 <p className="text-[32px] font-bold text-brand tracking-tight">
                   {current.stat.value}
                 </p>
                 <p className="text-[14px] text-text-muted mt-1">
                   {current.stat.label}
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right: benefits */}
@@ -147,27 +157,41 @@ export function UseCases() {
                 Key Benefits
               </p>
               <ul className="space-y-5">
-                {current.benefits.map((b) => (
-                  <li key={b.label} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={17}
-                      className="mt-0.5 flex-shrink-0 text-brand"
-                    />
+                {current.benefits.map((b, idx) => (
+                  <motion.li
+                    key={b.label}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 + idx * 0.05 }}
+                    className="flex items-start gap-3 group"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <CheckCircle2
+                        size={17}
+                        className="mt-0.5 flex-shrink-0 text-brand group-hover:text-brand transition-colors"
+                      />
+                    </motion.div>
                     <div>
-                      <p className="text-[15px] font-semibold text-text-primary">
+                      <p className="text-[15px] font-semibold text-text-primary group-hover:text-brand transition-colors duration-300">
                         {b.label}
                       </p>
                       <p className="text-[14px] text-text-secondary">{b.note}</p>
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
               <div className="mt-8 pt-6 border-t border-border">
-                <button className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand hover:gap-3 transition-all duration-150">
+                <motion.button
+                  whileHover={{ x: 4 }}
+                  className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand hover:text-brand transition-all duration-150"
+                >
                   Explore {current.title.toLowerCase()} use cases
                   <ArrowRight size={14} />
-                </button>
+                </motion.button>
               </div>
             </div>
           </motion.div>
