@@ -3,7 +3,7 @@
 import { Server, LayoutTemplate, Zap, XCircle, AlertCircle, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-import { FullWidthSection, SectionHeader, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
+import { FullWidthSection, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
 import { ProductScreenshot } from "@/components/ui/ProductScreenshot";
 
 const paths = [
@@ -12,25 +12,25 @@ const paths = [
     label: "Legacy path",
     icon: Server,
     bulletIcon: AlertCircle,
-    bulletColor: "text-amber",
     bullets: ["PHP on every request", "Fragile optimization stacks", "Exposed identity headers"],
+    accent: "#F59E0B",
   },
   {
     title: "Full Headless Rebuild",
     label: "High-cost path",
     icon: LayoutTemplate,
     bulletIcon: XCircle,
-    bulletColor: "text-text-muted",
     bullets: ["Months of engineering", "Loses builder workflows", "Ongoing DevOps burden"],
+    accent: "#94A3B8",
   },
   {
     title: "Auralogics Platform",
     label: "Intelligent path",
     icon: Zap,
     bulletIcon: CheckCircle2,
-    bulletColor: "text-brand",
     recommended: true,
     bullets: ["Static-speed, zero rebuild", "One-click activation", "WooCommerce preserved"],
+    accent: "#1A3FD8",
   },
 ];
 
@@ -38,14 +38,38 @@ export function ProblemComparison() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <FullWidthSection tone="soft">
-      <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-16 md:mb-20">
-        <SectionHeader
-          eyebrow="Why We Exist"
-          title="WordPress deserves modern infrastructure."
-          description="Most teams are stuck choosing between slow legacy stacks or expensive headless rebuilds. We built a third path."
-        />
-        <ScrollReveal direction="right">
+    <FullWidthSection tone="soft" className="rounded-t-[2.5rem] rounded-b-[2.5rem] overflow-hidden">
+      {/* Centered heading — deliberately different from FeatureTeaser's 2-col */}
+      <ScrollReveal>
+        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+          <div className="inline-flex items-center gap-2.5 mb-5 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+            <span className="text-[10px] font-black uppercase tracking-[0.28em] text-brand">
+              Why We Exist
+            </span>
+          </div>
+          <h2
+            className="text-[34px] md:text-[48px] font-extrabold leading-[1.06] tracking-[-0.04em] mb-4"
+            style={{ color: "#0D1B3E" }}
+          >
+            WordPress deserves{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #7C3AED 100%)" }}
+            >
+              modern infrastructure.
+            </span>
+          </h2>
+          <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
+            Most teams are stuck choosing between slow legacy stacks or expensive headless rebuilds.
+            We built a third path.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      {/* Centered visual */}
+      <ScrollReveal delay={0.1}>
+        <div className="max-w-3xl mx-auto mb-14 md:mb-16">
           <ProductScreenshot
             variant="problem"
             label="legacy vs platform"
@@ -53,9 +77,10 @@ export function ProblemComparison() {
             accent="#64748B"
             parallax={false}
           />
-        </ScrollReveal>
-      </div>
+        </div>
+      </ScrollReveal>
 
+      {/* Comparison cards */}
       <div className="grid md:grid-cols-3 gap-5">
         {paths.map((col, i) => {
           const Icon = col.icon;
@@ -66,7 +91,7 @@ export function ProblemComparison() {
           return (
             <ScrollReveal key={col.title} delay={i * 0.08}>
               <div
-                className={`h-full transition-all duration-300 ${isActive ? "-translate-y-1" : ""} ${dimmed ? "opacity-55" : ""}`}
+                className={`h-full transition-all duration-300 ${isActive ? "-translate-y-1.5" : ""} ${dimmed ? "opacity-50" : ""}`}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
@@ -74,47 +99,85 @@ export function ProblemComparison() {
                   accent={col.recommended ? "#1A3FD8" : undefined}
                   className={`h-full ${isActive ? "shadow-lg" : ""}`}
                 >
-                <div className={`p-7 md:p-8 h-full flex flex-col ${col.recommended ? "bg-[#050B25] text-white rounded-[24px] md:rounded-[32px]" : ""}`}>
-                  {col.recommended && (
-                    <div className="flex items-center gap-1.5 bg-[#F39A09] text-obsidian px-3 py-1 rounded-full w-fit mb-5 text-[10px] font-black uppercase tracking-widest">
-                      <Sparkles className="h-3 w-3" />
-                      Recommended
-                    </div>
-                  )}
-
                   <div
-                    className={`h-12 w-12 rounded-2xl flex items-center justify-center mb-5 ${col.recommended ? "bg-brand/20 border border-brand/30" : "bg-surface-soft border border-border"}`}
+                    className={`p-7 md:p-8 h-full flex flex-col ${
+                      col.recommended ? "rounded-[24px] md:rounded-[32px]" : ""
+                    }`}
+                    style={
+                      col.recommended
+                        ? { background: "linear-gradient(145deg, #060D24 0%, #0A1535 100%)" }
+                        : {}
+                    }
                   >
-                    <Icon className={`h-6 w-6 ${col.recommended ? "text-brand-soft" : "text-text-muted"}`} />
-                  </div>
+                    {col.recommended && (
+                      <div className="flex items-center gap-1.5 bg-[#F39A09] text-obsidian px-3 py-1 rounded-full w-fit mb-5 text-[10px] font-black uppercase tracking-widest">
+                        <Sparkles className="h-3 w-3" />
+                        Recommended
+                      </div>
+                    )}
 
-                  <span className={`text-[10px] font-black uppercase tracking-[0.28em] mb-2 block ${col.recommended ? "text-brand-soft" : "text-text-muted"}`}>
-                    {col.label}
-                  </span>
-                  <h3 className={`text-[20px] font-bold mb-6 tracking-tight ${col.recommended ? "text-white" : "text-obsidian"}`}>
-                    {col.title}
-                  </h3>
-
-                  <ul className="space-y-3.5 mb-8 flex-1">
-                    {col.bullets.map((bullet) => (
-                      <li key={bullet} className={`flex items-start gap-3 text-[14px] font-medium ${col.recommended ? "text-white/75" : "text-text-secondary"}`}>
-                        <BulletIcon className={`h-4 w-4 mt-0.5 flex-shrink-0 ${col.recommended ? "text-brand-soft" : col.bulletColor}`} />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {col.recommended && (
-                    <Link
-                      href="/products/nexora-engine"
-                      className="inline-flex items-center gap-2 rounded-full bg-[#F39A09] text-obsidian px-6 py-3 text-[13px] font-black hover:bg-[#ffb347] transition-colors w-fit"
+                    <div
+                      className={`h-12 w-12 rounded-2xl flex items-center justify-center mb-5 ${
+                        col.recommended ? "" : "bg-surface-soft border border-border"
+                      }`}
+                      style={
+                        col.recommended
+                          ? { background: "rgba(26,63,216,0.2)", border: "1px solid rgba(26,63,216,0.3)" }
+                          : {}
+                      }
                     >
-                      Explore Platform
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  )}
-                </div>
-              </InnerCard>
+                      <Icon
+                        className="h-6 w-6"
+                        style={{ color: col.recommended ? "#60A5FA" : col.accent }}
+                      />
+                    </div>
+
+                    <span
+                      className="text-[10px] font-black uppercase tracking-[0.28em] mb-2 block"
+                      style={{ color: col.recommended ? "#93C5FD" : "#94A3B8" }}
+                    >
+                      {col.label}
+                    </span>
+                    <h3
+                      className="text-[20px] font-bold mb-6 tracking-tight"
+                      style={{ color: col.recommended ? "rgba(255,255,255,0.92)" : "#0D1B3E" }}
+                    >
+                      {col.title}
+                    </h3>
+
+                    <ul className="space-y-3.5 mb-8 flex-1">
+                      {col.bullets.map((bullet) => (
+                        <li
+                          key={bullet}
+                          className="flex items-start gap-3 text-[14px] font-medium"
+                          style={{ color: col.recommended ? "rgba(255,255,255,0.65)" : "#64748B" }}
+                        >
+                          <BulletIcon
+                            className="h-4 w-4 mt-0.5 flex-shrink-0"
+                            style={{
+                              color: col.recommended
+                                ? "#60A5FA"
+                                : i === 0
+                                ? "#F59E0B"
+                                : "#94A3B8",
+                            }}
+                          />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {col.recommended && (
+                      <Link
+                        href="/products/nexora-engine"
+                        className="inline-flex items-center gap-2 rounded-full bg-[#F39A09] text-obsidian px-6 py-3 text-[13px] font-black hover:bg-[#ffb347] transition-colors w-fit"
+                      >
+                        Explore Platform
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
+                  </div>
+                </InnerCard>
               </div>
             </ScrollReveal>
           );

@@ -39,21 +39,25 @@ export default function BlogPage() {
       <Header />
 
       <main>
-        <section className="relative bg-obsidian text-white overflow-hidden pt-[120px] pb-20 md:pb-28">
+        <section className="relative bg-[#F4F7FB] overflow-hidden pt-[120px] pb-24 md:pb-32">
           <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(26,63,216,0.35) 0%, transparent 65%)",
-            }}
+            className="absolute top-0 right-0 w-[600px] h-[400px] pointer-events-none"
+            style={{ background: "radial-gradient(ellipse at top right, rgba(26,63,216,0.07) 0%, transparent 70%)" }}
           />
           <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
-            <span className="inline-block text-[11px] font-black uppercase tracking-[0.32em] text-brand-soft mb-5">
+            <span className="inline-block text-[11px] font-black uppercase tracking-[0.32em] text-brand mb-5">
               Engineering Notes
             </span>
-            <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-extrabold leading-[1.04] tracking-[-0.04em] max-w-[900px] mb-6">
-              WordPress infrastructure, explained for teams who ship.
+            <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-extrabold text-obsidian leading-[1.04] tracking-[-0.04em] max-w-[900px] mb-6">
+              WordPress infrastructure,{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #059669 100%)" }}
+              >
+                explained for teams who ship.
+              </span>
             </h1>
-            <p className="text-[17px] md:text-[19px] text-white/50 font-medium leading-relaxed max-w-[620px]">
+            <p className="text-[17px] md:text-[19px] text-slate-500 font-medium leading-relaxed max-w-[620px]">
               Performance engineering, security hygiene, and static delivery — practical guides focused on Nexora Engine and modern WordPress stacks.
             </p>
           </div>

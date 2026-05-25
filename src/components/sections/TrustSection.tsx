@@ -4,13 +4,12 @@ import {
   Users, ShoppingCart, Network, LayoutTemplate, Building2, ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import { FullWidthSection, SectionHeader, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
-import { ProductScreenshot } from "@/components/ui/ProductScreenshot";
+import { FullWidthSection, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
 
 const audiences = [
-  { icon: Users, title: "Agencies", desc: "Ship modern delivery across every client.", href: "/products/nexora-engine", color: "#1A3FD8" },
-  { icon: ShoppingCart, title: "WooCommerce", desc: "Instant product pages, dynamic checkout.", href: "/products/nexora-engine", color: "#059669" },
-  { icon: Network, title: "Multisite", desc: "Orchestrate your entire network.", href: "/portal", color: "#7C3AED" },
+  { icon: Users, title: "Agencies", desc: "Ship modern delivery across every client site.", href: "/products/nexora-engine", color: "#1A3FD8" },
+  { icon: ShoppingCart, title: "WooCommerce", desc: "Instant product pages, dynamic checkout preserved.", href: "/products/nexora-engine", color: "#059669" },
+  { icon: Network, title: "Multisite", desc: "Orchestrate your entire network from one portal.", href: "/portal", color: "#7C3AED" },
   { icon: LayoutTemplate, title: "Elementor", desc: "Keep your builder. Gain static speed.", href: "/products/nexora-engine", color: "#F39A09" },
   { icon: Building2, title: "Enterprise", desc: "Modernize without migration projects.", href: "mailto:hello@auralogicslabs.com?subject=Enterprise", color: "#0D9488" },
 ];
@@ -19,24 +18,33 @@ const stack = ["Apache", "Nginx", "LiteSpeed", "IIS", "OpenLiteSpeed", "cPanel"]
 
 export function TrustSection() {
   return (
-    <FullWidthSection tone="white">
-      <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center mb-16">
-        <SectionHeader
-          eyebrow="Built For"
-          title="Teams modernizing WordPress at scale."
-          description="Agencies, stores, publishers, and enterprise — infrastructure that adapts to how you already work."
-        />
-        <ScrollReveal direction="right">
-          <ProductScreenshot
-            variant="portal"
-            label="portal.auralogicslabs.com · Fleet"
-            sublabel="Fleet management screenshot"
-            accent="#1A3FD8"
-            parallax={false}
-          />
-        </ScrollReveal>
-      </div>
+    <FullWidthSection tone="white" className="rounded-t-[2.5rem] overflow-hidden">
+      {/* Centered heading — no screenshot, no 2-col; text is the focus */}
+      <ScrollReveal>
+        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
+          <div className="inline-flex items-center gap-2.5 mb-5 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+            <span className="text-[10px] font-black uppercase tracking-[0.28em] text-brand">Built For</span>
+          </div>
+          <h2
+            className="text-[34px] md:text-[48px] font-extrabold leading-[1.06] tracking-[-0.04em] mb-4"
+            style={{ color: "#0D1B3E" }}
+          >
+            Teams modernizing{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #0D9488 100%)" }}
+            >
+              WordPress at scale.
+            </span>
+          </h2>
+          <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
+            Agencies, stores, publishers, and enterprise — infrastructure that adapts to how you already work.
+          </p>
+        </div>
+      </ScrollReveal>
 
+      {/* Audience cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-14">
         {audiences.map((a, i) => {
           const Icon = a.icon;
@@ -49,9 +57,17 @@ export function TrustSection() {
                 >
                   <Icon className="h-[18px] w-[18px]" style={{ color: a.color }} />
                 </div>
-                <h3 className="text-[15px] font-bold text-obsidian mb-1.5">{a.title}</h3>
-                <p className="text-[13px] text-text-secondary leading-relaxed mb-3">{a.desc}</p>
-                <span className="inline-flex items-center gap-1 text-[12px] font-bold opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: a.color }}>
+                <h3
+                  className="text-[15px] font-bold mb-1.5"
+                  style={{ color: "#0D1B3E" }}
+                >
+                  {a.title}
+                </h3>
+                <p className="text-[13px] text-slate-500 leading-relaxed mb-3">{a.desc}</p>
+                <span
+                  className="inline-flex items-center gap-1 text-[12px] font-bold opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ color: a.color }}
+                >
                   Learn more <ArrowRight className="h-3 w-3" />
                 </span>
               </InnerCard>
@@ -66,14 +82,21 @@ export function TrustSection() {
         })}
       </div>
 
+      {/* Stack compatibility */}
       <ScrollReveal delay={0.2}>
         <InnerCard className="px-6 py-8 text-center">
-          <p className="text-[11px] font-black uppercase tracking-[0.28em] text-text-muted mb-5">Works with your stack</p>
+          <p
+            className="text-[11px] font-black uppercase tracking-[0.28em] mb-5"
+            style={{ color: "#94A3B8" }}
+          >
+            Works with your stack
+          </p>
           <div className="flex flex-wrap justify-center gap-2">
             {stack.map((s) => (
               <span
                 key={s}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-bold text-text-secondary bg-[#F4F7FB] border border-border/60"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-bold bg-[#F4F7FB] border border-slate-200/80"
+                style={{ color: "#475569" }}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                 {s}

@@ -9,7 +9,7 @@ export function FinalCTA() {
     <FullWidthSection
       tone="brand"
       compact
-      className="relative overflow-hidden"
+      className="relative overflow-hidden rounded-b-[2.5rem]"
       innerClassName="relative z-10 text-center py-20 md:py-24"
     >
       {/* Amber accent glow — reference-style */}

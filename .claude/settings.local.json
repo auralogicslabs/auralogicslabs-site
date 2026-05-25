@@ -9,7 +9,20 @@
       "WebFetch(domain:preview.themeforest.net)",
       "Bash(Start-Process -FilePath \"cmd.exe\" -ArgumentList \"/c\", \"cd /d c:\\\\project\\\\auralogicslabs-site && npx next dev --port 3002 > dev-server.log 2>&1\" -WindowStyle Hidden)",
       "Bash(Start-Sleep -Seconds 6)",
-      "Bash(Invoke-WebRequest -Uri \"http://localhost:3002\" -UseBasicParsing -TimeoutSec 10)"
+      "Bash(Invoke-WebRequest -Uri \"http://localhost:3002\" -UseBasicParsing -TimeoutSec 10)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3000)",
+      "Bash(tasklist /FI \"PID eq 3728\" /FO LIST)",
+      "PowerShell(Get-Process -Id 3728)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:50450/)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "Bash(npx playwright *)",
+      "Bash(node .tmp-screenshot.mjs http://localhost:3000/ .tmp-before.png)",
+      "Bash(node .tmp-debug.mjs)",
+      "Bash(rm -f .tmp-*.mjs .tmp-*.png && echo \"cleaned\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(node -e ' *)"
     ]
   }
 }

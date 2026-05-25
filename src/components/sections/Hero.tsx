@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { SectionCurve } from "@/components/ui/SectionShell";
 
 import { HeroStoryVisual } from "@/components/sections/HeroStoryVisual";
 
@@ -196,8 +195,7 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
 
   return (
-    <>
-      <section ref={ref} className="relative h-[100svh] min-h-[600px] max-h-[100svh] w-full bg-obsidian overflow-hidden">
+    <section ref={ref} className="relative h-[100svh] min-h-[600px] max-h-[100svh] w-full bg-[#050B25] overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -257,9 +255,6 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </section>
-
-      <SectionCurve from="dark" to="white" />
-    </>
+    </section>
   );
 }
