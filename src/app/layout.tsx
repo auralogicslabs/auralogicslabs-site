@@ -24,17 +24,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Nexora Engine — Modern Headless Infrastructure for WordPress",
+  title: "Auralogics Labs — Modern Infrastructure Intelligence for WordPress",
   description:
-    "Transform any WordPress site into a static-speed, fingerprint-free, headless-grade platform. 22ms TTFB. No rebuild required. By Auralogics Labs.",
+    "Adaptive runtime delivery, media optimization, and infrastructure orchestration for WordPress. Enterprise-grade performance without DevOps complexity.",
   metadataBase: new URL("https://auralogicslabs.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Nexora Engine — Modern Headless Infrastructure for WordPress",
+    title: "Auralogics Labs — Modern Infrastructure Intelligence for WordPress",
     description:
-      "Transform any WordPress site into a static-speed, fingerprint-free, headless-grade platform. 22ms TTFB. No rebuild required. By Auralogics Labs.",
+      "Adaptive runtime delivery, media optimization, and infrastructure orchestration for WordPress. Enterprise-grade performance without DevOps complexity.",
     url: "https://auralogicslabs.com",
     siteName: "Auralogics Labs",
     locale: "en_US",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexora Engine — Modern Headless Infrastructure for WordPress",
+    title: "Auralogics Labs — Modern Infrastructure Intelligence for WordPress",
     description:
-      "Transform any WordPress site into a static-speed, fingerprint-free, headless-grade platform. 22ms TTFB. No rebuild required. By Auralogics Labs.",
+      "Adaptive runtime delivery, media optimization, and infrastructure orchestration for WordPress. Enterprise-grade performance without DevOps complexity.",
   },
   robots: {
     index: true,
@@ -78,17 +78,14 @@ export default function RootLayout({
         "name": "Auralogics Labs",
         "url": "https://auralogicslabs.com",
         "logo": "https://auralogicslabs.com/auralogicslabs.svg",
-        "description": "Infrastructure intelligence platform modernizing WordPress delivery."
+        "description": "Infrastructure intelligence platform for WordPress — runtime delivery, media optimization, and orchestration."
       },
       {
-        "@type": "SoftwareApplication",
-        "@id": "https://auralogicslabs.com/#software",
-        "name": "Nexora Engine",
-        "applicationCategory": "WebApplication",
-        "operatingSystem": "WordPress 5.8+",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "publisher": { "@id": "https://auralogicslabs.com/#organization" },
-        "description": "Headless infrastructure delivery layer for WordPress."
+        "@type": "WebSite",
+        "@id": "https://auralogicslabs.com/#website",
+        "name": "Auralogics Labs",
+        "url": "https://auralogicslabs.com",
+        "publisher": { "@id": "https://auralogicslabs.com/#organization" }
       }
     ]
   };

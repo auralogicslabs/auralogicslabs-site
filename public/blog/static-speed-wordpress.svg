@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
+  <rect width="1200" height="675" fill="#050B25"/>
+  <circle cx="900" cy="120" r="280" fill="#1A3FD8" fill-opacity="0.35"/>
+  <circle cx="200" cy="520" r="220" fill="#7C3AED" fill-opacity="0.25"/>
+  <rect x="80" y="80" width="1040" height="515" rx="32" stroke="white" stroke-opacity="0.08"/>
+  <text x="600" y="340" text-anchor="middle" fill="white" fill-opacity="0.15" font-family="system-ui,sans-serif" font-size="28" font-weight="700" letter-spacing="0.2em">NEXORA ENGINE</text>
+</svg>

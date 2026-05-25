@@ -3,39 +3,45 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
-import { Menu, X, ArrowRight, ChevronDown, Zap, ImageIcon, BarChart2, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Zap, ImageIcon, BarChart2, LayoutDashboard, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const products = [
   {
     name: "Nexora Engine",
-    tagline: "Static delivery for WordPress",
+    tagline: "Adaptive runtime delivery for WordPress",
     href: "/products/nexora-engine",
     icon: Zap,
     status: "Live",
     statusColor: "text-emerald-400",
     accent: "#1A3FD8",
-    metric: "22ms TTFB",
   },
   {
     name: "Nexora Media",
-    tagline: "AVIF/WebP image intelligence",
+    tagline: "Intelligent media optimization at the edge",
     href: "/products/nexora-media",
     icon: ImageIcon,
     status: "Live",
     statusColor: "text-emerald-400",
     accent: "#059669",
-    metric: "↓70% payload",
   },
   {
-    name: "Nexora Insights",
-    tagline: "Analytics built for the static edge",
+    name: "Insights Hub",
+    tagline: "Performance intelligence for your stack",
     href: "/products/nexora-insights",
     icon: BarChart2,
     status: "Soon",
     statusColor: "text-amber-400",
     accent: "#F59E0B",
-    metric: "Coming Q3",
+  },
+  {
+    name: "Auralogics Portal",
+    tagline: "Central command for your infrastructure",
+    href: "/portal",
+    icon: LayoutDashboard,
+    status: "Live",
+    statusColor: "text-emerald-400",
+    accent: "#7C3AED",
   },
 ];
 
@@ -109,12 +115,9 @@ function ProductsDropdown({ open, dark }: { open: boolean; dark: boolean }) {
                         </div>
                         <span className="text-[12px] text-text-muted font-medium">{p.tagline}</span>
                       </div>
-                      <div className="flex-shrink-0 text-right">
-                        <div className="text-[11px] font-black font-mono" style={{ color: p.accent }}>
-                          {p.metric}
-                        </div>
+                      <div className="flex-shrink-0">
                         <ArrowUpRight
-                          className="h-3 w-3 ml-auto mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
                           style={{ color: p.accent }}
                         />
                       </div>
@@ -167,7 +170,6 @@ export function Header() {
   }, []);
 
   const pathname = usePathname();
-  // Only the homepage has a dark hero — all other pages have light backgrounds
   const hasDarkHero = pathname === "/";
   const isDark = hasDarkHero && !scrolled;
 
@@ -234,9 +236,9 @@ export function Header() {
               </div>
 
               {[
+                { label: "Blog", href: "/blog" },
                 { label: "Docs", href: "/nexora-engine/docs" },
                 { label: "Demo", href: "/nexora-engine/demo" },
-                { label: "Pricing", href: "/#pricing" },
               ].map((item) => (
                 <a
                   key={item.label}
@@ -381,9 +383,9 @@ export function Header() {
                   </AnimatePresence>
 
                   {[
+                    { label: "Blog", href: "/blog" },
                     { label: "Docs", href: "/nexora-engine/docs" },
                     { label: "Demo", href: "/nexora-engine/demo" },
-                    { label: "Pricing", href: "/#pricing" },
                   ].map((item) => (
                     <a
                       key={item.label}

@@ -6,7 +6,8 @@ export function Footer() {
     Products: [
       { label: 'Nexora Engine', href: '/products/nexora-engine' },
       { label: 'Nexora Media', href: '/products/nexora-media' },
-      { label: 'Nexora Insights', href: '/products/nexora-insights' },
+      { label: 'Insights Hub', href: '/products/nexora-insights' },
+      { label: 'Auralogics Portal', href: '/portal' },
     ],
     Resources: [
       { label: 'Getting Started', href: '/nexora-engine/docs/getting-started' },
@@ -16,6 +17,7 @@ export function Footer() {
       { label: 'Live Demo', href: '/nexora-engine/demo' },
     ],
     Company: [
+      { label: 'Blog', href: '/blog' },
       { label: 'About', href: '/#about' },
       { label: 'Portal', href: '/portal' },
       { label: 'Privacy Policy', href: 'mailto:hello@auralogicslabs.com?subject=Privacy Policy' },
@@ -31,7 +33,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border bg-white pt-32 pb-16 px-8 lg:px-24 relative overflow-hidden">
+    <footer className="w-full bg-obsidian text-white pt-20 pb-10 px-6 sm:px-10 lg:px-16 relative overflow-hidden">
       {/* Architectural Grid Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
@@ -44,13 +46,13 @@ export function Footer() {
               <img 
                 src="/auralogicslabs.svg" 
                 alt="Auralogics Labs" 
-                className="h-11 w-auto transition-transform group-hover:scale-105" 
+                className="h-11 w-auto brightness-0 invert transition-transform group-hover:scale-105" 
               />
             </div>
-            <p className="text-[20px] text-text-secondary leading-[1.6] font-medium mb-6">
-              Performance infrastructure for WordPress. Drop-in plugins that deliver static speed, modern image formats, and deep analytics — without the rebuild.
+            <p className="text-[18px] text-white/50 leading-[1.6] font-medium mb-6">
+              Invisible infrastructure intelligence for WordPress. Runtime delivery, media optimization, and orchestration — without the rebuild.
             </p>
-            <a href="mailto:hello@auralogicslabs.com" className="text-[16px] font-bold text-brand hover:text-obsidian transition-colors flex items-center gap-3">
+            <a href="mailto:hello@auralogicslabs.com" className="text-[16px] font-bold text-brand-soft hover:text-white transition-colors flex items-center gap-3">
                hello@auralogicslabs.com
             </a>
           </div>
@@ -59,7 +61,7 @@ export function Footer() {
           <div className="flex gap-20 sm:gap-32">
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category} className="min-w-[160px]">
-                <h3 className="text-[11px] font-bold text-obsidian uppercase tracking-[0.2em] mb-8">{category}</h3>
+                <h3 className="text-[11px] font-bold text-white/40 uppercase tracking-[0.2em] mb-8">{category}</h3>
                 <ul className="space-y-5">
                   {links.map((link) => (
                     <li key={link.label}>
@@ -67,7 +69,7 @@ export function Footer() {
                         <a
                           href={link.href}
                           {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                          className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
+                          className="group flex items-center text-[16px] font-bold text-white/55 hover:text-brand-soft transition-colors"
                         >
                           {link.label}
                           <ArrowUpRight className="ml-2 h-4 w-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
@@ -75,7 +77,7 @@ export function Footer() {
                       ) : (
                         <Link
                           href={link.href}
-                          className="group flex items-center text-[16px] font-bold text-text-secondary hover:text-brand transition-colors"
+                          className="group flex items-center text-[16px] font-bold text-white/55 hover:text-brand-soft transition-colors"
                         >
                           {link.label}
                           <ArrowUpRight className="ml-2 h-4 w-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
@@ -90,10 +92,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-[14px] font-bold text-text-muted">
+        <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-[14px] font-bold text-white/35">
             <p className="uppercase tracking-widest">© {new Date().getFullYear()} Auralogics Labs.</p>
-            <div className="hidden md:block h-1 w-1 rounded-full bg-border-strong" />
+            <div className="hidden md:block h-1 w-1 rounded-full bg-white/20" />
             <span className="uppercase tracking-widest">All rights reserved.</span>
           </div>
           
@@ -106,7 +108,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="h-10 w-10 flex items-center justify-center rounded-xl bg-surface-soft text-text-muted hover:bg-obsidian hover:text-white hover:-translate-y-1 transition-all duration-300"
+                className="h-10 w-10 flex items-center justify-center rounded-xl bg-white/8 text-white/50 hover:bg-brand hover:text-white hover:-translate-y-1 transition-all duration-300"
               >
                 <social.icon className="h-5 w-5" />
               </a>
