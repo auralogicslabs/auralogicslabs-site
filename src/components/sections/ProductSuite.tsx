@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight, Zap, ImageIcon, BarChart2, CheckCircle2, Clock, Server, Play, ShieldAlert, Cpu } from "lucide-react";
+import { ArrowRight, Zap, ImageIcon, Stethoscope, CheckCircle2, Server, Play, ShieldAlert, Cpu } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -339,16 +339,16 @@ export function ProductSuite() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               onMouseMove={handleCardMouseMove}
-              className="flex-1 rounded-[28px] bg-surface-soft border border-dashed border-amber/30 p-8 flex flex-col justify-between hover:border-amber/50 transition-all duration-300 relative overflow-hidden group"
+              className="flex-1 rounded-[28px] bg-surface-soft border border-[#13716A]/30 p-8 flex flex-col justify-between hover:border-[#13716A]/50 transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-amber/5 blur-[80px] rounded-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#13716A]/5 blur-[80px] rounded-full pointer-events-none" />
 
               {/* Mouse tracking spotlight overlay */}
               <div
                 className="absolute inset-0 rounded-[28px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                   border: "1.5px solid transparent",
-                  backgroundImage: `linear-gradient(#f8fafc, #f8fafc), radial-gradient(180px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(245, 158, 11, 0.15) 0%, rgba(192, 132, 252, 0.08) 50%, transparent 100%)`,
+                  backgroundImage: `linear-gradient(#f8fafc, #f8fafc), radial-gradient(180px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(19, 113, 106, 0.15) 0%, rgba(16, 185, 129, 0.08) 50%, transparent 100%)`,
                   backgroundOrigin: "border-box",
                   backgroundClip: "padding-box, border-box",
                 }}
@@ -357,35 +357,35 @@ export function ProductSuite() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-[12px] bg-amber/10 border border-amber/20 flex items-center justify-center flex-shrink-0">
-                      <BarChart2 className="h-4.5 w-4.5 text-amber" style={{ width: 18, height: 18 }} />
+                    <div className="h-10 w-10 rounded-[12px] bg-[#13716A]/10 border border-[#13716A]/20 flex items-center justify-center flex-shrink-0">
+                      <Stethoscope className="h-4.5 w-4.5 text-[#13716A]" style={{ width: 18, height: 18 }} />
                     </div>
                     <div>
-                      <div className="text-[9px] font-black uppercase tracking-[0.32em] text-text-muted mb-0.5">Coming Soon</div>
-                      <div className="text-[10px] font-semibold text-text-secondary">Analytics Intelligence</div>
+                      <div className="text-[9px] font-black uppercase tracking-[0.32em] text-text-muted mb-0.5">Available Free</div>
+                      <div className="text-[10px] font-semibold text-text-secondary">SEO Operations Console</div>
                     </div>
                   </div>
-                  <span className="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber/10 border border-amber/25 text-[9px] font-bold text-amber uppercase tracking-wider">
-                    <Clock className="h-2.5 w-2.5" />
-                    Q3 2026
+                  <span className="flex-shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[9px] font-bold text-emerald-600 uppercase tracking-wider">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Live
                   </span>
                 </div>
 
                 <h3 className="text-[22px] font-extrabold text-obsidian tracking-tight leading-tight mb-1.5">
-                  Nexora Insights
+                  Nexora Pulse
                 </h3>
                 <p className="text-[11px] font-bold text-text-muted uppercase tracking-[0.15em] mb-4">
-                  Analytics built for the static edge.
+                  Diagnose. Fix. Rank.
                 </p>
                 <p className="text-text-secondary text-[14px] leading-[1.65] font-medium mb-6">
-                  Per-page TTFB trends, cache coverage maps, rebuild event logs — all inside wp-admin. Measures what standard analytics misses when PHP never runs.
+                  Index Doctor, internal link graph, Core Web Vitals, and duplicate detection — one SEO console inside wp-admin. Finds exactly why Google isn't ranking your pages, using your own Search Console data.
                 </p>
 
                 {/* Edge Analytics Latency Vector Mock Graph */}
                 <div className="p-4 rounded-xl bg-white border border-border/80 shadow-[0_4px_12px_rgba(15,23,42,0.03)] my-5 flex flex-col justify-between min-h-[90px]">
                   <div className="flex items-center justify-between text-[8px] font-black uppercase tracking-wider text-text-muted mb-2">
-                    <span>Static Edge Latency Map</span>
-                    <span className="text-brand">22ms vs 850ms</span>
+                    <span>Index Coverage Trend</span>
+                    <span className="text-[#13716A]">142 indexed · 31 not</span>
                   </div>
                   <div className="relative h-10 w-full">
                     {/* SVG graphic graph */}
@@ -398,21 +398,21 @@ export function ProductSuite() {
                       </defs>
                       {/* WP Latency (Amber / Spiky) */}
                       <path d="M 0,32 Q 30,10 60,35 T 120,5 T 180,30 T 200,28" fill="url(#latencyGrad)" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" />
-                      {/* Nexora Latency (Blue / Flat Edge) */}
-                      <line x1="0" y1="36" x2="200" y2="36" stroke="#1A3FD8" strokeWidth="2.5" strokeDasharray="3 3" />
+                      {/* Indexed baseline (Teal / Flat) */}
+                      <line x1="0" y1="36" x2="200" y2="36" stroke="#13716A" strokeWidth="2.5" strokeDasharray="3 3" />
                     </svg>
                     {/* Floating pill tags */}
-                    <span className="absolute right-2 top-0 px-1.5 py-0.5 rounded bg-amber/10 border border-amber/20 text-[7px] font-bold text-amber font-mono">Uncached PHP (850ms)</span>
-                    <span className="absolute left-2 bottom-0 px-1.5 py-0.5 rounded bg-brand/10 border border-brand/20 text-[7px] font-bold text-brand font-mono">Nexora Static Edge (22ms)</span>
+                    <span className="absolute right-2 top-0 px-1.5 py-0.5 rounded bg-amber/10 border border-amber/20 text-[7px] font-bold text-amber font-mono">Not indexed (31)</span>
+                    <span className="absolute left-2 bottom-0 px-1.5 py-0.5 rounded bg-[#13716A]/10 border border-[#13716A]/20 text-[7px] font-bold text-[#13716A] font-mono">Indexed & ranking (142)</span>
                   </div>
                 </div>
               </div>
 
               <Link
-                href="/products/nexora-insights"
-                className="mt-7 inline-flex items-center gap-2 text-[13px] font-bold text-amber hover:text-obsidian transition-colors group/link relative z-10"
+                href="/products/nexora-pulse"
+                className="mt-7 inline-flex items-center gap-2 text-[13px] font-bold text-[#13716A] hover:text-obsidian transition-colors group/link relative z-10"
               >
-                Learn more &amp; get notified
+                Explore Nexora Pulse
                 <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </motion.div>

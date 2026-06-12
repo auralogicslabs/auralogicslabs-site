@@ -6,7 +6,7 @@ export function Footer() {
     Products: [
       { label: 'Nexora Engine', href: '/products/nexora-engine' },
       { label: 'Nexora Media', href: '/products/nexora-media' },
-      { label: 'Insights Hub', href: '/products/nexora-insights' },
+      { label: 'Nexora Pulse', href: '/products/nexora-pulse' },
       { label: 'Auralogics Portal', href: '/portal' },
     ],
     Resources: [

@@ -25,6 +25,189 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "why-google-wont-index-your-pages-nexora-pulse-index-doctor",
+    title: "Why Google Won't Index Your Pages — and How to Diagnose It",
+    excerpt:
+      "Crawled but not indexed. Discovered but not indexed. These verdicts kill organic traffic and most SEO plugins can't see them. Here's how Nexora Pulse's Index Doctor reads Google's own data to tell you exactly what's wrong.",
+    description:
+      "A practical guide to WordPress indexing problems. Learn what 'crawled — currently not indexed' really means, why it happens, and how Nexora Pulse's Index Doctor uses the Search Console URL Inspection API to diagnose the cause and detect systemic patterns.",
+    publishedAt: "2026-06-11",
+    updatedAt: "2026-06-11",
+    author: { name: "Auralogics Labs", role: "Product Team" },
+    category: "Nexora Pulse",
+    tags: ["WordPress SEO", "Google indexing", "Search Console", "Index Doctor", "Nexora Pulse"],
+    readTime: "8 min read",
+    featured: false,
+    accent: "#13716A",
+    image: {
+      src: "/blog/index-doctor-why-google-wont-index.svg",
+      alt: "Illustration of the Nexora Pulse Index Doctor reading Google Search Console indexing verdicts",
+    },
+    product: "platform",
+    content: [
+      {
+        type: "p",
+        text: "You publish a page, wait a few weeks, and check Google. It's nowhere. Not on page two, not on page ten — simply not in the index at all. You search for the exact title in quotes and Google returns nothing. The page exists, it's linked, your sitemap includes it, but as far as search is concerned it doesn't exist.",
+      },
+      {
+        type: "p",
+        text: "This is one of the most common and most frustrating problems in WordPress SEO, and most SEO plugins are blind to it. They score your title tag, check your meta description length, and tell you the page is \"good\" — while Google quietly refuses to index it. The gap is that on-page scoring and actual indexing status are two completely different things.",
+      },
+      { type: "h2", text: "The indexing verdicts that actually matter" },
+      {
+        type: "p",
+        text: "Google Search Console assigns every URL a coverage state. A handful of these states are where lost organic traffic hides, and understanding them is the first step to fixing the problem.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Indexed — the page is in Google's index and eligible to rank. This is the goal.",
+          "Crawled — currently not indexed — Google fetched the page, looked at it, and chose not to index it. Usually a quality or duplication signal.",
+          "Discovered — currently not indexed — Google knows the URL exists but hasn't crawled it yet, often a crawl-budget or site-authority signal.",
+          "Duplicate without user-selected canonical — Google folded this page into another it considers the original.",
+          "Excluded by 'noindex' tag — something on your site is actively telling Google to stay away, sometimes unintentionally.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Each verdict points to a different root cause and a different fix. \"Crawled — currently not indexed\" on a thin 200-word page means you should expand or consolidate it. The same verdict on a strong article usually means duplication or an internal-linking problem. You cannot fix what you cannot see — and that's precisely the visibility most plugins don't give you.",
+      },
+      { type: "h2", text: "Why scoring meta tags isn't enough" },
+      {
+        type: "p",
+        text: "Traditional SEO plugins operate entirely on signals they can read from your own database: title length, keyword in the H1, the presence of a meta description. These are useful hygiene checks, but they describe your intent, not Google's behavior. A page can score a perfect green light and still be sitting in the \"crawled, not indexed\" pile.",
+      },
+      {
+        type: "p",
+        text: "The only authoritative source for whether Google has indexed a URL is Google. Nexora Pulse connects to the Search Console URL Inspection API using your own credentials and pulls the real verdict for each page — the same data you'd see clicking through Search Console manually, except aggregated across your whole site and cross-referenced with on-page analysis.",
+      },
+      {
+        type: "callout",
+        title: "The Index Doctor difference",
+        text: "Instead of telling you a page 'could be better,' Pulse tells you 'Google crawled this page on May 3 and chose not to index it — and 9 of your 13 not-indexed pages share the same trait: under 300 words.' That's a diagnosis, not a checklist.",
+      },
+      { type: "h2", text: "Finding the pattern, not just the symptom" },
+      {
+        type: "p",
+        text: "Fixing indexing problems one page at a time is slow and demoralizing. The real leverage comes from spotting systemic patterns. When Pulse inspects your pages, it doesn't just record each verdict — it looks for what the rejected pages have in common.",
+      },
+      {
+        type: "p",
+        text: "If the majority of your not-indexed URLs are thin content, the fix is an editorial one: expand, merge, or prune. If they're orphan pages with no internal links pointing to them, the fix is structural: build internal links from your strongest pages. If they're near-duplicates, the fix is canonicalization. The Index Doctor surfaces these clusters so you spend your time on the change that moves the most pages at once.",
+      },
+      { type: "h3", text: "How Pulse cross-references signals" },
+      {
+        type: "p",
+        text: "Google's verdict tells you what happened; Pulse's own analysis suggests why. By overlaying Search Console status with its internal checks — word count, internal link count, duplicate similarity scores, and Core Web Vitals — Pulse assembles a probable cause for each rejected page. It's the difference between a thermometer that says you have a fever and a diagnosis that names the infection.",
+      },
+      { type: "h2", text: "A practical workflow for clearing the backlog" },
+      {
+        type: "ul",
+        items: [
+          "1. Connect Search Console so Pulse can read real indexing verdicts for every page",
+          "2. Run an inspection sweep and sort by coverage state to see the size of each problem bucket",
+          "3. Open the systemic patterns panel to find the single trait most rejected pages share",
+          "4. Fix the pattern at the source — expand thin pages, link to orphans, or canonicalize duplicates",
+          "5. Re-inspect after changes and request indexing for the pages you've improved",
+        ],
+      },
+      {
+        type: "p",
+        text: "Indexing is the foundation of SEO — rankings, traffic, and conversions all depend on Google first deciding your page is worth keeping. Nexora Pulse gives you the one thing that makes that decision legible: Google's own verdict, explained. Install it free, connect Search Console, and within minutes you'll know exactly which pages Google is ignoring and what to do about each one.",
+      },
+    ],
+  },
+  {
+    slug: "one-seo-console-for-wordpress-nexora-pulse",
+    title: "One Console for WordPress SEO: Inside Nexora Pulse",
+    excerpt:
+      "Most teams run their SEO across a dozen plugins and twice as many browser tabs. Nexora Pulse pulls indexing, on-page analysis, internal links, Core Web Vitals, and duplicate detection into a single free dashboard.",
+    description:
+      "An overview of Nexora Pulse, the free SEO operations console for WordPress. SEO Analyzer, Index Doctor, Neural Links, Core Web Vitals from PageSpeed, duplicate detection, redirects, and sitemap — all in one dashboard, powered by your own Google data.",
+    publishedAt: "2026-06-09",
+    updatedAt: "2026-06-09",
+    author: { name: "Auralogics Labs", role: "Product Team" },
+    category: "Nexora Pulse",
+    tags: ["WordPress SEO", "SEO plugin", "Core Web Vitals", "internal links", "Nexora Pulse"],
+    readTime: "7 min read",
+    featured: false,
+    accent: "#13716A",
+    image: {
+      src: "/blog/nexora-pulse-seo-console.svg",
+      alt: "Illustration of the Nexora Pulse SEO operations console dashboard for WordPress",
+    },
+    product: "platform",
+    content: [
+      {
+        type: "p",
+        text: "SEO on WordPress has a fragmentation problem. One plugin handles titles and meta. Another generates the sitemap. You check Search Console in one tab, PageSpeed Insights in another, a duplicate-content checker in a third, and a redirect manager somewhere in wp-admin. Each tool sees a sliver of the picture, and you become the integration layer — the only thing that knows how a thin-content warning, a 'crawled not indexed' verdict, and a poor LCP score all relate to the same struggling page.",
+      },
+      {
+        type: "p",
+        text: "Nexora Pulse was built to collapse that sprawl. It's a free SEO operations console for WordPress: a single dashboard that diagnoses indexing problems, scores on-page SEO, maps your internal links, tracks Core Web Vitals, and flags duplicates — using your own Google data, with no upsell walls in front of the core features.",
+      },
+      { type: "h2", text: "What's inside the console" },
+      {
+        type: "p",
+        text: "Rather than bolt features onto a meta-box editor, Pulse organizes the work the way an SEO actually thinks about it: diagnose, fix, monitor. Each module feeds the others.",
+      },
+      {
+        type: "ul",
+        items: [
+          "SEO Analyzer — scans every post and page for titles, descriptions, headings, readability, and keyword usage, scoring each so you know where to focus",
+          "Index Doctor — pulls real indexing verdicts from Search Console and explains why pages aren't indexed",
+          "Neural Links — maps your internal link graph, surfacing orphan pages and broken links",
+          "Core Web Vitals — live LCP, INP, and CLS from PageSpeed Insights and real Chrome users (CrUX)",
+          "Originality — detects near-duplicate and thin content before Google penalizes it",
+          "Image SEO, Redirect Manager, XML Sitemap, and Schema output round out the operational toolkit",
+        ],
+      },
+      { type: "h2", text: "Powered by your own Google data" },
+      {
+        type: "p",
+        text: "The features that set Pulse apart — the Index Doctor and the Core Web Vitals tracking — run on direct connections to Google Search Console and PageSpeed Insights. Crucially, those connections use your own API credentials. Pulse talks from your WordPress site straight to Google's APIs; it doesn't proxy your data through a third-party server, and there's no metered usage to pay for.",
+      },
+      {
+        type: "p",
+        text: "That design has two benefits. Your analytics data stays yours, stored in your own database with credentials encrypted at rest. And because you're using your own free Google quota, the most powerful capabilities in Pulse cost nothing to run.",
+      },
+      {
+        type: "callout",
+        title: "Free, not freemium-crippled",
+        text: "Every core module — Analyzer, Index Doctor, Neural Links, Core Web Vitals, Originality, Image SEO, redirects, and sitemap — ships free. There's no paywall hiding the feature you actually came for.",
+      },
+      { type: "h2", text: "Built to complement, not fight, your stack" },
+      {
+        type: "p",
+        text: "Pulse focuses on diagnostic intelligence rather than rewriting the meta-box workflow, so it runs comfortably alongside an existing SEO plugin. You control which head tags Pulse outputs — verification tags, Open Graph and Twitter cards, JSON-LD schema — so you can avoid duplication with whatever you already have configured.",
+      },
+      {
+        type: "p",
+        text: "For teams that have outgrown checklist-style SEO plugins, that means you can adopt Pulse for its indexing and link intelligence without ripping out your current setup on day one.",
+      },
+      { type: "h3", text: "Where it fits in the Auralogics stack" },
+      {
+        type: "p",
+        text: "Nexora Pulse is the SEO and visibility layer of the Auralogics Labs platform. It pairs naturally with Nexora Engine, which delivers the static-speed infrastructure that improves the very Core Web Vitals Pulse measures — faster server response times feed directly into better LCP scores and more efficient crawling.",
+      },
+      { type: "h2", text: "Getting started in minutes" },
+      {
+        type: "ul",
+        items: [
+          "Install Nexora Pulse free from the WordPress plugin directory",
+          "Run your first SEO scan to score every published page",
+          "Connect Search Console to unlock the Index Doctor and click data",
+          "Add your free PageSpeed API key to start tracking Core Web Vitals",
+          "Review systemic patterns and work through the highest-impact fixes first",
+        ],
+      },
+      {
+        type: "p",
+        text: "The promise is simple: stop stitching your SEO together across a dozen tools and let one console show you what's actually holding your rankings back. Install Nexora Pulse, connect your Google accounts, and run your first diagnosis today.",
+      },
+    ],
+  },
+  {
     slug: "static-speed-wordpress-without-headless-rebuild",
     title: "Static-Speed WordPress Without a Headless Rebuild",
     excerpt:

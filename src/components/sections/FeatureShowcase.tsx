@@ -440,32 +440,32 @@ function InsightsShowcase() {
             className="flex flex-col gap-7"
           >
             <div className="flex items-center gap-3">
-              <div className="h-0.5 w-8 rounded-full bg-amber" />
-              <span className="text-[11px] font-black uppercase tracking-[0.3em] text-amber">
-                Nexora Insights
+              <div className="h-0.5 w-8 rounded-full" style={{ background: "#13716A" }} />
+              <span className="text-[11px] font-black uppercase tracking-[0.3em]" style={{ color: "#13716A" }}>
+                Nexora Pulse
               </span>
             </div>
 
             <div className="relative">
               <h2 className="text-[34px] md:text-[46px] font-extrabold text-obsidian tracking-tight leading-[1.05]">
-                Know exactly what your cache is doing.{" "}
-                <span className="text-amber">Always.</span>
+                Know exactly why Google isn&apos;t ranking you.{" "}
+                <span style={{ color: "#13716A" }}>Always.</span>
               </h2>
-              <div className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full bg-amber/10 border border-amber/25">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber animate-pulse" />
-                <span className="text-[11px] font-bold text-amber uppercase tracking-[0.2em]">Coming Q3 2026</span>
+              <div className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[11px] font-bold text-emerald-600 uppercase tracking-[0.2em]">Free · Available Now</span>
               </div>
             </div>
 
             <p className="text-[17px] text-text-secondary font-medium leading-[1.7] max-w-[480px]">
-              Real-time cache hit rates, TTFB trends, and per-page performance breakdowns — all inside your WordPress admin. No external dashboards.
+              Real indexing verdicts, on-page issue scoring, and Core Web Vitals — all inside your WordPress admin, powered by your own Search Console data. No external dashboards.
             </p>
 
             <div className="flex flex-col gap-4">
               {[
-                { label: "Per-page TTFB tracking", desc: "see exactly which pages are slowest", color: "#F59E0B" },
-                { label: "Cache coverage map", desc: "visual overview of what's cached and what's not", color: "#F59E0B" },
-                { label: "Rebuild event log", desc: "every invalidation with timestamps and triggers", color: "#D97706" },
+                { label: "Index Doctor", desc: "diagnoses why each page isn't indexed", color: "#13716A" },
+                { label: "Internal link graph", desc: "finds orphan pages and broken links", color: "#13716A" },
+                { label: "Core Web Vitals", desc: "live LCP, INP, CLS from real Chrome users", color: "#0F5A55" },
               ].map((b, i) => (
                 <motion.div
                   key={b.label}
@@ -475,8 +475,8 @@ function InsightsShowcase() {
                   transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
                   className="flex items-start gap-3.5"
                 >
-                  <div className="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center flex-shrink-0 bg-amber/15 border border-amber/30">
-                    <CheckCircle2 className="h-3 w-3 text-amber" />
+                  <div className="mt-0.5 h-5 w-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(19,113,106,0.15)", border: "1px solid rgba(19,113,106,0.3)" }}>
+                    <CheckCircle2 className="h-3 w-3" style={{ color: "#13716A" }} />
                   </div>
                   <div>
                     <span className="text-[14px] font-extrabold text-obsidian tracking-tight">{b.label}</span>
@@ -487,11 +487,12 @@ function InsightsShowcase() {
             </div>
 
             <Link
-              href="/products/nexora-insights"
-              className="inline-flex items-center gap-2.5 rounded-2xl px-7 py-3.5 text-[14px] font-bold text-obsidian border-2 border-amber/40 bg-amber/8 hover:bg-amber/15 hover:border-amber/60 transition-all duration-300 group w-fit"
+              href="/products/nexora-pulse"
+              className="inline-flex items-center gap-2.5 rounded-2xl px-7 py-3.5 text-[14px] font-bold text-obsidian border-2 transition-all duration-300 group w-fit"
+              style={{ borderColor: "rgba(19,113,106,0.4)", background: "rgba(19,113,106,0.08)" }}
             >
-              <BarChart3 className="h-4 w-4 text-amber" />
-              Learn more about Insights
+              <BarChart3 className="h-4 w-4" style={{ color: "#13716A" }} />
+              Explore Nexora Pulse
               <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -520,8 +521,8 @@ function InsightsShowcase() {
                 </div>
                 <div className="flex-1 mx-4">
                   <div className="bg-white border border-border rounded-lg px-3 py-1.5 flex items-center gap-2">
-                    <div className="h-2.5 w-2.5 rounded-full bg-amber/70 flex-shrink-0" />
-                    <span className="text-[11px] font-mono text-text-muted">your-site.com/wp-admin · Nexora Insights</span>
+                    <div className="h-2.5 w-2.5 rounded-full flex-shrink-0" style={{ background: "rgba(19,113,106,0.7)" }} />
+                    <span className="text-[11px] font-mono text-text-muted">your-site.com/wp-admin · Nexora Pulse</span>
                   </div>
                 </div>
               </div>

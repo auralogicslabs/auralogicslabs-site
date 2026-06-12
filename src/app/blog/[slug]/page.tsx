@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
 
           <div className="w-full max-w-[760px] mx-auto px-6 sm:px-10 pb-20 md:pb-28">
-            <BlogPostContent blocks={post.content} />
+            <BlogPostContent blocks={post.content} product={post.product} />
 
             <div className="mt-12 flex flex-wrap gap-2">
               {post.tags.map((tag) => (

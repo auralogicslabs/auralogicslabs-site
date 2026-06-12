@@ -1,7 +1,13 @@
 import Link from "next/link";
-import type { BlogContentBlock } from "@/data/blog";
+import type { BlogContentBlock, BlogPost } from "@/data/blog";
 
-export function BlogPostContent({ blocks }: { blocks: BlogContentBlock[] }) {
+export function BlogPostContent({
+  blocks,
+  product = "nexora-engine",
+}: {
+  blocks: BlogContentBlock[];
+  product?: BlogPost["product"];
+}) {
   return (
     <div className="prose-blog">
       {blocks.map((block, i) => {
@@ -57,17 +63,27 @@ export function BlogPostContent({ blocks }: { blocks: BlogContentBlock[] }) {
       })}
 
       <div className="mt-14 pt-10 border-t border-border/70">
-        <p className="text-[16px] text-text-secondary font-medium leading-relaxed">
-          Ready to see these concepts on your stack?{" "}
-          <Link href="/products/nexora-engine" className="text-brand font-bold hover:underline">
-            Explore Nexora Engine
-          </Link>{" "}
-          or{" "}
-          <Link href="/nexora-engine/docs/getting-started" className="text-brand font-bold hover:underline">
-            read the getting-started guide
-          </Link>
-          .
-        </p>
+        {product === "platform" ? (
+          <p className="text-[16px] text-text-secondary font-medium leading-relaxed">
+            Ready to put this to work on your site?{" "}
+            <Link href="/products/nexora-pulse" className="text-brand font-bold hover:underline">
+              Explore Nexora Pulse
+            </Link>{" "}
+            — the free SEO operations console for WordPress.
+          </p>
+        ) : (
+          <p className="text-[16px] text-text-secondary font-medium leading-relaxed">
+            Ready to see these concepts on your stack?{" "}
+            <Link href="/products/nexora-engine" className="text-brand font-bold hover:underline">
+              Explore Nexora Engine
+            </Link>{" "}
+            or{" "}
+            <Link href="/nexora-engine/docs/getting-started" className="text-brand font-bold hover:underline">
+              read the getting-started guide
+            </Link>
+            .
+          </p>
+        )}
       </div>
     </div>
   );

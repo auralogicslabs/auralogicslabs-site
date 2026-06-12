@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
-import { Menu, X, ArrowRight, ChevronDown, Zap, ImageIcon, BarChart2, LayoutDashboard, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, Zap, ImageIcon, Stethoscope, LayoutDashboard, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const products = [
@@ -26,13 +26,13 @@ const products = [
     accent: "#059669",
   },
   {
-    name: "Insights Hub",
-    tagline: "Performance intelligence for your stack",
-    href: "/products/nexora-insights",
-    icon: BarChart2,
-    status: "Soon",
-    statusColor: "text-amber-400",
-    accent: "#F59E0B",
+    name: "Nexora Pulse",
+    tagline: "SEO operations console for WordPress",
+    href: "/products/nexora-pulse",
+    icon: Stethoscope,
+    status: "Live",
+    statusColor: "text-emerald-400",
+    accent: "#13716A",
   },
   {
     name: "Auralogics Portal",
@@ -133,7 +133,7 @@ function ProductsDropdown({ open, dark }: { open: boolean; dark: boolean }) {
                 Auralogics Labs
               </span>
               <Link
-                href="/#products"
+                href="/products"
                 className="text-[11px] font-bold text-brand hover:text-obsidian transition-colors flex items-center gap-1 group"
               >
                 All products
@@ -216,8 +216,8 @@ export function Header() {
                 onMouseEnter={() => setProductsOpen(true)}
                 onMouseLeave={() => setProductsOpen(false)}
               >
-                <button
-                  onClick={() => setProductsOpen((v) => !v)}
+                <Link
+                  href="/products"
                   className={`relative flex items-center gap-2 px-5 py-3 rounded-[12px] text-[20px] font-extrabold tracking-[-0.02em] transition-all duration-200 ${
                     isDark
                       ? "text-white/85 hover:text-white hover:bg-white/8"
@@ -231,7 +231,7 @@ export function Header() {
                   >
                     <ChevronDown className="h-4.5 w-4.5 opacity-50" style={{ width: 18, height: 18 }} />
                   </motion.div>
-                </button>
+                </Link>
                 <ProductsDropdown open={productsOpen} dark={isDark} />
               </div>
 
