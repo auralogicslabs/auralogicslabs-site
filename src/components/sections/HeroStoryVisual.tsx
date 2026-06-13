@@ -9,10 +9,10 @@ import {
   Zap,
   ImageIcon,
   LayoutDashboard,
-  BarChart3,
+  Stethoscope,
   CheckCircle2,
+  AlertTriangle,
   Clock,
-  MousePointerClick,
   Layers,
 } from "lucide-react";
 
@@ -51,11 +51,11 @@ const slides: {
   },
   {
     id: "insights",
-    chromeUrl: "portal.auralogicslabs.com · Insights Hub",
+    chromeUrl: "your-site.com/wp-admin · Nexora Pulse",
     pillSite: "your-site.com",
-    pillStatus: "Monitoring live",
-    stat: { value: "98", label: "Perf. Score", sub: "Core Web Vitals green", color: "#0D9488" },
-    statSecondary: { value: "1.2s", label: "LCP", color: "#059669" },
+    pillStatus: "Index Doctor live",
+    stat: { value: "142", label: "Pages Indexed", sub: "up from 109 last month", color: "#13716A" },
+    statSecondary: { value: "13", label: "Issues Found", color: "#F59E0B" },
   },
   {
     id: "portal",
@@ -330,23 +330,23 @@ function MediaSlide() {
   );
 }
 
-/** Slide 3 — Insights Hub: CWV + static delivery analytics */
+/** Slide 3 — Nexora Pulse: SEO operations console / Index Doctor */
 function InsightsSlide() {
   return (
     <div className="bg-[#0F1521] flex-1 p-4 sm:p-5 flex flex-col min-h-[200px] h-full">
       <SlideHeader
-        icon={BarChart3}
-        accent="#0D9488"
-        product="Insights Hub"
-        subtitle="Performance intelligence for static sites"
-        badge="Q3 2026"
+        icon={Stethoscope}
+        accent="#13716A"
+        product="Nexora Pulse"
+        subtitle="SEO operations console for WordPress"
+        badge="Free"
       />
 
       <div className="grid grid-cols-3 gap-2 mb-4">
         {[
-          { v: "1.2s", l: "LCP", c: "#059669", icon: MousePointerClick },
-          { v: "0.02", l: "CLS", c: "#0D9488", icon: Layers },
-          { v: "48ms", l: "INP", c: "#1A3FD8", icon: Zap },
+          { v: "142", l: "Indexed", c: "#16A34A", icon: CheckCircle2 },
+          { v: "13", l: "Not indexed", c: "#F59E0B", icon: AlertTriangle },
+          { v: "9", l: "Thin pages", c: "#EF4444", icon: Layers },
         ].map((m, i) => {
           const Icon = m.icon;
           return (
@@ -372,13 +372,13 @@ function InsightsSlide() {
         transition={{ delay: 0.35 }}
         className="rounded-xl bg-white/[0.04] border border-white/8 p-4 flex-1 flex flex-col justify-end mb-3"
       >
-        <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-3">Perf. score trend</p>
+        <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-3">Pages indexed · last 12 weeks</p>
         <div className="flex items-end gap-1 h-20 sm:h-24">
-          {[62, 68, 71, 75, 80, 84, 88, 91, 94, 96, 97, 98].map((h, i) => (
+          {[58, 64, 70, 76, 83, 91, 98, 104, 112, 121, 134, 142].map((h, i) => (
             <motion.div
               key={i}
               initial={{ height: 0 }}
-              animate={{ height: `${h}%` }}
+              animate={{ height: `${Math.round((h / 142) * 100)}%` }}
               transition={{ duration: 0.6, delay: 0.4 + i * 0.04, ease: [0.16, 1, 0.3, 1] }}
               className="flex-1 rounded-t bg-gradient-to-t from-teal-600/70 to-teal-400/20 min-h-[2px]"
             />
@@ -392,8 +392,8 @@ function InsightsSlide() {
         transition={{ delay: 0.75 }}
         className="rounded-lg bg-white/[0.03] border border-white/6 px-3 py-2 flex items-center justify-between"
       >
-        <span className="text-[10px] text-white/40">Cache-hit rates · TTFB distributions · build impact</span>
-        <span className="text-[9px] font-black text-teal-400 uppercase">Live sync</span>
+        <span className="text-[10px] text-white/40">9 of 13 not-indexed pages are thin content</span>
+        <span className="text-[9px] font-black text-teal-400 uppercase">Diagnosed</span>
       </motion.div>
     </div>
   );

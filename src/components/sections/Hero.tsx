@@ -230,12 +230,12 @@ export function Hero() {
               </h1>
 
               <p className="mt-6 sm:mt-7 max-w-[560px] text-[16px] sm:text-[18px] md:text-[20px] text-white/42 font-medium leading-[1.6]">
-                Auralogics Labs designs infrastructure that closes the gap between how the web performs and how it should. Our products run quietly in the background, so your users never wait.
+                Auralogics Labs builds drop-in infrastructure for WordPress — static-speed delivery, SEO intelligence, and edge media optimization. Our products run quietly in the background, so your users never wait and Google never overlooks you.
               </p>
 
               <div className="relative z-30 mt-7 sm:mt-8 flex items-center gap-3 sm:gap-4">
                 <Link
-                  href="/#products"
+                  href="/products"
                   className="relative z-30 inline-flex items-center justify-center rounded-full bg-[#F39A09] text-obsidian px-7 sm:px-8 py-3.5 sm:py-4 text-[12px] sm:text-[13px] font-black uppercase tracking-wide hover:bg-[#ffb347] transition-colors shadow-[0_8px_28px_rgba(243,154,9,0.35)]"
                 >
                   Explore Platform

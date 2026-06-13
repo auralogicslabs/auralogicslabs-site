@@ -1,5 +1,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { MAIL_FROM } from '@/lib/mail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,7 +15,7 @@ export async function POST(req: Request) {
     }
 
     const data = await resend.emails.send({
-      from: 'Nexora Engine <onboarding@resend.dev>',
+      from: MAIL_FROM,
       to: [email],
       subject: 'Authorize Your Infrastructure Identity',
       html: `

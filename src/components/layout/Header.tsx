@@ -176,25 +176,24 @@ export function Header() {
   return (
     <>
       <ScrollProgressBar />
-      <header className="fixed top-0 z-50 w-full pt-5 px-5 lg:px-8 pointer-events-none">
-        <div className="w-full max-w-[1600px] mx-auto pointer-events-auto">
+      <header className="fixed top-0 z-50 w-full pointer-events-none">
+        {/* Full-width background bar — appears on scroll, spans edge to edge */}
+        <motion.div
+          initial={false}
+          animate={{
+            backgroundColor: scrolled ? "rgba(255,255,255,0.97)" : "rgba(0,0,0,0)",
+            borderColor: scrolled ? "rgba(226,232,240,1)" : "rgba(0,0,0,0)",
+            boxShadow: scrolled
+              ? "0 4px 6px rgba(2,6,23,0.04), 0 8px 30px rgba(2,6,23,0.07)"
+              : "none",
+          }}
+          transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+          className="absolute inset-0 border-b backdrop-blur-2xl"
+        />
 
-          <motion.div
-            initial={false}
-            animate={{
-              backgroundColor: scrolled
-                ? "rgba(255,255,255,0.97)"
-                : "rgba(0,0,0,0)",
-              borderColor: scrolled
-                ? "rgba(226,232,240,1)"
-                : "rgba(0,0,0,0)",
-              boxShadow: scrolled
-                ? "0 4px 6px rgba(2,6,23,0.04), 0 12px 40px rgba(2,6,23,0.08)"
-                : "none",
-            }}
-            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-            className="flex h-[72px] items-center justify-between px-5 lg:px-7 rounded-[18px] border backdrop-blur-2xl"
-          >
+        {/* Content — stays aligned to the body container */}
+        <div className="relative w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pointer-events-auto">
+          <div className="flex h-[76px] items-center justify-between">
 
             {/* ── Logo ── */}
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
@@ -318,7 +317,7 @@ export function Header() {
                 )}
               </AnimatePresence>
             </button>
-          </motion.div>
+          </div>
 
           {/* ── Mobile drawer ── */}
           <AnimatePresence>

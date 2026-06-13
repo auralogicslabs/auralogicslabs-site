@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import {
-  Zap, Shield, RefreshCcw, ImageIcon, LayoutDashboard, BarChart3, Globe,
+  Zap, Shield, RefreshCcw, ImageIcon, LayoutDashboard, Stethoscope, Globe,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/SectionShell";
 
@@ -46,10 +46,10 @@ const rightFeatures = [
     color: "#FCD34D",
   },
   {
-    icon: BarChart3,
-    title: "Performance Intelligence",
+    icon: Stethoscope,
+    title: "SEO Operations Console",
     description:
-      "Core Web Vitals, cache analytics, and build impact reports — all tied directly to your static delivery layer.",
+      "Nexora Pulse diagnoses why Google won't index your pages, maps internal links, and tracks Core Web Vitals — free, from your own Search Console data.",
     color: "#5EEAD4",
   },
 ];
@@ -102,7 +102,7 @@ function PlatformHubVisual() {
   const orbit = [
     { label: "Engine", color: "#60A5FA", x: "50%", y: "8%" },
     { label: "Media", color: "#A78BFA", x: "88%", y: "38%" },
-    { label: "Insights", color: "#5EEAD4", x: "72%", y: "82%" },
+    { label: "Pulse", color: "#5EEAD4", x: "72%", y: "82%" },
     { label: "Portal", color: "#FCD34D", x: "28%", y: "82%" },
     { label: "Edge", color: "#6EE7B7", x: "12%", y: "38%" },
   ];
@@ -159,7 +159,7 @@ function PlatformHubVisual() {
           </div>
           <div className="text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 mb-1">Nexora Platform</p>
-            <p className="text-[13px] font-bold text-white/65">Runtime · Media · Control</p>
+            <p className="text-[13px] font-bold text-white/65">Speed · SEO · Media · Control</p>
           </div>
         </div>
         <div className="absolute bottom-0 inset-x-0 grid grid-cols-3 gap-px border-t border-white/[0.07]"
@@ -193,115 +193,15 @@ function PlatformHubVisual() {
   );
 }
 
-function PlatformUIStrip() {
-  const metrics = [
-    { v: "22ms", l: "TTFB", c: "#60A5FA" },
-    { v: "↓70%", l: "Payload", c: "#A78BFA" },
-    { v: "100%", l: "Static", c: "#34D399" },
-    { v: "99.9%", l: "Uptime", c: "#FCD34D" },
-  ];
-  const bars = [
-    { w: 82, c: "#60A5FA", label: "nexora-engine.js" },
-    { w: 58, c: "#A78BFA", label: "media-optimizer.js" },
-    { w: 91, c: "#34D399", label: "cache-hit-rate" },
-    { w: 44, c: "#FCD34D", label: "build-pipeline.js" },
-    { w: 73, c: "#5EEAD4", label: "fleet-sync.js" },
-  ];
-
-  return (
-    <ScrollReveal delay={0.25}>
-      <div
-        className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/[0.07] mt-16 md:mt-20 lg:mt-24"
-        style={{ background: "linear-gradient(160deg, #0B1535 0%, #090F28 100%)" }}
-      >
-        {/* Browser chrome */}
-        <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-white/[0.07]"
-          style={{ background: "rgba(255,255,255,0.03)" }}>
-          <div className="flex gap-1.5">
-            <div className="h-2.5 w-2.5 rounded-full bg-red-500/50" />
-            <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/50" />
-            <div className="h-2.5 w-2.5 rounded-full bg-green-500/50" />
-          </div>
-          <div className="flex-1 max-w-xs mx-auto">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/[0.08]"
-              style={{ background: "rgba(255,255,255,0.04)" }}>
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 flex-shrink-0 animate-pulse" />
-              <span className="text-[10px] font-mono text-white/30">
-                portal.auralogicslabs.com · Platform overview
-              </span>
-            </div>
-          </div>
-          <span className="hidden sm:inline-flex text-[9px] font-black uppercase tracking-[0.18em] text-white/18 border border-dashed border-white/12 px-3 py-1 rounded-full">
-            Screenshot placeholder
-          </span>
-        </div>
-
-        {/* Dashboard content */}
-        <div className="grid grid-cols-1 md:grid-cols-[200px_1fr]">
-          {/* Sidebar */}
-          <div className="hidden md:block border-r border-white/[0.06] p-4 space-y-1">
-            {["Dashboard", "Engine", "Media", "Insights", "Portal", "Settings"].map((item, i) => (
-              <div
-                key={item}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-lg"
-                style={{ background: i === 0 ? "rgba(96,165,250,0.12)" : "transparent" }}
-              >
-                <div
-                  className="h-1.5 w-1.5 rounded-full flex-shrink-0"
-                  style={{ background: i === 0 ? "#60A5FA" : "rgba(255,255,255,0.18)" }}
-                />
-                <span className="text-[12px] font-medium"
-                  style={{ color: i === 0 ? "#93C5FD" : "rgba(255,255,255,0.22)" }}>
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Main */}
-          <div className="p-5 md:p-6 lg:p-8 space-y-5">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {metrics.map((m) => (
-                <div
-                  key={m.l}
-                  className="rounded-xl p-4 border border-white/[0.06]"
-                  style={{ background: "rgba(255,255,255,0.03)" }}
-                >
-                  <p className="font-mono text-[22px] font-black leading-none" style={{ color: m.c }}>
-                    {m.v}
-                  </p>
-                  <p className="text-[9px] text-white/25 uppercase tracking-wider mt-1.5">{m.l}</p>
-                </div>
-              ))}
-            </div>
-            <div className="space-y-3">
-              {bars.map((bar, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="h-2 w-2 rounded-full flex-shrink-0" style={{ background: bar.c }} />
-                  <span className="text-[11px] text-white/22 font-mono w-40 truncate hidden sm:block">
-                    {bar.label}
-                  </span>
-                  <div className="flex-1 h-1.5 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
-                    <div className="h-full rounded-full" style={{ width: `${bar.w}%`, background: `${bar.c}55` }} />
-                  </div>
-                  <span className="text-[10px] text-white/20 w-7 text-right font-mono">{bar.w}%</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </ScrollReveal>
-  );
-}
-
 export function PlatformFeatures() {
   return (
     <section
-      id="how-it-works"
+      id="under-the-hood"
       className="relative overflow-hidden py-24 md:py-32 lg:py-40"
-      style={{ background: "#050B25" }}
+      style={{ background: "linear-gradient(180deg, #030714 0%, #06102A 45%, #030714 100%)" }}
     >
+        {/* Top hairline — separates this band from The Platform above */}
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(96,165,250,0.35), transparent)" }} />
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/3 w-[700px] h-[600px] rounded-full blur-[220px] opacity-25"
@@ -327,7 +227,7 @@ export function PlatformFeatures() {
               style={{ background: "rgba(96,165,250,0.1)" }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-              How It Works
+              Under The Hood
             </span>
             <h2
               className="text-[34px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.06] tracking-[-0.04em] max-w-[820px] mx-auto mb-5"
@@ -345,7 +245,7 @@ export function PlatformFeatures() {
               className="text-[17px] md:text-[18px] leading-relaxed max-w-[580px] mx-auto font-medium"
               style={{ color: "rgba(255,255,255,0.38)" }}
             >
-              Install once. Nexora handles capture, optimization, and delivery — your team keeps building in WordPress.
+              Six capabilities working in concert — capture, delivery, security, media, SEO, and control — while your team keeps building in WordPress.
             </p>
           </motion.div>
 
@@ -365,9 +265,6 @@ export function PlatformFeatures() {
               ))}
             </div>
           </div>
-
-          {/* Platform UI mockup strip */}
-          <PlatformUIStrip />
         </div>
     </section>
   );

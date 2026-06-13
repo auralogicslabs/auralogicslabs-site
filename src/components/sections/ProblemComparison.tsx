@@ -38,7 +38,7 @@ export function ProblemComparison() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <FullWidthSection tone="soft" className="rounded-t-[2.5rem] rounded-b-[2.5rem] overflow-hidden">
+    <FullWidthSection tone="soft" className="overflow-hidden">
       {/* Centered heading — deliberately different from FeatureTeaser's 2-col */}
       <ScrollReveal>
         <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">

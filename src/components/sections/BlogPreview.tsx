@@ -134,16 +134,16 @@ export function BlogPreview({
               Engineering Notes
             </span>
             <h2 className="text-[34px] md:text-[48px] lg:text-[52px] font-extrabold text-obsidian leading-[1.06] tracking-[-0.04em] max-w-[640px]">
-              How modern WordPress infrastructure{" "}
+              Field notes from the{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #059669 100%)" }}
               >
-                actually works.
+                edge of WordPress.
               </span>
             </h2>
             <p className="mt-4 text-[17px] text-text-secondary font-medium leading-relaxed max-w-[520px]">
-              Deep dives on static delivery, Core Web Vitals, security, and WooCommerce — written for teams evaluating Nexora Engine.
+              Deep dives on static delivery, indexing, Core Web Vitals, and security — written for teams who take WordPress performance and SEO seriously.
             </p>
           </ScrollReveal>
 
