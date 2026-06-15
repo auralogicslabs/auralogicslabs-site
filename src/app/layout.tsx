@@ -79,8 +79,20 @@ export default function RootLayout({
         "@id": "https://auralogicslabs.com/#organization",
         "name": "Auralogics Labs",
         "url": "https://auralogicslabs.com",
-        "logo": "https://auralogicslabs.com/auralogicslabs.svg",
-        "description": "Infrastructure intelligence platform for WordPress: runtime delivery, media optimization, and orchestration."
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://auralogicslabs.com/auralogicslabs.svg",
+          "width": 200,
+          "height": 200
+        },
+        "description": "Drop-in WordPress plugins for static-speed delivery, SEO intelligence, and image optimization. No headless migration, no DevOps required.",
+        "email": "hello@auralogicslabs.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "hello@auralogicslabs.com",
+          "url": "https://auralogicslabs.com/contact"
+        }
       },
       {
         "@type": "WebSite",

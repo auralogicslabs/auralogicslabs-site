@@ -2,7 +2,7 @@
 import { LegalLayout } from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy. Auralogics Labs",
+  title: "Privacy Policy | Auralogics Labs",
   description: "How Auralogics Labs collects, uses, and protects your information across our website and products.",
   alternates: { canonical: "/privacy" },
 };

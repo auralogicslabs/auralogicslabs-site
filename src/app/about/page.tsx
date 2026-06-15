@@ -5,10 +5,16 @@ import { Footer } from "@/components/layout/Footer";
 import { Zap, Stethoscope, ImageIcon, LayoutDashboard, Target, Compass, Shield, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About. Auralogics Labs",
+  title: "About Auralogics Labs | WordPress Infrastructure Company",
   description:
-    "Auralogics Labs builds invisible infrastructure for WordPress: static-speed delivery, SEO intelligence, and media optimization that respect your existing stack. Learn who we are and what we believe.",
+    "Auralogics Labs builds drop-in WordPress infrastructure: static-speed delivery, SEO intelligence, and media optimization that respect your existing stack. No rebuilds, no migrations, no DevOps.",
   alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Auralogics Labs | WordPress Infrastructure Company",
+    description: "Drop-in WordPress infrastructure that delivers 22ms page loads, fixes SEO gaps, and cuts image payload by 70%. Learn who we are and what we build.",
+    url: "https://auralogicslabs.com/about",
+    type: "website",
+  },
 };
 
 const values = [

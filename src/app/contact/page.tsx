@@ -5,10 +5,16 @@ import { ContactForm } from "./ContactForm";
 import { Mail, MessageSquare, LifeBuoy, Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact. Auralogics Labs",
+  title: "Contact Auralogics Labs | WordPress Plugin Support",
   description:
-    "Get in touch with the Auralogics Labs team. Questions about Nexora Engine, Pulse, Media, or the Portal? We're here to help.",
+    "Get in touch with the Auralogics Labs team. Questions about Nexora Engine, Pulse, Media, or the Portal? Our engineering team responds fast.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Auralogics Labs | WordPress Plugin Support",
+    description: "Reach the Auralogics Labs engineering team for support, partnerships, or technical consultations.",
+    url: "https://auralogicslabs.com/contact",
+    type: "website",
+  },
 };
 
 const channels = [

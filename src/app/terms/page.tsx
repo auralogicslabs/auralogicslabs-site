@@ -2,7 +2,7 @@
 import { LegalLayout } from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Terms of Service. Auralogics Labs",
+  title: "Terms of Service | Auralogics Labs",
   description: "The terms and conditions that govern your use of Auralogics Labs websites, products, and services.",
   alternates: { canonical: "/terms" },
 };

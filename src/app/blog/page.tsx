@@ -8,14 +8,14 @@ import { BlogListingJsonLd } from "@/components/blog/BlogJsonLd";
 import { getAllPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "Engineering Notes: WordPress Performance & Nexora Engine",
+  title: "WordPress Performance Blog | Engineering Notes by Auralogics Labs",
   description:
-    "Technical articles on WordPress static delivery, TTFB, Core Web Vitals, Ghost Protocol security, and WooCommerce performance. Written by the Auralogics Labs infrastructure team.",
+    "Technical guides on WordPress TTFB optimization, Core Web Vitals, static delivery, SEO indexing fixes, and WooCommerce performance. Written by the Auralogics Labs engineering team.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Engineering Notes by Auralogics Labs",
+    title: "WordPress Performance Blog | Engineering Notes by Auralogics Labs",
     description:
-      "Deep dives on WordPress performance, static HTML delivery, and Nexora Engine infrastructure.",
+      "Deep dives on WordPress static delivery, TTFB, Core Web Vitals, and SEO indexing from the Auralogics Labs engineering team.",
     url: "https://auralogicslabs.com/blog",
     type: "website",
   },
