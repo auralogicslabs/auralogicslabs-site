@@ -215,7 +215,7 @@ export function Hero() {
               className="relative z-20 flex-shrink-0 min-w-0"
             >
               <h1 className="text-[48px] sm:text-[64px] md:text-[82px] font-extrabold text-white leading-[0.9] tracking-[-0.05em]">
-                Built to make
+                WordPress that loads
                 <br />
                 <span
                   className="bg-clip-text text-transparent"
@@ -223,14 +223,14 @@ export function Hero() {
                     backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #818CF8 45%, #C084FC 100%)",
                   }}
                 >
-                  the web impossibly
+                  in 22ms — without
                   <br />
-                  fast.
+                  rebuilding anything.
                 </span>
               </h1>
 
               <p className="mt-6 sm:mt-7 max-w-[560px] text-[16px] sm:text-[18px] md:text-[20px] text-white/42 font-medium leading-[1.6]">
-                Auralogics Labs builds drop-in infrastructure for WordPress — static-speed delivery, SEO intelligence, and edge media optimization. Our products run quietly in the background, so your users never wait and Google never overlooks you.
+                Drop-in static delivery, real SEO diagnostics, and automatic image optimization — all as WordPress plugins. Keep your builders, your themes, your editors. Just add speed.
               </p>
 
               <div className="relative z-30 mt-7 sm:mt-8 flex items-center gap-3 sm:gap-4">

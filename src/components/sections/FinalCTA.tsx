@@ -46,10 +46,10 @@ function FreeTrialBanner() {
         {/* Left — heading */}
         <div className="flex-shrink-0 lg:max-w-[360px]">
           <h3 className="text-[28px] md:text-[34px] font-extrabold text-white leading-[1.05] tracking-[-0.03em] mb-2.5">
-            14 Days Free Trial
+            Start your 14-day free trial
           </h3>
           <p className="text-[15px] text-white/55 font-medium leading-relaxed">
-            Put the platform to work on your own site — full access for 14 days, no commitment.
+            Full platform access on your own site. No credit card. No commitment. See the speed difference for yourself.
           </p>
         </div>
 
@@ -127,10 +127,10 @@ export function FinalCTA() {
             Get Started
           </span>
           <h2 className="text-[36px] md:text-[52px] lg:text-[60px] font-extrabold text-white leading-[1.04] tracking-[-0.04em] mb-5 max-w-[720px] mx-auto">
-            Ready to modernize your WordPress infrastructure?
+            Your site could be running at static speed today.
           </h2>
           <p className="text-[17px] text-white/65 leading-relaxed mb-10 font-medium max-w-[460px] mx-auto">
-            Explore the platform or talk to our team about your stack.
+            Install a plugin. Flip a toggle. Every page loads before PHP even boots — no rebuild, no migration, no new workflow to learn.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

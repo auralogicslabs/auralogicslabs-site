@@ -7,11 +7,11 @@ import Link from "next/link";
 import { FullWidthSection, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
 
 const audiences = [
-  { icon: Users, title: "Agencies", desc: "Ship modern delivery across every client site.", href: "/products/nexora-engine", color: "#1A3FD8" },
-  { icon: ShoppingCart, title: "WooCommerce", desc: "Instant product pages, dynamic checkout preserved.", href: "/products/nexora-engine", color: "#059669" },
-  { icon: Network, title: "Multisite", desc: "Orchestrate your entire network from one portal.", href: "/portal", color: "#7C3AED" },
-  { icon: LayoutTemplate, title: "Elementor", desc: "Keep your builder. Gain static speed.", href: "/products/nexora-engine", color: "#F39A09" },
-  { icon: Building2, title: "Enterprise", desc: "Modernize without migration projects.", href: "mailto:hello@auralogicslabs.com?subject=Enterprise", color: "#0D9488" },
+  { icon: Users, title: "Agencies", desc: "Deliver static-speed performance to every client site without touching their stack or retraining their editors.", href: "/products/nexora-engine", color: "#1A3FD8" },
+  { icon: ShoppingCart, title: "WooCommerce", desc: "Product pages load in 22ms. Cart, checkout, and dynamic pricing all work exactly as before — no rewrites.", href: "/products/nexora-engine", color: "#059669" },
+  { icon: Network, title: "Multisite", desc: "Manage performance, SEO health, and image optimization across every site in your network from one command center.", href: "/portal", color: "#7C3AED" },
+  { icon: LayoutTemplate, title: "Elementor", desc: "Every template, widget, and global style stays intact. Flip one toggle and your Elementor site serves at static speed.", href: "/products/nexora-engine", color: "#F39A09" },
+  { icon: Building2, title: "Enterprise", desc: "Infrastructure-grade performance without the infrastructure project — no DevOps overhead, no editorial disruption.", href: "mailto:hello@auralogicslabs.com?subject=Enterprise", color: "#0D9488" },
 ];
 
 const stack = ["Apache", "Nginx", "LiteSpeed", "IIS", "OpenLiteSpeed", "cPanel"];
@@ -30,16 +30,16 @@ export function TrustSection() {
             className="text-[34px] md:text-[48px] font-extrabold leading-[1.06] tracking-[-0.04em] mb-4"
             style={{ color: "#0D1B3E" }}
           >
-            Teams modernizing{" "}
+            Works the way{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #0D9488 100%)" }}
             >
-              WordPress at scale.
+              your team already builds.
             </span>
           </h2>
           <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
-            Agencies, stores, publishers, and enterprise — infrastructure that adapts to how you already work.
+            No migration projects. No new tools to learn. Drop Nexora into your existing WordPress stack and it just works — for every team type, every site setup.
           </p>
         </div>
       </ScrollReveal>

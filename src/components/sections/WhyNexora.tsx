@@ -57,25 +57,22 @@ export function WhyNexora() {
             </div>
 
             <h2 className="text-[36px] md:text-[48px] lg:text-[58px] font-extrabold text-obsidian tracking-[-0.04em] leading-[1.05] mb-8">
-              Modern WordPress,<br />
+              Static delivery.<br />
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #7C3AED 100%)" }}
               >
-                engineered by
+                Zero code to rewrite.
               </span>
-              <br />Auralogics Labs.
+              <br />Your stack intact.
             </h2>
 
             <div className="space-y-5 max-w-[520px]">
               <p className="text-[17px] text-text-secondary font-medium leading-[1.72]">
-                WordPress powers the web, but its architecture is trapped in the legacy era.
-                At Auralogics Labs, we build the infrastructure that collapses the choice
-                between speed and editorial workflow.
+                Your WordPress stack is already built. Your editors know it, your clients depend on it, your plugins run on it. Rebuilding it headless would take months and break everything your team relies on.
               </p>
               <p className="text-[17px] text-obsidian font-bold leading-[1.65]">
-                Nexora Engine is our flagship answer: keep your builders, keep your plugins —
-                but serve your users through an absolute static layer.
+                Nexora Engine adds a static delivery layer on top of what you have — serving every page as flat HTML before PHP even loads. 22ms TTFB. No new frontend. No migration.
               </p>
             </div>
 

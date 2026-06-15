@@ -9,7 +9,7 @@ const plans = [
     name: "Free",
     tagline: "Nexora Engine",
     price: "0",
-    description: "Essential static engine for single-site developers and community users.",
+    description: "Full static delivery and Ghost Protocol security for a single site. No credit card, no time limit, no stripped features.",
     features: [
       "SSG — Static Site Generator",
       "advanced-cache.php Drop-In",
@@ -29,7 +29,7 @@ const plans = [
     name: "Pro",
     tagline: "Nexora Engine Pro",
     price: "99",
-    description: "Advanced automation and analytics for high-traffic publishers and developers.",
+    description: "Everything in Free plus GSC analytics, redirect manager, AI suggestions, and agency white-labeling. Built for high-traffic sites and teams managing multiple clients.",
     features: [
       "Everything in Free",
       "Hybrid Rendering Mode",
@@ -53,7 +53,7 @@ const plans = [
     name: "Enterprise",
     tagline: "Nexora Cloud (Roadmap)",
     price: "Custom",
-    description: "Managed global infrastructure and dedicated security for large networks.",
+    description: "Managed cloud infrastructure, dedicated WAF/DDoS protection, and SLA-backed support for large enterprise networks and high-availability deployments.",
     features: [
       "Everything in Pro",
       "Nexora Cloud CDN (Q3 2026)",
@@ -87,13 +87,13 @@ export function Pricing() {
         >
           <div className="inline-flex items-center gap-3 bg-brand/5 border border-brand/10 px-6 py-2 rounded-full mb-8">
              <Sparkles size={14} className="text-brand" />
-             <span className="font-mono text-[10px] font-bold text-brand uppercase tracking-[0.3em]">Value Orchestration</span>
+             <span className="font-mono text-[10px] font-bold text-brand uppercase tracking-[0.3em]">Simple Pricing</span>
           </div>
           <h2 className="text-[40px] md:text-[64px] font-extrabold text-obsidian tracking-tighter leading-none mb-8">
-            Engineered for <span className="text-brand">transparency.</span>
+            Start free. <span className="text-brand">Scale when you&apos;re ready.</span>
           </h2>
           <p className="text-[18px] text-text-muted max-w-[700px] mx-auto font-medium">
-            Strict adherence to technical logic. Choose the tier that matches your infrastructure requirements.
+            No hidden fees. No lock-in. The free tier is genuinely free — not a stripped demo. Upgrade to Pro when you need advanced automation, redirects, or agency white-labeling.
           </p>
         </motion.div>
 

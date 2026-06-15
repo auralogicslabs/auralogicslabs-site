@@ -233,19 +233,19 @@ export function PlatformFeatures() {
               className="text-[34px] md:text-[48px] lg:text-[56px] font-extrabold leading-[1.06] tracking-[-0.04em] max-w-[820px] mx-auto mb-5"
               style={{ color: "rgba(255,255,255,0.90)" }}
             >
-              Infrastructure that runs{" "}
+              Six capabilities.{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%)" }}
               >
-                behind the scenes.
+                Zero rebuilds. Your WordPress intact.
               </span>
             </h2>
             <p
               className="text-[17px] md:text-[18px] leading-relaxed max-w-[580px] mx-auto font-medium"
               style={{ color: "rgba(255,255,255,0.38)" }}
             >
-              Six capabilities working in concert — capture, delivery, security, media, SEO, and control — while your team keeps building in WordPress.
+              Static delivery, security hardening, media optimization, SEO diagnostics, and fleet control — working together while your editors keep publishing and your plugins keep running.
             </p>
           </motion.div>
 

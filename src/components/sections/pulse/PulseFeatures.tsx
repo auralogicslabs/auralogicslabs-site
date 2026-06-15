@@ -74,11 +74,10 @@ export function PulseFeatures() {
             <div className="h-0.5 w-8 rounded-full" style={{ background: TEAL }} />
           </div>
           <h2 className="text-[36px] md:text-[48px] lg:text-[56px] font-extrabold text-obsidian tracking-[-0.04em] leading-[1.05] mb-6">
-            Everything you need, in one console.
+            Nine tools. One console. No stitching.
           </h2>
           <p className="text-[17px] md:text-[18px] text-text-secondary font-medium leading-[1.7]">
-            No more stitching together a dozen plugins and browser tabs. Pulse brings your entire SEO
-            workflow — diagnose, fix, monitor — into a single dashboard. Every feature below ships free.
+            Stop tabbing between Yoast, Search Console, PageSpeed, and Screaming Frog. Pulse pulls your real Google data directly into WordPress so you can diagnose, fix, and monitor your entire SEO health in one place — and every feature ships free.
           </p>
         </motion.div>
 

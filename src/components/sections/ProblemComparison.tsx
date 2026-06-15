@@ -52,17 +52,16 @@ export function ProblemComparison() {
             className="text-[34px] md:text-[48px] font-extrabold leading-[1.06] tracking-[-0.04em] mb-4"
             style={{ color: "#0D1B3E" }}
           >
-            WordPress deserves{" "}
+            Slow WordPress or a full rebuild.{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #7C3AED 100%)" }}
             >
-              modern infrastructure.
+              Neither is the answer.
             </span>
           </h2>
           <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
-            Most teams are stuck choosing between slow legacy stacks or expensive headless rebuilds.
-            We built a third path.
+            Every team hits the same wall — PHP bottlenecks killing load times, or months of headless migration that breaks editorial workflows. We built the path that avoids both.
           </p>
         </div>
       </ScrollReveal>
