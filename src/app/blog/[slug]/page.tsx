@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Article Not Found" };
 
   return {
-    title: `${post.title} — Auralogics Labs`,
+    title: `${post.title} | Auralogics Labs`,
     description: post.description,
     keywords: post.tags,
     alternates: { canonical: `/blog/${post.slug}` },
@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: Props) {
               Put this into practice on your stack
             </h2>
             <p className="text-[16px] text-text-secondary font-medium mb-8 max-w-[480px] mx-auto">
-              Nexora Engine delivers static-speed WordPress in minutes — no headless migration required.
+              Nexora Engine delivers static-speed WordPress in minutes. No headless migration required.
             </p>
             <Link
               href="/products/nexora-engine"

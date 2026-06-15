@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -31,8 +31,8 @@ function DashboardInner() {
     const ncxToken = searchParams.get('ncx_token');
 
     if (siteUrl) {
-      // Always clean the URL immediately — even if pendingSite is already set from
-      // portal/page.tsx — so params don't re-trigger the banner on refresh.
+      // Always clean the URL immediately. even if pendingSite is already set from
+      // portal/page.tsx. so params don't re-trigger the banner on refresh.
       setHasProcessedParams(true);
       window.history.replaceState({}, '', window.location.pathname);
 
@@ -55,12 +55,12 @@ function DashboardInner() {
       isPluginActive: !!pendingSite.token,
       userId: user?.id,
     });
-    // Clear the banner first, then show success — prevents both showing simultaneously
+    // Clear the banner first, then show success. prevents both showing simultaneously
     setPendingSite(null);
     setShowHandshakeSuccess(true);
     setLastConnectedSite(siteUrl);
     if (!success) {
-      // Site already existed — still report as connected
+      // Site already existed. still report as connected
     }
     setIsRefreshing(false);
   };

@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { LegalLayout } from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Auralogics Labs",
+  title: "Privacy Policy. Auralogics Labs",
   description: "How Auralogics Labs collects, uses, and protects your information across our website and products.",
   alternates: { canonical: "/privacy" },
 };
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         {
           heading: "1. Information we collect",
           body: [
-            "We collect information you provide directly — such as your email address when you request a free trial, contact us, or create a portal account — and basic technical data your browser sends when you visit our website.",
+            "We collect information you provide directly, such as your email address when you request a free trial, contact us, or create a portal account, as well as basic technical data your browser sends when you visit our website.",
           ],
           bullets: [
             "Contact details you submit (name, email, message)",
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
         {
           heading: "2. How our products handle your data",
           body: [
-            "Our plugins are built to keep your data with you. Where a product connects to a third-party service — for example, Nexora Pulse connecting to Google Search Console or PageSpeed Insights — it uses your own API credentials and communicates directly from your WordPress site to that service.",
+            "Our plugins are built to keep your data with you. Where a product connects to a third-party service (for example, Nexora Pulse connecting to Google Search Console or PageSpeed Insights), it uses your own API credentials and communicates directly from your WordPress site to that service.",
             "We do not proxy, copy, or store your analytics, indexing, or performance data on our servers. Credentials you enter into our plugins are stored in your own site's database.",
           ],
         },

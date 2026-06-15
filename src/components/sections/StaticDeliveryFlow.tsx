@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, Zap, Globe, Database, Code2, CheckCircle2, X } from "lucide-react";
@@ -152,7 +152,7 @@ export function StaticDeliveryFlow() {
             {/* Speed callout */}
             <div className="mt-8 flex items-end justify-between">
               <p className="text-[14px] text-white/35 font-medium leading-relaxed max-w-[260px]">
-                Every visit re-runs the full stack. PHP, database, template — no matter how many times that page was loaded before.
+                Every visit re-runs the full stack. PHP, database, template. no matter how many times that page was loaded before.
               </p>
               <div className="text-right flex-shrink-0">
                 <div className="font-mono text-[42px] font-bold text-red-400 leading-none">850ms</div>

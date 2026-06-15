@@ -22,7 +22,7 @@ const methodology = [
     id: "atomic",
     icon: RefreshCcw,
     title: "Atomic Publication",
-    description: "Snapshots are written to a temporary buffer and validated via checksum before being atomically swapped into the static root—preventing partial writes.",
+    description: "Snapshots are written to a temporary buffer and validated via checksum before being atomically swapped into the static root, preventing partial writes.",
     metric: "Checksum Verified"
   },
   {
@@ -56,7 +56,7 @@ export function MethodologyDetail() {
              </h2>
 
              <p className="text-[18px] text-text-muted font-medium leading-relaxed mb-16 max-w-[600px]">
-                Strict adherence to the Nexora Engine registry. No abstractions—just raw infrastructure logic engineered for sub-second delivery.
+                Strict adherence to the Nexora Engine registry. No abstractions. Just raw infrastructure logic engineered for sub-second delivery.
              </p>
 
              <div className="space-y-12">

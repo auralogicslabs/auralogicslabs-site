@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -272,7 +272,7 @@ export default function SupportPage() {
                   </select>
                   {sites.length === 0 && (
                     <p className="text-[12px] text-amber-600 font-medium mt-1.5 ml-1">
-                      No sites connected yet — connect a site first.
+                      No sites connected yet. connect a site first.
                     </p>
                   )}
                 </div>

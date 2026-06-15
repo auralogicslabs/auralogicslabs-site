@@ -11,7 +11,7 @@ export const platformOverview = [
   {
     id: 'speed-infrastructure',
     title: 'Speed Infrastructure',
-    description: 'Pre-rendered HTML snapshots served before WordPress boots. A universal drop-in cache delivers static files on Apache, Nginx, LiteSpeed, and IIS — with ETag and Last-Modified negotiation, 304 handling, and zero PHP execution on hit.',
+    description: 'Pre-rendered HTML snapshots served before WordPress boots. A universal drop-in cache delivers static files on Apache, Nginx, LiteSpeed, and IIS, with ETag and Last-Modified negotiation, 304 handling, and zero PHP execution on hit.',
     stats: '22ms TTFB · 100% cache hit on static · CDN-ready'
   },
   {
@@ -23,7 +23,7 @@ export const platformOverview = [
   {
     id: 'intelligent-automation',
     title: 'Intelligent Automation',
-    description: 'Snapshots regenerate automatically when content changes — debounced, validated, and conflict-aware. Asset references are verified against disk before publication. Competing caching plugins are detected and surfaced with resolution guidance.',
+    description: 'Snapshots regenerate automatically when content changes. Debounced, validated, and conflict-aware. Asset references are verified against disk before publication. Competing caching plugins are detected and surfaced with resolution guidance.',
     stats: '30s debounce · Asset validation · Conflict detection'
   }
 ];

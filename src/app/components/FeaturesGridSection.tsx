@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
 import {
@@ -33,7 +33,7 @@ const features = [
   {
     icon: Zap,
     title: 'Lightning Static Delivery',
-    description: 'Sub-50ms response times with browser-cached static HTML files — no PHP on the hot path.',
+    description: 'Sub-50ms response times with browser-cached static HTML files. no PHP on the hot path.',
     category: 'performance',
   },
   {
@@ -57,7 +57,7 @@ const features = [
   {
     icon: Settings,
     title: 'Flexible Delivery Modes',
-    description: 'Static, hybrid, and dynamic rendering options — switch without touching your theme.',
+    description: 'Static, hybrid, and dynamic rendering options. switch without touching your theme.',
     category: 'performance',
   },
   // Security
@@ -95,7 +95,7 @@ const features = [
   {
     icon: FileText,
     title: 'Gutenberg Support',
-    description: 'Native WordPress block editor integration — capture works with any block layout.',
+    description: 'Native WordPress block editor integration. capture works with any block layout.',
     category: 'ecosystem',
   },
   {
@@ -178,7 +178,7 @@ export function FeaturesGridSection() {
           })}
         </div>
 
-        {/* Feature cards — animate on category change */}
+        {/* Feature cards. animate on category change */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}

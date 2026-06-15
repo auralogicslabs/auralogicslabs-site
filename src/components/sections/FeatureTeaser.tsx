@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Download, Sliders, Rocket, Zap, ArrowRight, Check } from "lucide-react";
 import { FullWidthSection, ScrollReveal } from "@/components/ui/SectionShell";
@@ -9,7 +9,7 @@ const steps = [
     num: "01",
     icon: Download,
     title: "Install",
-    desc: "Add any Nexora product to WordPress like a normal plugin — any host, any builder, zero migration.",
+    desc: "Add any Nexora product to WordPress like a normal plugin: any host, any builder, zero migration.",
     color: "#1A3FD8",
     detail: "Works on Apache, Nginx, LiteSpeed, IIS and every managed host. No server access required.",
   },
@@ -17,7 +17,7 @@ const steps = [
     num: "02",
     icon: Sliders,
     title: "Activate",
-    desc: "Flip it on from the dashboard. Connect your own Google keys where needed — no configuration to wrestle with.",
+    desc: "Flip it on from the dashboard. Connect your own Google keys where needed, with no configuration to wrestle with.",
     color: "#7C3AED",
     detail: "Engine captures its first snapshot in seconds; Pulse runs its first scan; editors keep publishing as normal.",
   },
@@ -25,9 +25,9 @@ const steps = [
     num: "03",
     icon: Rocket,
     title: "It just runs",
-    desc: "Speed, SEO intelligence, and media optimization work quietly in the background — your CMS stays intact.",
+    desc: "Speed, SEO intelligence, and media optimization work quietly in the background while your CMS stays intact.",
     color: "#F39A09",
-    detail: "22ms TTFB, real indexing diagnostics, and ↓70% image payload — WooCommerce and forms fully preserved.",
+    detail: "22ms TTFB, real indexing diagnostics, and ↓70% image payload. WooCommerce and forms fully preserved.",
   },
 ];
 
@@ -56,7 +56,7 @@ export function FeatureTeaser() {
               </span>
             </h2>
             <p className="text-[17px] font-medium leading-relaxed text-text-secondary">
-              Every Nexora product installs like a normal plugin — no migration, no rebuild, no DevOps. Your site transforms in minutes, not months.
+              Every Nexora product installs like a normal plugin. no migration, no rebuild, no DevOps. Your site transforms in minutes, not months.
             </p>
           </div>
         </ScrollReveal>
@@ -111,7 +111,7 @@ export function FeatureTeaser() {
           })}
         </div>
 
-        {/* Reassurance strip — what stays untouched */}
+        {/* Reassurance strip. what stays untouched */}
         <ScrollReveal delay={0.2}>
           <div className="rounded-2xl md:rounded-3xl border border-border bg-white shadow-[0_8px_40px_rgba(2,6,23,0.05)] px-6 py-6 md:px-10 md:py-8 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
             <div className="flex-shrink-0">

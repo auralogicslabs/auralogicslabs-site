@@ -1,4 +1,4 @@
-import {
+﻿import {
   Zap,
   ShieldCheck,
   ArrowRightLeft,
@@ -48,7 +48,7 @@ export const coreFeatures: Feature[] = [
   // FREE - DELIVERY
   {
     id: 1,
-    title: 'SSG — Static Site Generator',
+    title: 'SSG (Static Site Generator)',
     description: 'Captures WordPress pages to pre-rendered HTML snapshots. Full conditional response handling built in.',
     icon: Zap,
     tier: 'Free'
@@ -64,7 +64,7 @@ export const coreFeatures: Feature[] = [
     id: 3,
     tier: 'Free',
     title: 'Universal Server Support',
-    description: 'Apache, Nginx, LiteSpeed, IIS — no .htaccess or server-side configuration required.',
+    description: 'Apache, Nginx, LiteSpeed, IIS. No .htaccess or server-side configuration required.',
     icon: Globe2,
   },
   {

@@ -44,8 +44,8 @@ export function ProductsHero() {
           transition={{ duration: 0.7, delay: 0.16 }}
           className="text-[17px] md:text-[19px] text-text-secondary max-w-[640px] mx-auto leading-[1.7] font-medium"
         >
-          A focused suite of products that make WordPress faster, more visible, and easier to operate —
-          each one a drop-in tool that respects your existing stack. Use them on their own or together.
+          A focused suite of products that make WordPress faster, more visible, and easier to operate.
+          Each one is a drop-in tool that respects your existing stack. Use them on their own or together.
         </motion.p>
       </div>
     </section>

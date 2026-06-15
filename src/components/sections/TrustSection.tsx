@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import {
   Users, ShoppingCart, Network, LayoutTemplate, Building2, ArrowRight,
@@ -19,7 +19,7 @@ const stack = ["Apache", "Nginx", "LiteSpeed", "IIS", "OpenLiteSpeed", "cPanel"]
 export function TrustSection() {
   return (
     <FullWidthSection tone="white" className="overflow-hidden">
-      {/* Centered heading — no screenshot, no 2-col; text is the focus */}
+      {/* Centered heading. no screenshot, no 2-col; text is the focus */}
       <ScrollReveal>
         <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
           <div className="inline-flex items-center gap-2.5 mb-5 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, Lock, User, Mail, Loader2, CheckCircle2, Globe, Eye, EyeOff } from "lucide-react";
@@ -117,7 +117,7 @@ function SignupPageInner() {
                   Continue to Dashboard <ArrowRight size={16} />
                 </button>
                 <p className="text-white/20 text-[11px] font-medium">
-                  You can verify your email later — some features require a verified address.
+                  You can verify your email later. some features require a verified address.
                 </p>
               </div>
             </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 const stats = [
   { label: "TTFB Latency", nexora: "22ms",  legacy: "850ms", unit: "",  color: "#1A3FD8" },
   { label: "Origin Load",  nexora: "0%",    legacy: "90%",   unit: "",  color: "#059669" },
-  { label: "Payload",      nexora: "↓70%",  legacy: "—",     unit: "",  color: "#7C3AED" },
+  { label: "Payload",      nexora: "↓70%",  legacy: "N/A",   unit: "",  color: "#7C3AED" },
 ];
 
 export function WhyNexora() {

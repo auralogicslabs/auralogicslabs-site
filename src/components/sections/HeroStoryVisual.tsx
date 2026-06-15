@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
@@ -173,7 +173,7 @@ function SlideHeader({
   );
 }
 
-/** Slide 1 — Nexora Engine dashboard (unchanged — the one you liked) */
+/** Slide 1. Nexora Engine dashboard (unchanged. the one you liked) */
 function EngineSlide() {
   const kpis = [
     { v: "22ms", l: "TTFB", c: "#1A3FD8", up: false },
@@ -259,7 +259,7 @@ function EngineSlide() {
   );
 }
 
-/** Slide 2 — Nexora Media: format conversion + savings (from product page) */
+/** Slide 2. Nexora Media: format conversion + savings (from product page) */
 function MediaSlide() {
   const conversions = [
     { file: "/uploads/hero-banner.jpg", from: "JPEG · 2.4 MB", to: "AVIF · 180 KB", saved: "92%" },
@@ -330,7 +330,7 @@ function MediaSlide() {
   );
 }
 
-/** Slide 3 — Nexora Pulse: SEO operations console / Index Doctor */
+/** Slide 3. Nexora Pulse: SEO operations console / Index Doctor */
 function InsightsSlide() {
   return (
     <div className="bg-[#0F1521] flex-1 p-4 sm:p-5 flex flex-col min-h-[200px] h-full">
@@ -399,7 +399,7 @@ function InsightsSlide() {
   );
 }
 
-/** Slide 4 — Portal: fleet command center */
+/** Slide 4. Portal: fleet command center */
 function PortalSlide() {
   const sites = [
     { name: "acme-store.com", engine: true, media: true, status: "Healthy" },

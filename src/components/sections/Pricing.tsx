@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Check, Zap, Shield, Globe, Cpu, Sparkles, ArrowRight, ShieldCheck, Lock, Activity, Terminal, Database, Code2, Layers, Search, Globe2, AlertCircle } from "lucide-react";
@@ -11,7 +11,7 @@ const plans = [
     price: "0",
     description: "Full static delivery and Ghost Protocol security for a single site. No credit card, no time limit, no stripped features.",
     features: [
-      "SSG — Static Site Generator",
+      "SSG (Static Site Generator)",
       "advanced-cache.php Drop-In",
       "Ghost Protocol (Basic)",
       "SPA Navigation (Normalizer)",

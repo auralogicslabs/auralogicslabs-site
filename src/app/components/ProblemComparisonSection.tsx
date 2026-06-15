@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { X, Check, Minus } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -29,25 +29,25 @@ const comparisonData: Row[] = [
     feature: 'Security Posture',
     traditional: { text: 'Full WP fingerprint exposed', status: 'bad' },
     headless: { text: 'Decoupled, but costly to maintain', status: 'mixed' },
-    nexora: { text: 'Ghost Protocol — fingerprint hidden', status: 'good' },
+    nexora: { text: 'Ghost Protocol. fingerprint hidden', status: 'good' },
   },
   {
     feature: 'Rebuild on Change',
     traditional: { text: 'None required', status: 'good' },
     headless: { text: 'Full frontend rebuild on every change', status: 'bad' },
-    nexora: { text: 'Selective regeneration — affected pages only', status: 'good' },
+    nexora: { text: 'Selective regeneration. affected pages only', status: 'good' },
   },
   {
     feature: 'Editor Experience',
     traditional: { text: 'Familiar WordPress admin', status: 'good' },
     headless: { text: 'API-only, requires content model rebuild', status: 'bad' },
-    nexora: { text: 'Unchanged — Elementor, Gutenberg, all builders', status: 'good' },
+    nexora: { text: 'Unchanged. Elementor, Gutenberg, all builders', status: 'good' },
   },
   {
     feature: 'Hosting Requirements',
     traditional: { text: 'Any shared/managed WP hosting', status: 'good' },
     headless: { text: 'Separate Node server + CDN required', status: 'bad' },
-    nexora: { text: 'Any existing WP host — no changes needed', status: 'good' },
+    nexora: { text: 'Any existing WP host. no changes needed', status: 'good' },
   },
 ];
 
@@ -119,7 +119,7 @@ export function ProblemComparisonSection() {
                 Full Headless
               </p>
             </div>
-            {/* Nexora column — highlighted */}
+            {/* Nexora column. highlighted */}
             <div className="border-l border-[#1A3FD8]/20 bg-[#1A3FD8]/5 px-6 py-4">
               <p className="text-xs font-semibold uppercase tracking-widest text-[#1A3FD8]">
                 Nexora Engine ✦

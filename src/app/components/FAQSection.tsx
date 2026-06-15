@@ -16,7 +16,7 @@ export function FAQSection() {
     {
       question: 'Do I need special hosting?',
       answer:
-        'No. Nexora Engine works with any hosting provider that supports WordPress—Apache, Nginx, LiteSpeed, IIS, and more. No special server configurations or expensive hosting upgrades required.',
+        'No. Nexora Engine works with any hosting provider that supports WordPress: Apache, Nginx, LiteSpeed, IIS, and more. No special server configurations or expensive hosting upgrades required.',
     },
     {
       question: 'Is this a static export plugin?',

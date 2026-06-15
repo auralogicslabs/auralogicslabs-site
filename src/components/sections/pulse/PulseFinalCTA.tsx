@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Download, ArrowRight, Stethoscope } from "lucide-react";
@@ -44,7 +44,7 @@ export function PulseFinalCTA() {
           className="text-[18px] md:text-[20px] text-teal-50/90 font-medium leading-[1.6] max-w-[600px] mx-auto mb-12"
         >
           Install Nexora Pulse, connect Search Console, and within minutes you'll know exactly
-          which pages Google is ignoring — and why. Free, forever.
+          which pages Google is ignoring. and why. Free, forever.
         </motion.p>
 
         <motion.div

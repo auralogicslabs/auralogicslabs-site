@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, Zap, ImageIcon, Stethoscope, CheckCircle2, Server, Play, ShieldAlert, Cpu } from "lucide-react";
@@ -50,14 +50,14 @@ export function ProductSuite() {
             The Nexora Stack.
           </h2>
           <p className="text-[17px] text-text-secondary font-medium max-w-[540px] leading-[1.65]">
-            Three focused products. One mission — close the gap between how WordPress performs today and how it should.
+            Three focused products. One mission. close the gap between how WordPress performs today and how it should.
           </p>
         </motion.div>
 
         {/* Grid: Engine (3 cols) + Media/Insights stacked (2 cols) */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:min-h-[620px]">
 
-          {/* ─── Nexora Engine — Flagship (3 columns) ─────────────────── */}
+          {/* ─── Nexora Engine. Flagship (3 columns) ─────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export function ProductSuite() {
 
               {/* Body */}
               <p className="text-white/60 text-[16px] md:text-[17px] leading-[1.72] font-medium max-w-[540px] mb-8">
-                Pre-renders every page into flat HTML — served to visitors before
+                Pre-renders every page into flat HTML. served to visitors before
                 WordPress boots. Drop-in install. No headless migration, no new
                 frontend, no DevOps overhead.
               </p>
@@ -378,7 +378,7 @@ export function ProductSuite() {
                   Diagnose. Fix. Rank.
                 </p>
                 <p className="text-text-secondary text-[14px] leading-[1.65] font-medium mb-6">
-                  Index Doctor, internal link graph, Core Web Vitals, and duplicate detection — one SEO console inside wp-admin. Finds exactly why Google isn't ranking your pages, using your own Search Console data.
+                  Index Doctor, internal link graph, Core Web Vitals, and duplicate detection. one SEO console inside wp-admin. Finds exactly why Google isn't ranking your pages, using your own Search Console data.
                 </p>
 
                 {/* Edge Analytics Latency Vector Mock Graph */}

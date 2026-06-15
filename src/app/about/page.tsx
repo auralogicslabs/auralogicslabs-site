@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Zap, Stethoscope, ImageIcon, LayoutDashboard, Target, Compass, Shield, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About — Auralogics Labs",
+  title: "About. Auralogics Labs",
   description:
-    "Auralogics Labs builds invisible infrastructure for WordPress — static-speed delivery, SEO intelligence, and media optimization that respect your existing stack. Learn who we are and what we believe.",
+    "Auralogics Labs builds invisible infrastructure for WordPress: static-speed delivery, SEO intelligence, and media optimization that respect your existing stack. Learn who we are and what we believe.",
   alternates: { canonical: "/about" },
 };
 
@@ -20,7 +20,7 @@ const values = [
   {
     icon: Target,
     title: "Real data over vanity metrics",
-    desc: "We surface what actually moves the needle — true indexing verdicts, real Core Web Vitals, measurable payload reductions — not feel-good scores.",
+    desc: "We surface what actually moves the needle: true indexing verdicts, real Core Web Vitals, and measurable payload reductions. Not feel-good scores.",
   },
   {
     icon: Shield,
@@ -41,7 +41,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        {/* Hero — light, matches header on subpages */}
+        {/* Hero. light, matches header on subpages */}
         <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-20 md:pt-44 md:pb-28 px-6 sm:px-10 lg:px-16">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#CBD5E1_1px,transparent_0)] bg-[size:48px_48px] opacity-30 pointer-events-none" />
           <div className="absolute -top-24 left-1/3 w-[700px] h-[440px] rounded-full blur-[190px] pointer-events-none" style={{ background: "rgba(26,63,216,0.10)" }} />
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-[18px] md:text-[20px] text-text-secondary leading-[1.65] font-medium max-w-[640px] mx-auto">
-              We build the layer WordPress was missing — speed, search visibility, and media
+              We build the layer WordPress was missing. speed, search visibility, and media
               optimization that run quietly in the background, so your team can keep building and
               your visitors never wait.
             </p>
@@ -78,13 +78,13 @@ export default function AboutPage() {
               <p>
                 More than 40% of the web runs on WordPress, yet most sites still boot PHP, query a
                 database, and run a stack of optimization plugins on every single request. The common
-                advice — &ldquo;go headless&rdquo; — throws away the editorial workflows, page builders, and
+                advice to &ldquo;go headless&rdquo; throws away the editorial workflows, page builders, and
                 plugin ecosystems teams depend on.
               </p>
               <p>
                 Auralogics Labs exists to close that gap a different way. Instead of replacing
                 WordPress, we wrap it in a layer of infrastructure that makes it fast, visible, and
-                manageable — without asking you to rebuild anything. Install a plugin, flip it on, and
+                manageable, without asking you to rebuild anything. Install a plugin, flip it on, and
                 it just runs.
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 Four focused products, one platform.
               </h2>
               <p className="text-[17px] text-text-secondary font-medium leading-[1.7]">
-                Each tool does one thing exceptionally well — and together they cover speed, SEO,
+                Each tool does one thing exceptionally well, and together they cover speed, SEO,
                 media, and control for your entire WordPress fleet.
               </p>
             </div>

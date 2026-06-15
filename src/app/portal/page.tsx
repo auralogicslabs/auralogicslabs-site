@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, Lock, User, Key, Loader2, Globe } from "lucide-react";
@@ -32,7 +32,7 @@ function PortalPageInner() {
     const isVerified    = searchParams.get('verified') === 'true';
     const verifiedEmail = searchParams.get('email');
 
-    // Call verifyEmail regardless of auth state — the !isAuthenticated guard was wrong
+    // Call verifyEmail regardless of auth state. the !isAuthenticated guard was wrong
     // (user may click the link from a new tab while already logged in)
     if (isVerified && verifiedEmail && !verifiedRef.current) {
       verifiedRef.current = true;

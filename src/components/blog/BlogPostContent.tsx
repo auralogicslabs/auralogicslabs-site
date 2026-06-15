@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { BlogContentBlock, BlogPost } from "@/data/blog";
 
 export function BlogPostContent({
@@ -69,7 +69,7 @@ export function BlogPostContent({
             <Link href="/products/nexora-pulse" className="text-brand font-bold hover:underline">
               Explore Nexora Pulse
             </Link>{" "}
-            — the free SEO operations console for WordPress.
+           . the free SEO operations console for WordPress.
           </p>
         ) : (
           <p className="text-[16px] text-text-secondary font-medium leading-relaxed">

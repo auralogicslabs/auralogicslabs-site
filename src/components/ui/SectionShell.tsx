@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { cn } from "@/app/components/ui/utils";
@@ -23,7 +23,7 @@ interface FullWidthSectionProps {
   compact?: boolean;
 }
 
-/** Full-bleed section — no outer margin/radius. Sections merge via background color. */
+/** Full-bleed section. no outer margin/radius. Sections merge via background color. */
 export function FullWidthSection({
   id,
   tone = "white",
@@ -165,7 +165,7 @@ export function ScrollReveal({
   );
 }
 
-/** Inner content card — radius lives INSIDE sections, not on sections themselves */
+/** Inner content card. radius lives INSIDE sections, not on sections themselves */
 export function InnerCard({
   children,
   className,

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, Cloud, Shield, BarChart3, Activity, Brain, Network, Plus } from "lucide-react";
@@ -14,7 +14,7 @@ const roadmapPhases = [
         icon: Cloud,
         title: "Nexora Cloud",
         description:
-          "Managed infrastructure delivery platform with a global edge network — zero self-hosting required.",
+          "Managed infrastructure delivery platform with a global edge network, with zero self-hosting required.",
       },
       {
         icon: Shield,

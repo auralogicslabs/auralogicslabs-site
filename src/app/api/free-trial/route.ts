@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+﻿import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { MAIL_FROM, MAIL_TO } from '@/lib/mail';
 
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       from: MAIL_FROM,
       to: [NOTIFY_TO],
       replyTo: email,
-      subject: `New 14-day free trial request — ${email}`,
+      subject: `New 14-day free trial request. ${email}`,
       html: `
         <div style="font-family: sans-serif; max-width: 560px; margin: 0 auto; padding: 32px;">
           <h2 style="font-size: 20px; margin: 0 0 16px;">New free trial request</h2>

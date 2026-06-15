@@ -1,4 +1,4 @@
-import { ArrowUpRight, Twitter, Facebook, Youtube, Linkedin, Mail, ArrowRight } from 'lucide-react';
+﻿import { ArrowUpRight, Twitter, Facebook, Youtube, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
@@ -69,7 +69,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-[16px] md:text-[17px] text-white/45 leading-[1.65] font-medium max-w-[400px] mb-8">
-              Invisible infrastructure for WordPress — runtime delivery, SEO intelligence,
+              Invisible infrastructure for WordPress. runtime delivery, SEO intelligence,
               and media optimization, without the rebuild.
             </p>
 

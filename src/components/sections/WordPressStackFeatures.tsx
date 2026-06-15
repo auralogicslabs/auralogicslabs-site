@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useScroll, useMotionValueEvent, useTransform } from "motion/react";
 import { useRef, useState } from "react";
@@ -46,7 +46,7 @@ const products: Product[] = [
     tagline: "Edge media optimization",
     headline: "Faster images, globally.",
     description:
-      "Transform, optimize and deliver every asset from the closest POP — without touching your media library.",
+      "Transform, optimize and deliver every asset from the closest POP, without touching your media library.",
     points: [
       "AVIF / WebP auto-conversion",
       "Responsive sizing on demand",
@@ -65,9 +65,9 @@ const products: Product[] = [
     tagline: "SEO operations console",
     headline: "Diagnose. Fix. Rank.",
     description:
-      "One SEO console for WordPress — diagnose indexing problems, fix on-page issues, map internal links and track Core Web Vitals, powered by your own Google data.",
+      "One SEO console for WordPress to diagnose indexing problems, fix on-page issues, map internal links and track Core Web Vitals, powered by your own Google data.",
     points: [
-      "Index Doctor — real GSC verdicts",
+      "Index Doctor: real GSC verdicts",
       "Internal link graph & orphan detection",
       "Core Web Vitals from PageSpeed",
       "Duplicate & thin-content detection",
@@ -84,7 +84,7 @@ const products: Product[] = [
     tagline: "Fleet command center",
     headline: "Manage every site in one place.",
     description:
-      "One control plane for your entire WordPress fleet — licenses, deployments, runtime config and team access.",
+      "One control plane for your entire WordPress fleet: licenses, deployments, runtime config and team access.",
     points: [
       "Unified dashboard for every site",
       "Per-site runtime configuration",
@@ -233,7 +233,7 @@ export function WordPressStackFeatures() {
                     needs
                   </h2>
                   <p className="text-[15px] lg:text-[16px] text-slate-500 font-medium leading-relaxed max-w-lg">
-                    Four products, one ecosystem — runtime, media, intelligence and control, designed to work together.
+                    Four products, one ecosystem. runtime, media, intelligence and control, designed to work together.
                   </p>
                 </header>
 
@@ -301,7 +301,7 @@ export function WordPressStackFeatures() {
               needs
             </h2>
             <p className="text-[15px] text-slate-500 font-medium leading-relaxed">
-              Four products, one ecosystem — runtime, media, intelligence and control.
+              Four products, one ecosystem. runtime, media, intelligence and control.
             </p>
           </header>
           <div className="space-y-5">

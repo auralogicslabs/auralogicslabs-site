@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -40,7 +40,7 @@ export default function DownloadsPage() {
             </div>
             <div className="flex flex-wrap items-center gap-3 mb-7">
               <span className="bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest">
-                v{PLUGIN_VERSION} — Latest
+                v{PLUGIN_VERSION}. Latest
               </span>
               <span className="text-white/30 text-[12px] font-medium">Requires WordPress 5.8+, PHP 8.0+</span>
             </div>

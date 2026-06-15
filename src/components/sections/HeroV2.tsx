@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, AnimatePresence } from "motion/react";
 import { Zap, ArrowRight } from "lucide-react";
@@ -9,14 +9,14 @@ import Link from "next/link";
 const EX = 50;
 const EY = 47;
 
-/* ─── Orb entry points — spread around all 4 edges ──────────────────────────── */
+/* ─── Orb entry points. spread around all 4 edges ──────────────────────────── */
 const ENTRIES: [number, number][] = [
   [5,  10], [22,  3], [50,  4], [76,  6],
   [94, 22], [97, 52], [94, 78], [74, 94],
   [48, 96], [20, 93], [4,  72], [3,  40],
 ];
 
-/* ─── Outgoing directions — 12 angles radiating from center ─────────────────── */
+/* ─── Outgoing directions. 12 angles radiating from center ─────────────────── */
 const OUT_DIRS: [number, number][] = [
   [ 0,     -1   ],
   [ 0.50,  -0.87],
@@ -543,7 +543,7 @@ export function HeroV2() {
         }}
       />
 
-      {/* Ambient blue glow — top-right */}
+      {/* Ambient blue glow. top-right */}
       <div
         className="absolute pointer-events-none"
         style={{
@@ -553,7 +553,7 @@ export function HeroV2() {
             "radial-gradient(circle at 60% 40%, rgba(26,63,216,0.07) 0%, transparent 65%)",
         }}
       />
-      {/* Ambient orange glow — bottom-centre */}
+      {/* Ambient orange glow. bottom-centre */}
       <div
         className="absolute pointer-events-none"
         style={{
@@ -622,7 +622,7 @@ export function HeroV2() {
               style={{ color: "#64748b" }}
             >
               Install Nexora Engine and every page on your WordPress site becomes
-              a static HTML file served in under&nbsp;5ms — no CDN, no DevOps,
+              a static HTML file served in under&nbsp;5ms. no CDN, no DevOps,
               no performance consultant required.
             </motion.p>
 

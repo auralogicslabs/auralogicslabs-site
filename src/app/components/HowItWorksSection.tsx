@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from 'motion/react';
 
@@ -8,7 +8,7 @@ export function HowItWorksSection() {
       number: '01',
       title: 'Visitor Makes a Request',
       description:
-        'The browser sends a standard HTTP GET request to your WordPress domain. No JavaScript, no SPA — just a plain request.',
+        'The browser sends a standard HTTP GET request to your WordPress domain. No JavaScript, no SPA. just a plain request.',
     },
     {
       number: '02',
@@ -47,7 +47,7 @@ export function HowItWorksSection() {
             How It Works
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-            From visitor request to static response — the full infrastructure
+            From visitor request to static response. the full infrastructure
             flow in four steps.
           </p>
         </motion.div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Cloud, Shield, BarChart3, Activity, Brain, Lock, Gauge, Network } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -15,7 +15,7 @@ const roadmap = [
         icon: Cloud,
         title: 'Nexora Cloud',
         description:
-          'Managed infrastructure delivery platform with a global edge network — zero self-hosting required.',
+          'Managed infrastructure delivery platform with a global edge network. zero self-hosting required.',
       },
       {
         icon: Shield,
@@ -97,7 +97,7 @@ export function RoadmapSection() {
             WordPress Infrastructure
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-            Our vision for what Nexora Engine becomes — beyond the plugin.
+            Our vision for what Nexora Engine becomes. beyond the plugin.
           </p>
         </motion.div>
 

@@ -131,12 +131,12 @@ export function DeveloperExperience() {
           >
             <ul className="space-y-6">
               {[
-                { bold: "Single-URL diagnostic endpoint", text: "— full system health in 30 seconds" },
-                { bold: "Structured JSON output", text: "— pipe to Datadog, Grafana, or your own dash" },
+                { bold: "Single-URL diagnostic endpoint", text: ": full system health in 30 seconds" },
+                { bold: "Structured JSON output", text: ": pipe to Datadog, Grafana, or your own dash" },
                 { bold: "REST API", text: "for snapshot state and manifest queries" },
                 { bold: "Programmatic regeneration", text: "via WP-CLI commands" },
                 { bold: "Filterable hooks", text: "for custom invalidation logic" },
-                { bold: "Self-contained drop-in", text: "— under 200 lines of audited PHP" },
+                { bold: "Self-contained drop-in", text: ": under 200 lines of audited PHP" },
               ].map((item, i) => (
                 <motion.li 
                   key={i}

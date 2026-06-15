@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+﻿import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { MAIL_FROM, MAIL_TO } from '@/lib/mail';
 
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       from: MAIL_FROM,
       to: [NOTIFY_TO],
       replyTo: email,
-      subject: `Contact form — ${subject}`,
+      subject: `Contact form. ${subject}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px;">
           <h2 style="font-size: 20px; margin: 0 0 20px;">New message from the contact form</h2>
@@ -54,7 +54,7 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from: MAIL_FROM,
         to: [email],
-        subject: 'We received your message — Auralogics Labs',
+        subject: 'We received your message. Auralogics Labs',
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 40px; background: #050B25; color: white; border-radius: 24px;">
             <img src="https://auralogicslabs.com/auralogicslabs.svg" alt="Auralogics Labs" style="height: 28px; margin-bottom: 32px;" />

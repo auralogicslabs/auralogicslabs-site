@@ -1,4 +1,4 @@
-import { Header } from '@/components/layout/Header';
+﻿import { Header } from '@/components/layout/Header';
 import { Hero } from '@/components/sections/Hero';
 import { ProblemComparison } from '@/components/sections/ProblemComparison';
 import { PlatformShowcase } from '@/components/sections/PlatformShowcase';
@@ -22,11 +22,11 @@ export default function Home() {
         <Hero />
         {/* 2. The problem we exist to solve */}
         <ProblemComparison />
-        {/* 3. The platform — four products, one ecosystem */}
+        {/* 3. The platform. four products, one ecosystem */}
         <PlatformShowcase />
-        {/* 4. Under the hood — the capabilities that power it */}
+        {/* 4. Under the hood. the capabilities that power it */}
         <PlatformFeatures />
-        {/* 5. How it works — install, activate, it runs */}
+        {/* 5. How it works. install, activate, it runs */}
         <FeatureTeaser />
         {/* 5. Who it's for + compatibility */}
         <TrustSection />

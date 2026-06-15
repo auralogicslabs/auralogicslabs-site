@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, Zap, ImageIcon, BarChart3, CheckCircle2, ChevronRight } from "lucide-react";
@@ -322,7 +322,7 @@ function ShowcaseBlock({
                   </div>
                   <div>
                     <span className="text-[14px] font-extrabold text-obsidian tracking-tight">{b.label}</span>
-                    <span className="text-[14px] text-text-secondary font-medium"> — {b.desc}</span>
+                    <span className="text-[14px] text-text-secondary font-medium">. {b.desc}</span>
                   </div>
                 </motion.div>
               ))}
@@ -394,7 +394,7 @@ function ShowcaseBlock({
               </div>
             </motion.div>
 
-            {/* Second floating badge — top right */}
+            {/* Second floating badge. top right */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8, y: -12 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -414,7 +414,7 @@ function ShowcaseBlock({
 
 /* ─────────────────────────────────────────────────
    Insights "Coming Soon" showcase block
-   (no screenshot — email capture + preview grid)
+   (no screenshot. email capture + preview grid)
 ───────────────────────────────────────────────── */
 function InsightsShowcase() {
   return (
@@ -458,7 +458,7 @@ function InsightsShowcase() {
             </div>
 
             <p className="text-[17px] text-text-secondary font-medium leading-[1.7] max-w-[480px]">
-              Real indexing verdicts, on-page issue scoring, and Core Web Vitals — all inside your WordPress admin, powered by your own Search Console data. No external dashboards.
+              Real indexing verdicts, on-page issue scoring, and Core Web Vitals, all inside your WordPress admin, powered by your own Search Console data. No external dashboards.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -480,7 +480,7 @@ function InsightsShowcase() {
                   </div>
                   <div>
                     <span className="text-[14px] font-extrabold text-obsidian tracking-tight">{b.label}</span>
-                    <span className="text-[14px] text-text-secondary font-medium"> — {b.desc}</span>
+                    <span className="text-[14px] text-text-secondary font-medium">. {b.desc}</span>
                   </div>
                 </motion.div>
               ))}
@@ -590,7 +590,7 @@ function InsightsShowcase() {
                       <BarChart3 className="h-6 w-6 text-amber" />
                     </div>
                     <div className="text-[15px] font-extrabold text-obsidian">Insights Dashboard</div>
-                    <div className="text-[11px] font-bold text-text-muted uppercase tracking-[0.2em]">Preview — Q3 2026</div>
+                    <div className="text-[11px] font-bold text-text-muted uppercase tracking-[0.2em]">Preview. Q3 2026</div>
                   </div>
                 </div>
               </div>
@@ -623,11 +623,11 @@ export function FeatureShowcase() {
             </span>
           </>
         }
-        subheadline="One plugin transforms your WordPress site into a static-first machine. PHP boots for editors — visitors get pre-built HTML served straight from disk. No CDN contract. No DevOps."
+        subheadline="One plugin transforms your WordPress site into a static-first machine. PHP boots for editors; visitors get pre-built HTML served straight from disk. No CDN contract. No DevOps."
         bullets={[
           { label: "Zero PHP on cache hit", desc: "the entire execution stack is bypassed on every visit", color: "#1A3FD8" },
           { label: "Drop-in install", desc: "active in under 2 minutes, any host, any server type", color: "#059669" },
-          { label: "Smart invalidation", desc: "only edited pages rebuild — everything else stays cached", color: "#7C3AED" },
+          { label: "Smart invalidation", desc: "only edited pages rebuild; everything else stays cached", color: "#7C3AED" },
         ]}
         cta={{ label: "Get Started Free", href: "/nexora-engine/docs/getting-started" }}
         ctaSecondary={{ label: "See all features", href: "/products/nexora-engine" }}
@@ -660,7 +660,7 @@ export function FeatureShowcase() {
         subheadline="AVIF and WebP conversion happens automatically on upload. No manual exports, no third-party service, no recurring bill. Smaller images. Faster pages. Forever."
         bullets={[
           { label: "AVIF + WebP on upload", desc: "converted immediately, served in the right format per browser", color: "#059669" },
-          { label: "Non-destructive", desc: "originals are always preserved — convert back in one click", color: "#0D9488" },
+          { label: "Non-destructive", desc: "originals are always preserved; convert back in one click", color: "#0D9488" },
           { label: "Async processing", desc: "uploads complete instantly, conversion happens in the background", color: "#059669" },
         ]}
         cta={{ label: "Explore Nexora Media", href: "/products/nexora-media" }}

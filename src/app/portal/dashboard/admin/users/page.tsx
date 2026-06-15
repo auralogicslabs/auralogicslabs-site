@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, AnimatePresence } from "motion/react";
 import {
@@ -135,7 +135,7 @@ export default function UserManagementPage() {
             User <span className="text-brand">Management.</span>
           </h1>
           <p className="text-text-muted text-[15px] font-medium mt-2 max-w-[480px]">
-            Full control over registered accounts — add, edit, and manage users on the platform.
+            Full control over registered accounts. add, edit, and manage users on the platform.
           </p>
         </div>
         <div className="flex items-center gap-3">

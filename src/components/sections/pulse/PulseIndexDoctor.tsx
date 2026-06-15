@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Stethoscope, AlertTriangle, CheckCircle2, XCircle, MinusCircle, ArrowRight } from "lucide-react";
@@ -43,7 +43,7 @@ export function PulseIndexDoctor() {
             <div className="space-y-5 max-w-[520px]">
               <p className="text-[17px] text-text-secondary font-medium leading-[1.72]">
                 Other SEO plugins score your meta tags and stop there. Pulse pulls real indexing
-                verdicts straight from Google Search Console — then cross-references them with its own
+                verdicts straight from Google Search Console, then cross-references them with its own
                 signals (thin content, orphan pages, duplicates) to diagnose the actual cause.
               </p>
               <p className="text-[17px] text-obsidian font-bold leading-[1.65]">

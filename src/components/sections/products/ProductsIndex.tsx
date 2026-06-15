@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Zap, ImageIcon, Stethoscope, LayoutDashboard, ArrowRight, Check } from "lucide-react";
@@ -24,7 +24,7 @@ const products: Product[] = [
     tagline: "Adaptive runtime delivery",
     headline: "Static-speed WordPress, without the rebuild.",
     description:
-      "Pre-renders every page into flat HTML served before PHP boots. Keep Elementor, WooCommerce, and your whole plugin stack — gain ~22ms TTFB and 100% static delivery on cache hits.",
+      "Pre-renders every page into flat HTML served before PHP boots, keeping Elementor, WooCommerce, and your whole plugin stack intact. Delivers ~22ms TTFB and 100% static delivery on cache hits.",
     points: [
       "22ms TTFB vs 800ms+ traditional",
       "Zero PHP execution on cache hit",
@@ -44,7 +44,7 @@ const products: Product[] = [
     description:
       "One free SEO console for WordPress. The Index Doctor reads real Search Console verdicts to explain why pages aren't indexed, alongside on-page analysis, internal links, and Core Web Vitals.",
     points: [
-      "Index Doctor — real GSC verdicts",
+      "Index Doctor: real GSC verdicts",
       "Internal link graph & orphan detection",
       "Core Web Vitals from PageSpeed",
     ],
@@ -60,7 +60,7 @@ const products: Product[] = [
     tagline: "Edge media optimization",
     headline: "Faster images, automatically.",
     description:
-      "Background AVIF/WebP conversion and adaptive responsive sizing that cuts image payload by up to 70% — without touching your media library or changing how editors work.",
+      "Background AVIF/WebP conversion and adaptive responsive sizing that cuts image payload by up to 70%, without touching your media library or changing how editors work.",
     points: [
       "AVIF / WebP auto-conversion",
       "Responsive sizing on demand",
@@ -77,7 +77,7 @@ const products: Product[] = [
     tagline: "Fleet command center",
     headline: "Manage every site in one place.",
     description:
-      "One control plane for your entire WordPress fleet — licenses, deployments, runtime configuration, and team access, with audit logs and one-click rollback.",
+      "One control plane for your entire WordPress fleet: licenses, deployments, runtime configuration, and team access, with audit logs and one-click rollback.",
     points: [
       "Unified dashboard for every site",
       "Team roles & audit log",

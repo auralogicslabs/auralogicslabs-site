@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { CheckCircle2, ArrowRight, Zap, Code2, Building2, Sparkles, ArrowUpRight } from "lucide-react";
@@ -106,7 +106,7 @@ export function HomepagePricing() {
             Engineered for transparency.
           </h2>
           <p className="text-[17px] text-text-secondary font-medium max-w-[480px] mx-auto leading-[1.65]">
-            No credit card required. The free tier is genuinely full-featured — not a trial.
+            No credit card required. The free tier is genuinely full-featured, not a trial.
           </p>
         </motion.div>
 

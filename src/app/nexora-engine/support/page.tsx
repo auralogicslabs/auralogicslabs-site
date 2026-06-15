@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -95,7 +95,7 @@ export default function SupportPage() {
               We've Got You <br /><span className="text-brand">Covered.</span>
             </h1>
             <p className="text-[20px] text-text-secondary font-medium leading-relaxed max-w-[640px]">
-              Check the self-service resources first — most issues are solved in under two minutes. If you're still stuck, open a ticket and our team responds fast.
+              Check the self-service resources first. most issues are solved in under two minutes. If you're still stuck, open a ticket and our team responds fast.
             </p>
           </motion.div>
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Send, Check, Loader2 } from "lucide-react";
@@ -43,7 +43,7 @@ export function ContactForm() {
         </div>
         <h3 className="text-[22px] font-extrabold text-obsidian mb-2">Message sent.</h3>
         <p className="text-[15px] text-text-secondary font-medium max-w-[380px] mx-auto leading-relaxed">
-          Thanks for reaching out — we&apos;ve received your message and will get back to you shortly. Check your inbox for a confirmation.
+          Thanks for reaching out. we&apos;ve received your message and will get back to you shortly. Check your inbox for a confirmation.
         </p>
       </div>
     );

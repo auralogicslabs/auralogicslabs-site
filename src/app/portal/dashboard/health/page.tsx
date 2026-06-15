@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -178,7 +178,7 @@ export default function HealthPage() {
                     <div className="mt-5 pt-5 border-t border-border flex items-center justify-between gap-4">
                       <span className="text-[13px] text-amber-600 font-medium flex items-center gap-2">
                         <AlertTriangle size={14} />
-                        Plugin not detected — install Nexora Engine to enable full health monitoring.
+                        Plugin not detected. install Nexora Engine to enable full health monitoring.
                       </span>
                       <Link href="/portal/dashboard/downloads" className="text-[12px] font-black text-brand hover:underline shrink-0">
                         Get Plugin

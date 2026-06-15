@@ -8,12 +8,12 @@ import { BlogListingJsonLd } from "@/components/blog/BlogJsonLd";
 import { getAllPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "Engineering Notes — WordPress Performance & Nexora Engine",
+  title: "Engineering Notes: WordPress Performance & Nexora Engine",
   description:
     "Technical articles on WordPress static delivery, TTFB, Core Web Vitals, Ghost Protocol security, and WooCommerce performance. Written by the Auralogics Labs infrastructure team.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Engineering Notes — Auralogics Labs",
+    title: "Engineering Notes by Auralogics Labs",
     description:
       "Deep dives on WordPress performance, static HTML delivery, and Nexora Engine infrastructure.",
     url: "https://auralogicslabs.com/blog",
@@ -58,7 +58,7 @@ export default function BlogPage() {
               </span>
             </h1>
             <p className="text-[17px] md:text-[19px] text-slate-500 font-medium leading-relaxed max-w-[620px]">
-              Performance engineering, security hygiene, and static delivery — practical guides focused on Nexora Engine and modern WordPress stacks.
+              Performance engineering, security hygiene, and static delivery. Practical guides focused on Nexora Engine and modern WordPress stacks.
             </p>
           </div>
         </section>

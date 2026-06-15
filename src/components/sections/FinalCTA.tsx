@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { ArrowRight, Mail, ArrowUpRight, Check } from "lucide-react";
@@ -24,7 +24,7 @@ function FreeTrialBanner() {
       const data = await res.json().catch(() => ({}));
       if (res.ok && data?.success) {
         setStatus("success");
-        setMessage("Thanks! Check your inbox — we'll be in touch shortly.");
+        setMessage("Thanks! Check your inbox. We'll be in touch shortly.");
         setEmail("");
       } else {
         setStatus("error");
@@ -43,7 +43,7 @@ function FreeTrialBanner() {
       <div className="absolute -bottom-20 -left-10 w-72 h-72 rounded-full blur-[110px] pointer-events-none" style={{ background: "rgba(124,58,237,0.12)" }} />
 
       <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 text-left">
-        {/* Left — heading */}
+        {/* Left. heading */}
         <div className="flex-shrink-0 lg:max-w-[360px]">
           <h3 className="text-[28px] md:text-[34px] font-extrabold text-white leading-[1.05] tracking-[-0.03em] mb-2.5">
             Start your 14-day free trial
@@ -53,7 +53,7 @@ function FreeTrialBanner() {
           </p>
         </div>
 
-        {/* Right — form */}
+        {/* Right. form */}
         <div className="flex-1 w-full">
           {status === "success" ? (
             <div className="flex items-center gap-3 rounded-2xl bg-emerald-500/10 border border-emerald-400/30 px-5 py-4">
@@ -117,7 +117,7 @@ export function FinalCTA() {
       className="relative overflow-hidden"
       innerClassName="relative z-10 py-20 md:py-24"
     >
-      {/* Amber accent glow — reference-style */}
+      {/* Amber accent glow. reference-style */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[300px] bg-[#F39A09]/20 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[200px] bg-white/10 blur-[80px] rounded-full pointer-events-none" />
 
@@ -152,7 +152,7 @@ export function FinalCTA() {
         </div>
       </ScrollReveal>
 
-      {/* Free trial banner — bottom of Get Started */}
+      {/* Free trial banner. bottom of Get Started */}
       <ScrollReveal delay={0.15}>
         <div className="mt-14 md:mt-16 max-w-[1100px] mx-auto">
           <FreeTrialBanner />

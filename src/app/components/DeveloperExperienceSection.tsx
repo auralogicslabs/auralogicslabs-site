@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
 import { Terminal, Code2, Activity } from 'lucide-react';
@@ -162,7 +162,7 @@ export function DeveloperExperienceSection() {
               </div>
               <p className="mt-3 text-sm leading-relaxed text-slate-500">
                 Real-time delivery status, TTFB readings, Ghost Protocol
-                verification, and per-page capture health — all visible in the
+                verification, and per-page capture health. all visible in the
                 WordPress admin panel.
               </p>
             </div>
@@ -178,7 +178,7 @@ export function DeveloperExperienceSection() {
               </div>
               <p className="mt-3 text-sm leading-relaxed text-slate-500">
                 Structured JSON diagnostics available via a signed admin
-                endpoint — pipe it into your monitoring stack, CI checks, or
+                endpoint. pipe it into your monitoring stack, CI checks, or
                 Slack alerts with no extra tooling.
               </p>
             </div>

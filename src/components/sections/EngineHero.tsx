@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, Code2, Zap } from "lucide-react";
@@ -61,7 +61,7 @@ export function EngineHero() {
           transition={{ duration: 0.7, delay: 0.18 }}
           className="text-[17px] md:text-[19px] text-text-secondary max-w-[600px] leading-[1.7] mb-12 font-medium"
         >
-          Pre-renders every WordPress page into flat HTML — served to visitors before PHP boots.
+          Pre-renders every WordPress page into flat HTML, served to visitors before PHP boots.
           Drop-in installation. No headless migration, no new frontend, no DevOps.
         </motion.p>
 

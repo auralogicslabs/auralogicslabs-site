@@ -22,7 +22,17 @@
       "Bash(node .tmp-debug.mjs)",
       "Bash(rm -f .tmp-*.mjs .tmp-*.png && echo \"cleaned\")",
       "mcp__Claude_in_Chrome__tabs_context_mcp",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(powershell -Command ' *)",
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(grep -v \"//\\\\|node_modules\\\\|\\\\.d\\\\.ts\\\\|url\\(\\\\|rgba\\(\\\\|http\\\\|https\\\\|png\\\\|svg\\\\|jpg\\\\|css\\\\|js\\\\|ts\\\\|json\\\\|xml\\\\|webp\\\\|avif\\\\|woff\\\\|php\\\\|com\\\\|org\\\\|io\\\\|dev\")",
+      "Bash(grep -v \"//\\\\|url\\\\|rgba\\\\|http\\\\|style\\\\|svg\\\\|png\\\\|web\\\\|font\\\\|base\\\\|mask\\\\|grid\\\\|blur\\\\|ring\\\\|gap\\\\|flex\\\\|col\\\\|row\\\\|pad\\\\|mar\\\\|text\\\\|back\\\\|bord\\\\|shad\\\\|trans\\\\|over\\\\|min\\\\|max\\\\|w-\\\\|h-\\\\|z-\\\\|op\\\\|ro\\\\|sc\\\\|dur\\\\|del\\\\|ease\\\\|cur\\\\|poi\")",
+      "Bash(grep -rn '\"\\\\. [a-z]\\\\|`\\\\. [a-z]\\\\|\\\\. [a-z][a-z][a-z]' src/components/sections/ src/app/ --include=\"*.tsx\")",
+      "Bash(grep -n '\"\\\\. [a-z]\\\\|`\\\\. [a-z]' src/components/sections/InsightsComingSoon.tsx src/components/sections/FeatureShowcase.tsx)",
+      "Bash(grep -v \"node_modules\\\\|\\\\.com\\\\|\\\\.org\\\\|\\\\.io\\\\|//\\\\|\\\\/\\\\*\")",
+      "Bash(grep -E '\"\\\\. |`\\\\. |\\\\. [a-z]{2,}[^-]')",
+      "Bash(grep -E '\"[^\"]*\\\\. [a-z]|`[^`]*\\\\. [a-z]')",
+      "Bash(grep -v \"node_modules\\\\|\\\\.com\\\\|\\\\.org\\\\|\\\\.io\\\\|\\\\.js\\\\|\\\\.svg\\\\|\\\\.png\\\\|//\\\\|\\\\/\\\\*\")"
     ]
   }
 }

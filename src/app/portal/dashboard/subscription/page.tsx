@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -29,7 +29,7 @@ export default function SubscriptionPage() {
       period: "forever",
       description: "Ideal for single-site developers and community users.",
       features: [
-        "SSG — Static Site Generator",
+        "SSG. Static Site Generator",
         "advanced-cache.php Drop-In",
         "Ghost Protocol (Basic)",
         "SPA Navigation (Normalizer)",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from 'react';
 import { Activity, Gauge, Server } from 'lucide-react';
@@ -39,10 +39,10 @@ function MetricBar({ metric, delay }: { metric: Metric; delay: number }) {
 
 export function PerformanceSection() {
   const metrics: Metric[] = [
-    { label: 'TTFB — Time to First Byte', value: '22ms', change: '−85%', score: 98 },
-    { label: 'FCP — First Contentful Paint', value: '0.8s', change: '−72%', score: 95 },
-    { label: 'LCP — Largest Contentful Paint', value: '1.2s', change: '−68%', score: 90 },
-    { label: 'CLS — Cumulative Layout Shift', value: '0.02', change: '−90%', score: 98 },
+    { label: 'TTFB. Time to First Byte', value: '22ms', change: '−85%', score: 98 },
+    { label: 'FCP. First Contentful Paint', value: '0.8s', change: '−72%', score: 95 },
+    { label: 'LCP. Largest Contentful Paint', value: '1.2s', change: '−68%', score: 90 },
+    { label: 'CLS. Cumulative Layout Shift', value: '0.02', change: '−90%', score: 98 },
   ];
 
   const headers = [

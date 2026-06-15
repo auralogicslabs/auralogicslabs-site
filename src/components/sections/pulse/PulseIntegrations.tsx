@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Stethoscope, Gauge, KeyRound, ShieldCheck, Lock } from "lucide-react";
@@ -12,7 +12,7 @@ const integrations = [
     tagline: "Real indexing intelligence",
     points: [
       "See which pages Google indexed, rejected, or hasn't crawled",
-      "Diagnose why pages aren't indexed — the Index Doctor",
+      "Diagnose why pages aren't indexed with the Index Doctor",
       "Track clicks, impressions, and average position",
     ],
     badge: "Free",
@@ -22,7 +22,7 @@ const integrations = [
     name: "PageSpeed Insights",
     tagline: "Core Web Vitals + performance",
     points: [
-      "Track LCP, INP, CLS — the metrics Google ranks by",
+      "Track LCP, INP, CLS: the metrics Google ranks by",
       "Field data from real Chrome users (CrUX)",
       "Specific Lighthouse audits and fix suggestions",
     ],

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
@@ -177,7 +177,7 @@ export function Header() {
     <>
       <ScrollProgressBar />
       <header className="fixed top-0 z-50 w-full pointer-events-none">
-        {/* Full-width background bar — appears on scroll, spans edge to edge */}
+        {/* Full-width background bar. appears on scroll, spans edge to edge */}
         <motion.div
           initial={false}
           animate={{
@@ -191,7 +191,7 @@ export function Header() {
           className="absolute inset-0 border-b backdrop-blur-2xl"
         />
 
-        {/* Content — stays aligned to the body container */}
+        {/* Content. stays aligned to the body container */}
         <div className="relative w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pointer-events-auto">
           <div className="flex h-[76px] items-center justify-between">
 

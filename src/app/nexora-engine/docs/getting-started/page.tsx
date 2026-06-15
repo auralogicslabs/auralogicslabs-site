@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Header } from "@/components/layout/Header";
@@ -28,14 +28,14 @@ const steps = [
   {
     number: "03",
     title: "Enable Static Site Generation",
-    description: "Toggle SSG on in the Build Control panel. Nexora uses HMAC-signed loopback requests to capture authenticated renders of every page — no headless browser required.",
+    description: "Toggle SSG on in the Build Control panel. Nexora uses HMAC-signed loopback requests to capture authenticated renders of every page, with no headless browser required.",
     code: "Nexora Engine → Build Control → Enable SSG → Generate All Pages",
     icon: Cpu,
   },
   {
     number: "04",
     title: "Activate Ghost Protocol (Pro)",
-    description: "Enable Stealth Proxy to cloak WordPress fingerprints. Asset paths are remapped, X-Powered-By headers are stripped, and window.wp is masked to window.ncx — invisible to scanners.",
+    description: "Enable Stealth Proxy to cloak WordPress fingerprints. Asset paths are remapped, X-Powered-By headers are stripped, and window.wp is masked to window.ncx, making the site invisible to scanners.",
     code: "Nexora Engine → Headless Mode → Enable Ghost Protocol",
     icon: Shield,
   },
@@ -110,7 +110,7 @@ export default function GettingStartedPage() {
               From Zero to <br /><span className="text-brand">22ms TTFB.</span>
             </h1>
             <p className="text-[20px] text-text-secondary font-medium leading-relaxed max-w-[640px]">
-              Install Nexora Engine, run the wizard, and your WordPress site is serving static pages at edge speed — in under five minutes.
+              Install Nexora Engine, run the wizard, and your WordPress site is serving static pages at edge speed. in under five minutes.
             </p>
           </motion.div>
 

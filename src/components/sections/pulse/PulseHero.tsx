@@ -61,8 +61,8 @@ export function PulseHero() {
           className="text-[17px] md:text-[19px] text-text-secondary max-w-[640px] leading-[1.7] mb-12 font-medium"
         >
           Nexora Pulse is the SEO operations console for WordPress. One dashboard to diagnose
-          indexing problems, fix on-page issues, map your internal links, and track Core Web Vitals —
-          powered by your own Search Console and PageSpeed data. Free, no upsell walls.
+          indexing problems, fix on-page issues, map your internal links, and track Core Web Vitals.
+          Powered by your own Search Console and PageSpeed data. Free, no upsell walls.
         </motion.p>
 
         {/* CTAs */}

@@ -1,4 +1,4 @@
-import { Header } from "@/components/layout/Header";
+﻿import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export interface LegalSection {
@@ -24,7 +24,7 @@ export function LegalLayout({
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        {/* Header band — light, matches header on subpages */}
+        {/* Header band. light, matches header on subpages */}
         <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-16 md:pt-44 md:pb-20 px-6 sm:px-10 lg:px-16">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#CBD5E1_1px,transparent_0)] bg-[size:48px_48px] opacity-30 pointer-events-none" />
           <div className="absolute -top-24 left-1/3 w-[600px] h-[400px] rounded-full blur-[180px] pointer-events-none" style={{ background: "rgba(26,63,216,0.08)" }} />

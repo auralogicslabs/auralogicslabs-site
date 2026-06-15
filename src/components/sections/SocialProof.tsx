@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const useCases = [
   { icon: Globe2,       label: "Business Websites",  benefit: "Lightning-fast service pages, zero bounce on mobile",       color: "#1A3FD8" },
-  { icon: ShoppingCart, label: "WooCommerce Stores",  benefit: "Product pages load instantly — conversion rates improve",   color: "#059669" },
+  { icon: ShoppingCart, label: "WooCommerce Stores",  benefit: "Product pages load instantly; conversion rates improve",   color: "#059669" },
   { icon: Newspaper,    label: "News Portals",        benefit: "High-traffic articles served without scaling costs",         color: "#7C3AED" },
   { icon: Briefcase,    label: "Agency Sites",        benefit: "Client deliverables that pass Core Web Vitals on day one",  color: "#F59E0B" },
   { icon: BookOpen,     label: "Blogs & Publishers",  benefit: "SEO-first delivery with no plugin overhead",                color: "#0D9488" },
@@ -132,7 +132,7 @@ export function SocialProof() {
             Works on every site.<br className="hidden md:block" /> Every stack.
           </h2>
           <p className="text-[17px] text-text-secondary font-medium max-w-[500px] mx-auto leading-[1.65]">
-            From solo developer blogs to high-traffic news portals — Nexora adapts to your use case,
+            From solo developer blogs to high-traffic news portals. Nexora adapts to your use case,
             your host, and your team.
           </p>
         </motion.div>
@@ -240,7 +240,7 @@ export function SocialProof() {
                 </div>
 
                 <h3 className="text-[32px] md:text-[44px] font-extrabold text-white tracking-tight leading-[1.05]">
-                  See Nexora running<br className="hidden md:block" /> on your site — free.
+                  See Nexora running<br className="hidden md:block" /> on your site. free.
                 </h3>
                 <p className="text-[16px] text-white/50 font-medium leading-[1.72] max-w-[420px]">
                   Install Nexora Engine in under 2 minutes. No credit card.
@@ -290,7 +290,7 @@ export function SocialProof() {
 
               {/* Screenshot placeholders stacked/overlapping */}
               <div className="relative">
-                {/* Engine screenshot — back */}
+                {/* Engine screenshot. back */}
                 <motion.div
                   initial={{ opacity: 0, x: 24, rotate: 2 }}
                   whileInView={{ opacity: 1, x: 0, rotate: 2 }}
@@ -307,7 +307,7 @@ export function SocialProof() {
                   />
                 </motion.div>
 
-                {/* Media screenshot — front */}
+                {/* Media screenshot. front */}
                 <motion.div
                   initial={{ opacity: 0, x: -24, rotate: -2 }}
                   whileInView={{ opacity: 1, x: 0, rotate: -2 }}

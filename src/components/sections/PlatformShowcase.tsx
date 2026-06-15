@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 
 // ──────────────────────────────────────────────────────────────
-// Product definitions — the single source of truth for this section.
+// Product definitions. the single source of truth for this section.
 // Each product owns its accent, copy, value props, and a bespoke UI
 // vignette rendered as real interface (no placeholder screenshots).
 // ──────────────────────────────────────────────────────────────
@@ -43,7 +43,7 @@ const PRODUCTS: Product[] = [
     tagline: "Adaptive runtime delivery",
     headline: "Static-speed WordPress, without the rebuild.",
     description:
-      "Pre-renders every page into flat HTML served before PHP boots — keeping Elementor, WooCommerce, and your whole plugin stack exactly as they are.",
+      "Pre-renders every page into flat HTML served before PHP boots, keeping Elementor, WooCommerce, and your whole plugin stack exactly as they are.",
     points: [
       "~22ms TTFB versus 800ms+ on a traditional stack",
       "Zero PHP execution on a cache hit",
@@ -62,9 +62,9 @@ const PRODUCTS: Product[] = [
     tagline: "SEO operations console",
     headline: "Know exactly why Google won't rank you.",
     description:
-      "One free SEO console for WordPress. The Index Doctor reads real Search Console verdicts to explain why pages aren't indexed — then finds the pattern across them.",
+      "One free SEO console for WordPress. The Index Doctor reads real Search Console verdicts to explain why pages aren't indexed, then finds the pattern across them.",
     points: [
-      "Index Doctor — real Search Console verdicts",
+      "Index Doctor: real Search Console verdicts",
       "Internal link graph with orphan detection",
       "Core Web Vitals from PageSpeed & real users",
     ],
@@ -81,7 +81,7 @@ const PRODUCTS: Product[] = [
     tagline: "Edge media optimization",
     headline: "Every image, optimized automatically.",
     description:
-      "Background AVIF and WebP conversion with adaptive responsive sizing that cuts image payload by up to 70% — without touching your media library.",
+      "Background AVIF and WebP conversion with adaptive responsive sizing that cuts image payload by up to 70%, without touching your media library.",
     points: [
       "AVIF / WebP conversion in the background",
       "Adaptive responsive sizing on demand",
@@ -100,7 +100,7 @@ const PRODUCTS: Product[] = [
     tagline: "Fleet command center",
     headline: "Run every site from one command center.",
     description:
-      "A single control plane for your entire WordPress fleet — licenses, deployments, runtime configuration, and team access, with audit logs and one-click rollback.",
+      "A single control plane for your entire WordPress fleet: licenses, deployments, runtime configuration, and team access, with audit logs and one-click rollback.",
     points: [
       "Unified dashboard across every connected site",
       "Team roles, audit log, and access control",
@@ -112,7 +112,7 @@ const PRODUCTS: Product[] = [
 ];
 
 // ──────────────────────────────────────────────────────────────
-// Per-product UI vignettes — small, real interface compositions.
+// Per-product UI vignettes. small, real interface compositions.
 // These read as genuine product surfaces, not stock screenshots.
 // ──────────────────────────────────────────────────────────────
 
@@ -347,7 +347,7 @@ export function PlatformShowcase() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)", backgroundSize: "44px 44px" }} />
       </div>
 
-      {/* Oversized N-mark watermark — brand anchor */}
+      {/* Oversized N-mark watermark. brand anchor */}
       <div className="absolute -right-32 -top-16 w-[560px] h-[560px] opacity-[0.05] pointer-events-none select-none hidden lg:block rotate-12">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/nexora.svg" alt="" className="w-full h-full object-contain" />
@@ -376,8 +376,8 @@ export function PlatformShowcase() {
             </span>
           </h2>
           <p className="text-[17px] md:text-[19px] leading-[1.65] font-medium text-white/45 max-w-[620px]">
-            Each Nexora product is a focused, drop-in tool that respects your existing WordPress stack —
-            and together they form a single platform for speed, visibility, and control.
+            Each Nexora product is a focused, drop-in tool that respects your existing WordPress stack.
+            Together they form a single platform for speed, visibility, and control.
           </p>
         </motion.div>
 
@@ -417,7 +417,7 @@ export function PlatformShowcase() {
 
         {/* Showcase frame */}
         <div className="grid lg:grid-cols-[1.15fr_1fr] gap-6 lg:gap-8 items-stretch">
-          {/* Left — bespoke UI vignette inside a branded window */}
+          {/* Left. bespoke UI vignette inside a branded window */}
           <div
             className="relative rounded-[24px] md:rounded-[28px] overflow-hidden border min-h-[420px] flex flex-col"
             style={{ background: "linear-gradient(160deg, #0C1736 0%, #080E26 100%)", borderColor: `${product.accent}33` }}
@@ -438,7 +438,7 @@ export function PlatformShowcase() {
                 </div>
               </div>
             </div>
-            {/* Vignette body — animated per tab */}
+            {/* Vignette body. animated per tab */}
             <div className="relative flex-1">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -455,7 +455,7 @@ export function PlatformShowcase() {
             </div>
           </div>
 
-          {/* Right — narrative panel */}
+          {/* Right. narrative panel */}
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -520,7 +520,7 @@ export function PlatformShowcase() {
           </AnimatePresence>
         </div>
 
-        {/* Platform footer strip — proof, not fluff */}
+        {/* Platform footer strip. proof, not fluff */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}

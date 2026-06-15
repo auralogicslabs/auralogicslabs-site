@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -147,9 +147,9 @@ export default function PerformancePage() {
             </div>
             <div className="flex flex-wrap items-center gap-6 mt-6 pt-6 border-t border-border">
               {[
-                { dot: 'bg-emerald-500', label: '< 100ms — Excellent' },
-                { dot: 'bg-brand',       label: '100–200ms — Good' },
-                { dot: 'bg-amber-500',   label: '> 200ms — Needs improvement' },
+                { dot: 'bg-emerald-500', label: '< 100ms. Excellent' },
+                { dot: 'bg-brand',       label: '100–200ms. Good' },
+                { dot: 'bg-amber-500',   label: '> 200ms. Needs improvement' },
               ].map(item => (
                 <div key={item.label} className="flex items-center gap-2">
                   <div className={`h-3 w-3 rounded-sm ${item.dot}`} />

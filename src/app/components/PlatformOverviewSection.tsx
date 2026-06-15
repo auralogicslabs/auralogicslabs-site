@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
 import { Zap, Shield, Brain, CheckCircle2 } from 'lucide-react';
@@ -15,7 +15,7 @@ const platforms = [
     features: [
       { label: 'Static HTML delivery', note: 'Pre-rendered pages served directly from disk' },
       { label: 'Sub-50ms TTFB', note: 'No PHP execution, no DB queries per request' },
-      { label: 'Universal server support', note: 'Apache, Nginx, LiteSpeed, IIS — all covered' },
+      { label: 'Universal server support', note: 'Apache, Nginx, LiteSpeed, IIS. all covered' },
       { label: 'Browser-level caching', note: 'Full Cache-Control and ETag header control' },
     ],
   },
@@ -25,7 +25,7 @@ const platforms = [
     label: 'Ghost Protocol',
     title: 'Enterprise security with zero-footprint delivery.',
     description:
-      'Ghost Protocol scrubs every captured page of WordPress fingerprints — REST endpoints, plugin paths, generator tags — before they ever reach a visitor. You look like a CDN-deployed Next.js app.',
+      'Ghost Protocol scrubs every captured page of WordPress fingerprints. REST endpoints, plugin paths, generator tags. before they ever reach a visitor. You look like a CDN-deployed Next.js app.',
     features: [
       { label: 'Namespace cloaking', note: 'WP plugin/theme paths rewritten in HTML' },
       { label: 'REST endpoint masking', note: 'wp-json and REST routes hidden from output' },
@@ -39,7 +39,7 @@ const platforms = [
     label: 'Intelligent Automation',
     title: 'Self-managing cache that knows what changed.',
     description:
-      'Nexora Engine listens to WordPress publish events and re-captures only the pages that changed. No manual flushes, no full-site rebuilds — just precise, instant invalidation.',
+      'Nexora Engine listens to WordPress publish events and re-captures only the pages that changed. No manual flushes, no full-site rebuilds. just precise, instant invalidation.',
     features: [
       { label: 'Selective regeneration', note: 'Only changed pages are re-captured' },
       { label: 'Conflict detection', note: 'Auto-detects competing caching plugins' },
@@ -74,7 +74,7 @@ export function PlatformOverviewSection() {
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
             Three pillars that transform WordPress into a modern delivery
-            platform — no rebuild required.
+            platform. no rebuild required.
           </p>
         </motion.div>
 

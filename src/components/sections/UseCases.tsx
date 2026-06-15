@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -26,7 +26,7 @@ const useCases = [
     title: "For enterprises",
     tagline: "Infrastructure modernization at zero migration risk.",
     description:
-      "Eliminate WordPress fingerprint exposure across all public endpoints while maintaining compliance requirements, editorial workflows, and zero-downtime operation — no multi-quarter headless rebuild required.",
+      "Eliminate WordPress fingerprint exposure across all public endpoints while maintaining compliance requirements, editorial workflows, and zero-downtime operation, with no multi-quarter headless rebuild required.",
     benefits: [
       { label: "Ghost Protocol on every response", note: "WP identity hidden at the header level" },
       { label: "Maintain compliance requirements", note: "No data leaves the WordPress environment" },
@@ -41,11 +41,11 @@ const useCases = [
     title: "For publishers",
     tagline: "Handle traffic spikes without scaling servers.",
     description:
-      "Static delivery means traffic spikes no longer translate to server overload or slow TTFB. Editorial teams keep their Gutenberg or Elementor workflow — readers get consistent sub-second load times.",
+      "Static delivery means traffic spikes no longer translate to server overload or slow TTFB. Editorial teams keep their Gutenberg or Elementor workflow while readers get consistent sub-second load times.",
     benefits: [
       { label: "Traffic spikes handled with no extra cost", note: "Static files need no PHP workers" },
       { label: "Dramatically lower hosting costs", note: "No PHP processes burning under load" },
-      { label: "Core Web Vitals improvement", note: "LCP 1.2s, CLS 0.02 — both Google green" },
+      { label: "Core Web Vitals improvement", note: "LCP 1.2s, CLS 0.02: both Google green" },
       { label: "Maintain editorial workflows", note: "Publish → live in seconds, as always" },
     ],
     stat: { value: "−68%", label: "improvement in LCP score on live production" },
@@ -56,7 +56,7 @@ const useCases = [
     title: "For developers",
     tagline: "Headless-grade architecture, zero DevOps overhead.",
     description:
-      "Get the delivery performance of a fully decoupled headless setup — REST masking, static HTML, CDN-ready headers — without maintaining build pipelines, Node servers, or separate frontend deployments.",
+      "Get the delivery performance of a fully decoupled headless setup: REST masking, static HTML, and CDN-ready headers, without maintaining build pipelines, Node servers, or separate frontend deployments.",
     benefits: [
       { label: "REST, GraphQL, and WP hooks all supported", note: "Full API-first architecture" },
       { label: "No npm, no CI/CD for content updates", note: "Zero build pipeline needed" },

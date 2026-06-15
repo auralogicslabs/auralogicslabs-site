@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { ArrowRight, Zap, ImageIcon, BarChart3, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
@@ -69,7 +69,7 @@ export function ProductShowcase() {
         align="center"
         eyebrow="The Platform"
         title="Everything your WordPress stack needs."
-        description="Four products, one ecosystem — runtime, media, intelligence, and control designed to work together."
+        description="Four products, one ecosystem: runtime, media, intelligence, and control designed to work together."
         className="mb-14 md:mb-20"
       />
 

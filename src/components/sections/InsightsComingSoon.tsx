@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -21,7 +21,7 @@ const upcomingFeatures = [
     icon: Zap,
     title: "Static Delivery Analytics",
     description:
-      "Measures actual cache-hit rates, TTFB distributions, and PHP bypass counts — not estimates.",
+      "Measures actual cache-hit rates, TTFB distributions, and PHP bypass counts, not estimates.",
     accent: "#1A3FD8",
   },
   {
@@ -35,7 +35,7 @@ const upcomingFeatures = [
     icon: MousePointerClick,
     title: "Core Web Vitals Tracking",
     description:
-      "LCP, CLS, and INP trends over time — directly correlated with Nexora Engine build events.",
+      "LCP, CLS, and INP trends over time, directly correlated with Nexora Engine build events.",
     accent: "#7C3AED",
   },
   {
@@ -49,14 +49,14 @@ const upcomingFeatures = [
     icon: Clock,
     title: "Build Impact Reports",
     description:
-      "Before/after performance snapshots for every rebuild — so you know exactly what each deployment achieved.",
+      "Before/after performance snapshots for every rebuild, so you know exactly what each deployment achieved.",
     accent: "#059669",
   },
   {
     icon: BarChart3,
     title: "Visitor Intelligence",
     description:
-      "Privacy-first behaviour analytics designed for static sites — no cookies required, no GDPR headaches.",
+      "Privacy-first behaviour analytics designed for static sites, no cookies required, no GDPR headaches.",
     accent: "#1A3FD8",
   },
 ];
@@ -128,7 +128,7 @@ export function InsightsComingSoon() {
             className="text-[17px] md:text-[19px] text-text-secondary max-w-[580px] leading-[1.7] mb-10 font-medium"
           >
             Deep performance intelligence built for Nexora Engine. Real cache-hit rates,
-            Core Web Vitals trends, and image savings — all in one dashboard.
+            Core Web Vitals trends, and image savings, all in one dashboard.
           </motion.p>
 
           {/* Checkmarks */}
@@ -162,7 +162,7 @@ export function InsightsComingSoon() {
               <div className="flex items-center justify-center gap-3 rounded-2xl bg-amber-50 border border-amber-200 px-8 py-5">
                 <BellRing className="h-5 w-5 text-amber-500 flex-shrink-0" />
                 <p className="text-[15px] font-bold text-obsidian">
-                  You're on the list — we'll notify you at launch.
+                  You're on the list. We'll notify you at launch.
                 </p>
               </div>
             ) : (
@@ -199,7 +199,7 @@ export function InsightsComingSoon() {
           >
             <Clock className="h-4 w-4 text-amber-500" />
             <span className="text-[12px] font-bold text-amber-700 uppercase tracking-[0.18em]">
-              Estimated launch — Q3 2026
+              Estimated launch. Q3 2026
             </span>
           </motion.div>
         </div>
@@ -315,7 +315,7 @@ export function InsightsComingSoon() {
                   Nexora Media
                 </h3>
                 <p className="text-[14px] text-text-secondary font-medium leading-[1.6]">
-                  Image savings data flows directly into Insights — see AVIF/WebP
+                  Image savings data flows directly into Insights: see AVIF/WebP
                   adoption and bandwidth saved per page.
                 </p>
               </div>

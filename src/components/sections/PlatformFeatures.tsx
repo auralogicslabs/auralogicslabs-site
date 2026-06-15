@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -200,7 +200,7 @@ export function PlatformFeatures() {
       className="relative overflow-hidden py-24 md:py-32 lg:py-40"
       style={{ background: "linear-gradient(180deg, #030714 0%, #06102A 45%, #030714 100%)" }}
     >
-        {/* Top hairline — separates this band from The Platform above */}
+        {/* Top hairline. separates this band from The Platform above */}
         <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(96,165,250,0.35), transparent)" }} />
         <div className="absolute inset-0 pointer-events-none">
           <div
@@ -249,7 +249,7 @@ export function PlatformFeatures() {
             </p>
           </motion.div>
 
-          {/* Feature grid — left features | center hub | right features */}
+          {/* Feature grid. left features | center hub | right features */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px_1fr] xl:grid-cols-[1fr_460px_1fr] gap-12 lg:gap-8 xl:gap-10 items-center">
             <div className="flex flex-col gap-10 lg:gap-12 order-2 lg:order-1 lg:max-w-[380px] xl:max-w-[420px] lg:ml-auto w-full">
               {leftFeatures.map((f, i) => (

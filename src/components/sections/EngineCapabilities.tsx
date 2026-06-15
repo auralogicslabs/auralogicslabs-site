@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -23,7 +23,7 @@ const capabilities = [
     icon: Cpu,
     title: "Zero PHP on Cache Hit",
     description:
-      "Cached pages bypass the entire WordPress execution stack. PHP, plugins, and database queries — all skipped.",
+      "Cached pages bypass the entire WordPress execution stack. PHP, plugins, and database queries are all skipped.",
     metric: "0",
     metricLabel: "PHP calls",
     accent: "#059669",
@@ -34,7 +34,7 @@ const capabilities = [
     icon: Server,
     title: "Every Server. Every Host.",
     description:
-      "Apache, Nginx, LiteSpeed, IIS — Nexora Engine generates the correct rewrite rules for your exact stack automatically.",
+      "Apache, Nginx, LiteSpeed, IIS. Nexora Engine generates the correct rewrite rules for your exact stack automatically.",
     metric: "4+",
     metricLabel: "Server types",
     accent: "#7C3AED",
@@ -67,7 +67,7 @@ const capabilities = [
     icon: Lock,
     title: "Non-Destructive by Design",
     description:
-      "Static files sit alongside your live WordPress install. One toggle disables the mirror — your site runs as normal.",
+      "Static files sit alongside your live WordPress install. One toggle disables the mirror and your site runs as normal.",
     metric: "1-click",
     metricLabel: "Rollback",
     accent: "#DC2626",
@@ -80,7 +80,7 @@ const bottomItems = [
   { icon: Globe,     label: "Works on shared hosting",    color: "#1A3FD8" },
   { icon: Clock,     label: "Active in under 2 minutes",  color: "#059669" },
   { icon: BarChart3, label: "No DevOps required",         color: "#7C3AED" },
-  { icon: Shield,    label: "Free tier — forever free",   color: "#F59E0B" },
+  { icon: Shield,    label: "Free tier: forever free",   color: "#F59E0B" },
 ];
 
 export function EngineCapabilities() {
@@ -140,7 +140,7 @@ export function EngineCapabilities() {
                 transition={{ duration: 0.55, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                 className="group rounded-[24px] border border-border bg-white p-8 flex flex-col gap-6 hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(2,6,23,0.08)] transition-all duration-300 cursor-default relative overflow-hidden"
               >
-                {/* Accent top bar — animates in on viewport entry */}
+                {/* Accent top bar. animates in on viewport entry */}
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}

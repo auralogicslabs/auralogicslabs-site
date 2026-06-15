@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { EngineHero } from '@/components/sections/EngineHero';
 import { TrustMetrics } from '@/components/sections/TrustMetrics';
@@ -20,9 +20,9 @@ import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'Nexora Engine — Static Infrastructure for WordPress',
+  title: 'Nexora Engine. Static Infrastructure for WordPress',
   description:
-    'Pre-renders every WordPress page into flat HTML served before PHP boots. 22ms TTFB, 100% static delivery, zero PHP execution on cache hit. Drop-in installation — no headless migration required.',
+    'Pre-renders every WordPress page into flat HTML served before PHP boots. 22ms TTFB, 100% static delivery, zero PHP execution on cache hit. Drop-in installation, no headless migration required.',
 };
 
 export default function NexoraEnginePage() {

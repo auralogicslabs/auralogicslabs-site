@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Check, X } from "lucide-react";
@@ -10,7 +10,7 @@ const rows: { feature: string; pulse: Cellval; others: Cellval }[] = [
   { feature: "On-page SEO analysis & scoring", pulse: true, others: true },
   { feature: "XML sitemap & robots.txt", pulse: true, others: true },
   { feature: "Real Search Console indexing verdicts", pulse: true, others: false },
-  { feature: "Index Doctor — diagnoses why pages aren't indexed", pulse: true, others: false },
+  { feature: "Index Doctor: diagnoses why pages aren't indexed", pulse: true, others: false },
   { feature: "Systemic pattern detection across rejected pages", pulse: true, others: false },
   { feature: "Internal link graph with orphan detection", pulse: true, others: "partial" },
   { feature: "Live Core Web Vitals from PageSpeed + CrUX", pulse: true, others: false },
@@ -53,8 +53,8 @@ export function PulseComparison() {
             Beyond meta-tag checklists.
           </h2>
           <p className="text-[17px] md:text-[18px] text-text-secondary font-medium leading-[1.7]">
-            Most SEO plugins score your titles and call it a day. Pulse goes to the source —
-            Google's own data — to tell you what's actually holding your rankings back.
+            Most SEO plugins score your titles and call it a day. Pulse goes to the source:
+            Google's own data, to tell you what's actually holding your rankings back.
           </p>
         </motion.div>
 

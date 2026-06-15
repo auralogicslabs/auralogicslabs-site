@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -40,7 +40,7 @@ const tutorials: Tutorial[] = [
   {
     id: 1,
     title: "What Is Nexora Engine?",
-    description: "A 75-second technical explainer: how Nexora captures pre-rendered HTML snapshots, serves them before PHP boots, and delivers pages in ~22 ms — without changing the editor workflow.",
+    description: "A 75-second technical explainer: how Nexora captures pre-rendered HTML snapshots, serves them before PHP boots, and delivers pages in ~22 ms, without changing the editor workflow.",
     duration: "1:15",
     difficulty: "Beginner",
     category: "Setup",
@@ -50,7 +50,7 @@ const tutorials: Tutorial[] = [
   },
   {
     id: 2,
-    title: "Installing Nexora Engine — Zero to Active in 5 Minutes",
+    title: "Installing Nexora Engine. Zero to Active in 5 Minutes",
     description: "Full setup walkthrough: upload & activate the plugin, run the wizard (server detection, WP_CACHE, drop-in install), trigger the first snapshot capture, and verify static delivery in incognito.",
     duration: "4:20",
     difficulty: "Beginner",
@@ -61,7 +61,7 @@ const tutorials: Tutorial[] = [
   },
   {
     id: 3,
-    title: "Ghost Protocol — Cloaking WordPress Fingerprints",
+    title: "Ghost Protocol. Cloaking WordPress Fingerprints",
     description: "Before/after cURL demo: enable Ghost Protocol and watch WordPress version headers, REST endpoints, X-Powered-By, and wp-content paths disappear from public responses in one toggle.",
     duration: "2:00",
     difficulty: "Intermediate",
@@ -72,14 +72,14 @@ const tutorials: Tutorial[] = [
   },
   {
     id: 4,
-    title: "Pro Features — GSC Integration & Redirect Manager",
-    description: "Connect Google Search Console to see impressions/clicks per post inside WP admin, then use the Redirect Manager to add 301 rules that fire before WordPress renders — zero PHP overhead on redirected URLs.",
+    title: "Pro Features. GSC Integration & Redirect Manager",
+    description: "Connect Google Search Console to see impressions/clicks per post inside WP admin, then use the Redirect Manager to add 301 rules that fire before WordPress renders, with zero PHP overhead on redirected URLs.",
     duration: "5:00",
     difficulty: "Intermediate",
     category: "Pro",
     icon: BarChart2,
     videoSrc: "/nexora-video-library/04-pro-features-gsc-redirect-manager/index.html",
-    videoTitle: "Video 04: Pro Features — GSC & Redirect Manager",
+    videoTitle: "Video 04: Pro Features. GSC & Redirect Manager",
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ const tutorials: Tutorial[] = [
   // ── Coming soon ───────────────────────────────────────────────────────────────
   {
     id: 6,
-    title: "Build Control — Bulk Build, Queue & Smart Cron",
+    title: "Build Control. Bulk Build, Queue & Smart Cron",
     description: "Triggering full rebuilds, smart pending-queue logic, single-page regen during bulk runs, and DISABLE_WP_CRON environments.",
     duration: "11:30",
     difficulty: "Intermediate",
@@ -116,8 +116,8 @@ const tutorials: Tutorial[] = [
   },
   {
     id: 8,
-    title: "Reading the Dashboard — Metrics That Actually Matter",
-    description: "Cache hit ratio, TTFB P50/P95, LCP/INP Core Web Vitals, Neural Pulse feed — what each number means and how to act on it.",
+    title: "Reading the Dashboard. Metrics That Actually Matter",
+    description: "Cache hit ratio, TTFB P50/P95, LCP/INP Core Web Vitals, Neural Pulse feed: what each number means and how to act on it.",
     duration: "6:55",
     difficulty: "Beginner",
     category: "SSG",
@@ -126,7 +126,7 @@ const tutorials: Tutorial[] = [
   },
   {
     id: 9,
-    title: "Security Hardening — All 8 Rules Explained",
+    title: "Security Hardening. All 8 Rules Explained",
     description: "What each rule does: file protection, author enum blocking, XML-RPC disable, REST tightening, rate limiting, and strong-password enforcement.",
     duration: "9:40",
     difficulty: "Intermediate",
@@ -199,7 +199,7 @@ export default function TutorialsPage() {
                 Learn Nexora <br /><span className="text-brand">Engine.</span>
               </h1>
               <p className="text-[20px] text-text-secondary font-medium leading-relaxed">
-                Step-by-step video guides covering every feature — from first install to production-grade deployment.
+                Step-by-step video guides covering every feature. from first install to production-grade deployment.
               </p>
             </div>
             <div className="shrink-0">
@@ -428,7 +428,7 @@ export default function TutorialsPage() {
                 </button>
               </div>
 
-              {/* Iframe — key forces fresh load on each open; autoplay=1 starts playback */}
+              {/* Iframe. key forces fresh load on each open; autoplay=1 starts playback */}
               <iframe
                 key={activeVideo.id}
                 src={getAutoplaySrc(activeVideo)}

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -10,12 +10,12 @@ const pillars = [
     icon: Zap,
     title: "Speed Infrastructure",
     description:
-      "Pre-rendered HTML snapshots served before WordPress boots. A universal drop-in cache delivers static files on Apache, Nginx, LiteSpeed, and IIS — with zero PHP execution on hit.",
+      "Pre-rendered HTML snapshots served before WordPress boots. A universal drop-in cache delivers static files on Apache, Nginx, LiteSpeed, and IIS, with zero PHP execution on hit.",
     stats: "22ms TTFB · 100% cache hit · CDN-ready",
     features: [
       { label: "Static HTML served before PHP boots", note: "advanced-cache.php drop-in fires first" },
       { label: "ETag + 304 negotiation built in", note: "Browser cache fully utilized" },
-      { label: "Universal server support", note: "Apache, Nginx, LiteSpeed, IIS — all covered" },
+      { label: "Universal server support", note: "Apache, Nginx, LiteSpeed, IIS: all covered" },
       { label: "Zero PHP execution on cache hit", note: "WP, plugins, and DB never load" },
     ],
   },
@@ -38,7 +38,7 @@ const pillars = [
     icon: Workflow,
     title: "Intelligent Automation",
     description:
-      "Snapshots regenerate automatically when content changes — debounced, validated, and conflict-aware. Asset references are verified against disk before publication.",
+      "Snapshots regenerate automatically when content changes, debounced, validated, and conflict-aware. Asset references are verified against disk before publication.",
     stats: "30s debounce · Asset validation · Conflict detection",
     features: [
       { label: "30-second debounce on save_post", note: "Bulk edits coalesce into one capture" },

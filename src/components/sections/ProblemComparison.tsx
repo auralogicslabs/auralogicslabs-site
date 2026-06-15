@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Server, LayoutTemplate, Zap, XCircle, AlertCircle, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
@@ -39,7 +39,7 @@ export function ProblemComparison() {
 
   return (
     <FullWidthSection tone="soft" className="overflow-hidden">
-      {/* Centered heading — deliberately different from FeatureTeaser's 2-col */}
+      {/* Centered heading. deliberately different from FeatureTeaser's 2-col */}
       <ScrollReveal>
         <div className="text-center max-w-2xl mx-auto mb-14 md:mb-16">
           <div className="inline-flex items-center gap-2.5 mb-5 px-4 py-1.5 rounded-full bg-brand/10 border border-brand/20">

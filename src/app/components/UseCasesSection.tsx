@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
 import { Users, Building2, FileText, Code, CheckCircle2, ArrowRight } from 'lucide-react';
@@ -41,11 +41,11 @@ const useCases = [
     title: 'Publishers',
     tagline: 'Handle traffic spikes without expensive hosting.',
     description:
-      'Static delivery means traffic spikes no longer translate to server overload. Your editorial team keeps their familiar Gutenberg or Elementor workflow — readers get consistent sub-second load times.',
+      'Static delivery means traffic spikes no longer translate to server overload. Your editorial team keeps their familiar Gutenberg or Elementor workflow. readers get consistent sub-second load times.',
     benefits: [
       { label: 'Handle traffic spikes effortlessly', note: 'Static files scale without extra servers' },
       { label: 'Dramatically lower hosting costs', note: 'No PHP workers burning under load' },
-      { label: 'Improve SEO with Core Web Vitals', note: 'LCP 1.2s, CLS 0.02 — both Google green' },
+      { label: 'Improve SEO with Core Web Vitals', note: 'LCP 1.2s, CLS 0.02. both Google green' },
       { label: 'Maintain editorial workflows', note: 'Publish → live in seconds, as always' },
     ],
     stat: { value: '−68%', label: 'improvement in LCP score' },
@@ -56,7 +56,7 @@ const useCases = [
     title: 'Developers',
     tagline: 'Headless-grade architecture, zero DevOps overhead.',
     description:
-      'Get the delivery performance of a fully decoupled headless setup — REST masking, static HTML, CDN-ready headers — without maintaining build pipelines, Node servers, or separate frontend deployments.',
+      'Get the delivery performance of a fully decoupled headless setup. REST masking, static HTML, CDN-ready headers. without maintaining build pipelines, Node servers, or separate frontend deployments.',
     benefits: [
       { label: 'Modern API-first architecture', note: 'REST, GraphQL, and WP hooks all supported' },
       { label: 'No complex build pipelines', note: 'No npm, no CI/CD for content updates' },
@@ -89,7 +89,7 @@ export function UseCasesSection() {
             Built For Every Team
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-            From agencies to enterprise infrastructure teams — Nexora Engine
+            From agencies to enterprise infrastructure teams. Nexora Engine
             fits the workflow you already have.
           </p>
         </motion.div>

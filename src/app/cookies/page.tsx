@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { LegalLayout } from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Cookies Policy — Auralogics Labs",
+  title: "Cookies Policy. Auralogics Labs",
   description: "How Auralogics Labs uses cookies and similar technologies on our website, and how you can control them.",
   alternates: { canonical: "/cookies" },
 };
@@ -23,9 +23,9 @@ export default function CookiesPage() {
           heading: "2. Types of cookies we use",
           body: ["We use a limited set of cookies, grouped by purpose:"],
           bullets: [
-            "Essential — required for the site and portal to function (e.g. session and security).",
-            "Preferences — remember choices such as display settings.",
-            "Analytics — help us understand aggregate usage so we can improve the site.",
+            "Essential: required for the site and portal to function (e.g. session and security).",
+            "Preferences: remember choices such as display settings.",
+            "Analytics: help us understand aggregate usage so we can improve the site.",
           ],
         },
         {
