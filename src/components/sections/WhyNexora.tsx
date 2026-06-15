@@ -72,7 +72,7 @@ export function WhyNexora() {
                 Your WordPress stack is already built. Your editors know it, your clients depend on it, your plugins run on it. Rebuilding it headless would take months and break everything your team relies on.
               </p>
               <p className="text-[17px] text-obsidian font-bold leading-[1.65]">
-                Nexora Engine adds a static delivery layer on top of what you have — serving every page as flat HTML before PHP even loads. 22ms TTFB. No new frontend. No migration.
+                Nexora Engine adds a static delivery layer on top of what you have. It serves every page as flat HTML before PHP even loads. 22ms TTFB. No new frontend. No migration.
               </p>
             </div>
 

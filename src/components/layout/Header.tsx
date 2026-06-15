@@ -9,7 +9,7 @@ import Link from "next/link";
 const products = [
   {
     name: "Nexora Engine",
-    tagline: "Adaptive runtime delivery for WordPress",
+    tagline: "22ms WordPress. No rebuild, no headless.",
     href: "/products/nexora-engine",
     icon: Zap,
     status: "Live",
@@ -18,7 +18,7 @@ const products = [
   },
   {
     name: "Nexora Media",
-    tagline: "Intelligent media optimization at the edge",
+    tagline: "Auto AVIF/WebP. Up to 70% smaller images.",
     href: "/products/nexora-media",
     icon: ImageIcon,
     status: "Live",
@@ -27,7 +27,7 @@ const products = [
   },
   {
     name: "Nexora Pulse",
-    tagline: "SEO operations console for WordPress",
+    tagline: "Free SEO console with real Google verdicts.",
     href: "/products/nexora-pulse",
     icon: Stethoscope,
     status: "Live",
@@ -36,7 +36,7 @@ const products = [
   },
   {
     name: "Auralogics Portal",
-    tagline: "Central command for your infrastructure",
+    tagline: "One dashboard for your entire WP fleet",
     href: "/portal",
     icon: LayoutDashboard,
     status: "Live",

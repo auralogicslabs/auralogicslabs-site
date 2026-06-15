@@ -46,8 +46,8 @@ export function MediaHero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-[48px] md:text-[68px] lg:text-[80px] font-extrabold text-obsidian leading-[0.92] tracking-[-0.05em] mb-8 max-w-[900px]"
         >
-          Modern image delivery. <br className="hidden md:block" />
-          <span className="text-brand">Without the rebuild.</span>
+          Your images, 70% smaller. <br className="hidden md:block" />
+          <span className="text-brand">Automatically.</span>
         </motion.h1>
 
         {/* Subhead */}
@@ -57,8 +57,7 @@ export function MediaHero() {
           transition={{ duration: 0.7, delay: 0.18 }}
           className="text-[17px] md:text-[19px] text-text-secondary max-w-[580px] leading-[1.7] mb-10 font-medium"
         >
-          AVIF/WebP conversion, adaptive sizing, and a background optimization queue.
-          Works on any WordPress site — pairs directly with Nexora Engine's static mirror.
+          Install the plugin and Nexora Media converts your entire media library to AVIF/WebP in the background. It serves the smallest format each browser supports, without touching your originals or changing how editors upload.
         </motion.p>
 
         {/* Checkmarks */}
@@ -71,7 +70,7 @@ export function MediaHero() {
           {[
             "No server config required",
             "Works on shared hosting",
-            "Non-destructive — originals kept",
+            "Non-destructive. Originals kept.",
             "Standalone or Engine-paired",
           ].map((t) => (
             <div key={t} className="flex items-center gap-2">
@@ -116,7 +115,7 @@ export function MediaHero() {
           {[
             { v: "↓70%", l: "Avg. image size reduction" },
             { v: "AVIF+WebP", l: "Adaptive format delivery" },
-            { v: "Async", l: "Background queue — never blocks" },
+            { v: "Async", l: "Background queue. Never blocks." },
             { v: "Non-destructive", l: "Originals always preserved" },
           ].map((m) => (
             <div key={m.l} className="flex items-baseline gap-2">

@@ -42,10 +42,10 @@ const useCases = [
     title: "Publishers",
     tagline: "Handle traffic spikes without scaling servers.",
     description:
-      "Static delivery means traffic spikes no longer translate to server overload. Editorial teams keep their Gutenberg workflow — readers get sub-second load times.",
+      "Static delivery means traffic spikes no longer translate to server overload. Editorial teams keep their Gutenberg workflow. Readers get sub-second load times.",
     benefits: [
       { label: "Traffic spikes handled at zero cost", note: "Static files need no PHP workers" },
-      { label: "Core Web Vitals improvement", note: "LCP 1.2s, CLS 0.02 — both Google green" },
+      { label: "Core Web Vitals improvement", note: "LCP 1.2s, CLS 0.02 (both Google green)" },
       { label: "Maintain editorial workflows", note: "Publish → live in seconds, as always" },
     ],
     stat: { value: "−68%", label: "LCP score improvement" },
@@ -57,7 +57,7 @@ const useCases = [
     title: "Engineers",
     tagline: "Headless-grade architecture, zero DevOps overhead.",
     description:
-      "Get the delivery performance of a fully decoupled setup — REST masking, static HTML, CDN-ready headers — without maintaining build pipelines or separate deployments.",
+      "Get the delivery performance of a fully decoupled setup: REST masking, static HTML, CDN-ready headers. Without maintaining build pipelines or separate deployments.",
     benefits: [
       { label: "REST, GraphQL, and WP hooks supported", note: "Full API-first architecture" },
       { label: "JSON diagnostic endpoint built in", note: "Pipe to Datadog, Grafana, or your own dash" },
@@ -148,8 +148,8 @@ export function PersonaFocus() {
                 <span className="font-mono text-[11px] font-bold text-brand uppercase tracking-[0.3em]">Operational Perspectives</span>
              </div>
             <h2 className="text-[32px] md:text-[50px] lg:text-[62px] font-extrabold text-obsidian tracking-[-0.05em] leading-[1.05]">
-              Built for the teams <br /> 
-              modernizing WordPress.
+              Built for every team <br />
+              that runs WordPress.
             </h2>
           </div>
 

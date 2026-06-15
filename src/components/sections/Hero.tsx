@@ -223,14 +223,14 @@ export function Hero() {
                     backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #818CF8 45%, #C084FC 100%)",
                   }}
                 >
-                  in 22ms — without
+                  in 22ms. Without
                   <br />
                   rebuilding anything.
                 </span>
               </h1>
 
               <p className="mt-6 sm:mt-7 max-w-[560px] text-[16px] sm:text-[18px] md:text-[20px] text-white/42 font-medium leading-[1.6]">
-                Drop-in static delivery, real SEO diagnostics, and automatic image optimization — all as WordPress plugins. Keep your builders, your themes, your editors. Just add speed.
+                Drop-in static delivery, real SEO diagnostics, and automatic image optimization. All as WordPress plugins. Keep your builders, your themes, your editors. Just add speed.
               </p>
 
               <div className="relative z-30 mt-7 sm:mt-8 flex items-center gap-3 sm:gap-4">

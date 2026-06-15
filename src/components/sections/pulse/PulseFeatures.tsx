@@ -12,12 +12,12 @@ const features = [
   {
     icon: ScanSearch,
     title: "SEO Analyzer",
-    desc: "Scans every post and page for on-page issues — titles, descriptions, headings, readability, keyword usage — and scores each one so you know exactly where to focus.",
+    desc: "Scans every post and page for on-page issues: titles, descriptions, headings, readability, and keyword usage. Scores each one so you know exactly where to focus.",
   },
   {
     icon: Stethoscope,
     title: "Index Doctor",
-    desc: "Real indexing verdicts from Google Search Console, cross-referenced with Pulse's own signals to diagnose why pages aren't indexed — and detect systemic patterns.",
+    desc: "Real indexing verdicts from Google Search Console, cross-referenced with Pulse's own signals to diagnose why pages aren't indexed and detect systemic patterns.",
   },
   {
     icon: Network,
@@ -27,7 +27,7 @@ const features = [
   {
     icon: Gauge,
     title: "Core Web Vitals",
-    desc: "Live LCP, INP, and CLS from PageSpeed Insights and real Chrome users (CrUX), with the specific Lighthouse audits to fix — cached so you never waste API quota.",
+    desc: "Live LCP, INP, and CLS from PageSpeed Insights and real Chrome users (CrUX), with the specific Lighthouse audits to fix. Results are cached so you never burn through API quota.",
   },
   {
     icon: Copy,
@@ -47,7 +47,7 @@ const features = [
   {
     icon: FileCode2,
     title: "XML Sitemap & Robots",
-    desc: "A clean, automatically maintained XML sitemap and editable robots.txt rules — submitted straight to Search Console from inside Pulse.",
+    desc: "A clean, automatically maintained XML sitemap and editable robots.txt rules. Submit your sitemap straight to Search Console from inside Pulse.",
   },
   {
     icon: Share2,
@@ -77,7 +77,7 @@ export function PulseFeatures() {
             Nine tools. One console. No stitching.
           </h2>
           <p className="text-[17px] md:text-[18px] text-text-secondary font-medium leading-[1.7]">
-            Stop tabbing between Yoast, Search Console, PageSpeed, and Screaming Frog. Pulse pulls your real Google data directly into WordPress so you can diagnose, fix, and monitor your entire SEO health in one place — and every feature ships free.
+            Stop tabbing between Yoast, Search Console, PageSpeed, and Screaming Frog. Pulse pulls your real Google data directly into WordPress so you can diagnose, fix, and monitor your entire SEO health in one place. And every feature ships free.
           </p>
         </motion.div>
 

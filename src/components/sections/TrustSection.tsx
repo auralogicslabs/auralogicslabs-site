@@ -8,10 +8,10 @@ import { FullWidthSection, ScrollReveal, InnerCard } from "@/components/ui/Secti
 
 const audiences = [
   { icon: Users, title: "Agencies", desc: "Deliver static-speed performance to every client site without touching their stack or retraining their editors.", href: "/products/nexora-engine", color: "#1A3FD8" },
-  { icon: ShoppingCart, title: "WooCommerce", desc: "Product pages load in 22ms. Cart, checkout, and dynamic pricing all work exactly as before — no rewrites.", href: "/products/nexora-engine", color: "#059669" },
+  { icon: ShoppingCart, title: "WooCommerce", desc: "Product pages load in 22ms. Cart, checkout, and dynamic pricing all work exactly as before. No rewrites needed.", href: "/products/nexora-engine", color: "#059669" },
   { icon: Network, title: "Multisite", desc: "Manage performance, SEO health, and image optimization across every site in your network from one command center.", href: "/portal", color: "#7C3AED" },
   { icon: LayoutTemplate, title: "Elementor", desc: "Every template, widget, and global style stays intact. Flip one toggle and your Elementor site serves at static speed.", href: "/products/nexora-engine", color: "#F39A09" },
-  { icon: Building2, title: "Enterprise", desc: "Infrastructure-grade performance without the infrastructure project — no DevOps overhead, no editorial disruption.", href: "mailto:hello@auralogicslabs.com?subject=Enterprise", color: "#0D9488" },
+  { icon: Building2, title: "Enterprise", desc: "Infrastructure-grade performance without the infrastructure project. No DevOps overhead, no editorial disruption.", href: "mailto:hello@auralogicslabs.com?subject=Enterprise", color: "#0D9488" },
 ];
 
 const stack = ["Apache", "Nginx", "LiteSpeed", "IIS", "OpenLiteSpeed", "cPanel"];
@@ -39,7 +39,7 @@ export function TrustSection() {
             </span>
           </h2>
           <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
-            No migration projects. No new tools to learn. Drop Nexora into your existing WordPress stack and it just works — for every team type, every site setup.
+            No migration projects. No new tools to learn. Drop Nexora into your existing WordPress stack and it just works, for every team type and every site setup.
           </p>
         </div>
       </ScrollReveal>

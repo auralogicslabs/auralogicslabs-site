@@ -24,17 +24,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Auralogics Labs — Modern Infrastructure Intelligence for WordPress",
+  title: "Auralogics Labs: Static-Speed WordPress Without the Rebuild",
   description:
-    "Adaptive runtime delivery, media optimization, and infrastructure orchestration for WordPress. Enterprise-grade performance without DevOps complexity.",
+    "Drop-in WordPress plugins that deliver 22ms page loads, fix SEO indexing gaps, and cut image payload by 70%. No headless migration, no DevOps, no rebuild required.",
   metadataBase: new URL("https://auralogicslabs.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Auralogics Labs — Modern Infrastructure Intelligence for WordPress",
+    title: "Auralogics Labs: Static-Speed WordPress Without the Rebuild",
     description:
-      "Adaptive runtime delivery, media optimization, and infrastructure orchestration for WordPress. Enterprise-grade performance without DevOps complexity.",
+      "Drop-in WordPress plugins that deliver 22ms page loads, fix SEO indexing gaps, and cut image payload by 70%. No headless migration, no DevOps, no rebuild required.",
     url: "https://auralogicslabs.com",
     siteName: "Auralogics Labs",
     locale: "en_US",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auralogics Labs — Modern Infrastructure Intelligence for WordPress",
+    title: "Auralogics Labs: Static-Speed WordPress Without the Rebuild",
     description:
-      "Adaptive runtime delivery, media optimization, and infrastructure orchestration for WordPress. Enterprise-grade performance without DevOps complexity.",
+      "Drop-in WordPress plugins that deliver 22ms page loads, fix SEO indexing gaps, and cut image payload by 70%. No headless migration, no DevOps, no rebuild required.",
   },
   robots: {
     index: true,

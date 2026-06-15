@@ -11,7 +11,7 @@ const leftFeatures = [
     icon: Zap,
     title: "Static HTML Delivery",
     description:
-      "Pre-rendered pages served from disk before PHP, plugins, or the database ever load — 22ms average TTFB.",
+      "Pre-rendered pages served from disk before PHP, plugins, or the database ever load. Average TTFB: 22ms.",
     color: "#60A5FA",
   },
   {
@@ -25,7 +25,7 @@ const leftFeatures = [
     icon: RefreshCcw,
     title: "Smart Capture Pipeline",
     description:
-      "Snapshots refresh automatically on save with debounced capture. Editors keep working — visitors always get the latest.",
+      "Snapshots refresh automatically on save with debounced capture. Editors keep working. Visitors always get the latest.",
     color: "#A78BFA",
   },
 ];
@@ -42,14 +42,14 @@ const rightFeatures = [
     icon: LayoutDashboard,
     title: "Fleet Orchestration",
     description:
-      "Connect, deploy, and monitor every site from the Auralogics Portal — one command center for your entire stack.",
+      "Connect, deploy, and monitor every site from the Auralogics Portal. Your command center for the entire stack.",
     color: "#FCD34D",
   },
   {
     icon: Stethoscope,
     title: "SEO Operations Console",
     description:
-      "Nexora Pulse diagnoses why Google won't index your pages, maps internal links, and tracks Core Web Vitals — free, from your own Search Console data.",
+      "Nexora Pulse diagnoses why Google won't index your pages, maps internal links, and tracks Core Web Vitals. Free, using your own Search Console data.",
     color: "#5EEAD4",
   },
 ];
@@ -245,7 +245,7 @@ export function PlatformFeatures() {
               className="text-[17px] md:text-[18px] leading-relaxed max-w-[580px] mx-auto font-medium"
               style={{ color: "rgba(255,255,255,0.38)" }}
             >
-              Static delivery, security hardening, media optimization, SEO diagnostics, and fleet control — working together while your editors keep publishing and your plugins keep running.
+              Static delivery, security hardening, media optimization, SEO diagnostics, and fleet control. All working together while your editors keep publishing and your plugins keep running.
             </p>
           </motion.div>
 

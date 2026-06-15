@@ -9,7 +9,7 @@ const features = [
     icon: ImageIcon,
     title: "Format Intelligence",
     description:
-      "Detects browser capability and serves AVIF, WebP, or JPEG/PNG automatically. No srcset configuration required — just install and activate.",
+      "Detects browser capability and serves AVIF, WebP, or JPEG/PNG automatically. No srcset configuration required. Just install and activate.",
     tags: ["AVIF", "WebP", "Auto-detect", "Fallback"],
     accent: "#1A3FD8",
   },
@@ -33,7 +33,7 @@ const features = [
     icon: Zap,
     title: "Nexora Engine Sync",
     description:
-      "When both are active, static pages are captured after media is optimized — your mirror serves compressed images from the very first request.",
+      "When both are active, static pages are captured after media is optimized. Your mirror serves compressed images from the very first request.",
     tags: ["Engine bridge", "Static mirror", "Automatic sync"],
     accent: "#D97706",
     featured: true,
@@ -43,7 +43,7 @@ const features = [
 const steps = [
   { n: "01", title: "Upload", body: "Add images to your WordPress media library as normal." },
   { n: "02", title: "Optimize", body: "Background queue converts to AVIF/WebP, strips EXIF, generates responsive variants." },
-  { n: "03", title: "Serve", body: "Visitors receive the smallest format their browser supports — automatically." },
+  { n: "03", title: "Serve", body: "Visitors receive the smallest format their browser supports. Automatically." },
 ];
 
 export function MediaFeatures() {
@@ -114,10 +114,10 @@ export function MediaFeatures() {
               <span className="font-mono text-[10px] font-bold text-brand uppercase tracking-[0.3em]">Capabilities</span>
             </div>
             <h2 className="text-[36px] md:text-[48px] font-extrabold text-obsidian tracking-tight mb-4">
-              What Nexora Media delivers.
+              Automatic AVIF/WebP. No CDN, no config, no developer.
             </h2>
             <p className="text-[17px] text-text-secondary font-medium max-w-[540px] leading-[1.6]">
-              Built for real-world WordPress workflows. No CDN contract, no developer setup, no ongoing configuration.
+              Built for real WordPress workflows. Optimization runs in the background so editors never notice it. Visitors always get the lightest possible image.
             </p>
           </motion.div>
 
@@ -192,10 +192,10 @@ export function MediaFeatures() {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <ImageIcon className="h-5 w-5 text-brand" />
-                <strong className="text-[16px] font-bold text-obsidian">Standalone — no Nexora Engine required</strong>
+                <strong className="text-[16px] font-bold text-obsidian">Standalone. No Nexora Engine required.</strong>
               </div>
               <p className="text-[14px] text-text-secondary font-medium leading-[1.6] max-w-[560px]">
-                Nexora Media is an independent plugin that works on any WordPress site. The Engine integration is a bonus — not a dependency.
+                Nexora Media is an independent plugin that works on any WordPress site. The Engine integration is a bonus, not a dependency.
               </p>
             </div>
             <Link

@@ -130,7 +130,7 @@ export function FinalCTA() {
             Your site could be running at static speed today.
           </h2>
           <p className="text-[17px] text-white/65 leading-relaxed mb-10 font-medium max-w-[460px] mx-auto">
-            Install a plugin. Flip a toggle. Every page loads before PHP even boots — no rebuild, no migration, no new workflow to learn.
+            Install a plugin. Flip a toggle. Every page loads before PHP even boots. No rebuild, no migration, no new workflow to learn.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

@@ -9,11 +9,11 @@ const TEAL = "#13716A";
 const faqs = [
   {
     q: "Is Nexora Pulse really free?",
-    a: "Yes. Every core feature — the SEO Analyzer, Index Doctor, Neural Links, Core Web Vitals, duplicate detection, Image SEO, redirects, and sitemap — is free. Search Console and PageSpeed integrations use your own Google API credentials, so there's no metered usage and nothing to pay us for.",
+    a: "Yes. Every core feature (the SEO Analyzer, Index Doctor, Neural Links, Core Web Vitals, duplicate detection, Image SEO, redirects, and sitemap) is free. Search Console and PageSpeed integrations use your own Google API credentials, so there's no metered usage and nothing to pay us for.",
   },
   {
     q: "Do I need a Google Search Console account?",
-    a: "For the Index Doctor and click/impression data, yes — you connect your own verified Search Console property. The rest of Pulse (on-page analysis, internal links, duplicates, sitemap) works without any Google connection. Pulse guides you through the one-time setup.",
+    a: "For the Index Doctor and click/impression data, yes. You connect your own verified Search Console property. The rest of Pulse (on-page analysis, internal links, duplicates, sitemap) works without any Google connection. Pulse guides you through the one-time setup.",
   },
   {
     q: "Will it conflict with Yoast, Rank Math, or AIOSEO?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "How does the Index Doctor actually work?",
-    a: "It calls Google's URL Inspection API to get the real indexing verdict for each page, then cross-references that with Pulse's own analysis — thin content, orphan pages, duplicate signals — to explain the likely cause and surface patterns across all your rejected pages.",
+    a: "It calls Google's URL Inspection API to get the real indexing verdict for each page, then cross-references that with Pulse's own analysis (thin content, orphan pages, duplicate signals) to explain the likely cause and surface patterns across all your rejected pages.",
   },
   {
     q: "Does Pulse send my data to your servers?",
@@ -52,7 +52,7 @@ export function PulseFAQ() {
             <div className="h-0.5 w-8 rounded-full" style={{ background: TEAL }} />
           </div>
           <h2 className="text-[36px] md:text-[48px] lg:text-[54px] font-extrabold text-obsidian tracking-[-0.04em] leading-[1.05]">
-            Everything you might ask.
+            Questions people actually ask.
           </h2>
         </motion.div>
 

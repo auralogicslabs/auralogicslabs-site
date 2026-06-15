@@ -93,7 +93,7 @@ export function Pricing() {
             Start free. <span className="text-brand">Scale when you&apos;re ready.</span>
           </h2>
           <p className="text-[18px] text-text-muted max-w-[700px] mx-auto font-medium">
-            No hidden fees. No lock-in. The free tier is genuinely free — not a stripped demo. Upgrade to Pro when you need advanced automation, redirects, or agency white-labeling.
+            No hidden fees. No lock-in. The free tier is genuinely free, not a stripped demo. Upgrade to Pro when you need advanced automation, redirects, or agency white-labeling.
           </p>
         </motion.div>
 

@@ -61,7 +61,7 @@ export function ProblemComparison() {
             </span>
           </h2>
           <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
-            Every team hits the same wall — PHP bottlenecks killing load times, or months of headless migration that breaks editorial workflows. We built the path that avoids both.
+            Every team hits the same wall. Either your PHP stack is too slow, or going headless means months of rebuilding things that already work. We built a way around both.
           </p>
         </div>
       </ScrollReveal>
