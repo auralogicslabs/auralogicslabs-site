@@ -1,7 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" fill="none">
-  <rect width="1200" height="675" fill="#050B25"/>
-  <circle cx="900" cy="120" r="280" fill="#1A3FD8" fill-opacity="0.35"/>
-  <circle cx="200" cy="520" r="220" fill="#7C3AED" fill-opacity="0.25"/>
-  <rect x="80" y="80" width="1040" height="515" rx="32" stroke="white" stroke-opacity="0.08"/>
-  <text x="600" y="340" text-anchor="middle" fill="white" fill-opacity="0.15" font-family="system-ui,sans-serif" font-size="28" font-weight="700" letter-spacing="0.2em">NEXORA ENGINE</text>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', ui-sans-serif, system-ui, sans-serif">
+  <defs>
+    <radialGradient id="ac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#3B6DF5" stop-opacity="0.16"/><stop offset="100%" stop-color="#3B6DF5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vi" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#6D5EFA" stop-opacity="0.10"/><stop offset="100%" stop-color="#6D5EFA" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bl" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3B6DF5"/><stop offset="100%" stop-color="#1A3FD8"/></linearGradient>
+    <pattern id="g" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0B0B16"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <ellipse cx="250" cy="120" rx="440" ry="300" fill="url(#ac)"/>
+  <ellipse cx="1000" cy="540" rx="400" ry="280" fill="url(#vi)"/>
+
+  <rect x="100" y="70" width="330" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <circle cx="124" cy="90" r="5" fill="#3B6DF5"/>
+  <text x="142" y="95" fill="#C7C9D9" font-size="15" font-weight="700" letter-spacing="2">NEXORA ENGINE · STATIC DELIVERY</text>
+
+  <!-- panel -->
+  <rect x="100" y="184" width="1000" height="300" rx="22" fill="#14141F" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <text x="140" y="232" fill="#FFFFFF" font-size="22" font-weight="700">Time to First Byte</text>
+  <text x="140" y="256" fill="#8A8C9E" font-size="14">Anonymous traffic · cache hit</text>
+
+  <!-- bar 1: standard -->
+  <text x="140" y="316" fill="#C7C9D9" font-size="15" font-weight="600">Standard WordPress</text>
+  <rect x="140" y="328" width="820" height="22" rx="11" fill="#FFFFFF" fill-opacity="0.07"/>
+  <rect x="140" y="328" width="820" height="22" rx="11" fill="#FFFFFF" fill-opacity="0.10"/>
+  <text x="980" y="345" fill="#B6BECC" font-size="15" font-weight="700">~800ms</text>
+
+  <!-- bar 2: nexora -->
+  <text x="140" y="392" fill="#FFFFFF" font-size="15" font-weight="700">Nexora Engine</text>
+  <rect x="140" y="404" width="820" height="22" rx="11" fill="#FFFFFF" fill-opacity="0.05"/>
+  <rect x="140" y="404" width="46" height="22" rx="11" fill="url(#bl)"/>
+  <text x="980" y="421" fill="#7FA0FF" font-size="15" font-weight="800">22ms</text>
+
+  <!-- delta note -->
+  <rect x="140" y="446" width="200" height="20" rx="10" fill="#3B6DF5" fill-opacity="0.0"/>
+  <text x="140" y="462" fill="#8A8C9E" font-size="13">Served before PHP boots — no rebuild, no headless.</text>
+
+  <text x="1110" y="592" fill="#FFFFFF" fill-opacity="0.45" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1">Auralogics Labs</text>
 </svg>

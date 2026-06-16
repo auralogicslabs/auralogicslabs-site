@@ -4,7 +4,7 @@ import { Server, LayoutTemplate, Zap, XCircle, AlertCircle, CheckCircle2, Sparkl
 import { useState } from "react";
 import Link from "next/link";
 import { FullWidthSection, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
-import { ProductScreenshot } from "@/components/ui/ProductScreenshot";
+import { ArchitectureCompare } from "@/components/ui/ArchitectureCompare";
 
 const paths = [
   {
@@ -66,16 +66,10 @@ export function ProblemComparison() {
         </div>
       </ScrollReveal>
 
-      {/* Centered visual */}
+      {/* Centered visual — real architecture comparison */}
       <ScrollReveal delay={0.1}>
         <div className="max-w-3xl mx-auto mb-14 md:mb-16">
-          <ProductScreenshot
-            variant="problem"
-            label="legacy vs platform"
-            sublabel="Architecture comparison visual"
-            accent="#64748B"
-            parallax={false}
-          />
+          <ArchitectureCompare />
         </div>
       </ScrollReveal>
 
