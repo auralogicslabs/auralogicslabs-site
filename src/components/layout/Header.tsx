@@ -109,9 +109,6 @@ function ProductsDropdown({ open, dark }: { open: boolean; dark: boolean }) {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-0.5">
                           <span className="text-[14px] font-bold text-obsidian tracking-tight">{p.name}</span>
-                          <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${p.statusColor}`}>
-                            · {p.status}
-                          </span>
                         </div>
                         <span className="text-[12px] text-text-muted font-medium">{p.tagline}</span>
                       </div>
@@ -217,7 +214,7 @@ export function Header() {
               >
                 <Link
                   href="/products"
-                  className={`relative flex items-center gap-2 px-5 py-3 rounded-[12px] text-[20px] font-extrabold tracking-[-0.02em] transition-all duration-200 ${
+                  className={`relative flex items-center gap-2 px-4 py-2.5 rounded-full text-[15px] font-semibold tracking-[-0.01em] transition-all duration-200 ${
                     isDark
                       ? "text-white/85 hover:text-white hover:bg-white/8"
                       : "text-obsidian/75 hover:text-obsidian hover:bg-surface-soft"
@@ -242,7 +239,7 @@ export function Header() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className={`px-5 py-3 rounded-[12px] text-[20px] font-extrabold tracking-[-0.02em] transition-all duration-200 ${
+                  className={`px-4 py-2.5 rounded-full text-[15px] font-semibold tracking-[-0.01em] transition-all duration-200 ${
                     isDark
                       ? "text-white/85 hover:text-white hover:bg-white/8"
                       : "text-obsidian/75 hover:text-obsidian hover:bg-surface-soft"
@@ -257,10 +254,10 @@ export function Header() {
             <div className="hidden md:flex items-center gap-2">
               <Link
                 href="/portal"
-                className={`px-6 py-3 rounded-[12px] text-[18px] font-bold tracking-[-0.02em] transition-all duration-200 ${
+                className={`px-4 py-2.5 rounded-full text-[14.5px] font-semibold tracking-[-0.01em] transition-all duration-200 ${
                   isDark
-                    ? "text-white/55 hover:text-white hover:bg-white/8"
-                    : "text-obsidian/55 hover:text-obsidian hover:bg-surface-soft"
+                    ? "text-white/60 hover:text-white hover:bg-white/8"
+                    : "text-obsidian/60 hover:text-obsidian hover:bg-surface-soft"
                 }`}
               >
                 Sign In
@@ -268,16 +265,16 @@ export function Header() {
 
               <Link
                 href="/nexora-engine/docs/getting-started"
-                className="group relative flex items-center gap-2.5 px-7 py-3 rounded-[12px] text-[18px] font-black tracking-[-0.02em] text-white transition-all duration-300 overflow-hidden"
+                className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full text-[14.5px] font-bold tracking-[-0.01em] text-white transition-all duration-200 overflow-hidden"
                 style={{
                   background: "#1A3FD8",
-                  boxShadow: "0 6px 20px rgba(26,63,216,0.5), 0 2px 6px rgba(26,63,216,0.35)",
+                  boxShadow: "0 6px 18px rgba(26,63,216,0.4)",
                 }}
               >
                 <span className="relative z-10">Get Started</span>
-                <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-0.5 transition-transform duration-200" />
+                <ArrowRight className="h-4 w-4 relative z-10 group-hover:translate-x-0.5 transition-transform duration-200" />
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[12px]"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{ background: "#1535B8" }}
                 />
               </Link>

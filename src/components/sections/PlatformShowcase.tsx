@@ -371,7 +371,7 @@ export function PlatformShowcase() {
           </div>
           <h2 className="text-[36px] md:text-[52px] lg:text-[60px] font-extrabold leading-[1.02] tracking-[-0.045em] text-white mb-5">
             Four products.{" "}
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(120deg, #60A5FA 0%, #818CF8 50%, #2DD4BF 100%)" }}>
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%)" }}>
               One platform.
             </span>
           </h2>
@@ -476,15 +476,6 @@ export function PlatformShowcase() {
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-[16px] font-extrabold text-white tracking-tight">{product.name}</span>
-                    <span
-                      className="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full"
-                      style={{
-                        background: product.status === "Free" ? "rgba(34,197,94,0.14)" : `${product.accent}22`,
-                        color: product.status === "Free" ? "#4ADE80" : product.accentSoft,
-                      }}
-                    >
-                      {product.status}
-                    </span>
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.16em]" style={{ color: product.accentSoft }}>{product.tagline}</span>
                 </div>
@@ -510,7 +501,7 @@ export function PlatformShowcase() {
 
               <Link
                 href={product.href}
-                className="mt-auto inline-flex items-center gap-2 rounded-2xl px-6 py-3.5 text-[14px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 w-fit group"
+                className="mt-auto inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-[14px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 w-fit group"
                 style={{ background: product.accent, boxShadow: `0 12px 32px ${product.accent}40` }}
               >
                 {product.cta}

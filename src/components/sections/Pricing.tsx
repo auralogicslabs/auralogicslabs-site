@@ -155,7 +155,7 @@ export function Pricing() {
                 ))}
               </div>
 
-              <Link href={plan.href} className={`w-full py-5 rounded-2xl font-extrabold text-[15px] transition-all duration-300 flex items-center justify-center gap-3 ${
+              <Link href={plan.href} className={`w-full py-4 rounded-full font-extrabold text-[15px] transition-all duration-300 flex items-center justify-center gap-3 ${
                 plan.pro
                   ? 'bg-brand text-white hover:bg-brand-soft shadow-xl'
                   : plan.enterprise
@@ -177,7 +177,7 @@ export function Pricing() {
               <h4 className="text-[18px] font-extrabold text-obsidian mb-2">Agency White Label Orchestration</h4>
               <p className="text-[14px] text-text-muted font-medium">Replace Nexora branding with your agency identity. Full control over client-facing emails, logs, and dashboard visuals. Included in Pro and Enterprise tiers.</p>
            </div>
-           <Link href="/portal" className="whitespace-nowrap bg-white text-brand px-8 py-4 rounded-xl font-extrabold shadow-sm hover:scale-105 transition-transform">
+           <Link href="/portal" className="whitespace-nowrap bg-white text-brand px-8 py-4 rounded-full font-extrabold shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
               Learn about White Label
            </Link>
         </div>

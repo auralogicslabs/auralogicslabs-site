@@ -429,12 +429,12 @@ export function PerformanceAudit() {
                   </div>
                   
                   <div className="space-y-4 relative z-10">
-                    <button className="w-full bg-white text-brand py-6 rounded-[24px] font-black text-[17px] shadow-2xl hover:scale-[1.02] transition-transform">
+                    <button className="w-full bg-white text-brand py-5 rounded-full font-black text-[16px] shadow-2xl hover:-translate-y-0.5 transition-transform">
                       Download Core (.zip)
                     </button>
-                    <button 
+                    <button
                       onClick={() => window.location.href = '/portal'}
-                      className="w-full bg-transparent border border-white/30 text-white py-5 rounded-[24px] font-bold text-[15px] hover:bg-white/10 transition-colors"
+                      className="w-full bg-transparent border border-white/30 text-white py-4 rounded-full font-bold text-[15px] hover:bg-white/10 transition-colors"
                     >
                       Open Control Portal
                     </button>

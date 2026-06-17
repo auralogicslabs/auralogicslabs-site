@@ -33,7 +33,7 @@ export function TrustSection() {
             Works the way{" "}
             <span
               className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #0D9488 100%)" }}
+              style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #6366F1 100%)" }}
             >
               your team already builds.
             </span>

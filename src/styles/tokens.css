@@ -18,14 +18,28 @@
   --color-success: #16A34A;
   --color-obsidian: #020617;
   
+  /* Elevation ladder — rest / hover / floating / pop. Use ONLY these. */
   --shadow-card: 0 1px 2px rgba(15,23,42,0.04), 0 1px 3px rgba(15,23,42,0.06);
   --shadow-elevated: 0 4px 6px rgba(15,23,42,0.04), 0 10px 15px rgba(15,23,42,0.05);
-  --shadow-hover: 0 8px 12px rgba(15,23,42,0.06), 0 16px 24px rgba(15,23,42,0.07);
-  
+  --shadow-hover: 0 10px 20px rgba(15,23,42,0.07), 0 20px 40px rgba(15,23,42,0.08);
+  --shadow-float: 0 24px 60px rgba(15,23,42,0.12), 0 8px 24px rgba(15,23,42,0.06);
+  --shadow-pop: 0 18px 48px rgba(26,63,216,0.18);
+
+  /* Radius scale — chip / card / panel + full. Use ONLY these. */
   --radius-sm: 6px;
   --radius-DEFAULT: 8px;
   --radius-md: 10px;
   --radius-lg: 12px;
+  --radius-chip: 12px;
+  --radius-card: 18px;
+  --radius-panel: 28px;
+
+  /* Focus ring */
+  --color-ring: #1A3FD8;
+
+  /* Motion — one easing vocabulary */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --font-display: "Plus Jakarta Sans", sans-serif;
   --font-sans: "Inter", sans-serif;

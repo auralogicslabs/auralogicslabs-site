@@ -1,0 +1,71 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', ui-sans-serif, system-ui, sans-serif">
+  <defs>
+    <radialGradient id="ac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.15"/><stop offset="100%" stop-color="#2DD4BF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vi" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#6D5EFA" stop-opacity="0.10"/><stop offset="100%" stop-color="#6D5EFA" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="g" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0B0B16"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <ellipse cx="420" cy="320" rx="460" ry="320" fill="url(#ac)"/>
+  <ellipse cx="1000" cy="540" rx="380" ry="280" fill="url(#vi)"/>
+
+  <!-- eyebrow -->
+  <rect x="100" y="68" width="320" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <circle cx="124" cy="88" r="5" fill="#2DD4BF"/>
+  <text x="142" y="93" fill="#C7C9D9" font-size="15" font-weight="700" letter-spacing="2">NEXORA PULSE · NEURAL LINKS</text>
+
+  <text x="100" y="156" fill="#FFFFFF" font-size="22" font-weight="700">Your internal link graph</text>
+  <text x="100" y="182" fill="#8A8C9E" font-size="14">How crawl equity flows — and where it stops</text>
+
+  <!-- link lines (connected cluster) -->
+  <g stroke="#2DD4BF" fill="none" stroke-linecap="round">
+    <line x1="430" y1="380" x2="270" y2="300" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="430" y1="380" x2="560" y2="290" stroke-opacity="0.5" stroke-width="2"/>
+    <line x1="430" y1="380" x2="600" y2="430" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="430" y1="380" x2="320" y2="480" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="270" y1="300" x2="560" y2="290" stroke-opacity="0.25" stroke-width="1.5"/>
+    <line x1="560" y1="290" x2="600" y2="430" stroke-opacity="0.25" stroke-width="1.5"/>
+    <line x1="320" y1="480" x2="600" y2="430" stroke-opacity="0.2" stroke-width="1.5"/>
+  </g>
+
+  <!-- connected nodes -->
+  <g>
+    <circle cx="430" cy="380" r="28" fill="#2DD4BF" fill-opacity="0.18" stroke="#2DD4BF" stroke-width="2"/>
+    <circle cx="430" cy="380" r="9" fill="#2DD4BF"/>
+    <circle cx="270" cy="300" r="18" fill="#14141F" stroke="#2DD4BF" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="270" cy="300" r="5" fill="#5EEAD4"/>
+    <circle cx="560" cy="290" r="18" fill="#14141F" stroke="#2DD4BF" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="560" cy="290" r="5" fill="#5EEAD4"/>
+    <circle cx="600" cy="430" r="18" fill="#14141F" stroke="#2DD4BF" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="600" cy="430" r="5" fill="#5EEAD4"/>
+    <circle cx="320" cy="480" r="18" fill="#14141F" stroke="#2DD4BF" stroke-opacity="0.7" stroke-width="2"/>
+    <circle cx="320" cy="480" r="5" fill="#5EEAD4"/>
+    <text x="430" y="430" fill="#C7C9D9" font-size="12" font-weight="600" text-anchor="middle">hub page</text>
+  </g>
+
+  <!-- orphan nodes (no links, dashed) -->
+  <g>
+    <circle cx="880" cy="280" r="20" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="3 5"/>
+    <circle cx="880" cy="280" r="5" fill="#64748B"/>
+    <circle cx="980" cy="420" r="20" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="3 5"/>
+    <circle cx="980" cy="420" r="5" fill="#64748B"/>
+    <rect x="836" y="312" width="92" height="26" rx="13" fill="#94A3B8" fill-opacity="0.12"/>
+    <text x="882" y="330" fill="#B6BECC" font-size="12" font-weight="700" text-anchor="middle">orphan</text>
+    <rect x="936" y="452" width="92" height="26" rx="13" fill="#94A3B8" fill-opacity="0.12"/>
+    <text x="982" y="470" fill="#B6BECC" font-size="12" font-weight="700" text-anchor="middle">orphan</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(840,160)">
+    <circle cx="10" cy="10" r="6" fill="#2DD4BF"/>
+    <text x="26" y="15" fill="#C7C9D9" font-size="13" font-weight="600">Linked · receives equity</text>
+    <circle cx="10" cy="40" r="6" fill="none" stroke="#94A3B8" stroke-width="2" stroke-dasharray="3 4"/>
+    <text x="26" y="45" fill="#8A8C9E" font-size="13" font-weight="600">Orphan · invisible to Google</text>
+  </g>
+
+  <text x="1110" y="600" fill="#FFFFFF" fill-opacity="0.45" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1">Auralogics Labs</text>
+</svg>

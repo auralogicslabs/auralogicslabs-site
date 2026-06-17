@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 import { HeroStoryVisual } from "@/components/sections/HeroStoryVisual";
+import { Button } from "@/components/ui/Button";
 
 function InteractiveGridBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -219,7 +220,7 @@ export function Hero() {
                 <span className="text-[11px] font-black uppercase tracking-[0.28em] text-white/70">Auralogics Labs</span>
               </div>
 
-              <h1 className="text-[48px] sm:text-[64px] md:text-[82px] font-extrabold text-white leading-[0.9] tracking-[-0.05em]">
+              <h1 className="text-[48px] sm:text-[64px] md:text-[82px] font-extrabold text-white leading-[0.95] tracking-[-0.04em]">
                 We build tools that solve
                 <br />
                 <span
@@ -234,28 +235,22 @@ export function Hero() {
                 </span>
               </h1>
 
-              <p className="mt-6 sm:mt-7 max-w-[560px] text-[16px] sm:text-[18px] md:text-[20px] text-white/42 font-medium leading-[1.6]">
+              <p className="mt-6 sm:mt-7 max-w-[560px] text-[16px] sm:text-[18px] md:text-[20px] text-white/60 font-medium leading-[1.6]">
                 The Nexora suite gives your WordPress site static-speed delivery, real SEO diagnostics, and automatic image optimisation — all as drop-in plugins. No rebuild. No new stack. No migration.
               </p>
 
-              <p className="mt-3 text-[13px] sm:text-[14px] text-white/25 font-medium tracking-wide">
+              <p className="mt-3 text-[13px] sm:text-[14px] text-white/40 font-medium tracking-wide">
                 WordPress today → any platform tomorrow.
               </p>
 
-              <div className="relative z-30 mt-7 sm:mt-8 flex items-center gap-3 sm:gap-4">
-                <Link
-                  href="/products"
-                  className="relative z-30 inline-flex items-center justify-center rounded-full bg-[#F39A09] text-obsidian px-7 sm:px-8 py-3.5 sm:py-4 text-[12px] sm:text-[13px] font-black uppercase tracking-wide hover:bg-[#ffb347] transition-colors shadow-[0_8px_28px_rgba(243,154,9,0.35)]"
-                >
+              <div className="relative z-30 mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
+                <Button href="/products" variant="primary" size="lg" className="relative z-30">
                   Explore the Nexora suite
-                </Link>
-                <Link
-                  href="/products/nexora-pulse"
-                  className="relative z-30 inline-flex items-center gap-2 rounded-full border-2 border-white/20 bg-white/5 text-white/80 px-5 sm:px-6 py-3.5 text-[12px] sm:text-[13px] font-bold hover:bg-[#F39A09] hover:border-[#F39A09] hover:text-obsidian transition-all duration-300"
-                >
+                </Button>
+                <Button href="/products/nexora-pulse" variant="secondary" size="lg" onDark className="relative z-30">
                   Start free
                   <ArrowRight className="h-4 w-4" />
-                </Link>
+                </Button>
               </div>
             </motion.div>
 

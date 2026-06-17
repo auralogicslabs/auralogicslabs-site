@@ -2,7 +2,7 @@
 
 import { Download, Sliders, Rocket, Zap, ArrowRight, Check } from "lucide-react";
 import { FullWidthSection, ScrollReveal } from "@/components/ui/SectionShell";
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 const steps = [
   {
@@ -50,7 +50,7 @@ export function FeatureTeaser() {
               Three steps.{" "}
               <span
                 className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, #F39A09 0%, #D97706 100%)" }}
+                style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #6366F1 100%)" }}
               >
                 Then it runs itself.
               </span>
@@ -142,20 +142,14 @@ export function FeatureTeaser() {
         {/* Centered CTA */}
         <ScrollReveal delay={0.3}>
           <div className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 rounded-full bg-[#F39A09] text-obsidian px-8 py-3.5 text-[14px] font-black hover:bg-[#ffb347] transition-colors group shadow-[0_8px_28px_rgba(243,154,9,0.3)]"
-            >
+            <Button href="/products" variant="primary" size="lg" className="group">
               <Zap className="h-4 w-4" />
               Explore the platform
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/products/nexora-engine"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-obsidian/10 bg-white text-obsidian px-8 py-3.5 text-[14px] font-bold hover:border-brand hover:text-brand transition-colors"
-            >
+              <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-0.5 transition-transform" />
+            </Button>
+            <Button href="/products/nexora-engine" variant="secondary" size="lg">
               Start with Nexora Engine
-            </Link>
+            </Button>
           </div>
         </ScrollReveal>
     </FullWidthSection>

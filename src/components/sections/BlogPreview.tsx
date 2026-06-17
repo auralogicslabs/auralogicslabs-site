@@ -137,7 +137,7 @@ export function BlogPreview({
               Field notes from the{" "}
               <span
                 className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #059669 100%)" }}
+                style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #6366F1 100%)" }}
               >
                 edge of WordPress.
               </span>

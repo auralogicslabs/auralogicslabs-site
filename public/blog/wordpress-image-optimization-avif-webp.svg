@@ -1,0 +1,62 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', ui-sans-serif, system-ui, sans-serif">
+  <defs>
+    <radialGradient id="ac" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.16"/><stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vi" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#6D5EFA" stop-opacity="0.10"/><stop offset="100%" stop-color="#6D5EFA" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="thumb" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7C3AED" stop-opacity="0.30"/><stop offset="100%" stop-color="#A78BFF" stop-opacity="0.10"/></linearGradient>
+    <linearGradient id="avif" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#A78BFF"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient>
+    <pattern id="g" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0B0B16"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <ellipse cx="260" cy="130" rx="430" ry="300" fill="url(#ac)"/>
+  <ellipse cx="980" cy="540" rx="400" ry="280" fill="url(#vi)"/>
+
+  <!-- eyebrow -->
+  <rect x="100" y="68" width="346" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <circle cx="124" cy="88" r="5" fill="#A78BFF"/>
+  <text x="142" y="93" fill="#C7C9D9" font-size="15" font-weight="700" letter-spacing="2">NEXORA MEDIA · IMAGE OPTIMIZATION</text>
+
+  <!-- left: image preview -->
+  <rect x="100" y="190" width="330" height="300" rx="22" fill="#14141F" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <rect x="124" y="214" width="282" height="180" rx="14" fill="url(#thumb)"/>
+  <circle cx="180" cy="270" r="20" fill="#A78BFF" fill-opacity="0.55"/>
+  <path d="M140 360 l54 -62 l40 40 l30 -26 l52 48 Z" fill="#A78BFF" fill-opacity="0.4"/>
+  <text x="124" y="430" fill="#FFFFFF" font-size="16" font-weight="700">hero.avif</text>
+  <text x="124" y="456" fill="#8A8C9E" font-size="13">Served to supporting browsers</text>
+  <rect x="330" y="416" width="76" height="30" rx="15" fill="#7C3AED" fill-opacity="0.16"/>
+  <text x="368" y="436" fill="#C4B5FD" font-size="13" font-weight="700" text-anchor="middle">168 KB</text>
+
+  <!-- right: format comparison -->
+  <rect x="470" y="190" width="630" height="300" rx="22" fill="#14141F" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <text x="502" y="232" fill="#FFFFFF" font-size="19" font-weight="700">Same image, 59% lighter</text>
+
+  <!-- JPEG -->
+  <text x="502" y="276" fill="#B6BECC" font-size="13" font-weight="600">JPEG</text>
+  <rect x="580" y="266" width="430" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.10"/>
+  <text x="1068" y="279" fill="#8A8C9E" font-size="13" font-weight="700" text-anchor="end">412 KB</text>
+  <!-- WebP -->
+  <text x="502" y="316" fill="#B6BECC" font-size="13" font-weight="600">WebP</text>
+  <rect x="580" y="306" width="430" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.05"/>
+  <rect x="580" y="306" width="292" height="16" rx="8" fill="#7C3AED" fill-opacity="0.45"/>
+  <text x="1068" y="319" fill="#C4B5FD" font-size="13" font-weight="700" text-anchor="end">280 KB</text>
+  <!-- AVIF -->
+  <text x="502" y="356" fill="#FFFFFF" font-size="13" font-weight="700">AVIF</text>
+  <rect x="580" y="346" width="430" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.05"/>
+  <rect x="580" y="346" width="175" height="16" rx="8" fill="url(#avif)"/>
+  <text x="1068" y="359" fill="#C4B5FD" font-size="13" font-weight="800" text-anchor="end">168 KB</text>
+
+  <!-- LCP pills -->
+  <g transform="translate(502,398)">
+    <rect width="200" height="56" rx="14" fill="#10B981" fill-opacity="0.10" stroke="#10B981" stroke-opacity="0.30"/>
+    <text x="20" y="24" fill="#8A8C9E" font-size="12" font-weight="600">LCP</text>
+    <text x="20" y="44" fill="#34D399" font-size="17" font-weight="800">1.2s · Good</text>
+    <text x="180" y="34" fill="#7B7E90" font-size="14" font-weight="600" text-anchor="end" text-decoration="line-through">4.1s</text>
+  </g>
+  <text x="722" y="432" fill="#8A8C9E" font-size="13">AVIF + WebP, converted in the background — your media library untouched.</text>
+
+  <text x="1110" y="600" fill="#FFFFFF" fill-opacity="0.45" font-size="15" font-weight="700" text-anchor="end" letter-spacing="1">Auralogics Labs</text>
+</svg>

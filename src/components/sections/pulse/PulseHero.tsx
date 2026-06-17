@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, Stethoscope, Download } from "lucide-react";
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 const TEAL = "#13716A";
 
@@ -37,9 +37,6 @@ export function PulseHero() {
           <span className="text-[11px] font-bold text-obsidian uppercase tracking-[0.22em]">Nexora Pulse</span>
           <span className="text-border-strong mx-1">·</span>
           <span className="text-[11px] font-semibold text-text-muted uppercase tracking-[0.16em]">SEO Operations Console</span>
-          <span className="text-border-strong mx-1">·</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">Free Plugin</span>
         </motion.div>
 
         {/* Headline */}
@@ -47,7 +44,7 @@ export function PulseHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[48px] md:text-[68px] lg:text-[82px] font-extrabold text-obsidian leading-[0.92] tracking-[-0.055em] mb-8 max-w-[960px]"
+          className="text-[48px] md:text-[68px] lg:text-[82px] font-extrabold text-obsidian leading-[0.95] tracking-[-0.04em] mb-8 max-w-[960px]"
         >
           Stop guessing why <br className="hidden md:block" />
           <span style={{ color: TEAL }}>Google won&apos;t rank you.</span>
@@ -72,23 +69,16 @@ export function PulseHero() {
           transition={{ duration: 0.6, delay: 0.24 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-16"
         >
-          <Link
-            href="https://wordpress.org/plugins/nexora-pulse/"
-            className="rounded-2xl px-10 py-4.5 text-[16px] font-bold text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group flex items-center gap-3"
-            style={{ background: TEAL }}
-          >
+          <Button href="https://wordpress.org/plugins/nexora-pulse/" variant="primary" size="lg" className="group">
             <Download className="h-5 w-5" />
             Get it free on WordPress.org
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="#features"
-            className="rounded-2xl border-2 border-border bg-white px-10 py-4.5 text-[16px] font-bold text-obsidian hover:bg-surface-soft transition-all duration-300 flex items-center gap-3 group"
-          >
+            <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
+          <Button href="#features" variant="secondary" size="lg" className="group">
             <Stethoscope className="h-4 w-4" style={{ color: TEAL }} />
             See what it does
-            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+            <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
         </motion.div>
 
         {/* Inline metrics strip */}

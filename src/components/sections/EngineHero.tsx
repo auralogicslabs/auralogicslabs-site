@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, Code2, Zap } from "lucide-react";
 
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 export function EngineHero() {
   return (
@@ -38,9 +38,6 @@ export function EngineHero() {
           <span className="text-[11px] font-bold text-obsidian uppercase tracking-[0.22em]">Nexora Engine</span>
           <span className="text-border-strong mx-1">·</span>
           <span className="text-[11px] font-semibold text-text-muted uppercase tracking-[0.16em]">Static Infrastructure</span>
-          <span className="text-border-strong mx-1">·</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">Available Now</span>
         </motion.div>
 
         {/* Headline */}
@@ -48,7 +45,7 @@ export function EngineHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[48px] md:text-[68px] lg:text-[82px] font-extrabold text-obsidian leading-[0.92] tracking-[-0.055em] mb-8 max-w-[960px]"
+          className="text-[48px] md:text-[68px] lg:text-[82px] font-extrabold text-obsidian leading-[0.95] tracking-[-0.04em] mb-8 max-w-[960px]"
         >
           The performance layer <br className="hidden md:block" />
           <span className="text-brand">WordPress never had.</span>
@@ -72,22 +69,16 @@ export function EngineHero() {
           transition={{ duration: 0.6, delay: 0.24 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-16"
         >
-          <Link
-            href="/nexora-engine/docs/getting-started"
-            className="rounded-2xl bg-obsidian px-10 py-4.5 text-[16px] font-bold text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group flex items-center gap-3"
-          >
+          <Button href="/nexora-engine/docs/getting-started" variant="primary" size="lg" className="group">
             <Code2 className="h-5 w-5" />
             Get Started Free
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="/portal"
-            className="rounded-2xl border-2 border-border bg-white px-10 py-4.5 text-[16px] font-bold text-obsidian hover:bg-surface-soft transition-all duration-300 flex items-center gap-3 group"
-          >
+            <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
+          <Button href="/portal" variant="secondary" size="lg" className="group">
             <Zap className="h-4 w-4 text-brand" />
             Get Pro License
-            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+            <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
         </motion.div>
 
         {/* Inline metrics strip */}

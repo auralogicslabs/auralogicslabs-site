@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import { cn } from "@/app/components/ui/utils";
 
 /**
- * Blog cover. Renders a hand-made SVG/image when `src` is provided, and falls
- * back to a branded generated motif (themed by `accent`) when it isn't — so
- * every post has an on-brand cover at any size, with no per-post asset required.
+ * Blog cover. Renders a hand-made SVG/image when `src` is provided and loads,
+ * and falls back to a branded generated motif (themed by `accent`) when `src`
+ * is empty OR fails to load — so every post always has an on-brand cover, at
+ * any size, with no per-post asset required.
  */
 export function BlogCoverImage({
   src,
@@ -19,6 +23,9 @@ export function BlogCoverImage({
   priority?: boolean;
 }) {
   const color = accent ?? "#6D5EFA";
+  const [failed, setFailed] = useState(false);
+  const showImage = !!src && !failed;
+
   return (
     <div
       className={cn("relative overflow-hidden bg-obsidian", className)}
@@ -30,12 +37,13 @@ export function BlogCoverImage({
           background: `radial-gradient(ellipse at 30% 20%, ${color}55 0%, transparent 55%)`,
         }}
       />
-      {src ? (
+      {showImage ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={src}
           alt={alt ?? ""}
           loading={priority ? "eager" : "lazy"}
+          onError={() => setFailed(true)}
           className="absolute inset-0 w-full h-full object-cover"
         />
       ) : (
@@ -67,7 +75,6 @@ function GeneratedCover({ color }: { color: string }) {
       <rect width="600" height="400" fill="url(#bc-grid)" />
       <ellipse cx="120" cy="340" rx="260" ry="200" fill="url(#bc-glow)" />
 
-      {/* concentric arcs from bottom-right (signal motif) */}
       <g fill="none" stroke={color} strokeLinecap="round">
         <circle cx="520" cy="340" r="70" strokeOpacity="0.55" strokeWidth="2.5" />
         <circle cx="520" cy="340" r="130" strokeOpacity="0.32" strokeWidth="2" />
@@ -75,7 +82,6 @@ function GeneratedCover({ color }: { color: string }) {
         <circle cx="520" cy="340" r="280" strokeOpacity="0.08" strokeWidth="2" />
       </g>
 
-      {/* core node + orbit dots */}
       <circle cx="520" cy="340" r="10" fill={color} />
       <circle cx="450" cy="270" r="5" fill={color} fillOpacity="0.8" />
       <circle cx="392" cy="338" r="4" fill="#FFFFFF" fillOpacity="0.35" />

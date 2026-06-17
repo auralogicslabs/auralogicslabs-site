@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { ArrowRight, Mail, ArrowUpRight, Check } from "lucide-react";
-import Link from "next/link";
 import { FullWidthSection, ScrollReveal } from "@/components/ui/SectionShell";
+import { Button } from "@/components/ui/Button";
 
 function FreeTrialBanner() {
   const [email, setEmail] = useState("");
@@ -134,20 +134,14 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 rounded-full bg-[#F39A09] text-obsidian px-9 py-4 text-[15px] font-black hover:bg-[#ffb347] transition-colors group"
-            >
+            <Button href="/products" variant="primary" size="lg" className="group">
               View Products
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 text-white px-9 py-4 text-[15px] font-bold hover:bg-white/15 transition-colors"
-            >
+              <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-0.5 transition-transform" />
+            </Button>
+            <Button href="/contact" variant="secondary" size="lg" onDark>
               <Mail className="h-4 w-4 opacity-70" />
               Talk to us
-            </Link>
+            </Button>
           </div>
         </div>
       </ScrollReveal>

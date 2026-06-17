@@ -4,7 +4,6 @@ import { Server, LayoutTemplate, Zap, XCircle, AlertCircle, CheckCircle2, Sparkl
 import { useState } from "react";
 import Link from "next/link";
 import { FullWidthSection, ScrollReveal, InnerCard } from "@/components/ui/SectionShell";
-import { ArchitectureCompare } from "@/components/ui/ArchitectureCompare";
 
 const paths = [
   {
@@ -55,7 +54,7 @@ export function ProblemComparison() {
             Slow WordPress or a full rebuild.{" "}
             <span
               className="bg-clip-text text-transparent"
-              style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #7C3AED 100%)" }}
+              style={{ backgroundImage: "linear-gradient(135deg, #1A3FD8 0%, #6366F1 100%)" }}
             >
               Neither is the answer.
             </span>
@@ -63,13 +62,6 @@ export function ProblemComparison() {
           <p className="text-[17px] text-slate-500 font-medium leading-relaxed">
             Every team hits the same wall. Either your PHP stack is too slow, or going headless means months of rebuilding things that already work. We built a way around both.
           </p>
-        </div>
-      </ScrollReveal>
-
-      {/* Centered visual — real architecture comparison */}
-      <ScrollReveal delay={0.1}>
-        <div className="max-w-3xl mx-auto mb-14 md:mb-16">
-          <ArchitectureCompare />
         </div>
       </ScrollReveal>
 
