@@ -8,6 +8,7 @@ import { TrustSection } from '@/components/sections/TrustSection';
 import { BlogPreview } from '@/components/sections/BlogPreview';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/layout/Footer';
+import { CompanyIntro } from '@/components/sections/CompanyIntro';
 import { getFeaturedPost, getRecentPosts } from '@/data/blog';
 
 export default function Home() {
@@ -20,6 +21,8 @@ export default function Home() {
       <main className="overflow-x-clip">
         {/* 1. The promise */}
         <Hero />
+        {/* 1b. Who we are — company identity bridge */}
+        <CompanyIntro />
         {/* 2. The problem we exist to solve */}
         <ProblemComparison />
         {/* 3. The platform. four products, one ecosystem */}

@@ -69,8 +69,8 @@ export function Footer() {
               />
             </Link>
             <p className="text-[16px] md:text-[17px] text-white/45 leading-[1.65] font-medium max-w-[400px] mb-8">
-              Invisible infrastructure for WordPress. runtime delivery, SEO intelligence,
-              and media optimization, without the rebuild.
+              We build tools that solve real problems for web teams. The Nexora suite closes
+              the performance, SEO, and media gaps your platform leaves open — starting with WordPress.
             </p>
 
             {/* Email pill */}
