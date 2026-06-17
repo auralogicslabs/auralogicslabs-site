@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Core marketing pages
     { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${base}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/careers`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
 
     // Product pages

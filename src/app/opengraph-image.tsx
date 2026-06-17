@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'Nexora Engine by Auralogics Labs';
+export const alt = 'Auralogics Labs — Tools That Solve Real Problems for Web Teams';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -53,7 +53,7 @@ export default async function Image() {
                 maxWidth: 900,
               }}
             >
-              Modern Headless Infrastructure for WordPress
+              We build tools that solve real problems for web teams.
             </div>
             
             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -70,7 +70,7 @@ export default async function Image() {
                   letterSpacing: '0.05em',
                 }}
               >
-                22ms TTFB
+                The Nexora suite · WordPress today, any platform tomorrow.
               </div>
             </div>
           </div>

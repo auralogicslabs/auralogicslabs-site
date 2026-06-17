@@ -24,17 +24,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Auralogics Labs: Static-Speed WordPress Without the Rebuild",
+  title: "Auralogics Labs — Tools That Solve Real Problems for Web Teams",
   description:
-    "Drop-in WordPress plugins that deliver 22ms page loads, fix SEO indexing gaps, and cut image payload by 70%. No headless migration, no DevOps, no rebuild required.",
+    "Auralogics Labs makes the Nexora suite — drop-in WordPress tools for static-speed delivery, SEO diagnostics, and image optimisation. No rebuild. No migration. WordPress today, any platform tomorrow.",
   metadataBase: new URL("https://auralogicslabs.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Auralogics Labs: Static-Speed WordPress Without the Rebuild",
+    title: "Auralogics Labs — Tools That Solve Real Problems for Web Teams",
     description:
-      "Drop-in WordPress plugins that deliver 22ms page loads, fix SEO indexing gaps, and cut image payload by 70%. No headless migration, no DevOps, no rebuild required.",
+      "We build focused, drop-in tools that close the gap between how your platform performs today and how it should. Starting with WordPress. Built to scale to every platform that comes next.",
     url: "https://auralogicslabs.com",
     siteName: "Auralogics Labs",
     locale: "en_US",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auralogics Labs: Static-Speed WordPress Without the Rebuild",
+    title: "Auralogics Labs — Tools That Solve Real Problems for Web Teams",
     description:
-      "Drop-in WordPress plugins that deliver 22ms page loads, fix SEO indexing gaps, and cut image payload by 70%. No headless migration, no DevOps, no rebuild required.",
+      "Drop-in WordPress tools for static-speed delivery, SEO diagnostics, and image optimisation. No rebuild. No migration. WordPress today, any platform tomorrow.",
   },
   robots: {
     index: true,
@@ -85,7 +85,7 @@ export default function RootLayout({
           "width": 200,
           "height": 200
         },
-        "description": "Drop-in WordPress plugins for static-speed delivery, SEO intelligence, and image optimization. No headless migration, no DevOps required.",
+        "description": "We build focused, drop-in tools that close the gap between how web platforms perform and how they should. The Nexora suite starts with WordPress — performance, SEO, media, and fleet control. WordPress today, any platform tomorrow.",
         "email": "hello@auralogicslabs.com",
         "contactPoint": {
           "@type": "ContactPoint",

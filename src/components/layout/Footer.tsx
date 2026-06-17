@@ -31,10 +31,10 @@ export function Footer() {
   };
 
   const socials = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "X" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Facebook, href: "https://www.facebook.com/auralogicslabs", label: "Facebook" },
+    { icon: Twitter, href: "https://x.com/auralogicslabs", label: "X" },
+    { icon: Youtube, href: "https://www.youtube.com/@auralogicslabs", label: "YouTube" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/auralogicslabs", label: "LinkedIn" },
   ];
 
   return (
