@@ -96,7 +96,7 @@ export default function ContactPage() {
                 <Building2 className="h-5 w-5 text-text-muted flex-shrink-0 mt-0.5" />
                 <p className="text-[13px] text-text-secondary font-medium leading-relaxed">
                   <span className="font-bold text-obsidian">Auralogics Labs</span><br />
-                  Infrastructure intelligence for WordPress.
+                  We build tools that solve real problems for web teams.
                 </p>
               </div>
             </div>

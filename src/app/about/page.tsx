@@ -5,13 +5,13 @@ import { Footer } from "@/components/layout/Footer";
 import { Zap, Stethoscope, ImageIcon, LayoutDashboard, Target, Compass, Shield, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Auralogics Labs | WordPress Infrastructure Company",
+  title: "About Auralogics Labs — Tools for the Real Problems Web Teams Face",
   description:
-    "Auralogics Labs builds drop-in WordPress infrastructure: static-speed delivery, SEO intelligence, and media optimization that respect your existing stack. No rebuilds, no migrations, no DevOps.",
+    "Auralogics Labs makes the Nexora suite — drop-in tools for WordPress performance, SEO, media, and fleet control. WordPress today, any platform tomorrow. No rebuilds, no migrations, no DevOps.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Auralogics Labs | WordPress Infrastructure Company",
-    description: "Drop-in WordPress infrastructure that delivers 22ms page loads, fixes SEO gaps, and cuts image payload by 70%. Learn who we are and what we build.",
+    title: "About Auralogics Labs — Tools for the Real Problems Web Teams Face",
+    description: "We build tools that solve real problems for web teams. The Nexora suite starts with WordPress and is built to expand to every platform that comes next.",
     url: "https://auralogicslabs.com/about",
     type: "website",
   },
@@ -60,15 +60,15 @@ export default function AboutPage() {
               About Auralogics Labs
             </span>
             <h1 className="text-[42px] md:text-[64px] font-extrabold text-obsidian leading-[1.0] tracking-[-0.05em] mb-6">
-              Invisible infrastructure,{" "}
+              We build tools that solve{" "}
               <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(120deg, #1A3FD8 0%, #7C3AED 55%, #13716A 100%)" }}>
-                visible results.
+                real problems for web teams.
               </span>
             </h1>
             <p className="text-[18px] md:text-[20px] text-text-secondary leading-[1.65] font-medium max-w-[640px] mx-auto">
-              We build the layer WordPress was missing. speed, search visibility, and media
-              optimization that run quietly in the background, so your team can keep building and
-              your visitors never wait.
+              We make focused, drop-in tools that close the gap between how your platform performs
+              today and how it should. Starting with WordPress. Built to scale to every platform
+              that comes next.
             </p>
           </div>
         </section>
@@ -90,8 +90,47 @@ export default function AboutPage() {
               <p>
                 Auralogics Labs exists to close that gap a different way. Instead of replacing
                 WordPress, we wrap it in a layer of infrastructure that makes it fast, visible, and
-                manageable, without asking you to rebuild anything. Install a plugin, flip it on, and
-                it just runs.
+                manageable — without asking you to rebuild anything. Install a plugin, flip it on,
+                and it just runs.
+              </p>
+              <p>
+                WordPress is where we start because it&rsquo;s where the problems are most acute and
+                the audience is largest. But the gap between &ldquo;how a platform performs out of the
+                box&rdquo; and &ldquo;how it should perform&rdquo; exists everywhere. That&rsquo;s
+                the problem we&rsquo;re here to solve — across every platform, for every web team.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Vision */}
+        <section className="bg-obsidian px-6 sm:px-10 lg:px-16 py-20 md:py-28 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.04)_1px,transparent_0)] bg-[size:48px_48px] pointer-events-none" />
+          <div className="absolute -top-24 right-1/4 w-[600px] h-[400px] rounded-full blur-[180px] pointer-events-none" style={{ background: "rgba(26,63,216,0.18)" }} />
+          <div className="relative z-10 max-w-[820px] mx-auto">
+            <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-[#60A5FA] mb-4">
+              Where We&rsquo;re Headed
+            </span>
+            <h2 className="text-[30px] md:text-[42px] font-extrabold text-white leading-[1.1] tracking-[-0.035em] mb-6">
+              WordPress today.{" "}
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(120deg, #60A5FA 0%, #818CF8 50%, #C084FC 100%)" }}>
+                Any platform tomorrow.
+              </span>
+            </h2>
+            <div className="space-y-5 text-[17px] md:text-[18px] text-white/55 leading-[1.75] font-medium">
+              <p>
+                The Nexora suite is our first chapter. Four tools built specifically for WordPress
+                because that&rsquo;s where 40% of the web lives and where the performance and
+                visibility gaps are most painful. But the problems we solve aren&rsquo;t
+                WordPress-specific.
+              </p>
+              <p>
+                Every CMS has performance gaps. Every content team needs real SEO visibility. Every
+                engineering team manages a fleet of sites they&rsquo;d rather not babysit. We&rsquo;re
+                building the infrastructure layer for all of them. The static delivery model, the SEO
+                operations console, the media pipeline — these tools are designed to travel. WordPress
+                is where we start because we know it inside out. The rest of the web is where
+                we&rsquo;re going.
               </p>
             </div>
           </div>
@@ -154,7 +193,7 @@ export default function AboutPage() {
         <section className="bg-brand px-6 sm:px-10 lg:px-16 py-16 md:py-20 text-center">
           <div className="max-w-[640px] mx-auto">
             <h2 className="text-[28px] md:text-[40px] font-extrabold text-white leading-[1.1] tracking-[-0.035em] mb-5">
-              Build on infrastructure that gets out of your way.
+              Your platform. At its best.
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/products" className="inline-flex items-center gap-2 rounded-full bg-[#F39A09] text-obsidian px-8 py-4 text-[15px] font-black hover:bg-[#ffb347] transition-colors group">
