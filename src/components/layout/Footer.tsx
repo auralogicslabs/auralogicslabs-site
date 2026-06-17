@@ -19,7 +19,7 @@ export function Footer() {
     ],
     Company: [
       { label: 'About Us', href: '/about' },
-      { label: 'Insights', href: '/blog' },
+      { label: 'Insights', href: '/insights' },
       { label: 'Portal', href: '/portal' },
       { label: 'Contact', href: '/contact' },
     ],

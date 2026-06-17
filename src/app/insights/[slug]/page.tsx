@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | Auralogics Labs`,
     description: post.description,
     keywords: post.tags,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: `/insights/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://auralogicslabs.com/blog/${post.slug}`,
+      url: `https://auralogicslabs.com/insights/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: Props) {
           <header className="pt-[120px] pb-10 md:pb-14">
             <div className="w-full max-w-[860px] mx-auto px-6 sm:px-10">
               <Link
-                href="/blog"
+                href="/insights"
                 className="inline-flex items-center gap-2 text-[13px] font-bold text-text-muted hover:text-brand transition-colors mb-8"
               >
                 <ArrowLeft className="h-4 w-4" />
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {related.map((item) => (
                   <Link
                     key={item.slug}
-                    href={`/blog/${item.slug}`}
+                    href={`/insights/${item.slug}`}
                     className="group rounded-[20px] overflow-hidden border border-border/60 bg-white hover:border-brand/25 hover:shadow-lg transition-all duration-300"
                   >
                     <BlogCoverImage

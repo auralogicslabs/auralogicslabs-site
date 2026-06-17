@@ -29,7 +29,7 @@ function EditorialRow({
     return (
       <ScrollReveal delay={0.1}>
         <Link
-          href={`/blog/${post.slug}`}
+          href={`/insights/${post.slug}`}
           className="group relative grid lg:grid-cols-[1.15fr_1fr] gap-0 rounded-[28px] md:rounded-[36px] overflow-hidden border border-border/60 bg-white hover:border-brand/25 transition-all duration-500 hover:shadow-[0_32px_80px_rgba(26,63,216,0.1)]"
         >
           <BlogCoverImage
@@ -73,7 +73,7 @@ function EditorialRow({
   return (
     <ScrollReveal delay={0.08 + index * 0.06}>
       <Link
-        href={`/blog/${post.slug}`}
+        href={`/insights/${post.slug}`}
         className="group grid grid-cols-[auto_1fr_auto] md:grid-cols-[72px_200px_1fr_auto] lg:grid-cols-[88px_240px_1fr_auto] gap-5 md:gap-8 items-center py-8 border-b border-border/60 last:border-0 hover:bg-[#F8FAFC]/80 -mx-4 px-4 md:-mx-6 md:px-6 rounded-[20px] transition-colors duration-300"
       >
         <span
@@ -149,7 +149,7 @@ export function BlogPreview({
 
           <ScrollReveal delay={0.1}>
             <Link
-              href="/blog"
+              href="/insights"
               className="inline-flex items-center gap-2 rounded-full border-2 border-obsidian/10 bg-white px-6 py-3.5 text-[13px] font-black uppercase tracking-wide text-obsidian hover:border-brand hover:text-brand transition-colors group flex-shrink-0"
             >
               View all articles

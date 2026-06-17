@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: "WordPress Performance & SEO Blog | Auralogics Labs",
   description:
     "Technical guides on WordPress TTFB, Core Web Vitals, static delivery, SEO indexing fixes, image optimisation, and internal linking — written by the Auralogics Labs team.",
-  alternates: { canonical: "/blog" },
+  alternates: { canonical: "/insights" },
   openGraph: {
     title: "WordPress Performance & SEO Blog | Auralogics Labs",
     description:
       "Deep dives on WordPress performance, SEO diagnostics, image optimisation, and static delivery from the team behind the Nexora suite.",
-    url: "https://auralogicslabs.com/blog",
+    url: "https://auralogicslabs.com/insights",
     type: "website",
   },
 };
@@ -67,7 +67,7 @@ export default function BlogPage() {
           <section className="relative -mt-10 md:-mt-14 z-10 px-6 sm:px-10 lg:px-16">
             <div className="w-full max-w-[1600px] mx-auto">
               <Link
-                href={`/blog/${featured.slug}`}
+                href={`/insights/${featured.slug}`}
                 className="group grid lg:grid-cols-2 gap-0 rounded-[28px] md:rounded-[36px] overflow-hidden border border-border/60 bg-white shadow-[0_32px_80px_rgba(2,6,23,0.12)] hover:shadow-[0_40px_100px_rgba(26,63,216,0.14)] transition-shadow duration-500"
               >
                 <BlogCoverImage
@@ -112,7 +112,7 @@ export default function BlogPage() {
             {rest.map((post, i) => (
               <Link
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={`/insights/${post.slug}`}
                 className="group grid grid-cols-[56px_1fr_auto] md:grid-cols-[80px_280px_1fr_auto] gap-5 md:gap-10 items-center py-10 first:pt-0 hover:bg-[#F8FAFC] -mx-4 px-4 md:-mx-6 md:px-6 rounded-[24px] transition-colors"
               >
                 <span

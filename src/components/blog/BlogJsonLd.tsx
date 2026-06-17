@@ -23,7 +23,7 @@ export function BlogJsonLd({ post }: { post: BlogPost }) {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://auralogicslabs.com/blog/${post.slug}`,
+      "@id": `https://auralogicslabs.com/insights/${post.slug}`,
     },
     keywords: post.tags.join(", "),
     articleSection: post.category,
@@ -43,8 +43,8 @@ export function BlogListingJsonLd({ posts }: { posts: BlogPost[] }) {
     "@type": "Blog",
     name: "Auralogics Labs Engineering Notes",
     description:
-      "Technical articles on WordPress performance, static delivery, Core Web Vitals, and Nexora Engine infrastructure.",
-    url: "https://auralogicslabs.com/blog",
+      "Technical guides on WordPress performance, SEO diagnostics, image optimisation, and static delivery from the Auralogics Labs team.",
+    url: "https://auralogicslabs.com/insights",
     publisher: {
       "@type": "Organization",
       name: "Auralogics Labs",
@@ -52,7 +52,7 @@ export function BlogListingJsonLd({ posts }: { posts: BlogPost[] }) {
     blogPost: posts.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
-      url: `https://auralogicslabs.com/blog/${post.slug}`,
+      url: `https://auralogicslabs.com/insights/${post.slug}`,
       datePublished: post.publishedAt,
     })),
   };
