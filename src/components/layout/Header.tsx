@@ -235,7 +235,7 @@ export function Header() {
               </div>
 
               {[
-                { label: "Blog", href: "/blog" },
+                { label: "Insights", href: "/blog" },
                 { label: "Docs", href: "/nexora-engine/docs" },
                 { label: "Demo", href: "/nexora-engine/demo" },
               ].map((item) => (
@@ -382,7 +382,7 @@ export function Header() {
                   </AnimatePresence>
 
                   {[
-                    { label: "Blog", href: "/blog" },
+                    { label: "Insights", href: "/blog" },
                     { label: "Docs", href: "/nexora-engine/docs" },
                     { label: "Demo", href: "/nexora-engine/demo" },
                   ].map((item) => (

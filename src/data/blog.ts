@@ -622,6 +622,265 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "wordpress-image-optimization-avif-webp-lcp",
+    title: "The WordPress Image Problem That's Killing Your LCP Score (And How AVIF Fixes It)",
+    excerpt:
+      "You fixed your server response time. TTFB is fast. But LCP is still red. The culprit is almost always the same thing: unoptimized images. Here's why WordPress's default image handling isn't enough, what AVIF actually does, and how to fix it without rebuilding your media library.",
+    description:
+      "Understand why WordPress images hurt LCP scores even after fixing server response time. Learn the difference between AVIF and WebP, why background image conversion matters, and how Nexora Media reduces image payload by up to 70% without touching your media library.",
+    publishedAt: "2026-06-16",
+    updatedAt: "2026-06-16",
+    author: { name: "Auralogics Labs", role: "Product Team" },
+    category: "Nexora Media",
+    tags: ["WordPress image optimization", "AVIF", "WebP", "WordPress LCP", "Core Web Vitals", "Nexora Media", "image compression", "WordPress performance"],
+    readTime: "8 min read",
+    featured: false,
+    accent: "#7C3AED",
+    image: {
+      src: "/blog/wordpress-image-optimization-avif-webp.svg",
+      alt: "Illustration showing WordPress image optimization with AVIF and WebP format conversion reducing LCP score",
+    },
+    product: "nexora-media",
+    content: [
+      {
+        type: "p",
+        text: "Your server response is fast. You've addressed TTFB. But you open PageSpeed Insights and the LCP score is still red, still failing, still the thing holding your Core Web Vitals back. This scenario is more common than most performance guides acknowledge.",
+      },
+      {
+        type: "p",
+        text: "The reason is usually images. Specifically, images that are too heavy, in the wrong format, or sized for a desktop screen when most of your visitors are on mobile. WordPress doesn't fix any of this by default. And the performance gap between a site with optimized images and one without is significant enough to affect both rankings and user experience.",
+      },
+      { type: "h2", text: "Why images control your LCP score" },
+      {
+        type: "p",
+        text: "Largest Contentful Paint measures how long it takes for the biggest visible element on the page to finish loading. On most WordPress sites, that element is an image. The hero image, a featured post thumbnail, or a product photo. Whatever it is, it determines your LCP score.",
+      },
+      {
+        type: "p",
+        text: "Even on a fast server with a 22ms TTFB, a 400KB hero image on a mobile connection takes over a second to download. That download time goes directly into your LCP measurement. Google considers LCP scores over 2.5 seconds poor. Image weight is usually why sites hit 3 or 4 seconds despite decent hosting.",
+      },
+      {
+        type: "callout",
+        title: "The TTFB trap",
+        text: "Fixing server response time is necessary but not sufficient. A fast TTFB means the browser starts downloading resources earlier, but if those resources are heavy, the LCP still suffers. Image optimization and server optimization solve different parts of the same problem.",
+      },
+      { type: "h2", text: "What AVIF actually is (and why it's different from WebP)" },
+      {
+        type: "p",
+        text: "WebP has been around since 2010. It delivers roughly 25-35% smaller file sizes than JPEG at comparable quality. For most sites, moving from JPEG to WebP alone produces a meaningful improvement.",
+      },
+      {
+        type: "p",
+        text: "AVIF is newer and encodes more efficiently. At equivalent visual quality, AVIF files are typically 45-55% smaller than JPEG and 20-30% smaller than WebP. On image-heavy pages like WooCommerce product catalogs, that difference compounds quickly across dozens of images.",
+      },
+      {
+        type: "ul",
+        items: [
+          "JPEG: widely supported, large file sizes, no transparency",
+          "WebP: 25-35% smaller than JPEG, broad browser support, transparent backgrounds work",
+          "AVIF: 45-55% smaller than JPEG, excellent quality at low bitrates, growing browser support (Chrome, Firefox, Safari 16+)",
+          "PNG: lossless quality, large files, use only when transparency requires it",
+        ],
+      },
+      {
+        type: "p",
+        text: "The practical answer for most WordPress sites in 2026: serve AVIF to browsers that support it and fall back to WebP for everything else. Both formats outperform JPEG significantly. Your visitors get the best format their browser can handle.",
+      },
+      { type: "h2", text: "The WordPress image optimization problem nobody talks about" },
+      {
+        type: "p",
+        text: "WordPress generates resized versions of images when you upload them. It creates a thumbnail, a medium size, a large size, and any additional sizes your theme registers. This happens automatically and it works well enough for basic layout purposes.",
+      },
+      {
+        type: "p",
+        text: "The problem is what WordPress does not do. It doesn't convert images to modern formats. It doesn't remove metadata from JPEG files. It doesn't generate AVIF variants. And it doesn't match image dimensions to the actual rendered size on different screen widths.",
+      },
+      {
+        type: "p",
+        text: "That last point is important. Your theme might display a hero image at 1200px on desktop and 390px on mobile. If you're serving the same 1200px file to mobile visitors, you're downloading three times as many pixels as the screen can even display.",
+      },
+      {
+        type: "callout",
+        title: "The responsive sizing gap",
+        text: "WordPress generates srcset attributes, but only from the size variants it already created. If it didn't generate the right intermediate sizes for your theme's layout, browsers fall back to the largest available version, even on small screens.",
+      },
+      { type: "h2", text: "Why the media library is the wrong place to fix this" },
+      {
+        type: "p",
+        text: "The obvious approach is to process images before uploading. Run them through a compression tool, convert to WebP, resize for different screens, then upload. This works at small scale and becomes a maintenance nightmare at anything larger.",
+      },
+      {
+        type: "p",
+        text: "Every image needs to be processed manually. If your workflow changes or a new breakpoint gets added to the theme, you'd need to reprocess every image in your library. And for sites with hundreds or thousands of existing images, there's no practical way to retroactively apply this without a bulk reprocessing tool.",
+      },
+      {
+        type: "p",
+        text: "Background conversion solves this differently. Images are stored in their original format, and conversion to AVIF and WebP happens automatically either at upload time or on first request. The media library stays clean. Your existing workflow stays unchanged.",
+      },
+      { type: "h2", text: "How Nexora Media handles conversion and delivery" },
+      {
+        type: "p",
+        text: "Nexora Media converts images to AVIF and WebP in the background, without modifying your original files. Your uploaded JPEGs and PNGs stay exactly as they are in the media library. The plugin generates optimized variants alongside them and serves the right format to each visitor based on their browser's Accept header.",
+      },
+      {
+        type: "p",
+        text: "Responsive variants are generated for the breakpoints your theme actually uses, not just the default WordPress sizes. This means a 390px mobile screen gets an image sized and encoded specifically for 390px, not a scaled-down version of a 1200px file.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Original files untouched in the media library",
+          "AVIF and WebP variants generated automatically in the background",
+          "Format negotiation via Accept header, no client-side JavaScript required",
+          "Responsive sizing matched to your theme's actual rendered widths",
+          "Existing image URLs unchanged, no template edits required",
+          "Works standalone or paired with Nexora Engine static delivery",
+        ],
+      },
+      { type: "h2", text: "What to expect in your Core Web Vitals after optimization" },
+      {
+        type: "p",
+        text: "The impact varies depending on how image-heavy your pages are and what format you were serving before. For sites that have been serving unoptimized JPEGs, the payload reduction is typically 50-70% per image.",
+      },
+      {
+        type: "p",
+        text: "LCP improvements follow the payload reduction. If your hero image drops from 380KB to 90KB, the download time on a mobile connection drops proportionally. Sites that were failing LCP at 3.2 seconds often pass at 1.8 seconds after optimization — without changing any other part of the stack.",
+      },
+      {
+        type: "p",
+        text: "When paired with Nexora Engine's static delivery (22ms TTFB), the combined effect is significant. Fast server response plus lightweight images means the browser receives, parses, and renders the largest contentful element faster than most WordPress sites can even begin responding.",
+      },
+      { type: "h2", text: "Get started with Nexora Media" },
+      {
+        type: "p",
+        text: "Nexora Media installs like a normal WordPress plugin. After activation, it begins processing your existing media library in the background and converts new uploads automatically. Your images start serving in modern formats to visitors immediately. If LCP is the score holding your Core Web Vitals back, image optimization is the most direct path to fixing it.",
+      },
+    ],
+  },
+  {
+    slug: "wordpress-internal-linking-seo-guide",
+    title: "WordPress Internal Linking: The SEO Lever Most Site Owners Ignore",
+    excerpt:
+      "You've published the content. Some pages rank. Most don't. The pages that aren't ranking often have one thing in common: they're invisible inside your own site. Internal linking is the SEO signal that's both the most underused and the easiest to fix.",
+    description:
+      "Learn how internal linking affects WordPress SEO rankings, how Google uses your link structure to distribute crawl equity, the three most common internal linking mistakes, and how to audit and fix your site's link architecture using Nexora Pulse Neural Links.",
+    publishedAt: "2026-06-14",
+    updatedAt: "2026-06-14",
+    author: { name: "Auralogics Labs", role: "Product Team" },
+    category: "Nexora Pulse",
+    tags: ["WordPress internal linking", "internal link SEO", "link equity", "WordPress site architecture", "orphan pages", "Nexora Pulse", "Neural Links", "WordPress SEO"],
+    readTime: "9 min read",
+    featured: false,
+    accent: "#13716A",
+    image: {
+      src: "/blog/wordpress-internal-linking-seo.svg",
+      alt: "Illustration of a WordPress site internal link graph showing page connections, orphan pages, and link equity flow",
+    },
+    product: "platform",
+    content: [
+      {
+        type: "p",
+        text: "You've published good content. The on-page SEO looks correct. Titles are optimized, meta descriptions are written, the keyword is in the heading. But the page doesn't rank. It sits on page four, or page ten, or nowhere at all.",
+      },
+      {
+        type: "p",
+        text: "In many cases, the problem isn't the content itself. It's that the page is effectively invisible inside your own website. No other page links to it. Google finds it eventually, but without internal links pointing to it, Google has no strong signal that the page matters. So it doesn't rank as if it matters.",
+      },
+      { type: "h2", text: "What internal links actually do for your SEO" },
+      {
+        type: "p",
+        text: "Internal links serve two distinct functions. First, they help Google discover pages. A URL that no other page links to relies entirely on your sitemap and direct crawl requests to get indexed. A URL that ten relevant pages link to gets crawled more frequently, more consistently, and with more context about what it covers.",
+      },
+      {
+        type: "p",
+        text: "Second, internal links distribute PageRank across your site. Every page has some authority based on how many external sites link to it. That authority doesn't stay isolated on the pages that received the links. It flows through internal links to connected pages. A well-linked article on a high-authority domain benefits from that authority in a way that an orphan page on the same domain never does.",
+      },
+      {
+        type: "callout",
+        title: "What an orphan page looks like to Google",
+        text: "An orphan page is any page with zero internal links pointing to it. It might be perfectly written, fully optimized, and genuinely useful. But without internal links, Google treats it like a page at the edge of your site with no relationship to your main content. It ranks accordingly.",
+      },
+      { type: "h2", text: "How Google reads your link structure" },
+      {
+        type: "p",
+        text: "When Googlebot crawls your site, it follows links. It starts from pages it already knows, finds new links in the HTML, follows them, and maps the connections between pages. The more paths that lead to a page, the more often Googlebot visits it, and the stronger the signal that the page is important.",
+      },
+      {
+        type: "p",
+        text: "The anchor text of internal links also carries weight. When your category page links to a product article using the anchor text 'Elementor performance optimization', that text gives Google context about what the linked page covers. It's not as powerful as external anchor text, but it adds to the relevance signal Google uses when deciding what query to rank the page for.",
+      },
+      { type: "h3", text: "The crawl budget dimension" },
+      {
+        type: "p",
+        text: "Larger sites have a crawl budget consideration: Google won't crawl every page on every visit. Pages with strong internal link profiles get crawled more frequently. Pages that are difficult to reach through the link graph get crawled less often or skipped. If you publish a new article that matters for SEO and no existing page links to it, the time between publishing and indexing stretches out.",
+      },
+      { type: "h2", text: "The three most common internal linking mistakes on WordPress" },
+      {
+        type: "p",
+        text: "Most WordPress sites have internal linking problems that are straightforward to diagnose once you can see the link graph. These are the patterns that come up consistently:",
+      },
+      {
+        type: "ul",
+        items: [
+          "Orphan pages: content that was published and never linked to from any other page. Common with older posts, landing pages created for specific campaigns, and service pages added without updating the navigation or related content.",
+          "Siloed content: related articles that don't link to each other. A site might have five posts about WordPress performance that would each benefit from linking to the others, but they were written by different people at different times and no one connected them.",
+          "Broken internal links: links that point to pages that no longer exist, were moved, or were deleted. Every broken internal link wastes crawl budget and drops a user into a 404 experience. WordPress doesn't track these when you change a URL.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The fourth mistake is more subtle: over-relying on navigation. If your pillar pages are linked from your header and sidebar navigation, they get crawled well. But the deeper content, the articles and specific guides that do most of the long-tail ranking work, often have no internal links beyond whatever WordPress auto-generates in the Related Posts widget.",
+      },
+      { type: "h2", text: "How to audit your internal link structure" },
+      {
+        type: "p",
+        text: "A proper internal link audit tells you three things: which pages have no links pointing to them, which important pages have too few links, and where links are broken. Without a tool that maps the entire graph, you're guessing.",
+      },
+      {
+        type: "p",
+        text: "The manual version of this involves crawling your site with a desktop tool, exporting link data into a spreadsheet, and manually identifying orphans and gaps. It works, but it's slow, it goes stale quickly, and it gives you no context about which orphans actually matter for SEO.",
+      },
+      {
+        type: "callout",
+        title: "What a link audit reveals",
+        text: "Sites that have never run an internal link audit typically find that 20-40% of their published pages have zero internal links pointing to them. These are pages that Google knows exist but treats as low-priority, regardless of content quality.",
+      },
+      { type: "h2", text: "Auditing and fixing links with Nexora Pulse Neural Links" },
+      {
+        type: "p",
+        text: "Neural Links is Nexora Pulse's internal link mapping module. It crawls your entire WordPress site and builds a live map of every internal link: which pages link to which, what anchor text they use, and which pages have no inbound links at all.",
+      },
+      {
+        type: "p",
+        text: "The orphan pages view is the most immediately useful output. It shows you a sorted list of all pages with zero internal links, alongside their current SEO score and traffic data if you have Search Console connected. You can see at a glance which orphans matter and which are intentionally thin.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Full internal link graph: every page, every link, every anchor text",
+          "Orphan page detection: all pages with zero inbound internal links",
+          "Broken link finder: internal 404s with the pages that contain them",
+          "Link opportunity suggestions: related content that could benefit from cross-linking",
+          "Anchor text analysis: where anchor text is too generic or missing entirely",
+          "Updates automatically as you publish and edit",
+        ],
+      },
+      { type: "h2", text: "Building a linking strategy that holds over time" },
+      {
+        type: "p",
+        text: "The goal isn't just to fix the current orphans. It's to create a habit where new content gets linked from relevant existing pages as part of the publishing workflow. On WordPress, this means maintaining a mental model of your site's content map, or using a tool that maintains it for you.",
+      },
+      {
+        type: "p",
+        text: "A useful frame: every page you publish should receive at least two internal links from existing relevant content, and should link out to at least two related pages. That simple rule, applied consistently, produces a site where every page is reachable through the link graph and Google has clear signals about which pages are related.",
+      },
+      {
+        type: "p",
+        text: "Internal linking isn't the flashiest part of WordPress SEO. It doesn't get the coverage that keyword research or backlink building do. But it's the part that determines whether the content you've already invested in actually gets found — by Google and by the readers who would benefit from it. Nexora Pulse Neural Links gives you the map to fix it. Install it free and run your first link audit today.",
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
