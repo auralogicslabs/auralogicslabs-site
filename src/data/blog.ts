@@ -19,7 +19,7 @@ export type BlogPost = {
   featured: boolean;
   accent: string;
   image: { src: string; alt: string };
-  product: "nexora-engine" | "nexora-media" | "platform";
+  product: "nexora-engine" | "nexora-pulse" | "nexora-media" | "platform";
   content: BlogContentBlock[];
 };
 
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
       src: "/blog/index-doctor-why-google-wont-index.svg",
       alt: "Illustration of the Nexora Pulse Index Doctor showing Google Search Console indexing verdicts",
     },
-    product: "platform",
+    product: "nexora-pulse",
     content: [
       {
         type: "p",
@@ -151,7 +151,7 @@ export const blogPosts: BlogPost[] = [
       src: "/blog/nexora-pulse-seo-console.svg",
       alt: "Nexora Pulse SEO console dashboard showing indexing verdicts, Core Web Vitals, and internal link map",
     },
-    product: "platform",
+    product: "nexora-pulse",
     content: [
       {
         type: "p",
@@ -777,7 +777,7 @@ export const blogPosts: BlogPost[] = [
       src: "/blog/wordpress-internal-linking-seo.svg",
       alt: "Illustration of a WordPress site internal link graph showing page connections, orphan pages, and link equity flow",
     },
-    product: "platform",
+    product: "nexora-pulse",
     content: [
       {
         type: "p",

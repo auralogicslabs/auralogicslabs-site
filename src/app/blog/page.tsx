@@ -8,14 +8,14 @@ import { BlogListingJsonLd } from "@/components/blog/BlogJsonLd";
 import { getAllPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "WordPress Performance Blog | Engineering Notes by Auralogics Labs",
+  title: "WordPress Performance & SEO Blog | Auralogics Labs",
   description:
-    "Technical guides on WordPress TTFB optimization, Core Web Vitals, static delivery, SEO indexing fixes, and WooCommerce performance. Written by the Auralogics Labs engineering team.",
+    "Technical guides on WordPress TTFB, Core Web Vitals, static delivery, SEO indexing fixes, image optimisation, and internal linking — written by the Auralogics Labs team.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "WordPress Performance Blog | Engineering Notes by Auralogics Labs",
+    title: "WordPress Performance & SEO Blog | Auralogics Labs",
     description:
-      "Deep dives on WordPress static delivery, TTFB, Core Web Vitals, and SEO indexing from the Auralogics Labs engineering team.",
+      "Deep dives on WordPress performance, SEO diagnostics, image optimisation, and static delivery from the team behind the Nexora suite.",
     url: "https://auralogicslabs.com/blog",
     type: "website",
   },
@@ -58,7 +58,7 @@ export default function BlogPage() {
               </span>
             </h1>
             <p className="text-[17px] md:text-[19px] text-slate-500 font-medium leading-relaxed max-w-[620px]">
-              Performance engineering, security hygiene, and static delivery. Practical guides focused on Nexora Engine and modern WordPress stacks.
+              Performance, SEO diagnostics, and image optimisation for WordPress. Practical guides from the team building the Nexora suite.
             </p>
           </div>
         </section>

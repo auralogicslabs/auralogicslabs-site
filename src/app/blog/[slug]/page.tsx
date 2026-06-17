@@ -162,21 +162,52 @@ export default async function BlogPostPage({ params }: Props) {
         )}
 
         <section className="py-16 md:py-20 border-t border-border/60">
-          <div className="w-full max-w-[760px] mx-auto px-6 sm:px-10 text-center">
-            <h2 className="text-[28px] md:text-[34px] font-extrabold text-obsidian tracking-tight mb-4">
-              Put this into practice on your stack
-            </h2>
-            <p className="text-[16px] text-text-secondary font-medium mb-8 max-w-[480px] mx-auto">
-              Nexora Engine delivers static-speed WordPress in minutes. No headless migration required.
-            </p>
-            <Link
-              href="/products/nexora-engine"
-              className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-8 py-4 text-[14px] font-black hover:bg-brand/90 transition-colors group"
-            >
-              Explore Nexora Engine
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
+          {(() => {
+            const ctas = {
+              "nexora-engine": {
+                heading: "Put this into practice on your stack",
+                body: "Nexora Engine delivers static-speed WordPress in minutes. No headless migration required.",
+                label: "Explore Nexora Engine",
+                href: "/products/nexora-engine",
+              },
+              "nexora-pulse": {
+                heading: "Diagnose the gaps on your site",
+                body: "Nexora Pulse is free to install. Real Google indexing verdicts, Core Web Vitals tracking, and internal link mapping — all in one dashboard.",
+                label: "Install Nexora Pulse free",
+                href: "/products/nexora-pulse",
+              },
+              "nexora-media": {
+                heading: "Reduce your image payload today",
+                body: "Nexora Media converts your WordPress images to AVIF and WebP automatically. No media library changes, no template edits required.",
+                label: "Explore Nexora Media",
+                href: "/products/nexora-media",
+              },
+              platform: {
+                heading: "Explore the full Nexora suite",
+                body: "Drop-in WordPress tools for static-speed delivery, SEO diagnostics, and image optimisation. No rebuild. No migration.",
+                label: "See all products",
+                href: "/products",
+              },
+            } as const;
+            const cta = ctas[post.product] ?? ctas.platform;
+            return (
+              <div className="w-full max-w-[760px] mx-auto px-6 sm:px-10 text-center">
+                <h2 className="text-[28px] md:text-[34px] font-extrabold text-obsidian tracking-tight mb-4">
+                  {cta.heading}
+                </h2>
+                <p className="text-[16px] text-text-secondary font-medium mb-8 max-w-[480px] mx-auto">
+                  {cta.body}
+                </p>
+                <Link
+                  href={cta.href}
+                  className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-8 py-4 text-[14px] font-black hover:bg-brand/90 transition-colors group"
+                >
+                  {cta.label}
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            );
+          })()}
         </section>
       </main>
 

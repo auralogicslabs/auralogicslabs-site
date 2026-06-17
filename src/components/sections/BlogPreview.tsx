@@ -143,7 +143,7 @@ export function BlogPreview({
               </span>
             </h2>
             <p className="mt-4 text-[17px] text-text-secondary font-medium leading-relaxed max-w-[520px]">
-              Deep dives on static delivery, indexing, Core Web Vitals, and security, written for teams who take WordPress performance and SEO seriously.
+              Deep dives on static delivery, SEO indexing, image optimisation, and security — written for teams who take WordPress performance seriously.
             </p>
           </ScrollReveal>
 
