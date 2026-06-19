@@ -200,7 +200,7 @@ export function MediaFeatures() {
             </div>
             <Link
               href="/products/nexora-engine"
-              className="flex-shrink-0 inline-flex items-center gap-2 rounded-xl bg-obsidian text-white px-6 py-3 text-[13px] font-bold hover:bg-brand transition-colors group"
+              className="flex-shrink-0 inline-flex items-center gap-2 rounded-full bg-obsidian text-white px-6 py-3 text-[13px] font-bold hover:bg-brand hover:-translate-y-0.5 transition-all duration-200 group"
             >
               Explore Nexora Engine
               <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />

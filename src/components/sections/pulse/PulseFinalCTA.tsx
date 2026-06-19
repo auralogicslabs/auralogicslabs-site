@@ -56,7 +56,7 @@ export function PulseFinalCTA() {
         >
           <Link
             href="https://wordpress.org/plugins/nexora-pulse/"
-            className="rounded-2xl bg-white px-10 py-4.5 text-[16px] font-bold shadow-xl hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 group flex items-center gap-3"
+            className="rounded-full bg-white px-9 py-4 text-[15px] font-bold shadow-xl hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-200 group flex items-center gap-3"
             style={{ color: TEAL }}
           >
             <Download className="h-5 w-5" />
@@ -65,7 +65,7 @@ export function PulseFinalCTA() {
           </Link>
           <Link
             href="/products/nexora-engine"
-            className="rounded-2xl border-2 border-white/30 bg-white/5 px-10 py-4.5 text-[16px] font-bold text-white hover:bg-white/10 transition-all duration-300 flex items-center gap-3"
+            className="rounded-full border-2 border-white/30 bg-white/5 px-9 py-4 text-[15px] font-bold text-white hover:bg-white/10 transition-all duration-200 flex items-center gap-3"
           >
             Explore Nexora Engine
             <ArrowRight className="h-4 w-4" />
