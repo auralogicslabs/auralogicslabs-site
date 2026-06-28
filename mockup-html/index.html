@@ -1,0 +1,2141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auralogics Labs Website Mockup</title>
+    <meta
+      name="description"
+      content="Dark branded HTML mockup for the redesigned Auralogics Labs public website."
+    />
+    <link rel="icon" href="../public/favicon.png" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Lora:wght@600;700&family=SUSE:wght@700;800&display=swap");
+
+      :root {
+        --page: #0f0f12;
+        --page-2: #151419;
+        --panel: #1b1a20;
+        --panel-2: #222028;
+        --panel-3: #292733;
+        --line: rgba(255, 255, 255, 0.09);
+        --line-2: rgba(255, 255, 255, 0.15);
+        --text: #f6f2ea;
+        --text-2: rgba(246, 242, 234, 0.72);
+        --text-3: rgba(246, 242, 234, 0.5);
+        --muted: #a7a0b4;
+        --purple: #6455f6;
+        --purple-2: #8c78ff;
+        --blue: #48a6ff;
+        --cyan: #32d5ee;
+        --green: #26c67a;
+        --amber: #f7bd55;
+        --red: #ff6b6b;
+        --white: #ffffff;
+        --dark: #111014;
+        --shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+        --container: 1160px;
+        --wide: 1360px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+          var(--page);
+        background-size: 40px 40px;
+        color: var(--text);
+        font-family: "DM Sans", "Segoe UI", Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+        letter-spacing: 0;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      p {
+        margin: 0;
+        letter-spacing: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Lora", Georgia, serif;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .site {
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: min(100% - 40px, var(--container));
+        margin: 0 auto;
+      }
+
+      .wide {
+        width: min(100% - 40px, var(--wide));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 90;
+        height: 64px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(15, 15, 18, 0.82);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        width: min(100% - 40px, var(--wide));
+        height: 64px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 210px 1fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 176px;
+        filter: brightness(0) invert(1);
+      }
+
+      .nav-links {
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .nav-links a {
+        min-height: 32px;
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 6px;
+        color: var(--text-3);
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 18px;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--text-2);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .menu-btn {
+        display: none;
+      }
+
+      .btn {
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border: 1px solid transparent;
+        border-radius: 24px;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 16px;
+        transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        color: var(--white);
+        background: var(--purple);
+        box-shadow: 0 10px 28px rgba(100, 85, 246, 0.34);
+      }
+
+      .btn.primary:hover {
+        background: #5847e6;
+      }
+
+      .btn.secondary {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+
+      .btn.white {
+        color: #17151b;
+        background: var(--white);
+      }
+
+      .btn.ghost {
+        min-height: auto;
+        padding: 0;
+        color: var(--text-2);
+        background: transparent;
+        border: 0;
+      }
+
+      .icon {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 850px;
+        padding: 106px 0 72px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 64px 0 auto;
+        height: 410px;
+        background:
+          radial-gradient(ellipse at center, rgba(100, 85, 246, 0.52) 0%, rgba(100, 85, 246, 0.18) 39%, transparent 68%),
+          linear-gradient(180deg, transparent 0%, rgba(15, 15, 18, 0.2) 48%, var(--page) 100%);
+        pointer-events: none;
+      }
+
+      .hero::after,
+      .section-lines::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, transparent 0, rgba(255, 255, 255, 0.025) 1px, transparent 2px),
+          linear-gradient(90deg, transparent 0, rgba(255, 255, 255, 0.02) 1px, transparent 2px);
+        background-size: 100% 28px, 28px 100%;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: min(100% - 40px, var(--wide));
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .micro-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 26px;
+        padding: 4px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--text-2);
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 16px;
+      }
+
+      .micro-pill .status {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 14px var(--green);
+      }
+
+      .hero h1 {
+        max-width: 760px;
+        margin: 22px auto 14px;
+        font-size: 56px;
+        line-height: 60px;
+      }
+
+      .hero-copy {
+        max-width: 600px;
+        margin: 0 auto;
+        color: var(--text-2);
+        font-size: 16px;
+        line-height: 24px;
+      }
+
+      .hero-form {
+        width: min(100%, 560px);
+        margin: 28px auto 0;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        padding: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-form input,
+      .trial-box input {
+        width: 100%;
+        height: 42px;
+        border: 0;
+        border-radius: 6px;
+        padding: 0 14px;
+        outline: none;
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-form input::placeholder,
+      .trial-box input::placeholder {
+        color: var(--text-3);
+      }
+
+      .hero-orbit {
+        position: relative;
+        width: min(100%, 920px);
+        height: 430px;
+        margin: 44px auto 0;
+        perspective: 1100px;
+      }
+
+      .dash-card {
+        position: absolute;
+        left: 50%;
+        top: 24px;
+        width: min(760px, 92vw);
+        min-height: 350px;
+        transform: translateX(-50%) rotateX(58deg) rotateZ(-7deg);
+        transform-origin: center top;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 8px;
+        background: #f6f7fb;
+        color: #17151b;
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.52), 0 0 0 8px rgba(100, 85, 246, 0.12);
+        overflow: hidden;
+      }
+
+      .dash-top {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px;
+        border-bottom: 1px solid #e6e7ee;
+        background: var(--white);
+      }
+
+      .dash-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .mini-logo {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--purple);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .dash-body {
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        min-height: 302px;
+      }
+
+      .dash-side {
+        padding: 18px 14px;
+        border-right: 1px solid #e6e7ee;
+        background: #fbfbfd;
+      }
+
+      .dash-side span {
+        display: block;
+        height: 28px;
+        margin-bottom: 8px;
+        border-radius: 6px;
+        background: #eceef6;
+      }
+
+      .dash-side span:nth-child(2) {
+        background: var(--purple);
+      }
+
+      .dash-main {
+        padding: 18px;
+      }
+
+      .dash-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .dash-metric {
+        min-height: 70px;
+        padding: 12px;
+        border: 1px solid #e6e7ee;
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .dash-metric strong {
+        display: block;
+        font-family: "Lora", Georgia, serif;
+        font-size: 22px;
+        line-height: 26px;
+      }
+
+      .dash-metric span {
+        display: block;
+        color: #737182;
+        font-size: 11px;
+        line-height: 15px;
+        margin-top: 4px;
+      }
+
+      .dash-lower {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 12px;
+      }
+
+      .chart,
+      .donut,
+      .table-card {
+        min-height: 130px;
+        border: 1px solid #e6e7ee;
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .chart {
+        padding: 18px;
+        display: flex;
+        align-items: end;
+        gap: 8px;
+      }
+
+      .chart span {
+        display: block;
+        width: 100%;
+        border-radius: 6px 6px 0 0;
+        background: linear-gradient(180deg, var(--blue), var(--purple));
+      }
+
+      .donut {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .donut::before {
+        content: "";
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: conic-gradient(var(--purple) 0 42%, var(--green) 42% 65%, var(--amber) 65% 80%, var(--blue) 80% 100%);
+      }
+
+      .donut::after {
+        content: "";
+        position: absolute;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--white);
+      }
+
+      .review-card {
+        position: absolute;
+        left: 50%;
+        bottom: 12px;
+        width: min(520px, 80vw);
+        transform: translateX(-50%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background: #18171d;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48);
+        padding: 18px;
+      }
+
+      .rating-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .rating-row strong {
+        display: block;
+        color: var(--text);
+        font-size: 18px;
+      }
+
+      .stars {
+        color: var(--amber);
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      .section {
+        position: relative;
+        padding: 86px 0;
+      }
+
+      .section.dark-alt {
+        background: var(--page-2);
+      }
+
+      .section-heading {
+        max-width: 640px;
+        margin: 0 auto 42px;
+        text-align: center;
+      }
+
+      .section-heading.left {
+        max-width: none;
+        margin: 0 0 36px;
+        text-align: left;
+      }
+
+      .section-heading h2 {
+        font-size: 36px;
+        line-height: 42px;
+      }
+
+      .section-heading p {
+        margin-top: 12px;
+        color: var(--text-2);
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 22px;
+        padding: 3px 8px;
+        border-radius: 24px;
+        background: rgba(100, 85, 246, 0.16);
+        color: var(--purple-2);
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 14px;
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr 1fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .feature-tile {
+        position: relative;
+        min-height: 210px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+        overflow: hidden;
+      }
+
+      .feature-tile::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 70px;
+        background: linear-gradient(180deg, transparent, rgba(100, 85, 246, 0.34));
+        opacity: 0.76;
+        pointer-events: none;
+      }
+
+      .feature-tile.wide-tile {
+        grid-column: span 2;
+        min-height: 250px;
+      }
+
+      .feature-number {
+        color: rgba(246, 242, 234, 0.18);
+        font-family: "SUSE", "Segoe UI", sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 30px;
+      }
+
+      .tile-icon {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 34px;
+        border-radius: 8px;
+        background: rgba(100, 85, 246, 0.16);
+        color: var(--purple-2);
+      }
+
+      .feature-tile h3 {
+        font-size: 21px;
+        line-height: 26px;
+      }
+
+      .feature-tile p {
+        max-width: 310px;
+        margin-top: 10px;
+        color: var(--text-2);
+        font-size: 13px;
+        line-height: 19px;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 18px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 22px;
+        padding: 3px 8px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-2);
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 14px;
+      }
+
+      .orbit-panel {
+        min-height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #202027;
+      }
+
+      .orbit {
+        position: relative;
+        width: 210px;
+        height: 210px;
+        border: 1px dashed rgba(255, 255, 255, 0.14);
+        border-radius: 50%;
+      }
+
+      .orbit .mini-logo {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+
+      .orbit-node {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: #202027;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: var(--cyan);
+        box-shadow: 0 0 18px rgba(100, 85, 246, 0.3);
+      }
+
+      .node-1 {
+        top: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .node-2 {
+        top: 44px;
+        right: 2px;
+        color: var(--green);
+      }
+
+      .node-3 {
+        bottom: 28px;
+        right: 24px;
+        color: var(--blue);
+      }
+
+      .node-4 {
+        bottom: 28px;
+        left: 24px;
+        color: var(--amber);
+      }
+
+      .node-5 {
+        top: 44px;
+        left: 2px;
+        color: var(--cyan);
+      }
+
+      .ai-chat {
+        min-height: 250px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #24232a;
+      }
+
+      .chat-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+        color: var(--text-2);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .bubble {
+        max-width: 78%;
+        margin-top: 14px;
+        padding: 12px;
+        border-radius: 8px;
+        color: var(--text-2);
+        background: rgba(255, 255, 255, 0.07);
+        font-size: 12px;
+        line-height: 17px;
+      }
+
+      .bubble.user {
+        margin-left: auto;
+        color: var(--white);
+        background: var(--purple);
+      }
+
+      .growth-grid {
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: 38px;
+        align-items: start;
+      }
+
+      .growth-copy {
+        position: relative;
+        display: grid;
+        gap: 92px;
+        padding-left: 70px;
+      }
+
+      .growth-copy::before {
+        content: "";
+        position: absolute;
+        top: 16px;
+        bottom: 18px;
+        left: 22px;
+        width: 1px;
+        background: linear-gradient(180deg, var(--line-2), transparent);
+      }
+
+      .growth-item {
+        position: relative;
+      }
+
+      .growth-item::before {
+        content: "";
+        position: absolute;
+        left: -58px;
+        top: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        border: 1px solid var(--line-2);
+        background: rgba(100, 85, 246, 0.22);
+      }
+
+      .growth-item h3 {
+        font-size: 28px;
+        line-height: 34px;
+      }
+
+      .growth-item p {
+        max-width: 300px;
+        margin-top: 10px;
+        color: var(--text-2);
+        font-size: 14px;
+        line-height: 21px;
+      }
+
+      .growth-item ul {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+      }
+
+      .growth-item li {
+        display: flex;
+        gap: 8px;
+        margin: 8px 0;
+        color: var(--text-2);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .app-stack {
+        display: grid;
+        gap: 58px;
+      }
+
+      .mock-window {
+        position: relative;
+        min-height: 300px;
+        border: 1px solid var(--line-2);
+        border-radius: 8px;
+        background: #f5f6fb;
+        color: #17151b;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .mock-window::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 8px;
+        padding: 2px;
+        background: linear-gradient(135deg, var(--red), var(--purple), var(--cyan), var(--amber));
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      .mock-top {
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        border-bottom: 1px solid #e3e4ea;
+        background: var(--white);
+      }
+
+      .mock-top span {
+        color: #696679;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .mock-table {
+        padding: 14px;
+      }
+
+      .table-line {
+        display: grid;
+        grid-template-columns: 120px 90px 1fr 60px;
+        gap: 10px;
+        align-items: center;
+        min-height: 40px;
+        border-bottom: 1px solid #ececf2;
+        color: #282533;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .floating-note {
+        position: absolute;
+        left: -34px;
+        bottom: 34px;
+        width: 210px;
+        padding: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        background: #fff1b8;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+      }
+
+      .floating-note strong {
+        display: block;
+        font-family: "Lora", Georgia, serif;
+        font-size: 17px;
+      }
+
+      .mini-chart {
+        height: 82px;
+        margin-top: 14px;
+        display: flex;
+        align-items: end;
+        gap: 8px;
+      }
+
+      .mini-chart span {
+        flex: 1;
+        background: #292733;
+        border-radius: 4px 4px 0 0;
+      }
+
+      .mock-chart {
+        padding: 22px;
+      }
+
+      .line-graph {
+        position: relative;
+        height: 190px;
+        border-left: 1px solid #d8d9e0;
+        border-bottom: 1px solid #d8d9e0;
+        background:
+          linear-gradient(90deg, rgba(100, 85, 246, 0.1) 1px, transparent 1px),
+          linear-gradient(rgba(100, 85, 246, 0.08) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+
+      .line-graph svg {
+        position: absolute;
+        inset: 0;
+      }
+
+      .graph-note {
+        position: absolute;
+        left: -34px;
+        bottom: 34px;
+        width: 238px;
+        padding: 16px;
+        border-radius: 8px;
+        background: #f0dcff;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+      }
+
+      .graph-note strong {
+        display: block;
+        font-family: "Lora", Georgia, serif;
+        font-size: 17px;
+      }
+
+      .testimonials {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .testimonial {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 18px;
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #1b1a20;
+        overflow: hidden;
+      }
+
+      .avatar-art {
+        min-height: 230px;
+        background:
+          radial-gradient(circle at 55% 20%, rgba(255, 255, 255, 0.5), transparent 16%),
+          linear-gradient(135deg, #1d7f5c, #f0c44a 42%, #6148f5);
+      }
+
+      .testimonial:nth-child(2) .avatar-art {
+        background:
+          radial-gradient(circle at 46% 20%, rgba(255, 255, 255, 0.5), transparent 16%),
+          linear-gradient(135deg, #4632c9, #d7a0ff 46%, #48a6ff);
+      }
+
+      .testimonial-body {
+        padding: 22px 20px 22px 0;
+      }
+
+      .testimonial p {
+        margin-top: 10px;
+        color: var(--text-2);
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .testimonial strong {
+        display: block;
+        margin-top: 18px;
+        font-size: 13px;
+      }
+
+      .stat-strip {
+        background: var(--purple);
+      }
+
+      .strip-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+      }
+
+      .strip-stat {
+        min-height: 88px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 26px;
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .strip-stat:first-child {
+        border-left: 0;
+      }
+
+      .strip-stat strong {
+        display: block;
+        font-family: "Lora", Georgia, serif;
+        font-size: 24px;
+        line-height: 28px;
+      }
+
+      .strip-stat span {
+        display: block;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      .integrations-wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .integration-grid {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 12px;
+      }
+
+      .integration {
+        min-height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--text-2);
+      }
+
+      .support-flow {
+        display: grid;
+        grid-template-columns: 0.68fr 1.32fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .support-flow h2 {
+        font-size: 34px;
+        line-height: 40px;
+      }
+
+      .support-flow p {
+        margin-top: 22px;
+        color: var(--text-2);
+      }
+
+      .progress-tiny {
+        margin-top: 20px;
+        width: 130px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .progress-tiny span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: var(--text);
+      }
+
+      .flow-board {
+        position: relative;
+        min-height: 330px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 34px 70px;
+        padding: 30px 0;
+      }
+
+      .flow-board::before {
+        content: "";
+        position: absolute;
+        inset: 0 33%;
+        border: 1px solid var(--line-2);
+        border-radius: 8px;
+        pointer-events: none;
+      }
+
+      .flow-card {
+        position: relative;
+        padding: 20px 0 20px 28px;
+      }
+
+      .step-pill {
+        position: absolute;
+        left: -4px;
+        top: 24px;
+        min-width: 44px;
+        padding: 3px 8px;
+        border-radius: 24px;
+        background: var(--purple);
+        color: var(--white);
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 14px;
+      }
+
+      .flow-card h3 {
+        font-size: 18px;
+        line-height: 23px;
+        margin-left: 44px;
+      }
+
+      .flow-card p {
+        margin: 10px 0 0 44px;
+        max-width: 210px;
+        color: var(--text-3);
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      .support-cta {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: min(100%, 520px);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        min-height: 38px;
+        padding: 6px 8px 6px 20px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--text-3);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .faq-wrap {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      details {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.045);
+        margin: 10px 0;
+        overflow: hidden;
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 18px 20px;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 20px;
+        list-style: none;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details p {
+        padding: 0 20px 18px;
+        color: var(--text-2);
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .pages-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+
+      .page-card {
+        min-height: 180px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+      }
+
+      .page-card .tile-icon {
+        margin-bottom: 22px;
+      }
+
+      .page-card h3 {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      .page-card p {
+        margin-top: 9px;
+        color: var(--text-3);
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      .news-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #18171d;
+        overflow: hidden;
+      }
+
+      .news-card img {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        background: #24232a;
+      }
+
+      .news-body {
+        padding: 18px;
+      }
+
+      .news-body h3 {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      .news-body p {
+        margin-top: 10px;
+        color: var(--text-3);
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      .trial-section {
+        padding: 70px 0;
+        background: #19181e;
+      }
+
+      .trial-box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: center;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .trial-box h2 {
+        font-size: 28px;
+        line-height: 34px;
+      }
+
+      .trial-box p {
+        margin-top: 8px;
+        color: var(--text-2);
+        font-size: 14px;
+      }
+
+      .trial-form {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+      }
+
+      .footer {
+        padding: 52px 0 28px;
+        background: #111014;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      .footer-logo {
+        width: 170px;
+        filter: brightness(0) invert(1);
+      }
+
+      .footer p {
+        margin-top: 16px;
+        max-width: 310px;
+        color: var(--text-3);
+        font-size: 13px;
+        line-height: 20px;
+      }
+
+      .footer h3 {
+        color: var(--text);
+        font-family: "SUSE", "Segoe UI", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .footer a {
+        display: block;
+        margin-top: 10px;
+        color: var(--text-3);
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      .footer a:hover {
+        color: var(--text);
+      }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 42px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--text-3);
+        font-size: 12px;
+      }
+
+      @media (max-width: 1050px) {
+        .nav-inner {
+          grid-template-columns: 1fr auto;
+        }
+
+        .nav-links,
+        .nav-actions {
+          display: none;
+        }
+
+        .menu-btn {
+          display: inline-flex;
+        }
+
+        .nav.is-open .nav-links {
+          position: absolute;
+          top: 70px;
+          left: 20px;
+          right: 20px;
+          display: grid;
+          gap: 4px;
+          padding: 8px;
+          background: #18171d;
+          box-shadow: var(--shadow);
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-orbit {
+          height: 360px;
+        }
+
+        .dash-card {
+          width: 680px;
+          transform: translateX(-50%) rotateX(56deg) rotateZ(-6deg) scale(0.84);
+        }
+
+        .review-card {
+          bottom: 0;
+        }
+
+        .stack-grid,
+        .growth-grid,
+        .support-flow,
+        .trial-box,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-tile.wide-tile {
+          grid-column: span 1;
+        }
+
+        .app-stack {
+          gap: 28px;
+        }
+
+        .floating-note,
+        .graph-note {
+          left: 18px;
+        }
+
+        .strip-grid,
+        .pages-grid,
+        .news-grid,
+        .testimonials {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .integration-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .container,
+        .wide,
+        .hero-inner,
+        .nav-inner {
+          width: min(100% - 28px, var(--wide));
+        }
+
+        .brand img {
+          width: 150px;
+        }
+
+        .hero {
+          padding-top: 98px;
+        }
+
+        .hero h1 {
+          font-size: 38px;
+          line-height: 44px;
+        }
+
+        .hero-form,
+        .trial-form {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-orbit {
+          height: 300px;
+          margin-top: 18px;
+        }
+
+        .dash-card {
+          width: 620px;
+          left: 58%;
+          transform: translateX(-50%) rotateX(58deg) rotateZ(-7deg) scale(0.64);
+        }
+
+        .review-card {
+          width: 92%;
+        }
+
+        .rating-row,
+        .dash-body,
+        .dash-lower,
+        .strip-grid,
+        .pages-grid,
+        .news-grid,
+        .testimonials {
+          grid-template-columns: 1fr;
+        }
+
+        .stack-grid {
+          gap: 10px;
+        }
+
+        .growth-copy {
+          gap: 44px;
+          padding-left: 54px;
+        }
+
+        .growth-copy::before {
+          left: 14px;
+        }
+
+        .growth-item::before {
+          left: -48px;
+        }
+
+        .flow-board {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .flow-board::before {
+          display: none;
+        }
+
+        .support-cta {
+          grid-column: auto;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .integration-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .testimonial {
+          grid-template-columns: 1fr;
+        }
+
+        .avatar-art {
+          min-height: 140px;
+        }
+
+        .testimonial-body {
+          padding: 20px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header class="nav" id="topNav">
+        <div class="nav-inner">
+          <a class="brand" href="#home" aria-label="Auralogics Labs">
+            <img src="../public/auralogicslabs.svg" alt="Auralogics Labs" />
+          </a>
+          <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#home">Home</a>
+            <a href="#platform">Platform</a>
+            <a href="#products">Products</a>
+            <a href="#integrations">Integrations</a>
+            <a href="#support">Resources</a>
+            <a href="#insights">Insights</a>
+          </nav>
+          <div class="nav-actions">
+            <a class="btn ghost" href="#support">Request a Demo</a>
+            <a class="btn white" href="#trial">Login <i data-lucide="arrow-up-right" class="icon"></i></a>
+            <button class="icon-btn" aria-label="Theme preview">
+              <i data-lucide="moon" class="icon"></i>
+            </button>
+          </div>
+          <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+            <i data-lucide="menu" class="icon"></i>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero section-lines" id="home">
+          <div class="hero-inner">
+            <span class="micro-pill"><span class="status"></span>All Website Pages</span>
+            <h1>The Ultimate WordPress Infrastructure Hub.</h1>
+            <p class="hero-copy">
+              Auralogics Labs builds the Nexora suite: drop-in tools for static-speed delivery,
+              real SEO diagnostics, image optimization, and fleet control. No rebuild. No new stack.
+            </p>
+            <form class="hero-form">
+              <input type="email" placeholder="Enter your email" aria-label="Email address" />
+              <button class="btn primary" type="button">
+                Start a Free Trial <i data-lucide="arrow-right" class="icon"></i>
+              </button>
+            </form>
+
+            <div class="hero-orbit" aria-label="Auralogics dashboard preview">
+              <div class="dash-card">
+                <div class="dash-top">
+                  <div class="dash-brand"><span class="mini-logo">A</span>Auralogics Portal</div>
+                  <span>Infrastructure Health</span>
+                </div>
+                <div class="dash-body">
+                  <aside class="dash-side">
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </aside>
+                  <div class="dash-main">
+                    <div class="dash-metrics">
+                      <div class="dash-metric"><strong>22ms</strong><span>Average TTFB</span></div>
+                      <div class="dash-metric"><strong>98%</strong><span>Index health</span></div>
+                      <div class="dash-metric"><strong>70%</strong><span>Payload saved</span></div>
+                    </div>
+                    <div class="dash-lower">
+                      <div class="chart">
+                        <span style="height: 32%"></span>
+                        <span style="height: 48%"></span>
+                        <span style="height: 44%"></span>
+                        <span style="height: 72%"></span>
+                        <span style="height: 58%"></span>
+                        <span style="height: 86%"></span>
+                      </div>
+                      <div class="donut"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="review-card">
+                <div class="rating-row">
+                  <div>
+                    <strong>4.8</strong>
+                    <div class="stars">*****</div>
+                    <span class="tag">Site Speed</span>
+                  </div>
+                  <div>
+                    <strong>4.9</strong>
+                    <div class="stars">*****</div>
+                    <span class="tag">Support</span>
+                  </div>
+                  <div>
+                    <strong>5.0</strong>
+                    <div class="stars">*****</div>
+                    <span class="tag">Reliability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="platform">
+          <div class="container">
+            <div class="section-heading">
+              <h2>Sustainable Growth, Managed Risk.</h2>
+              <p>
+                A focused suite that makes WordPress faster, more visible, and easier to operate
+                while preserving the stack your team already uses.
+              </p>
+            </div>
+
+            <div class="stack-grid">
+              <article class="feature-tile">
+                <div class="feature-number">01.</div>
+                <div class="tile-icon"><i data-lucide="message-circle" class="icon"></i></div>
+                <h3>Omnichannel Support.</h3>
+                <p>Support, docs, tutorials, and direct product channels in one public experience.</p>
+                <div class="chips">
+                  <span class="chip">Docs</span>
+                  <span class="chip">Support</span>
+                  <span class="chip">Feature Board</span>
+                </div>
+              </article>
+
+              <div class="orbit-panel">
+                <div class="orbit">
+                  <span class="mini-logo">A</span>
+                  <span class="orbit-node node-1"><i data-lucide="server" class="icon"></i></span>
+                  <span class="orbit-node node-2"><i data-lucide="message-circle" class="icon"></i></span>
+                  <span class="orbit-node node-3"><i data-lucide="stethoscope" class="icon"></i></span>
+                  <span class="orbit-node node-4"><i data-lucide="image" class="icon"></i></span>
+                  <span class="orbit-node node-5"><i data-lucide="zap" class="icon"></i></span>
+                </div>
+              </div>
+
+              <article class="feature-tile">
+                <div class="feature-number">02.</div>
+                <div class="tile-icon"><i data-lucide="layout-dashboard" class="icon"></i></div>
+                <h3>Ticket Management System.</h3>
+                <p>Priority support, product requests, and roadmap feedback move through one clean flow.</p>
+                <div class="chips">
+                  <span class="chip">Ticket Creation</span>
+                  <span class="chip">Tracking</span>
+                  <span class="chip">Assignment</span>
+                </div>
+              </article>
+
+              <article class="feature-tile">
+                <div class="tile-icon"><i data-lucide="bot" class="icon"></i></div>
+                <span class="tag">Checked - 4.8</span>
+                <h3>AI-Powered Features.</h3>
+                <p>Diagnostics, issue scoring, fix suggestions, and support triage across the Nexora suite.</p>
+                <div class="chips">
+                  <span class="chip">Issue Detection</span>
+                  <span class="chip">AI Suggestions</span>
+                </div>
+              </article>
+
+              <div class="wide-tile ai-chat">
+                <div class="chat-head"><span class="mini-logo">A</span>Auralogics Assistant</div>
+                <div class="bubble">
+                  Hello. I can help you inspect speed, indexing, media payload, or support status.
+                </div>
+                <div class="bubble user">Why did nine pages fail indexing this week?</div>
+                <div class="bubble">
+                  The rejected pages share thin content and weak internal links. Open Pulse to review the pattern.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section dark-alt" id="products">
+          <div class="container">
+            <div class="growth-grid">
+              <div class="growth-copy">
+                <article class="growth-item">
+                  <h3>Your Success,<br />Our Commitment.</h3>
+                  <p>
+                    Static delivery, diagnostics, and support work together so web teams can move
+                    faster with less platform risk.
+                  </p>
+                  <a class="btn white" href="#support">Omnichannel Support <i data-lucide="arrow-up-right" class="icon"></i></a>
+                </article>
+
+                <article class="growth-item">
+                  <h3>Strategic Growth,<br />Controlled Risk.</h3>
+                  <p>
+                    Reliability and responsibility are built into the product suite, not bolted on
+                    after launch.
+                  </p>
+                  <ul>
+                    <li><i data-lucide="check" class="icon"></i> Time response &lt; 5 minutes</li>
+                    <li><i data-lucide="check" class="icon"></i> CSAT score on average 98%</li>
+                  </ul>
+                  <a class="btn white" href="#trial">Get Started <i data-lucide="arrow-up-right" class="icon"></i></a>
+                </article>
+              </div>
+
+              <div class="app-stack">
+                <div class="mock-window">
+                  <div class="mock-top">
+                    <div class="dash-brand"><span class="mini-logo">A</span>Nexora Engine</div>
+                    <span>Performance Data</span>
+                  </div>
+                  <div class="mock-table">
+                    <div class="table-line"><span>Acme Store</span><span>#04234</span><span>Customer tier one - 01</span><strong>98%</strong></div>
+                    <div class="table-line"><span>Silver Site</span><span>#04255</span><span>Modification on static cache</span><strong>87%</strong></div>
+                    <div class="table-line"><span>Agency WP</span><span>#04321</span><span>Mobile responsive homepage</span><strong>89%</strong></div>
+                    <div class="table-line"><span>Client One</span><span>#04415</span><span>Customer tier one - 04</span><strong>95%</strong></div>
+                  </div>
+                  <div class="floating-note">
+                    <strong>Accuracy Score <span style="float:right">98%</span></strong>
+                    <div class="mini-chart">
+                      <span style="height: 22%"></span>
+                      <span style="height: 38%"></span>
+                      <span style="height: 44%"></span>
+                      <span style="height: 60%"></span>
+                      <span style="height: 74%"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mock-window">
+                  <div class="mock-top">
+                    <div class="dash-brand"><span class="mini-logo">A</span>Nexora Pulse</div>
+                    <span>Automation Data</span>
+                  </div>
+                  <div class="mock-chart">
+                    <div class="line-graph">
+                      <svg viewBox="0 0 400 190" aria-hidden="true">
+                        <path d="M0 130 C70 60 120 160 190 92 C250 40 300 112 400 40" fill="none" stroke="#6455f6" stroke-width="4" />
+                        <path d="M0 114 C70 136 130 92 190 130 C260 176 310 70 400 86" fill="none" stroke="#26c67a" stroke-width="3" />
+                      </svg>
+                    </div>
+                    <div class="graph-note">
+                      <strong>Ticket Response Time &lt; 5 minutes</strong>
+                      <p style="color:#50465d;margin-top:8px;font-size:12px">Automation rate 88% on average</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="stat-strip" aria-label="Auralogics metrics">
+          <div class="wide strip-grid">
+            <div class="strip-stat"><i data-lucide="badge-check" class="icon"></i><div><strong>4M+</strong><span>Static hits served</span></div></div>
+            <div class="strip-stat"><i data-lucide="package-check" class="icon"></i><div><strong>6+</strong><span>Core modules</span></div></div>
+            <div class="strip-stat"><i data-lucide="ticket-check" class="icon"></i><div><strong>10</strong><span>Public pages</span></div></div>
+            <div class="strip-stat"><i data-lucide="users" class="icon"></i><div><strong>2M+</strong><span>Sites addressable</span></div></div>
+          </div>
+        </section>
+
+        <section class="section" id="integrations">
+          <div class="integrations-wrap">
+            <span class="micro-pill"><span class="status"></span>Integrations</span>
+            <div class="section-heading">
+              <h2>Integrations</h2>
+              <p>
+                Search Console, PageSpeed, WordPress, media pipelines, and team workflows connect
+                through the Auralogics control layer.
+              </p>
+            </div>
+            <div class="integration-grid">
+              <div class="integration"><i data-lucide="triangle" class="icon"></i></div>
+              <div class="integration"><i data-lucide="messages-square" class="icon"></i></div>
+              <div class="integration"><i data-lucide="rss" class="icon"></i></div>
+              <div class="integration"><i data-lucide="shopping-bag" class="icon"></i></div>
+              <div class="integration"><i data-lucide="mail" class="icon"></i></div>
+              <div class="integration"><i data-lucide="message-circle" class="icon"></i></div>
+              <div class="integration"><i data-lucide="github" class="icon"></i></div>
+              <div class="integration"><i data-lucide="globe" class="icon"></i></div>
+              <div class="integration"><i data-lucide="music-2" class="icon"></i></div>
+              <div class="integration"><i data-lucide="send" class="icon"></i></div>
+              <div class="integration"><i data-lucide="cloud" class="icon"></i></div>
+              <div class="integration"><i data-lucide="activity" class="icon"></i></div>
+              <div class="integration"><i data-lucide="database" class="icon"></i></div>
+              <div class="integration"><i data-lucide="shield-check" class="icon"></i></div>
+              <div class="integration"><i data-lucide="webhook" class="icon"></i></div>
+              <div class="integration"><i data-lucide="code-2" class="icon"></i></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section dark-alt" id="support">
+          <div class="container">
+            <div class="support-flow">
+              <div>
+                <h2>How to Get the Support.</h2>
+                <p><strong>100%</strong><br />Successful & safer for all browsers.</p>
+                <div class="progress-tiny"><span></span></div>
+              </div>
+
+              <div class="flow-board">
+                <article class="flow-card">
+                  <span class="step-pill">Step 01</span>
+                  <h3>Create Your Account.</h3>
+                  <p>Auralogics support and questionnaire to gather key information.</p>
+                </article>
+                <article class="flow-card">
+                  <span class="step-pill">Step 02</span>
+                  <h3>Select a Support Option.</h3>
+                  <p>Choose product support, docs, or roadmap feedback.</p>
+                </article>
+                <article class="flow-card">
+                  <span class="step-pill">Step 03</span>
+                  <h3>Provide Support Details.</h3>
+                  <p>A comprehensive report is built from submitted data.</p>
+                </article>
+                <article class="flow-card">
+                  <span class="step-pill">Step 04</span>
+                  <h3>Solve & Close the Ticket.</h3>
+                  <p>Product guidance, priority routing, and resolution history.</p>
+                </article>
+                <div class="support-cta">
+                  <span>To get any further information see any question.</span>
+                  <a class="btn secondary" href="#trial">Our Support Team <i data-lucide="arrow-right" class="icon"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="pages">
+          <div class="container">
+            <div class="section-heading">
+              <span class="micro-pill"><span class="status"></span>Public Website Pages</span>
+              <h2>Every main page, redesigned into one reviewable system.</h2>
+              <p>
+                The mockup keeps the full Auralogics site map in view: product pages, company pages,
+                docs, support, feature requests, legal pages, and conversion paths.
+              </p>
+            </div>
+            <div class="pages-grid">
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="building-2" class="icon"></i></div>
+                <h3>About</h3>
+                <p>Mission, principles, and the WordPress today, any platform tomorrow vision.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="users" class="icon"></i></div>
+                <h3>Careers</h3>
+                <p>Small team, serious problem space, and areas of interest for future hiring.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="book-open" class="icon"></i></div>
+                <h3>Docs</h3>
+                <p>Engineering reference for static capture, Ghost Protocol, registry, and deployment.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="package" class="icon"></i></div>
+                <h3>Getting Started</h3>
+                <p>Install, run the setup wizard, enable static generation, and verify 22ms delivery.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="life-buoy" class="icon"></i></div>
+                <h3>Support</h3>
+                <p>Self-service resources, priority ticket form, response times, and security routing.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="lightbulb" class="icon"></i></div>
+                <h3>Feature Requests</h3>
+                <p>Roadmap ideas, voting, categories, and planned or in-progress product requests.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="mail" class="icon"></i></div>
+                <h3>Contact</h3>
+                <p>Product evaluation, partnerships, direct support, and hello@auralogicslabs.com.</p>
+              </article>
+              <article class="page-card">
+                <div class="tile-icon"><i data-lucide="file-text" class="icon"></i></div>
+                <h3>Legal</h3>
+                <p>Privacy Policy, Terms of Service, Cookies Policy, robots, and sitemap coverage.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="testimonials">
+          <div class="container">
+            <div class="section-heading">
+              <h2>They Love Us!</h2>
+              <p>Teams choose Auralogics when they need measurable outcomes without rebuilding their platform.</p>
+            </div>
+            <div class="testimonials">
+              <article class="testimonial">
+                <div class="avatar-art"></div>
+                <div class="testimonial-body">
+                  <div class="stars">*****</div>
+                  <p>
+                    Nexora Engine gave our WordPress estate static-speed delivery without asking
+                    editors to change a single workflow.
+                  </p>
+                  <strong>Robert Ramsey</strong>
+                  <span class="tag">Growth Agency</span>
+                </div>
+              </article>
+              <article class="testimonial">
+                <div class="avatar-art"></div>
+                <div class="testimonial-body">
+                  <div class="stars">*****</div>
+                  <p>
+                    Pulse finally showed us why pages were not indexed. The pattern view turned
+                    weeks of guesswork into one afternoon of fixes.
+                  </p>
+                  <strong>Sarah Meyers</strong>
+                  <span class="tag">Technical SEO</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section dark-alt" id="faq">
+          <div class="faq-wrap">
+            <div class="section-heading">
+              <h2>FAQ's</h2>
+              <p>Here is a list of frequently asked questions about Auralogics Labs and the Nexora suite.</p>
+            </div>
+            <details open>
+              <summary>What integrations are available with Auralogics?</summary>
+              <p>
+                Nexora connects with WordPress, Search Console, PageSpeed Insights, WP-CLI, webhook
+                endpoints, and existing SEO plugins while keeping your data under your control.
+              </p>
+            </details>
+            <details>
+              <summary>Can I add multiple users or agencies to my account?</summary>
+              <p>Yes. The portal model supports teams, permissions, audit logs, and agency workflows.</p>
+            </details>
+            <details>
+              <summary>How does Nexora secure the web performance layer?</summary>
+              <p>HMAC-signed capture requests, Ghost Protocol fingerprint stripping, and rollback-safe static publication reduce operational risk.</p>
+            </details>
+            <details>
+              <summary>How can I control user permissions within my account?</summary>
+              <p>Portal roles let teams separate site operators, billing contacts, support agents, and administrators.</p>
+            </details>
+            <details>
+              <summary>How do I update the mobile app to the latest version?</summary>
+              <p>This website mockup presents the support flow. Product-specific update instructions belong in the docs section.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="section" id="insights">
+          <div class="container">
+            <div class="section-heading">
+              <span class="micro-pill"><span class="status"></span>Latest Articles</span>
+              <h2>News & Insight</h2>
+            </div>
+            <div class="news-grid">
+              <article class="news-card">
+                <img src="../public/blog/static-speed-wordpress.svg" alt="Static speed WordPress article" />
+                <div class="news-body">
+                  <span class="tag">Nexora Engine</span>
+                  <h3>How to Get Static-Site Speed on WordPress Without Rebuilding Anything</h3>
+                  <p>Drop-in static delivery without breaking Elementor, WooCommerce, or the editorial workflow.</p>
+                </div>
+              </article>
+              <article class="news-card">
+                <img src="../public/blog/index-doctor-why-google-wont-index.svg" alt="Index Doctor article" />
+                <div class="news-body">
+                  <span class="tag">Nexora Pulse</span>
+                  <h3>Why Google Will Not Index Your Pages</h3>
+                  <p>Real indexing verdicts from Search Console, pattern detection, and practical fixes.</p>
+                </div>
+              </article>
+              <article class="news-card">
+                <img src="../public/blog/wordpress-image-optimization-avif-webp.svg" alt="Image optimization article" />
+                <div class="news-body">
+                  <span class="tag">Nexora Media</span>
+                  <h3>Image Optimization With AVIF and WebP</h3>
+                  <p>Serve smaller, responsive images without changing the media library.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="trial-section" id="trial">
+          <div class="container">
+            <div class="trial-box">
+              <div>
+                <h2>14 Days Free Trial</h2>
+                <p>Try static-speed performance and real Google diagnostics on your own WordPress site.</p>
+              </div>
+              <form class="trial-form">
+                <input type="email" placeholder="Enter your email" aria-label="Trial email" />
+                <button class="btn primary" type="button">Start a Free Trial <i data-lucide="arrow-right" class="icon"></i></button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <div>
+              <img class="footer-logo" src="../public/auralogicslabs.svg" alt="Auralogics Labs" />
+              <p>
+                We build tools that solve real problems for web teams. WordPress today, any platform tomorrow.
+              </p>
+            </div>
+            <div>
+              <h3>Company</h3>
+              <a href="#pages">About us</a>
+              <a href="#testimonials">Our team</a>
+              <a href="#pages">Careers</a>
+              <a href="#pages">Contact us</a>
+            </div>
+            <div>
+              <h3>Products</h3>
+              <a href="#products">Nexora Engine</a>
+              <a href="#products">Nexora Pulse</a>
+              <a href="#products">Nexora Media</a>
+              <a href="#products">Auralogics Portal</a>
+            </div>
+            <div>
+              <h3>Help</h3>
+              <a href="#support">Support Center</a>
+              <a href="#faq">FAQ</a>
+              <a href="#support">Feature Requests</a>
+              <a href="#integrations">Integrations</a>
+            </div>
+            <div>
+              <h3>Legal</h3>
+              <a href="#pages">Privacy Policy</a>
+              <a href="#pages">Terms</a>
+              <a href="#pages">Cookies</a>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>Copyright 2026 Auralogics Labs. All Rights Reserved.</span>
+            <span>Dark branded website mockup</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      const nav = document.getElementById("topNav");
+      const menuBtn = document.getElementById("menuBtn");
+
+      menuBtn.addEventListener("click", () => {
+        const open = nav.classList.toggle("is-open");
+        menuBtn.setAttribute("aria-expanded", String(open));
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("is-open");
+          menuBtn.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const sections = Array.from(document.querySelectorAll("main section[id]"));
+      const links = Array.from(document.querySelectorAll(".nav-links a"));
+      function setActive() {
+        const current = sections.filter((section) => section.getBoundingClientRect().top <= 110).pop();
+        if (!current) return;
+        links.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === "#" + current.id));
+      }
+      document.addEventListener("scroll", setActive, { passive: true });
+      setActive();
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    </script>
+  </body>
+</html>

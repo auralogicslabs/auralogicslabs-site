@@ -33,12 +33,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       tags: post.tags,
-      images: [{ url: `https://auralogicslabs.com${post.image.src}`, alt: post.image.alt }],
+      images: [
+        {
+          url: `https://auralogicslabs.com/social/insights/${post.slug}.png`,
+          width: 1200,
+          height: 630,
+          alt: `${post.title} - Auralogics Labs`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: [`https://auralogicslabs.com/social/insights/${post.slug}.png`],
     },
   };
 }
