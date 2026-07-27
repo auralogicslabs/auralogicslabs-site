@@ -30,7 +30,7 @@ export function WhyNexoraSection() {
   return (
     <section className="relative overflow-hidden bg-slate-50 px-6 py-24 lg:px-8">
       <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-[#1A3FD8]/10 blur-3xl" />
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-site">
         <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm shadow-slate-900/5">

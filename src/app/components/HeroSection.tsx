@@ -19,7 +19,7 @@ export function HeroSection() {
       <div className="pointer-events-none absolute right-0 top-16 h-72 w-72 rounded-full bg-[#60A5FA]/15 blur-3xl" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white to-transparent" />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-site">
         <div className="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

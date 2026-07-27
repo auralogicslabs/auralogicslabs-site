@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer className="bg-slate-950 px-6 py-16 text-slate-300 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-site">
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2">

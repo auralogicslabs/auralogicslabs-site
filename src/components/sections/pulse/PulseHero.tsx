@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, Stethoscope, Download } from "lucide-react";
@@ -23,7 +25,7 @@ export function PulseHero() {
         />
       </div>
 
-      <div className="w-full max-w-[1100px] mx-auto px-8 lg:px-24 relative z-10 flex flex-col items-center text-center">
+      <div className={cn(siteContainerClass, "relative z-10 flex flex-col items-center text-center")}>
         {/* Product pill */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}

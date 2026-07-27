@@ -566,7 +566,7 @@ export function HeroV2() {
 
       {/* ── Main container ── */}
       <div
-        className="relative max-w-[1600px] mx-auto px-8 lg:px-24 w-full"
+        className="relative max-w-site mx-auto px-8 lg:px-24 w-full"
         style={{ minHeight: "100svh", display: "flex", alignItems: "center" }}
       >
         <div className="grid lg:grid-cols-[44fr_56fr] gap-12 lg:gap-20 items-center w-full py-28 lg:py-0">

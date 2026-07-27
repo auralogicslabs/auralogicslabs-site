@@ -6,7 +6,7 @@ import { cn } from "@/app/components/ui/utils";
 /**
  * Blog cover. Renders a hand-made SVG/image when `src` is provided and loads,
  * and falls back to a branded generated motif (themed by `accent`) when `src`
- * is empty OR fails to load — so every post always has an on-brand cover, at
+ * is empty OR fails to load, so every post always has an on-brand cover, at
  * any size, with no per-post asset required.
  */
 export function BlogCoverImage({
@@ -53,7 +53,7 @@ export function BlogCoverImage({
   );
 }
 
-/** Scale-safe abstract motif (no text) — reads well from thumbnail to hero. */
+/** Scale-safe abstract motif (no text), reads well from thumbnail to hero. */
 function GeneratedCover({ color }: { color: string }) {
   return (
     <svg

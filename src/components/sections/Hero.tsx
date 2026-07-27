@@ -5,8 +5,9 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-import { HeroStoryVisual } from "@/components/sections/HeroStoryVisual";
 import { Button } from "@/components/ui/Button";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
 function InteractiveGridBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -196,69 +197,86 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
 
   return (
-    <section ref={ref} className="relative h-[100svh] min-h-[600px] max-h-[100svh] w-full bg-[#050B25] overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 80% 55% at 50% -5%, rgba(26,63,216,0.28) 0%, transparent 65%)",
-          }}
-        />
-        <div className="absolute -bottom-32 right-0 w-[900px] h-[600px] bg-purple-700/8 blur-[200px] rounded-full pointer-events-none" />
-        <div className="absolute top-1/4 -left-60 w-[600px] h-[600px] bg-emerald-500/5 blur-[180px] rounded-full pointer-events-none" />
-        <InteractiveGridBackground />
+    <section ref={ref} className="relative flex min-h-[100svh] w-full flex-col overflow-hidden bg-[#050B25]">
+      {/* Aurora atmosphere, branded, platform-level */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(80% 60% at 78% 4%, rgba(129,140,248,0.26), transparent 58%), radial-gradient(80% 60% at 10% 0%, rgba(26,63,216,0.34), transparent 55%), radial-gradient(62% 55% at 60% 120%, rgba(192,132,252,0.14), transparent 60%)",
+        }}
+      />
+      <InteractiveGridBackground />
+      {/* Film grain for premium texture */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.5] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/></svg>\")",
+        }}
+      />
 
-        <div className="relative z-10 h-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="h-full flex flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.12fr)] gap-6 sm:gap-8 lg:gap-8 xl:gap-12 lg:items-center pt-[100px] sm:pt-[108px] lg:pt-[104px] pb-5 lg:pb-6">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-20 flex-shrink-0 min-w-0"
+      {/* Main content, vertically centered in the available space */}
+      <div className="relative z-10 flex flex-1 items-center pt-24">
+        <div className={cn(siteContainerClass, "text-center")}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="mx-auto mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA]" />
+            <span className="text-[11px] font-black uppercase tracking-[0.28em] text-white/70">
+              Auralogics Labs · The Nexora suite
+            </span>
+          </div>
+
+          <h1 className="mx-auto max-w-[1040px] text-balance text-[46px] font-extrabold leading-[0.95] tracking-[-0.04em] text-white sm:text-[66px] md:text-[86px]">
+            We build tools that solve{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "linear-gradient(120deg, #60A5FA 0%, #818CF8 45%, #C084FC 100%)" }}
             >
-              <div className="inline-flex items-center gap-2 mb-6 sm:mb-8 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/[0.06]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA]" />
-                <span className="text-[11px] font-black uppercase tracking-[0.28em] text-white/70">Auralogics Labs</span>
+              real problems for web teams.
+            </span>
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-[720px] text-[16px] font-medium leading-[1.6] text-white/60 sm:text-[18px] md:text-[20px]">
+            The Nexora suite gives your WordPress site static-speed delivery, real SEO diagnostics, and
+            automatic image optimisation, all as drop-in plugins. No rebuild. No new stack. No migration.
+          </p>
+
+          <div className="relative z-30 mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Button href="/products" variant="primary" size="lg" className="relative z-30">
+              Explore the Nexora suite
+            </Button>
+            <Button href="/downloads" variant="secondary" size="lg" onDark className="relative z-30">
+              Download free
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+        </motion.div>
+        </div>
+      </div>
+
+      {/* Company-level proof strip, pinned to the bottom */}
+      <div className="relative z-10 pb-14">
+        <div className={siteContainerClass}>
+          <div className="mx-auto grid max-w-[1080px] grid-cols-2 border-t border-white/10 sm:grid-cols-4">
+            {[
+              { v: "Drop-in", l: "Installs like any plugin" },
+              { v: "Free & GPL", l: "Open-source core, forever" },
+              { v: "Any host", l: "Apache · Nginx · LiteSpeed · IIS" },
+              { v: "Your data", l: "Stays on your own site" },
+            ].map((s, i) => (
+              <div key={s.v} className={cn("px-4 py-6", i > 0 && "sm:border-l sm:border-white/10")}>
+                <div className="text-[18px] font-extrabold tracking-tight text-white sm:text-[20px]">{s.v}</div>
+                <div className="mt-1 text-[12.5px] text-white/45">{s.l}</div>
               </div>
-
-              <h1 className="text-[48px] sm:text-[64px] md:text-[82px] font-extrabold text-white leading-[0.95] tracking-[-0.04em]">
-                We build tools that solve
-                <br />
-                <span
-                  className="bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage: "linear-gradient(135deg, #60A5FA 0%, #818CF8 45%, #C084FC 100%)",
-                  }}
-                >
-                  real problems
-                  <br />
-                  for web teams.
-                </span>
-              </h1>
-
-              <p className="mt-6 sm:mt-7 max-w-[560px] text-[16px] sm:text-[18px] md:text-[20px] text-white/60 font-medium leading-[1.6]">
-                The Nexora suite gives your WordPress site static-speed delivery, real SEO diagnostics, and automatic image optimisation — all as drop-in plugins. No rebuild. No new stack. No migration.
-              </p>
-
-              <p className="mt-3 text-[13px] sm:text-[14px] text-white/40 font-medium tracking-wide">
-                WordPress today → any platform tomorrow.
-              </p>
-
-              <div className="relative z-30 mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
-                <Button href="/products" variant="primary" size="lg" className="relative z-30">
-                  Explore the Nexora suite
-                </Button>
-                <Button href="/products/nexora-pulse" variant="secondary" size="lg" onDark className="relative z-30">
-                  Start free
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </motion.div>
-
-            <div className="relative flex-1 min-h-0 lg:flex-none lg:h-[min(580px,calc(100svh-124px))] xl:h-[min(640px,calc(100svh-112px))] 2xl:h-[min(680px,calc(100svh-104px))] w-full">
-              <HeroStoryVisual />
-            </div>
+            ))}
           </div>
         </div>
+      </div>
     </section>
   );
 }

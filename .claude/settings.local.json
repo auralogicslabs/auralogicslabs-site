@@ -35,7 +35,14 @@
       "Bash(grep -v \"node_modules\\\\|\\\\.com\\\\|\\\\.org\\\\|\\\\.io\\\\|\\\\.js\\\\|\\\\.svg\\\\|\\\\.png\\\\|//\\\\|\\\\/\\\\*\")",
       "Bash(grep -rn \"\\\\\"Blog\\\\\"\\\\|'Blog'\\\\|>Blog<\\\\|Blog</\\\\| Blog \" src/components/ src/app/ --include=\"*.tsx\" --include=\"*.ts\")",
       "mcp__visualize__read_me",
-      "mcp__visualize__show_widget"
+      "mcp__visualize__show_widget",
+      "Bash(echo \"=== products dir C:\\\\\\\\project\\\\\\\\nexora\\\\\\\\products ===\")",
+      "Read(//c/project/nexora/products/**)",
+      "Read(//c/Users/Anand/Local Sites/nexora/app/public/wp-content/plugins//**)",
+      "Bash(cd /c/project/auralogicslabs-site && grep -nE \"import \\\\{|<[A-Z][A-Za-z]+ ?/?>\" src/app/page.tsx | head -70)",
+      "Bash(grep -noE \"<section|<!-- [^>]{0,60}|class=\\\\\"[a-z-]*section[a-z-]*\\\\\"|<h1[^>]*>|<h2[^>]*>\" index.html)",
+      "Bash(grep -nA6 \"export function getRecentPosts\\\\|export function getFeaturedPost\" src/data/blog.ts)",
+      "Bash(grep -nA5 \"export function getAllPosts\" src/data/blog.ts)"
     ]
   }
 }

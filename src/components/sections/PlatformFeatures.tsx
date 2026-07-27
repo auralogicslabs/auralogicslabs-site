@@ -5,6 +5,7 @@ import {
   Zap, Shield, RefreshCcw, ImageIcon, LayoutDashboard, Stethoscope, Globe,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/SectionShell";
+import { siteContainerClass } from "@/lib/site-layout";
 
 const leftFeatures = [
   {
@@ -33,9 +34,9 @@ const leftFeatures = [
 const rightFeatures = [
   {
     icon: ImageIcon,
-    title: "Edge Media Optimization",
+    title: "Safe Media Optimization",
     description:
-      "AVIF and WebP delivered automatically. ↓70% average image payload without manual srcset configuration.",
+      "WebP variants generated in a safe background queue and served to every visitor, without breaking your builder or touching your originals.",
     color: "#A78BFA",
   },
   {
@@ -167,7 +168,7 @@ function PlatformHubVisual() {
           {[
             { v: "22ms", l: "TTFB", c: "#60A5FA" },
             { v: "100%", l: "Static", c: "#34D399" },
-            { v: "↓70%", l: "Payload", c: "#C084FC" },
+            { v: "WebP", l: "Media", c: "#C084FC" },
           ].map((m) => (
             <div key={m.l} className="py-3 text-center" style={{ background: "rgba(10,17,40,0.9)" }}>
               <p className="font-mono text-[14px] font-black" style={{ color: m.c }}>{m.v}</p>
@@ -213,7 +214,7 @@ export function PlatformFeatures() {
           />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
+        <div className={siteContainerClass + " relative z-10"}>
           {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}

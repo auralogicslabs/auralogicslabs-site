@@ -1,3 +1,5 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 ﻿"use client";
 
 import { motion } from "motion/react";
@@ -84,7 +86,7 @@ function Connector({ delay, strike }: { delay: number; strike?: boolean }) {
 
 export function StaticDeliveryFlow() {
   return (
-    <section className="bg-obsidian pt-28 pb-24 px-8 lg:px-24 relative overflow-hidden border-t border-white/5">
+    <section className="bg-obsidian pt-28 pb-24 relative overflow-hidden border-t border-white/5">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
@@ -95,7 +97,7 @@ export function StaticDeliveryFlow() {
       <div className="absolute top-0 right-0 w-[700px] h-[600px] bg-brand/7 blur-[200px] rounded-full pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[500px] h-[400px] bg-emerald-500/5 blur-[180px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
 
         {/* Header */}
         <motion.div

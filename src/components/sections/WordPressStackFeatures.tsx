@@ -4,6 +4,8 @@ import { motion, useScroll, useMotionValueEvent, useTransform } from "motion/rea
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { Zap, ImageIcon, BarChart3, LayoutDashboard, ArrowRight, Check } from "lucide-react";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
 
 type Product = {
@@ -152,7 +154,7 @@ export function WordPressStackFeatures() {
             </div>
 
             <div className="relative z-10 h-full">
-              <div className="h-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 flex">
+              <div className={cn(siteContainerClass, "flex h-full")}>
               {/* ── Left vertical nav ── */}
               <div className="flex-shrink-0 flex flex-col items-center justify-center pr-6 lg:pr-8 py-20 w-8 lg:w-10">
                 <div className="relative flex flex-col items-center justify-between h-[280px] lg:h-[340px]">
@@ -273,7 +275,7 @@ export function WordPressStackFeatures() {
                   </div>
                 </div>
               </div>
-            </div> {/* closes max-w-[1600px] flex container */}
+            </div> {/* closes max-w-site flex container */}
             </div> {/* closes relative z-10 wrapper */}
           </div>
         </div>

@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { ArrowRight, Cloud, Shield, BarChart3, Activity, Brain, Network, Plus } from "lucide-react";
@@ -68,12 +70,12 @@ export function PlatformVision() {
   return (
     <section
       id="vision"
-      className="bg-white py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden"
+      className="bg-white py-32 border-y border-border relative overflow-hidden"
     >
       {/* Background Architectural Traits */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

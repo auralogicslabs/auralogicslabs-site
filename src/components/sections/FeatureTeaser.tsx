@@ -27,7 +27,7 @@ const steps = [
     title: "It just runs",
     desc: "Speed, SEO intelligence, and media optimization work quietly in the background while your CMS stays intact.",
     color: "#F39A09",
-    detail: "22ms TTFB, real indexing diagnostics, and ↓70% image payload. WooCommerce and forms fully preserved.",
+    detail: "22ms TTFB, real indexing diagnostics, and safe WebP image delivery. WooCommerce and forms fully preserved.",
   },
 ];
 

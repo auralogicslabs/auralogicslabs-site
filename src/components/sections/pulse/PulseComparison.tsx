@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Check, X } from "lucide-react";
@@ -35,8 +37,8 @@ function Cell({ value }: { value: boolean | "partial" }) {
 
 export function PulseComparison() {
   return (
-    <section className="bg-surface-soft py-32 px-8 lg:px-24 relative overflow-hidden border-y border-border">
-      <div className="w-full max-w-[1100px] mx-auto relative z-10">
+    <section className="bg-surface-soft py-32 relative overflow-hidden border-y border-border">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

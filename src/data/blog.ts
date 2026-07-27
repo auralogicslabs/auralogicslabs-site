@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "You spend hours writing a piece of content. You hit publish, submit the URL to Google, and wait. Two weeks pass. A month. You search for your exact title in quotes and Google returns nothing. The page isn't ranking — it doesn't even exist as far as Google is concerned.",
+        text: "You spend hours writing a piece of content. You hit publish, submit the URL to Google, and wait. Two weeks pass. A month. You search for your exact title in quotes and Google returns nothing. The page isn't ranking, it doesn't even exist as far as Google is concerned.",
       },
       {
         type: "p",
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         title: "The gap most teams miss",
-        text: "On-page SEO scores and actual Google indexing status are completely separate things. A page can score 100/100 in Yoast and still be sitting in Google's 'crawled, not indexed' pile — indefinitely.",
+        text: "On-page SEO scores and actual Google indexing status are completely separate things. A page can score 100/100 in Yoast and still be sitting in Google's 'crawled, not indexed' pile, indefinitely.",
       },
       { type: "h2", text: "What Google's indexing verdicts actually mean" },
       {
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
           "Crawled, currently not indexed: Google visited your page and chose not to include it. Usually a content quality, duplication, or thin-content signal.",
           "Discovered, currently not indexed: Google knows the URL exists but hasn't crawled it yet. Often means your site doesn't have enough authority or your crawl budget is being wasted elsewhere.",
           "Duplicate without user-selected canonical: Google found another page it considers more authoritative and folded yours into it.",
-          "Excluded by 'noindex' tag: something in your setup is actively blocking indexing. Sometimes unintentional — plugins, themes, or staging environment settings.",
+          "Excluded by 'noindex' tag: something in your setup is actively blocking indexing. Sometimes unintentional, plugins, themes, or staging environment settings.",
           "Redirect error or soft 404: the page technically loads but Google treats it as non-content.",
         ],
       },
@@ -93,12 +93,12 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Nexora Pulse's Index Doctor connects to the Search Console URL Inspection API using your own credentials and pulls the real indexing verdict for every page on your site — the same data you'd get clicking through Search Console one URL at a time, except it does it in bulk and cross-references the results with its own analysis.",
+        text: "Nexora Pulse's Index Doctor connects to the Search Console URL Inspection API using your own credentials and pulls the real indexing verdict for every page on your site, the same data you'd get clicking through Search Console one URL at a time, except it does it in bulk and cross-references the results with its own analysis.",
       },
       { type: "h3", text: "Finding patterns, not just individual problems" },
       {
         type: "p",
-        text: "Here's where it gets useful. Instead of showing you a list of failed URLs, the Index Doctor looks for what the rejected pages have in common. If 11 of your 15 not-indexed pages are under 400 words, that's not a coincidence — that's a pattern, and fixing the pattern clears the backlog faster than fixing pages one by one.",
+        text: "Here's where it gets useful. Instead of showing you a list of failed URLs, the Index Doctor looks for what the rejected pages have in common. If 11 of your 15 not-indexed pages are under 400 words, that's not a coincidence, that's a pattern, and fixing the pattern clears the backlog faster than fixing pages one by one.",
       },
       {
         type: "p",
@@ -107,7 +107,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         title: "What this looks like in practice",
-        text: "'Google crawled this page on May 14 and chose not to index it — and 9 of your 13 not-indexed pages share the same characteristic: under 300 words with fewer than 2 internal links pointing to them.' That's a diagnosis you can act on today.",
+        text: "'Google crawled this page on May 14 and chose not to index it, and 9 of your 13 not-indexed pages share the same characteristic: under 300 words with fewer than 2 internal links pointing to them.' That's a diagnosis you can act on today.",
       },
       { type: "h2", text: "A step-by-step workflow for clearing your indexing backlog" },
       {
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Most WordPress SEO setups involve four or five separate tools, none of which talk to each other. Nexora Pulse pulls indexing data, Core Web Vitals, internal links, and on-page scoring into one free dashboard.",
     description:
-      "Nexora Pulse is a free WordPress SEO console that replaces fragmented tools with one dashboard. Real Google indexing verdicts, Core Web Vitals tracking, internal link mapping, duplicate detection, and on-page scoring — all free, using your own Google data.",
+      "Nexora Pulse is a free WordPress SEO console that replaces fragmented tools with one dashboard. Real Google indexing verdicts, Core Web Vitals tracking, internal link mapping, duplicate detection, and on-page scoring, all free, using your own Google data.",
     publishedAt: "2026-06-09",
     updatedAt: "2026-06-09",
     author: { name: "Auralogics Labs", role: "Product Team" },
@@ -159,7 +159,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "This fragmentation isn't just annoying — it means you're regularly missing connections that would be obvious if the data lived in one place. A page that scores 90/100 in Yoast, has a poor LCP score, and hasn't been indexed by Google for three months tells a coherent story. But only if you're looking at all three signals at the same time.",
+        text: "This fragmentation isn't just annoying, it means you're regularly missing connections that would be obvious if the data lived in one place. A page that scores 90/100 in Yoast, has a poor LCP score, and hasn't been indexed by Google for three months tells a coherent story. But only if you're looking at all three signals at the same time.",
       },
       { type: "h2", text: "What Nexora Pulse actually does" },
       {
@@ -168,7 +168,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Unlike most WordPress SEO plugins, Pulse is designed around diagnosis rather than checklists. It doesn't just tell you to add a keyword — it tells you why a page isn't ranking and what to fix first.",
+        text: "Unlike most WordPress SEO plugins, Pulse is designed around diagnosis rather than checklists. It doesn't just tell you to add a keyword, it tells you why a page isn't ranking and what to fix first.",
       },
       { type: "h2", text: "The nine tools inside the console" },
       {
@@ -188,7 +188,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Why it uses your Google data instead of its own" },
       {
         type: "p",
-        text: "The most valuable features in Pulse — the Index Doctor and Core Web Vitals tracking — connect directly to Google Search Console and PageSpeed Insights using your own API credentials. Your data goes from Google's servers to your WordPress database. It never passes through ours.",
+        text: "The most valuable features in Pulse, the Index Doctor and Core Web Vitals tracking, connect directly to Google Search Console and PageSpeed Insights using your own API credentials. Your data goes from Google's servers to your WordPress database. It never passes through ours.",
       },
       {
         type: "p",
@@ -211,14 +211,14 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "How it fits the broader Auralogics stack" },
       {
         type: "p",
-        text: "Pulse pairs naturally with Nexora Engine. Engine improves the TTFB and LCP scores that Pulse measures — when static delivery drops your server response to 22ms, your Core Web Vitals scores move immediately. Fixing what Pulse surfaces becomes faster when the underlying infrastructure is already fast.",
+        text: "Pulse pairs naturally with Nexora Engine. Engine improves the TTFB and LCP scores that Pulse measures, when static delivery drops your server response to 22ms, your Core Web Vitals scores move immediately. Fixing what Pulse surfaces becomes faster when the underlying infrastructure is already fast.",
       },
       { type: "h2", text: "Get started in under five minutes" },
       {
         type: "ul",
         items: [
           "Install Nexora Pulse free from the WordPress plugin directory",
-          "Run your first site-wide SEO scan immediately — no Google connection needed",
+          "Run your first site-wide SEO scan immediately, no Google connection needed",
           "Connect Search Console (one-time setup) to unlock the Index Doctor",
           "Add your free PageSpeed API key for live Core Web Vitals",
           "Work through the highest-impact fixes your site has never had visibility into before",
@@ -236,7 +236,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Going headless takes months and breaks your editorial workflow. There's a faster path: a drop-in plugin that puts a static delivery layer in front of your existing WordPress stack.",
     description:
-      "Learn how to get static-site performance on WordPress without a headless rebuild. Nexora Engine installs as a plugin, pre-renders your pages to HTML, and serves them at 22ms TTFB — keeping Elementor, WooCommerce, and your team's workflow intact.",
+      "Learn how to get static-site performance on WordPress without a headless rebuild. Nexora Engine installs as a plugin, pre-renders your pages to HTML, and serves them at 22ms TTFB, keeping Elementor, WooCommerce, and your team's workflow intact.",
     publishedAt: "2026-03-12",
     updatedAt: "2026-03-12",
     author: { name: "Auralogics Labs", role: "Infrastructure Team" },
@@ -253,7 +253,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "WordPress is slow. Not because it's badly built, but because it was designed to be flexible — and flexibility has a cost. Every page view boots PHP, runs database queries, executes plugin hooks, and renders a theme before it can send a single byte to the browser. On a fast server with a good caching setup, that takes 400-800ms. On shared hosting, it can take 2 seconds or more.",
+        text: "WordPress is slow. Not because it's badly built, but because it was designed to be flexible, and flexibility has a cost. Every page view boots PHP, runs database queries, executes plugin hooks, and renders a theme before it can send a single byte to the browser. On a fast server with a good caching setup, that takes 400-800ms. On shared hosting, it can take 2 seconds or more.",
       },
       {
         type: "p",
@@ -266,7 +266,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "There's a third option: static delivery without the rebuild" },
       {
         type: "p",
-        text: "Nexora Engine is a WordPress plugin that adds a static delivery layer in front of your existing stack. You keep WordPress exactly as it is. Elementor, WooCommerce, Gutenberg, your current theme — all of it stays. Nexora captures your pages to pre-rendered HTML and serves those files from disk when visitors arrive, before PHP ever boots.",
+        text: "Nexora Engine is a WordPress plugin that adds a static delivery layer in front of your existing stack. You keep WordPress exactly as it is. Elementor, WooCommerce, Gutenberg, your current theme, all of it stays. Nexora captures your pages to pre-rendered HTML and serves those files from disk when visitors arrive, before PHP ever boots.",
       },
       {
         type: "p",
@@ -284,7 +284,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "An advanced-cache.php drop-in intercepts incoming requests before WordPress boots. If a valid static snapshot exists, it's served immediately. The cache is invalidated and regenerated automatically whenever content changes — no manual flushes, no build commands.",
+        text: "An advanced-cache.php drop-in intercepts incoming requests before WordPress boots. If a valid static snapshot exists, it's served immediately. The cache is invalidated and regenerated automatically whenever content changes, no manual flushes, no build commands.",
       },
       {
         type: "ul",
@@ -298,7 +298,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Does it break WooCommerce or Elementor?" },
       {
         type: "p",
-        text: "No. Nexora uses session-aware routing to decide what to cache and what to skip. Static snapshots serve anonymous traffic — product pages, blog posts, landing pages. Dynamic flows — cart, checkout, account, search results, any request with an authenticated cookie — fall through to live WordPress automatically.",
+        text: "No. Nexora uses session-aware routing to decide what to cache and what to skip. Static snapshots serve anonymous traffic, product pages, blog posts, landing pages. Dynamic flows, cart, checkout, account, search results, any request with an authenticated cookie, fall through to live WordPress automatically.",
       },
       {
         type: "p",
@@ -318,7 +318,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Why this beats a page caching plugin" },
       {
         type: "p",
-        text: "Standard caching plugins (WP Rocket, W3 Total Cache, LiteSpeed Cache) also generate HTML files, but they operate inside the WordPress request lifecycle. PHP still loads, the cache key is still looked up in the database, and your plugins still initialize. Nexora's advanced-cache.php drop-in intercepts the request before any of that happens — which is why the TTFB numbers are in the 22ms range rather than the 200-400ms range typical of cached WordPress.",
+        text: "Standard caching plugins (WP Rocket, W3 Total Cache, LiteSpeed Cache) also generate HTML files, but they operate inside the WordPress request lifecycle. PHP still loads, the cache key is still looked up in the database, and your plugins still initialize. Nexora's advanced-cache.php drop-in intercepts the request before any of that happens, which is why the TTFB numbers are in the 22ms range rather than the 200-400ms range typical of cached WordPress.",
       },
       { type: "h2", text: "Try it on your site today" },
       {
@@ -371,14 +371,14 @@ export const blogPosts: BlogPost[] = [
           "Under 200ms: optimal (static or edge-cached delivery)",
           "200-500ms: acceptable (WordPress with full-page object caching)",
           "500-800ms: Google flags as 'needs improvement'",
-          "800ms and above: Google flags as 'poor' — this range is where most WordPress sites live without optimization",
+          "800ms and above: Google flags as 'poor', this range is where most WordPress sites live without optimization",
           "22ms: Nexora Engine benchmark on cache hit, where WordPress never executes",
         ],
       },
       { type: "h2", text: "How slow TTFB directly tanks your LCP score" },
       {
         type: "p",
-        text: "Largest Contentful Paint measures when the most prominent visible element on the page finishes rendering — usually your hero image, product photo, or top heading. The browser cannot start downloading that element until it receives the HTML that references it.",
+        text: "Largest Contentful Paint measures when the most prominent visible element on the page finishes rendering, usually your hero image, product photo, or top heading. The browser cannot start downloading that element until it receives the HTML that references it.",
       },
       {
         type: "p",
@@ -387,7 +387,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         title: "The compounding effect",
-        text: "Bringing TTFB from 800ms to 22ms doesn't just move the needle by 778ms — it also means images start downloading 778ms earlier, CSS renders sooner, JavaScript parses while the browser is still receiving HTML. The actual LCP improvement is often 1.5-2x the raw TTFB reduction.",
+        text: "Bringing TTFB from 800ms to 22ms doesn't just move the needle by 778ms, it also means images start downloading 778ms earlier, CSS renders sooner, JavaScript parses while the browser is still receiving HTML. The actual LCP improvement is often 1.5-2x the raw TTFB reduction.",
       },
       { type: "h2", text: "What about INP and CLS?" },
       {
@@ -396,7 +396,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Cumulative Layout Shift measures visual stability — whether elements jump around as the page loads. Static delivery helps here indirectly: a faster TTFB means fonts, CSS, and layout resources arrive sooner, reducing the window during which layout shifts can occur. Nexora's snapshots capture the fully rendered DOM including computed layout, which prevents the flash-of-unstyled-content issues that happen when CSS loads asynchronously.",
+        text: "Cumulative Layout Shift measures visual stability, whether elements jump around as the page loads. Static delivery helps here indirectly: a faster TTFB means fonts, CSS, and layout resources arrive sooner, reducing the window during which layout shifts can occur. Nexora's snapshots capture the fully rendered DOM including computed layout, which prevents the flash-of-unstyled-content issues that happen when CSS loads asynchronously.",
       },
       { type: "h2", text: "The right order to fix WordPress performance issues" },
       {
@@ -476,11 +476,11 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "This isn't just 'security through obscurity'" },
       {
         type: "p",
-        text: "The common objection to fingerprint removal is that hiding your CMS doesn't actually make you more secure — determined attackers will find vulnerabilities anyway. This is partially true, but it misunderstands how most WordPress attacks actually work.",
+        text: "The common objection to fingerprint removal is that hiding your CMS doesn't actually make you more secure, determined attackers will find vulnerabilities anyway. This is partially true, but it misunderstands how most WordPress attacks actually work.",
       },
       {
         type: "p",
-        text: "The vast majority of WordPress compromises come from automated tools scanning for known vulnerable versions of popular plugins. These tools need to identify WordPress, determine the version, check the installed plugin list, and then attempt exploits against known CVEs. Remove the fingerprints, and you remove yourself from most automated target lists — not because you're hidden, but because you're not worth the effort compared to sites that hand over their configuration.",
+        text: "The vast majority of WordPress compromises come from automated tools scanning for known vulnerable versions of popular plugins. These tools need to identify WordPress, determine the version, check the installed plugin list, and then attempt exploits against known CVEs. Remove the fingerprints, and you remove yourself from most automated target lists, not because you're hidden, but because you're not worth the effort compared to sites that hand over their configuration.",
       },
       {
         type: "callout",
@@ -544,7 +544,7 @@ export const blogPosts: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "Slow WooCommerce stores lose sales. Not as a vague concern — as a measurable fact. Google's own data shows a 1-second delay in page load time reduces conversions by up to 7%. For a store doing $50,000 a month in revenue, a 3-second product page is costing you thousands every month in abandoned browsing sessions.",
+        text: "Slow WooCommerce stores lose sales. Not as a vague concern, as a measurable fact. Google's own data shows a 1-second delay in page load time reduces conversions by up to 7%. For a store doing $50,000 a month in revenue, a 3-second product page is costing you thousands every month in abandoned browsing sessions.",
       },
       {
         type: "p",
@@ -553,7 +553,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "The WooCommerce caching problem, explained" },
       {
         type: "p",
-        text: "Most WooCommerce stores have two very different types of pages living side by side. Product pages, category pages, and blog posts are nearly identical for every visitor. They could be pre-rendered and cached safely. Cart, checkout, account, and order confirmation pages are completely personal — they must always render live from the database.",
+        text: "Most WooCommerce stores have two very different types of pages living side by side. Product pages, category pages, and blog posts are nearly identical for every visitor. They could be pre-rendered and cached safely. Cart, checkout, account, and order confirmation pages are completely personal, they must always render live from the database.",
       },
       {
         type: "p",
@@ -570,7 +570,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Anonymous shoppers browsing product pages — which represents the majority of organic and paid traffic — get static speed. Active shoppers mid-purchase get the full live experience. No exclusion rules to configure, no edge cases to handle manually.",
+        text: "Anonymous shoppers browsing product pages, which represents the majority of organic and paid traffic, get static speed. Active shoppers mid-purchase get the full live experience. No exclusion rules to configure, no edge cases to handle manually.",
       },
       { type: "h2", text: "What gets cached and what stays dynamic" },
       {
@@ -589,7 +589,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "callout",
         title: "Real-world conversion impact",
-        text: "WooCommerce stores on Nexora Engine typically see 90%+ of page views served from static snapshots — that's organic product browsing loading in under 30ms. Conversion flows stay untouched. Pair with Nexora Media for an additional 70% image payload reduction on those product pages.",
+        text: "WooCommerce stores on Nexora Engine typically see 90%+ of page views served from static snapshots, that's organic product browsing loading in under 30ms. Conversion flows stay untouched. Pair with Nexora Media for an additional 70% image payload reduction on those product pages.",
       },
       { type: "h2", text: "Inventory and stock status updates" },
       {
@@ -610,8 +610,8 @@ export const blogPosts: BlogPost[] = [
         type: "ul",
         items: [
           "1. Install Nexora Engine and activate static delivery from the site dashboard",
-          "2. Open an incognito window and add a product to your cart — verify you see the live checkout flow",
-          "3. Open a new incognito window without adding anything to cart — verify product pages load from the static snapshot",
+          "2. Open an incognito window and add a product to your cart, verify you see the live checkout flow",
+          "3. Open a new incognito window without adding anything to cart, verify product pages load from the static snapshot",
           "4. Check your cache hit rate in the Portal dashboard. Most stores reach 85-90% within the first day.",
           "5. Monitor for edge cases in your specific WooCommerce plugin setup during the first week",
         ],
@@ -745,7 +745,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "LCP improvements follow the payload reduction. If your hero image drops from 380KB to 90KB, the download time on a mobile connection drops proportionally. Sites that were failing LCP at 3.2 seconds often pass at 1.8 seconds after optimization — without changing any other part of the stack.",
+        text: "LCP improvements follow the payload reduction. If your hero image drops from 380KB to 90KB, the download time on a mobile connection drops proportionally. Sites that were failing LCP at 3.2 seconds often pass at 1.8 seconds after optimization, without changing any other part of the stack.",
       },
       {
         type: "p",
@@ -877,7 +877,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Internal linking isn't the flashiest part of WordPress SEO. It doesn't get the coverage that keyword research or backlink building do. But it's the part that determines whether the content you've already invested in actually gets found — by Google and by the readers who would benefit from it. Nexora Pulse Neural Links gives you the map to fix it. Install it free and run your first link audit today.",
+        text: "Internal linking isn't the flashiest part of WordPress SEO. It doesn't get the coverage that keyword research or backlink building do. But it's the part that determines whether the content you've already invested in actually gets found, by Google and by the readers who would benefit from it. Nexora Pulse Neural Links gives you the map to fix it. Install it free and run your first link audit today.",
       },
     ],
   },

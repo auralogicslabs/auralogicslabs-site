@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { CheckCircle2, Plus, ArrowUpRight, Activity, Zap, Database, Globe, Sparkles } from "lucide-react";
@@ -8,11 +10,11 @@ export function PerformanceVisualization() {
   const bars = [15, 25, 45, 85, 95, 80, 60, 45, 30, 20, 15, 12, 10, 8, 6, 5, 4, 3, 2];
 
   return (
-    <section className="bg-white py-16 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+    <section className="bg-white py-16 border-y border-border relative overflow-hidden">
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
       
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         {/* Centered Header with Full Narrative Data */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

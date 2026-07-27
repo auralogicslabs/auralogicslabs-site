@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Check, Zap, Shield, Globe, Cpu, Sparkles, ArrowRight, ShieldCheck, Lock, Activity, Terminal, Database, Code2, Layers, Search, Globe2, AlertCircle } from "lucide-react";
@@ -9,76 +11,58 @@ const plans = [
     name: "Free",
     tagline: "Nexora Engine",
     price: "0",
-    description: "Full static delivery and Ghost Protocol security for a single site. No credit card, no time limit, no stripped features.",
+    period: "/forever",
+    lifetime: null as string | null,
+    description: "Full static delivery and Ghost Protocol security. No credit card, no time limit, no stripped features. Available on the WordPress.org plugin directory.",
     features: [
-      "SSG (Static Site Generator)",
+      "Static HTML Delivery (SSG)",
       "advanced-cache.php Drop-In",
-      "Ghost Protocol (Basic)",
-      "SPA Navigation (Normalizer)",
-      "Basic Scoring (4 Modules)",
-      "Diagnostics Dashboard",
-      "Basic WP-CLI Commands",
-      "REST Page Payload API"
+      "SPA Navigation Between Pages",
+      "Ghost Protocol (Core Fingerprint Hiding)",
+      "Elementor & Gutenberg Compatible",
+      "Delivery Diagnostics Dashboard",
+      "Cache-Hit Tracking & Basic Analytics",
+      "Security Hardening (Enum, XML-RPC, Rate Limit)"
     ],
-    button: "Download Free",
-    href: "/nexora-engine/docs/getting-started",
-    pro: false,
-    enterprise: false
+    button: "Get It Free on WordPress.org",
+    href: "https://wordpress.org/plugins/nexora-engine",
+    external: true,
+    pro: false
   },
   {
     name: "Pro",
     tagline: "Nexora Engine Pro",
-    price: "99",
-    description: "Everything in Free plus GSC analytics, redirect manager, AI suggestions, and agency white-labeling. Built for high-traffic sites and teams managing multiple clients.",
+    price: "49",
+    period: "/year",
+    lifetime: "149",
+    description: "Everything in Free plus advanced cloaking, automatic rebuilds, real-user Core Web Vitals, SEO intelligence, CDN purge, and agency white-labeling. Includes a 14-day free trial — no card required.",
     features: [
       "Everything in Free",
-      "Hybrid Rendering Mode",
-      "GSC Integration (Analytics)",
-      "Broken Link Checker",
-      "XML Sitemap Generator",
+      "Advanced Ghost Protocol (Full Cloaking)",
+      "Auto-Rebuild on Publish & Update",
+      "Core Web Vitals Tracking (LCP / INP / CLS)",
+      "SEO Intelligence & On-Page Scoring",
       "Redirect Manager (301/302)",
-      "Change Tracker (Score Diffs)",
-      "AI Suggestion Engine",
-      "Alert System + Webhooks",
-      "White Label (Agency Mode)",
-      "Full WP-CLI Suite",
-      "Priority Engineering Support"
+      "Edge CDN Purge (Cloudflare & Bunny)",
+      "PDF Infrastructure Reports",
+      "White-Label Admin Branding",
+      "Multisite Fleet Orchestration",
+      "Priority Support"
     ],
-    button: "Get Pro License",
-    href: "/portal",
-    pro: true,
-    enterprise: false
-  },
-  {
-    name: "Enterprise",
-    tagline: "Nexora Cloud (Roadmap)",
-    price: "Custom",
-    description: "Managed cloud infrastructure, dedicated WAF/DDoS protection, and SLA-backed support for large enterprise networks and high-availability deployments.",
-    features: [
-      "Everything in Pro",
-      "Nexora Cloud CDN (Q3 2026)",
-      "Nexora Shield (WAF/DDoS)",
-      "Multisite Intelligence Layer",
-      "Real-time Access Logs",
-      "SLA Support (Guaranteed)",
-      "Dedicated Infrastructure",
-      "Custom Onboarding",
-      "AI Auto-Optimization"
-    ],
-    button: "Contact Sales",
-    href: "mailto:hello@auralogicslabs.com",
-    pro: false,
-    enterprise: true
+    button: "Start 14-Day Free Trial",
+    href: "https://checkout.freemius.com/plugin/29612/plan/48706/",
+    external: true,
+    pro: true
   }
 ];
 
 export function Pricing() {
   return (
-    <section id="pricing" className="bg-white py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+    <section id="pricing" className="bg-white py-32 border-y border-border relative overflow-hidden">
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
       
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +81,7 @@ export function Pricing() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-[840px] mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
@@ -106,17 +90,15 @@ export function Pricing() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className={`relative rounded-[48px] p-12 flex flex-col h-full border transition-all duration-500 ${
-                plan.pro 
-                  ? 'bg-[#050B25] border-brand/20 shadow-[0_48px_96px_rgba(26,63,216,0.15)] lg:-translate-y-4' 
-                  : plan.enterprise 
-                  ? 'bg-surface-soft border-border' 
+                plan.pro
+                  ? 'bg-[#050B25] border-brand/20 shadow-[0_48px_96px_rgba(26,63,216,0.15)] md:-translate-y-4'
                   : 'bg-white border-border'
               }`}
             >
-              {plan.enterprise && (
-                <div className="absolute top-8 right-8 flex items-center gap-2 bg-obsidian/5 border border-obsidian/10 px-4 py-1.5 rounded-full">
-                   <Globe2 size={12} className="text-text-muted" />
-                   <span className="text-[9px] font-extrabold text-text-muted uppercase tracking-[0.1em]">Roadmap Q3</span>
+              {plan.pro && (
+                <div className="absolute top-8 right-8 flex items-center gap-2 bg-brand/15 border border-brand/25 px-4 py-1.5 rounded-full">
+                   <Sparkles size={12} className="text-brand-soft" />
+                   <span className="text-[9px] font-extrabold text-brand-soft uppercase tracking-[0.1em]">14-Day Free Trial</span>
                 </div>
               )}
 
@@ -129,10 +111,17 @@ export function Pricing() {
                 </p>
               </div>
 
-              <div className="flex items-baseline gap-2 mb-8">
-                 {plan.price !== "Custom" && <span className={`text-[14px] font-bold ${plan.pro ? 'text-white/40' : 'text-text-muted'}`}>$</span>}
-                 <span className={`text-[56px] font-extrabold tracking-tighter ${plan.pro ? 'text-white' : 'text-obsidian'}`}>{plan.price}</span>
-                 {plan.price !== "Custom" && <span className={`text-[16px] font-bold ${plan.pro ? 'text-white/40' : 'text-text-muted'}`}>/yr</span>}
+              <div className="mb-8">
+                <div className="flex items-baseline gap-2">
+                   <span className={`text-[14px] font-bold ${plan.pro ? 'text-white/40' : 'text-text-muted'}`}>$</span>
+                   <span className={`text-[56px] font-extrabold tracking-tighter ${plan.pro ? 'text-white' : 'text-obsidian'}`}>{plan.price}</span>
+                   <span className={`text-[16px] font-bold ${plan.pro ? 'text-white/40' : 'text-text-muted'}`}>{plan.period}</span>
+                </div>
+                {plan.lifetime && (
+                   <p className={`mt-2 text-[13px] font-bold ${plan.pro ? 'text-white/50' : 'text-text-muted'}`}>
+                     or <span className={plan.pro ? 'text-brand-soft' : 'text-brand'}>${plan.lifetime}</span> one-time lifetime license
+                   </p>
+                )}
               </div>
 
               <p className={`text-[15px] font-medium leading-relaxed mb-10 ${plan.pro ? 'text-white/60' : 'text-text-muted'}`}>
@@ -141,7 +130,7 @@ export function Pricing() {
 
               <div className="space-y-4 mb-12 flex-1">
                 <div className={`text-[10px] font-extrabold uppercase tracking-[0.2em] mb-6 ${plan.pro ? 'text-white/30' : 'text-text-muted/50'}`}>
-                   Module Access
+                   What&apos;s Included
                 </div>
                 {plan.features.map((feature) => (
                   <div key={feature} className="flex items-start gap-4 group">
@@ -155,13 +144,15 @@ export function Pricing() {
                 ))}
               </div>
 
-              <Link href={plan.href} className={`w-full py-4 rounded-full font-extrabold text-[15px] transition-all duration-300 flex items-center justify-center gap-3 ${
-                plan.pro
-                  ? 'bg-brand text-white hover:bg-brand-soft shadow-xl'
-                  : plan.enterprise
-                  ? 'bg-obsidian text-white hover:bg-brand'
-                  : 'bg-surface-soft text-obsidian border border-border hover:bg-white hover:shadow-md'
-              }`}>
+              <Link
+                href={plan.href}
+                {...(plan.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className={`w-full py-4 rounded-full font-extrabold text-[15px] transition-all duration-300 flex items-center justify-center gap-3 ${
+                  plan.pro
+                    ? 'bg-brand text-white hover:bg-brand-soft shadow-xl'
+                    : 'bg-surface-soft text-obsidian border border-border hover:bg-white hover:shadow-md'
+                }`}
+              >
                 {plan.button}
                 <ArrowRight size={18} />
               </Link>
@@ -175,10 +166,10 @@ export function Pricing() {
            </div>
            <div className="flex-1">
               <h4 className="text-[18px] font-extrabold text-obsidian mb-2">Agency White Label Orchestration</h4>
-              <p className="text-[14px] text-text-muted font-medium">Replace Nexora branding with your agency identity. Full control over client-facing emails, logs, and dashboard visuals. Included in Pro and Enterprise tiers.</p>
+              <p className="text-[14px] text-text-muted font-medium">Replace Nexora branding with your agency identity. Full control over the plugin name, logo, and admin dashboard visuals across every client site. Included in the Pro plan.</p>
            </div>
-           <Link href="/portal" className="whitespace-nowrap bg-white text-brand px-8 py-4 rounded-full font-extrabold shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
-              Learn about White Label
+           <Link href="https://checkout.freemius.com/plugin/29612/plan/48706/" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap bg-white text-brand px-8 py-4 rounded-full font-extrabold shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
+              Get Pro
            </Link>
         </div>
       </div>

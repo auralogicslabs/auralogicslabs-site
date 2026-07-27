@@ -1,9 +1,8 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 import {
   Clock, BookOpen, Shield, Zap,
@@ -36,7 +35,7 @@ const difficultyColor: Record<Difficulty, string> = {
 };
 
 const tutorials: Tutorial[] = [
-  // ── Live videos ──────────────────────────────────────────────────────────────
+  // -- Live videos --------------------------------------------------------------
   {
     id: 1,
     title: "What Is Nexora Engine?",
@@ -93,7 +92,7 @@ const tutorials: Tutorial[] = [
     videoTitle: "Video 05: Elementor Compatibility",
   },
 
-  // ── Coming soon ───────────────────────────────────────────────────────────────
+  // -- Coming soon ---------------------------------------------------------------
   {
     id: 6,
     title: "Build Control. Bulk Build, Queue & Smart Cron",
@@ -178,13 +177,11 @@ export default function TutorialsPage() {
   }, [activeVideo]);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFF]">
-      <Header />
+    <>
+      <div className="pt-40 pb-32">
+        <div className={siteContainerClass}>
 
-      <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1600px] mx-auto">
-
-          {/* ── Hero ─────────────────────────────────────────────────────────── */}
+          {/* -- Hero ----------------------------------------------------------- */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -204,7 +201,7 @@ export default function TutorialsPage() {
             </div>
             <div className="shrink-0">
               <Link
-                href="/nexora-engine/docs/getting-started"
+                href="/docs/nexora-engine/getting-started"
                 className="inline-flex items-center gap-3 bg-obsidian text-white px-8 py-4 rounded-2xl font-bold text-[14px] hover:-translate-y-0.5 transition-all"
               >
                 <BookOpen size={16} /> Read Docs
@@ -212,7 +209,7 @@ export default function TutorialsPage() {
             </div>
           </motion.div>
 
-          {/* ── Category filter ───────────────────────────────────────────────── */}
+          {/* -- Category filter ------------------------------------------------- */}
           <div className="flex flex-wrap gap-3 mb-16">
             {categories.map((cat) => (
               <button
@@ -229,7 +226,7 @@ export default function TutorialsPage() {
             ))}
           </div>
 
-          {/* ── Live videos ───────────────────────────────────────────────────── */}
+          {/* -- Live videos ----------------------------------------------------- */}
           {live.length > 0 && (
             <div className="mb-24">
               <h2 className="text-[14px] font-bold text-text-muted uppercase tracking-widest mb-8">Available Now</h2>
@@ -296,7 +293,7 @@ export default function TutorialsPage() {
             </div>
           )}
 
-          {/* ── Coming soon ───────────────────────────────────────────────────── */}
+          {/* -- Coming soon ----------------------------------------------------- */}
           {upcoming.length > 0 && (
             <div className="mb-24">
               <h2 className="text-[14px] font-bold text-text-muted uppercase tracking-widest mb-8">Coming Soon</h2>
@@ -338,7 +335,7 @@ export default function TutorialsPage() {
             </div>
           )}
 
-          {/* ── Notify CTA ────────────────────────────────────────────────────── */}
+          {/* -- Notify CTA ------------------------------------------------------ */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -390,11 +387,9 @@ export default function TutorialsPage() {
           </motion.div>
 
         </div>
-      </main>
+      </div>
 
-      <Footer />
-
-      {/* ── Video modal ───────────────────────────────────────────────────────── */}
+      {/* -- Video modal --------------------------------------------------------- */}
       <AnimatePresence>
         {activeVideo && (
           <motion.div
@@ -441,6 +436,6 @@ export default function TutorialsPage() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }

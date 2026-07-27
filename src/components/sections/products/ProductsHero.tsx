@@ -1,11 +1,13 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Layers } from "lucide-react";
 
 export function ProductsHero() {
   return (
-    <section className="relative pt-44 pb-16 px-8 lg:px-24 overflow-hidden bg-white">
+    <section className="relative pt-44 pb-16 overflow-hidden bg-white">
       {/* Dot matrix */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#1A3FD8_1px,transparent_0)] bg-[size:40px_40px] opacity-[0.05] pointer-events-none" />
       {/* Atmosphere */}
@@ -13,7 +15,7 @@ export function ProductsHero() {
         <div className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[900px] h-[420px] bg-brand/[0.06] rounded-full blur-[150px]" />
       </div>
 
-      <div className="w-full max-w-[1100px] mx-auto relative z-10 text-center">
+      <div className={cn(siteContainerClass, "relative z-10 text-center")}>
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}

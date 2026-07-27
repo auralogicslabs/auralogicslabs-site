@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -134,7 +136,7 @@ export function PerformanceAudit() {
   const reset = () => { setUrl(""); setEmail(""); setStatus("idle"); setProgress(0); setMetrics(null); setApiError(""); };
 
   return (
-    <section id="audit" className="bg-[#020617] py-32 px-8 lg:px-24 relative overflow-hidden">
+    <section id="audit" className="bg-[#020617] py-32 relative overflow-hidden">
       
       {/* Background Architectural Glows */}
       <div className="absolute inset-0 pointer-events-none">
@@ -142,7 +144,7 @@ export function PerformanceAudit() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#F39A09]/5 blur-[150px] rounded-full" />
       </div>
 
-      <div className="w-full max-w-[1300px] mx-auto relative z-10 text-center">
+      <div className={cn(siteContainerClass, "relative z-10 text-center")}>
         
         {/* Top Header Section */}
         <motion.div
@@ -164,7 +166,7 @@ export function PerformanceAudit() {
           </p>
         </motion.div>
 
-        <div className="max-w-[1000px] mx-auto">
+        <div className={siteContainerClass}>
           <AnimatePresence mode="wait">
             
             {/* ── PHASE 1: IDLE ── */}
@@ -317,14 +319,14 @@ export function PerformanceAudit() {
                 <div className="bg-brand rounded-[40px] p-10 flex flex-col md:flex-row items-center justify-between gap-10 relative overflow-hidden shadow-2xl">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent)] pointer-events-none" />
                   <div className="relative z-10 text-left">
-                    <h4 className="text-[24px] font-black text-white mb-2 tracking-tight">Unlock Full Engineering Report.</h4>
+                    <h4 className="text-[24px] font-black text-white mb-2 tracking-tight">Get the full engineering report.</h4>
                     <p className="text-white/70 text-[15px] font-medium">Get a detailed 12-point infrastructure roadmap and SSG verdict.</p>
                   </div>
                   <button 
                     onClick={() => setStatus('lead')}
                     className="relative z-10 bg-white text-brand px-12 py-5 rounded-[24px] font-black text-[16px] shadow-2xl hover:scale-105 transition-transform"
                   >
-                    Unlock Full Data
+                    See the full report
                   </button>
                 </div>
               </motion.div>

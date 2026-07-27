@@ -1,9 +1,10 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { MarketingLayout } from "@/components/layout/MarketingLayout";
 import { BlogCoverImage } from "@/components/blog/BlogCoverImage";
 import { BlogPostContent } from "@/components/blog/BlogPostContent";
 import { BlogJsonLd } from "@/components/blog/BlogJsonLd";
@@ -67,14 +68,12 @@ export default async function BlogPostPage({ params }: Props) {
   const related = getRelatedPosts(slug, 3);
 
   return (
-    <div className="min-h-screen bg-white">
+    <MarketingLayout className="bg-white">
       <BlogJsonLd post={post} />
-      <Header />
-
-      <main>
         <article>
           <header className="pt-[120px] pb-10 md:pb-14">
-            <div className="w-full max-w-[860px] mx-auto px-6 sm:px-10">
+            <div className={siteContainerClass}>
+              <div className="max-w-[860px]">
               <Link
                 href="/insights"
                 className="inline-flex items-center gap-2 text-[13px] font-bold text-text-muted hover:text-brand transition-colors mb-8"
@@ -106,10 +105,11 @@ export default async function BlogPostPage({ params }: Props) {
               <p className="text-[14px] font-bold text-text-muted">
                 By {post.author.name} · {post.author.role}
               </p>
+              </div>
             </div>
           </header>
 
-          <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-10 mb-14 md:mb-20">
+          <div className={cn(siteContainerClass, "mb-14 md:mb-20")}>
             <BlogCoverImage
               src={post.image.src}
               alt={post.image.alt}
@@ -119,7 +119,8 @@ export default async function BlogPostPage({ params }: Props) {
             />
           </div>
 
-          <div className="w-full max-w-[760px] mx-auto px-6 sm:px-10 pb-20 md:pb-28">
+          <div className={cn(siteContainerClass, "pb-20 md:pb-28")}>
+            <div className="max-w-[760px] mx-auto">
             <BlogPostContent blocks={post.content} product={post.product} />
 
             <div className="mt-12 flex flex-wrap gap-2">
@@ -132,12 +133,13 @@ export default async function BlogPostPage({ params }: Props) {
                 </span>
               ))}
             </div>
+            </div>
           </div>
         </article>
 
         {related.length > 0 && (
           <section className="bg-[#F4F7FB] border-t border-border/60 py-16 md:py-24">
-            <div className="w-full max-w-[1100px] mx-auto px-6 sm:px-10">
+            <div className={siteContainerClass}>
               <h2 className="text-[13px] font-black uppercase tracking-[0.28em] text-text-muted mb-10">
                 Continue reading
               </h2>
@@ -180,7 +182,7 @@ export default async function BlogPostPage({ params }: Props) {
               },
               "nexora-pulse": {
                 heading: "Diagnose the gaps on your site",
-                body: "Nexora Pulse is free to install. Real Google indexing verdicts, Core Web Vitals tracking, and internal link mapping — all in one dashboard.",
+                body: "Nexora Pulse is free to install. Real Google indexing verdicts, Core Web Vitals tracking, and internal link mapping, all in one dashboard.",
                 label: "Install Nexora Pulse free",
                 href: "/products/nexora-pulse",
               },
@@ -199,7 +201,8 @@ export default async function BlogPostPage({ params }: Props) {
             } as const;
             const cta = ctas[post.product] ?? ctas.platform;
             return (
-              <div className="w-full max-w-[760px] mx-auto px-6 sm:px-10 text-center">
+              <div className={siteContainerClass}>
+                <div className="max-w-[760px] mx-auto text-center">
                 <h2 className="text-[28px] md:text-[34px] font-extrabold text-obsidian tracking-tight mb-4">
                   {cta.heading}
                 </h2>
@@ -213,13 +216,11 @@ export default async function BlogPostPage({ params }: Props) {
                   {cta.label}
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
+                </div>
               </div>
             );
           })()}
         </section>
-      </main>
-
-      <Footer />
-    </div>
+    </MarketingLayout>
   );
 }

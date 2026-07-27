@@ -1,9 +1,8 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 import {
   Zap,
@@ -37,11 +36,8 @@ export default function DemoPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFF]">
-      <Header />
-
-      <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1600px] mx-auto">
+      <div className="pt-40 pb-32">
+        <div className={siteContainerClass}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -139,7 +135,7 @@ export default function DemoPage() {
                    </div>
 
                    <div className="pt-6 border-t border-border">
-                      <Link href="/nexora-engine/docs/getting-started" className="w-full bg-obsidian text-white py-4 rounded-2xl font-bold text-[14px] flex items-center justify-center gap-3 hover:bg-brand transition-colors">
+                      <Link href="/docs/nexora-engine/getting-started" className="w-full bg-obsidian text-white py-4 rounded-2xl font-bold text-[14px] flex items-center justify-center gap-3 hover:bg-brand transition-colors">
                          <Terminal size={16} />
                          View Getting Started Guide
                       </Link>
@@ -258,7 +254,7 @@ export default function DemoPage() {
                             Open Portal
                          </Link>
                          <Link
-                           href="/nexora-engine/docs"
+                           href="/docs/nexora-engine"
                            className="border border-white/20 text-white px-10 py-5 rounded-2xl font-bold text-[15px] hover:bg-white/10 transition-colors"
                          >
                             Technical Docs
@@ -270,9 +266,6 @@ export default function DemoPage() {
 
           </div>
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
   );
 }

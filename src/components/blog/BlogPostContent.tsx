@@ -78,7 +78,7 @@ export function BlogPostContent({
               Explore Nexora Engine
             </Link>{" "}
             or{" "}
-            <Link href="/nexora-engine/docs/getting-started" className="text-brand font-bold hover:underline">
+            <Link href="/docs/nexora-engine/getting-started" className="text-brand font-bold hover:underline">
               read the getting-started guide
             </Link>
             .

@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import {
@@ -85,7 +87,7 @@ const bottomItems = [
 
 export function EngineCapabilities() {
   return (
-    <section className="bg-white py-32 px-8 lg:px-24 border-b border-border relative overflow-hidden rounded-tl-[40px] rounded-tr-[40px] -mt-10 z-10">
+    <section className="bg-white py-32 border-b border-border relative overflow-hidden rounded-tl-[40px] rounded-tr-[40px] -mt-10 z-10">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.14]"
@@ -95,7 +97,7 @@ export function EngineCapabilities() {
         }}
       />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
 
         {/* Header */}
         <motion.div

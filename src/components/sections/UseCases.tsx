@@ -74,7 +74,7 @@ export function UseCases() {
 
   return (
     <section className="bg-surface py-24 px-6 lg:px-12 border-y border-border">
-      <div className="mx-auto max-w-[1280px]">
+      <div className="mx-auto max-w-site">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

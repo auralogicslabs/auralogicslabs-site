@@ -183,7 +183,7 @@ function EngineSlide() {
   const rows = [
     { url: "/shop/product-1", status: "HIT", ms: "19ms", fresh: true },
     { url: "/blog/2024-update", status: "HIT", ms: "22ms", fresh: true },
-    { url: "/about", status: "BUILD", ms: "—", fresh: false },
+    { url: "/about", status: "BUILD", ms: "-", fresh: false },
   ];
 
   return (

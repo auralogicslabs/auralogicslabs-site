@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Stethoscope, AlertTriangle, CheckCircle2, XCircle, MinusCircle, ArrowRight } from "lucide-react";
@@ -14,11 +16,11 @@ const verdicts = [
 
 export function PulseIndexDoctor() {
   return (
-    <section className="bg-white py-32 px-8 lg:px-24 overflow-hidden relative border-y border-border">
+    <section className="bg-white py-32 overflow-hidden relative border-y border-border">
       <div className="absolute inset-0 pointer-events-none opacity-[0.18]" style={{ backgroundImage: "radial-gradient(circle, #CBD5E1 1px, transparent 1px)", backgroundSize: "64px 64px" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] blur-[160px] rounded-full pointer-events-none" style={{ background: "rgba(19,113,106,0.06)" }} />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Narrative */}
           <motion.div

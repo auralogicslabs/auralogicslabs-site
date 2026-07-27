@@ -1,4 +1,5 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -58,8 +59,8 @@ export function ArchitectureFlow() {
   }, [isAutoPlaying]);
 
   return (
-    <section id="architecture" className="bg-surface-soft py-24 px-8 lg:px-24 border-y border-border overflow-hidden">
-      <div className="w-full max-w-[1600px] mx-auto">
+    <section id="architecture" className="bg-surface-soft py-24 border-y border-border overflow-hidden">
+      <div className={siteContainerClass}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

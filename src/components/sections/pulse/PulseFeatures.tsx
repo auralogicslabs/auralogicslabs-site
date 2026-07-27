@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import {
@@ -58,8 +60,8 @@ const features = [
 
 export function PulseFeatures() {
   return (
-    <section id="features" className="bg-surface-soft py-32 px-8 lg:px-24 relative overflow-hidden">
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+    <section id="features" className="bg-surface-soft py-32 relative overflow-hidden">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -8,6 +8,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import Link from "next/link";
+import { siteContainerClass } from "@/lib/site-layout";
 
 // ──────────────────────────────────────────────────────────────
 // Product definitions. the single source of truth for this section.
@@ -353,7 +354,7 @@ export function PlatformShowcase() {
         <img src="/nexora.svg" alt="" className="w-full h-full object-contain" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-16">
+      <div className={siteContainerClass + " relative z-10"}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 26 }}

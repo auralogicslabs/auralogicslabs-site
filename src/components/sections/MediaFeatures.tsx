@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { ImageIcon, Cpu, Layers, Zap, ArrowRight } from "lucide-react";
@@ -7,10 +9,10 @@ import Link from "next/link";
 const features = [
   {
     icon: ImageIcon,
-    title: "Format Intelligence",
+    title: "Adaptive Delivery",
     description:
-      "Detects browser capability and serves AVIF, WebP, or JPEG/PNG automatically. No srcset configuration required. Just install and activate.",
-    tags: ["AVIF", "WebP", "Auto-detect", "Fallback"],
+      "Serves the AVIF or WebP variant each browser supports to public visitors and falls back to the original whenever needed. Logged-in editors always see the original, no srcset configuration required.",
+    tags: ["AVIF", "WebP", "Adaptive", "Builder-aware"],
     accent: "#1A3FD8",
   },
   {
@@ -42,16 +44,16 @@ const features = [
 
 const steps = [
   { n: "01", title: "Upload", body: "Add images to your WordPress media library as normal." },
-  { n: "02", title: "Optimize", body: "Background queue converts to AVIF/WebP, strips EXIF, generates responsive variants." },
-  { n: "03", title: "Serve", body: "Visitors receive the smallest format their browser supports. Automatically." },
+  { n: "02", title: "Optimize", body: "Background queue generates AVIF and WebP variants, strips EXIF, and creates responsive sizes, in safe batches." },
+  { n: "03", title: "Serve", body: "Public visitors receive the optimized AVIF or WebP their browser supports; originals stay as a fallback. Automatically." },
 ];
 
 export function MediaFeatures() {
   return (
     <>
       {/* ── How it works ── */}
-      <section className="bg-surface-soft/50 py-24 px-8 lg:px-24 border-y border-border">
-        <div className="w-full max-w-[1600px] mx-auto">
+      <section className="bg-surface-soft/50 py-24 border-y border-border">
+        <div className={siteContainerClass}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,10 +100,10 @@ export function MediaFeatures() {
       </section>
 
       {/* ── Feature grid ── */}
-      <section className="bg-white py-32 px-8 lg:px-24 border-b border-border relative overflow-hidden">
+      <section className="bg-white py-32 border-b border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
-        <div className="w-full max-w-[1600px] mx-auto relative z-10">
+        <div className={cn(siteContainerClass, "relative z-10")}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +116,7 @@ export function MediaFeatures() {
               <span className="font-mono text-[10px] font-bold text-brand uppercase tracking-[0.3em]">Capabilities</span>
             </div>
             <h2 className="text-[36px] md:text-[48px] font-extrabold text-obsidian tracking-tight mb-4">
-              Automatic AVIF/WebP. No CDN, no config, no developer.
+              Automatic AVIF and WebP. No CDN, no config, no developer.
             </h2>
             <p className="text-[17px] text-text-secondary font-medium max-w-[540px] leading-[1.6]">
               Built for real WordPress workflows. Optimization runs in the background so editors never notice it. Visitors always get the lightest possible image.

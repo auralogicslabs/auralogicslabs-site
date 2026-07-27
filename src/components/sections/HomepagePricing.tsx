@@ -1,7 +1,9 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
-import { CheckCircle2, ArrowRight, Zap, Code2, Building2, Sparkles, ArrowUpRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Zap, Code2, Sparkles, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -21,62 +23,48 @@ const tiers = [
     name: "Free",
     price: "$0",
     period: "forever",
+    subPrice: null as string | null,
     tagline: "For developers & small sites",
     color: "#64748B",
     featured: false,
     features: [
       "Full static delivery engine",
-      "Manual cache rebuild",
+      "Ghost Protocol fingerprint hiding",
+      "SPA navigation between pages",
       "All server types supported",
-      "Up to 500 cached pages",
-      "Single site",
+      "Elementor & Gutenberg compatible",
+      "On the WordPress.org directory",
     ],
-    cta: "Download Free",
-    ctaHref: "/nexora-engine/docs/getting-started",
+    cta: "Get It Free",
+    ctaHref: "https://wordpress.org/plugins/nexora-engine",
+    external: true,
   },
   {
     icon: Zap,
     name: "Pro",
-    price: "$19",
-    period: "/ month",
+    price: "$49",
+    period: "/ year",
+    subPrice: "or $149 one-time lifetime",
     tagline: "For production sites & teams",
     color: "#1A3FD8",
     featured: true,
     features: [
-      "Automatic cache invalidation",
-      "Unlimited cached pages",
-      "Priority rebuild queue",
-      "Stealth delivery mode",
-      "Advanced analytics",
-      "Priority support",
+      "Everything in Free",
+      "Advanced Ghost Protocol cloaking",
+      "Auto-rebuild on publish & update",
+      "Core Web Vitals + SEO intelligence",
+      "Edge CDN purge & white-labeling",
+      "14-day free trial, no card",
     ],
-    cta: "Get Pro License",
-    ctaHref: "/portal",
-  },
-  {
-    icon: Building2,
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
-    tagline: "For agencies & high-traffic sites",
-    color: "#7C3AED",
-    featured: false,
-    features: [
-      "Everything in Pro",
-      "Unlimited sites",
-      "White-label option",
-      "SLA guarantee",
-      "Dedicated onboarding",
-      "Custom integrations",
-    ],
-    cta: "Contact Us",
-    ctaHref: "mailto:hello@auralogicslabs.com?subject=Enterprise Inquiry",
+    cta: "Start Free Trial",
+    ctaHref: "https://checkout.freemius.com/plugin/29612/plan/48706/",
+    external: true,
   },
 ];
 
 export function HomepagePricing() {
   return (
-    <section id="pricing" className="bg-white py-32 px-8 lg:px-24 border-b border-border relative overflow-hidden">
+    <section id="pricing" className="bg-white py-32 border-b border-border relative overflow-hidden">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.13]"
@@ -87,7 +75,7 @@ export function HomepagePricing() {
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-brand/4 blur-[180px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
 
         {/* Header */}
         <motion.div
@@ -111,7 +99,7 @@ export function HomepagePricing() {
         </motion.div>
 
         {/* Pricing cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 items-stretch max-w-[760px] mx-auto">
           {tiers.map((tier, i) => {
             const Icon = tier.icon;
             
@@ -161,13 +149,18 @@ export function HomepagePricing() {
                     </div>
 
                     {/* Price */}
-                    <div className="flex items-baseline gap-2 mb-7">
-                      <span className="font-mono text-[48px] font-bold leading-none tracking-tight text-obsidian">
-                        {tier.price}
-                      </span>
-                      <span className="text-[14px] font-medium text-text-muted">
-                        {tier.period}
-                      </span>
+                    <div className="mb-7">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-mono text-[48px] font-bold leading-none tracking-tight text-obsidian">
+                          {tier.price}
+                        </span>
+                        <span className="text-[14px] font-medium text-text-muted">
+                          {tier.period}
+                        </span>
+                      </div>
+                      {tier.subPrice && (
+                        <p className="mt-2 text-[13px] font-semibold text-text-muted">{tier.subPrice}</p>
+                      )}
                     </div>
 
                     <div className="h-px bg-border/80 mb-7" />
@@ -187,6 +180,7 @@ export function HomepagePricing() {
 
                   <Link
                     href={tier.ctaHref}
+                    {...(tier.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className="relative z-10 w-full flex items-center justify-center gap-2.5 rounded-[14px] px-6 py-4 text-[14px] font-black bg-white border-2 border-border text-obsidian hover:bg-surface-soft hover:border-obsidian/25 shadow-[0_4px_14px_rgba(2,6,23,0.04)] transition-all duration-300 group"
                   >
                     {tier.cta}
@@ -267,13 +261,18 @@ export function HomepagePricing() {
                     </div>
 
                     {/* Price */}
-                    <div className="flex items-baseline gap-2 mb-7">
-                      <span className="font-mono text-[48px] font-bold leading-none tracking-tight text-white">
-                        {tier.price}
-                      </span>
-                      <span className="text-[14px] font-medium text-white/38">
-                        {tier.period}
-                      </span>
+                    <div className="mb-7">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-mono text-[48px] font-bold leading-none tracking-tight text-white">
+                          {tier.price}
+                        </span>
+                        <span className="text-[14px] font-medium text-white/38">
+                          {tier.period}
+                        </span>
+                      </div>
+                      {tier.subPrice && (
+                        <p className="mt-2 text-[13px] font-semibold text-brand-soft">{tier.subPrice}</p>
+                      )}
                     </div>
 
                     <div className="h-px bg-white/8 mb-7" />
@@ -293,6 +292,7 @@ export function HomepagePricing() {
 
                   <Link
                     href={tier.ctaHref}
+                    {...(tier.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className="relative z-10 w-full flex items-center justify-center gap-2.5 rounded-[14px] px-6 py-4 text-[14px] font-black bg-brand text-white hover:bg-brand-bright shadow-[0_0_32px_rgba(26,63,216,0.35)] transition-all duration-300 group"
                   >
                     {tier.cta}

@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -130,11 +132,11 @@ export function PersonaFocus() {
   };
 
   return (
-    <section className="bg-white py-24 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+    <section className="bg-white py-24 border-y border-border relative overflow-hidden">
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
       
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -285,7 +287,7 @@ export function PersonaFocus() {
               </div>
 
               <div className="mt-16 pt-10 border-t border-brand/10">
-                <Link href="/nexora-engine/docs" className="group inline-flex items-center gap-4 text-[18px] font-extrabold text-brand hover:text-obsidian transition-colors duration-300">
+                <Link href="/docs/nexora-engine" className="group inline-flex items-center gap-4 text-[18px] font-extrabold text-brand hover:text-obsidian transition-colors duration-300">
                   Engineering Docs
                   <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
                 </Link>

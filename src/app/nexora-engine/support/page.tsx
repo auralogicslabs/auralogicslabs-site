@@ -1,9 +1,8 @@
-﻿"use client";
+"use client";
 
+import { siteContainerClass } from "@/lib/site-layout";
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { sendSupportTicket } from "@/app/actions/email";
 import Link from "next/link";
 import {
@@ -23,7 +22,7 @@ const selfServiceLinks = [
     icon: BookOpen,
     title: "Getting Started",
     desc: "Install guide, wizard walkthrough, server checklist",
-    href: "/nexora-engine/docs/getting-started",
+    href: "/docs/nexora-engine/getting-started",
     label: "View Guide",
   },
   {
@@ -75,11 +74,8 @@ export default function SupportPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFF]">
-      <Header />
-
-      <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1600px] mx-auto">
+      <div className="pt-40 pb-32">
+        <div className={siteContainerClass}>
 
           {/* Hero */}
           <motion.div
@@ -351,9 +347,6 @@ export default function SupportPage() {
           </div>
 
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
   );
 }

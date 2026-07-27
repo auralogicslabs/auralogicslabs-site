@@ -1,23 +1,18 @@
 ﻿import type { Metadata } from 'next';
-import { Header } from '@/components/layout/Header';
+import { MarketingLayout } from '@/components/layout/MarketingLayout';
 import { EngineHero } from '@/components/sections/EngineHero';
 import { TrustMetrics } from '@/components/sections/TrustMetrics';
-import { WhyNexora } from '@/components/sections/WhyNexora';
 import { PlatformOverview } from '@/components/sections/PlatformOverview';
-import { MethodologyDetail } from '@/components/sections/MethodologyDetail';
-import { PerformanceAudit } from '@/components/sections/PerformanceAudit';
 import { ProblemComparison } from '@/components/sections/ProblemComparison';
-import { ArchitectureFlow } from '@/components/sections/ArchitectureFlow';
-import { SecurityGhost } from '@/components/sections/SecurityGhost';
-import { Pricing } from '@/components/sections/Pricing';
-import { FeaturesGrid } from '@/components/sections/FeaturesGrid';
-import { PerformanceVisualization } from '@/components/sections/PerformanceVisualization';
 import { HowItWorks } from '@/components/sections/HowItWorks';
+import { PerformanceAudit } from '@/components/sections/PerformanceAudit';
 import { Compatibility } from '@/components/sections/Compatibility';
 import { PersonaFocus } from '@/components/sections/PersonaFocus';
+import { EnginePricing } from '@/components/sections/EnginePricing';
 import { FAQ } from '@/components/sections/FAQ';
 import { FinalCTA } from '@/components/sections/FinalCTA';
-import { Footer } from '@/components/layout/Footer';
+import { ProductDownloadBand } from '@/components/product/ProductDownloadBand';
+import { getProduct } from '@/data/products';
 import { faqData } from '@/data/faq';
 
 export const metadata: Metadata = {
@@ -93,29 +88,20 @@ export default function NexoraEnginePage() {
   };
 
   return (
-    <div className="min-h-screen bg-bg">
+    <MarketingLayout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Header />
-      <main>
-        <EngineHero />
-        <TrustMetrics />
-        <WhyNexora />
-        <PlatformOverview />
-        <MethodologyDetail />
-        <PerformanceAudit />
-        <ProblemComparison />
-        <ArchitectureFlow />
-        <SecurityGhost />
-        <Pricing />
-        <FeaturesGrid />
-        <PerformanceVisualization />
-        <HowItWorks />
-        <Compatibility />
-        <PersonaFocus />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+      <EngineHero />
+      <TrustMetrics />
+      <ProblemComparison />
+      <PlatformOverview />
+      <HowItWorks />
+      <PerformanceAudit />
+      <Compatibility />
+      <PersonaFocus />
+      <EnginePricing />
+      <FAQ />
+      <ProductDownloadBand product={getProduct('nexora-engine')!} />
+      <FinalCTA />
+    </MarketingLayout>
   );
 }

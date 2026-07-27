@@ -1,5 +1,6 @@
 ﻿import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { siteContainerClass } from "@/lib/site-layout";
 
 export interface LegalSection {
   heading: string;
@@ -25,10 +26,11 @@ export function LegalLayout({
       <Header />
       <main>
         {/* Header band. light, matches header on subpages */}
-        <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-16 md:pt-44 md:pb-20 px-6 sm:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-16 md:pt-44 md:pb-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#CBD5E1_1px,transparent_0)] bg-[size:48px_48px] opacity-30 pointer-events-none" />
           <div className="absolute -top-24 left-1/3 w-[600px] h-[400px] rounded-full blur-[180px] pointer-events-none" style={{ background: "rgba(26,63,216,0.08)" }} />
-          <div className="relative z-10 max-w-[860px] mx-auto">
+          <div className={`relative z-10 ${siteContainerClass}`}>
+            <div className="max-w-[860px]">
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4">
               {eyebrow}
             </span>
@@ -43,12 +45,12 @@ export function LegalLayout({
                 Last updated · {updated}
               </p>
             )}
+            </div>
           </div>
         </section>
-
-        {/* Body */}
-        <section className="px-6 sm:px-10 lg:px-16 py-16 md:py-24">
-          <div className="max-w-[760px] mx-auto space-y-12">
+        <section className="py-16 md:py-24">
+          <div className={siteContainerClass}>
+            <div className="max-w-[760px] mx-auto space-y-12">
             {sections.map((s, i) => (
               <div key={i}>
                 <h2 className="text-[22px] md:text-[26px] font-extrabold text-obsidian tracking-[-0.02em] mb-4">
@@ -83,6 +85,7 @@ export function LegalLayout({
                 </a>
                 .
               </p>
+            </div>
             </div>
           </div>
         </section>

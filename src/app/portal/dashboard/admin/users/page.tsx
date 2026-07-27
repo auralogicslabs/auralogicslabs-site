@@ -121,7 +121,7 @@ export default function UserManagementPage() {
   };
 
   const fmt = (iso?: string) => {
-    if (!iso) return '—';
+    if (!iso) return '-';
     return new Date(iso).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
   };
 

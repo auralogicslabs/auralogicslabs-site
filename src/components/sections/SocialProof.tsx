@@ -1,3 +1,5 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 ﻿"use client";
 
 import { motion } from "motion/react";
@@ -103,7 +105,7 @@ function ProductScreenshot({
 
 export function SocialProof() {
   return (
-    <section className="bg-surface-soft/40 py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+    <section className="bg-surface-soft/40 py-32 border-y border-border relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.18]"
         style={{
@@ -113,7 +115,7 @@ export function SocialProof() {
       />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-brand/4 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
 
         {/* Header */}
         <motion.div
@@ -253,7 +255,7 @@ export function SocialProof() {
                     whileTap={{ y: 0 }}
                   >
                     <Link
-                      href="/nexora-engine/docs/getting-started"
+                      href="/docs/nexora-engine/getting-started"
                       className="inline-flex items-center justify-center gap-2.5 rounded-[14px] bg-white text-obsidian px-7 py-4 text-[14px] font-black hover:bg-brand hover:text-white transition-all duration-300 group shadow-[0_8px_32px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.9)]"
                     >
                       <Zap className="h-4 w-4" />

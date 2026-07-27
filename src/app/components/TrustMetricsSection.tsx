@@ -61,7 +61,7 @@ export function TrustMetricsSection() {
 
   return (
     <section className="border-y border-slate-100 bg-white px-6 py-14 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-site">
         <div className="overflow-hidden rounded-2xl border border-slate-100 sm:grid sm:grid-cols-3 sm:divide-x sm:divide-slate-100">
           {stats.map((stat, i) => (
             <motion.div

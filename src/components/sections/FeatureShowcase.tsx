@@ -1,3 +1,5 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 ﻿"use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
@@ -268,7 +270,7 @@ function ShowcaseBlock({
         }}
       />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <div
           className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
             flip ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1" : ""
@@ -428,7 +430,7 @@ function InsightsShowcase() {
         }}
       />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Text */}
@@ -629,7 +631,7 @@ export function FeatureShowcase() {
           { label: "Drop-in install", desc: "active in under 2 minutes, any host, any server type", color: "#059669" },
           { label: "Smart invalidation", desc: "only edited pages rebuild; everything else stays cached", color: "#7C3AED" },
         ]}
-        cta={{ label: "Get Started Free", href: "/nexora-engine/docs/getting-started" }}
+        cta={{ label: "Get Started Free", href: "/docs/nexora-engine/getting-started" }}
         ctaSecondary={{ label: "See all features", href: "/products/nexora-engine" }}
         screenshotLabel="Engine Admin Screenshot"
         screenshotSublabel="Replace with Nexora Engine dashboard screenshot"

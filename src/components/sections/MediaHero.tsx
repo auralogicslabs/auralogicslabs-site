@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, ImageIcon, Zap, CheckCircle2 } from "lucide-react";
@@ -19,7 +21,7 @@ export function MediaHero() {
         />
       </div>
 
-      <div className="w-full max-w-[1100px] mx-auto px-8 lg:px-24 relative z-10 flex flex-col items-center text-center">
+      <div className={cn(siteContainerClass, "relative z-10 flex flex-col items-center text-center")}>
 
         {/* Product pill */}
         <motion.div
@@ -43,8 +45,8 @@ export function MediaHero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-[48px] md:text-[68px] lg:text-[80px] font-extrabold text-obsidian leading-[0.95] tracking-[-0.04em] mb-8 max-w-[900px]"
         >
-          Your images, 70% smaller. <br className="hidden md:block" />
-          <span className="text-brand">Automatically.</span>
+          Smaller images. <br className="hidden md:block" />
+          <span className="text-brand">Nothing broken.</span>
         </motion.h1>
 
         {/* Subhead */}
@@ -54,7 +56,7 @@ export function MediaHero() {
           transition={{ duration: 0.7, delay: 0.18 }}
           className="text-[17px] md:text-[19px] text-text-secondary max-w-[580px] leading-[1.7] mb-10 font-medium"
         >
-          Install the plugin and Nexora Media converts your entire media library to AVIF/WebP in the background. It serves the smallest format each browser supports, without touching your originals or changing how editors upload.
+          Install the plugin and Nexora Media generates AVIF and WebP variants of your media library in a safe background queue. It serves the optimized variant each browser supports to public visitors, keeps your originals untouched, and never rewrites images while editors and page builders are working.
         </motion.p>
 
         {/* Checkmarks */}
@@ -84,9 +86,9 @@ export function MediaHero() {
           transition={{ duration: 0.6, delay: 0.28 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-16"
         >
-          <Button href="/nexora-engine/docs/getting-started" variant="primary" size="lg" className="group">
+          <Button href="/api/download/nexora-media" variant="primary" size="lg" className="group">
             <ImageIcon className="h-5 w-5" />
-            Install Nexora Media
+            Download Nexora Media
             <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
           </Button>
           <Button href="/products/nexora-engine" variant="secondary" size="lg" className="group">
@@ -104,8 +106,8 @@ export function MediaHero() {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
         >
           {[
-            { v: "↓70%", l: "Avg. image size reduction" },
-            { v: "AVIF+WebP", l: "Adaptive format delivery" },
+            { v: "AVIF+WebP", l: "Imagick / GD variant generation" },
+            { v: "Builder-safe", l: "Never rewrites during editing" },
             { v: "Async", l: "Background queue. Never blocks." },
             { v: "Non-destructive", l: "Originals always preserved" },
           ].map((m) => (

@@ -421,8 +421,8 @@ function DashboardInner() {
             {[
               { label: "Connected Sites", value: sites.length, icon: Globe, color: "text-brand", bg: "bg-brand/5" },
               { label: "Plugin Active", value: activeSites.length, icon: Zap, color: "text-emerald-500", bg: "bg-emerald-500/5" },
-              { label: "Avg TTFB", value: avgTTFB > 0 ? `${avgTTFB}ms` : "—", icon: Activity, color: "text-obsidian", bg: "bg-obsidian/5" },
-              { label: "Avg Score", value: avgScore > 0 ? `${avgScore}/100` : "—", icon: BarChart3, color: "text-amber-500", bg: "bg-amber-500/5" },
+              { label: "Avg TTFB", value: avgTTFB > 0 ? `${avgTTFB}ms` : "-", icon: Activity, color: "text-obsidian", bg: "bg-obsidian/5" },
+              { label: "Avg Score", value: avgScore > 0 ? `${avgScore}/100` : "-", icon: BarChart3, color: "text-amber-500", bg: "bg-amber-500/5" },
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}

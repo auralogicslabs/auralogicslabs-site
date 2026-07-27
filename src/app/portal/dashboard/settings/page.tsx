@@ -63,7 +63,7 @@ export default function SettingsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-7">
           {[
             { label: "Role",            value: ROLE_LABELS[user?.role ?? 'user'] ?? user?.role, icon: Shield },
-            { label: "Member Since",    value: user?.createdAt ? fmt(user.createdAt) : "—",      icon: Calendar },
+            { label: "Member Since",    value: user?.createdAt ? fmt(user.createdAt) : "-",      icon: Calendar },
             { label: "Connected Sites", value: String(sites.length),                              icon: Globe },
           ].map(item => (
             <div key={item.label} className="bg-surface-soft rounded-2xl p-5">

@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/api/',               // API endpoints — not indexable content
+          '/api/',               // API endpoints, not indexable content
           '/portal/dashboard/',  // Authenticated dashboard routes
         ],
       },

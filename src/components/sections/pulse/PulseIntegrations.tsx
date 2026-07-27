@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Stethoscope, Gauge, KeyRound, ShieldCheck, Lock } from "lucide-react";
@@ -32,8 +34,8 @@ const integrations = [
 
 export function PulseIntegrations() {
   return (
-    <section className="bg-white py-32 px-8 lg:px-24 relative overflow-hidden border-t border-border">
-      <div className="w-full max-w-[1300px] mx-auto relative z-10">
+    <section className="bg-white py-32 relative overflow-hidden border-t border-border">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}

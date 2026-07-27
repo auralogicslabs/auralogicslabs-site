@@ -9,7 +9,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
  * Positioning matrix for the "Why We Exist" section.
  * Performance (y) × Effort & cost to adopt (x). Auralogics occupies the
  * ideal quadrant (high performance, low effort) while the alternatives are
- * compromised — a visual proof of "neither is the answer."
+ * compromised, a visual proof of "neither is the answer."
  */
 const nodes = [
   {

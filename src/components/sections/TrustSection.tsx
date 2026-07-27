@@ -14,8 +14,6 @@ const audiences = [
   { icon: Building2, title: "Enterprise", desc: "Infrastructure-grade performance without the infrastructure project. No DevOps overhead, no editorial disruption.", href: "mailto:hello@auralogicslabs.com?subject=Enterprise", color: "#0D9488" },
 ];
 
-const stack = ["Apache", "Nginx", "LiteSpeed", "IIS", "OpenLiteSpeed", "cPanel"];
-
 export function TrustSection() {
   return (
     <FullWidthSection tone="white" className="overflow-hidden">
@@ -81,30 +79,6 @@ export function TrustSection() {
           );
         })}
       </div>
-
-      {/* Stack compatibility */}
-      <ScrollReveal delay={0.2}>
-        <InnerCard className="px-6 py-8 text-center">
-          <p
-            className="text-[11px] font-black uppercase tracking-[0.28em] mb-5"
-            style={{ color: "#94A3B8" }}
-          >
-            Works with your stack
-          </p>
-          <div className="flex flex-wrap justify-center gap-2">
-            {stack.map((s) => (
-              <span
-                key={s}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-bold bg-[#F4F7FB] border border-slate-200/80"
-                style={{ color: "#475569" }}
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                {s}
-              </span>
-            ))}
-          </div>
-        </InnerCard>
-      </ScrollReveal>
     </FullWidthSection>
   );
 }

@@ -1,16 +1,17 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
+import { MarketingLayout } from "@/components/layout/MarketingLayout";
 import { Zap, Stethoscope, ImageIcon, LayoutDashboard, Target, Compass, Shield, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Auralogics Labs — Tools for the Real Problems Web Teams Face",
+  title: "About Auralogics Labs, Tools for the Real Problems Web Teams Face",
   description:
-    "Auralogics Labs makes the Nexora suite — drop-in tools for WordPress performance, SEO, media, and fleet control. WordPress today, any platform tomorrow. No rebuilds, no migrations, no DevOps.",
+    "Auralogics Labs makes the Nexora suite, drop-in tools for WordPress performance, SEO, media, and fleet control. WordPress today, any platform tomorrow. No rebuilds, no migrations, no DevOps.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Auralogics Labs — Tools for the Real Problems Web Teams Face",
+    title: "About Auralogics Labs, Tools for the Real Problems Web Teams Face",
     description: "We build tools that solve real problems for web teams. The Nexora suite starts with WordPress and is built to expand to every platform that comes next.",
     url: "https://auralogicslabs.com/about",
     type: "website",
@@ -38,24 +39,23 @@ const values = [
 const products = [
   { icon: Zap, name: "Nexora Engine", tagline: "Static-speed delivery", accent: "#1A3FD8", href: "/products/nexora-engine" },
   { icon: Stethoscope, name: "Nexora Pulse", tagline: "SEO operations console", accent: "#13716A", href: "/products/nexora-pulse" },
-  { icon: ImageIcon, name: "Nexora Media", tagline: "Edge media optimization", accent: "#7C3AED", href: "/products/nexora-media" },
-  { icon: LayoutDashboard, name: "Auralogics Portal", tagline: "Fleet command center", accent: "#F39A09", href: "/portal" },
+  { icon: ImageIcon, name: "Nexora Media", tagline: "Safe AVIF & WebP images", accent: "#059669", href: "/products/nexora-media" },
+  { icon: LayoutDashboard, name: "Auralogics Portal", tagline: "Fleet command center", accent: "#7C3AED", href: "/portal" },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
+    <MarketingLayout className="bg-white">
         {/* Hero. light, matches header on subpages */}
-        <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-20 md:pt-44 md:pb-28 px-6 sm:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-20 md:pt-44 md:pb-28">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#CBD5E1_1px,transparent_0)] bg-[size:48px_48px] opacity-30 pointer-events-none" />
           <div className="absolute -top-24 left-1/3 w-[700px] h-[440px] rounded-full blur-[190px] pointer-events-none" style={{ background: "rgba(26,63,216,0.10)" }} />
           <div className="absolute -right-24 -bottom-28 w-[420px] h-[420px] opacity-[0.06] pointer-events-none select-none hidden md:block">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/nexora.svg" alt="" className="w-full h-full object-contain" />
           </div>
-          <div className="relative z-10 max-w-[920px] mx-auto text-center">
+          <div className={cn(siteContainerClass, "relative z-10")}>
+            <div className="max-w-[920px] mx-auto text-center">
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-5">
               About Auralogics Labs
             </span>
@@ -70,12 +70,14 @@ export default function AboutPage() {
               today and how it should. Starting with WordPress. Built to scale to every platform
               that comes next.
             </p>
+            </div>
           </div>
         </section>
 
         {/* Mission */}
-        <section className="px-6 sm:px-10 lg:px-16 py-20 md:py-28">
-          <div className="max-w-[820px] mx-auto">
+        <section className=" py-20 md:py-28">
+          <div className={siteContainerClass}>
+            <div className="max-w-[820px] mx-auto">
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4">Our Mission</span>
             <h2 className="text-[30px] md:text-[42px] font-extrabold text-obsidian leading-[1.1] tracking-[-0.035em] mb-6">
               WordPress powers the web. It deserves modern infrastructure.
@@ -90,24 +92,26 @@ export default function AboutPage() {
               <p>
                 Auralogics Labs exists to close that gap a different way. Instead of replacing
                 WordPress, we wrap it in a layer of infrastructure that makes it fast, visible, and
-                manageable — without asking you to rebuild anything. Install a plugin, flip it on,
+                manageable, without asking you to rebuild anything. Install a plugin, flip it on,
                 and it just runs.
               </p>
               <p>
                 WordPress is where we start because it&rsquo;s where the problems are most acute and
                 the audience is largest. But the gap between &ldquo;how a platform performs out of the
                 box&rdquo; and &ldquo;how it should perform&rdquo; exists everywhere. That&rsquo;s
-                the problem we&rsquo;re here to solve — across every platform, for every web team.
+                the problem we&rsquo;re here to solve, across every platform, for every web team.
               </p>
+            </div>
             </div>
           </div>
         </section>
 
         {/* Vision */}
-        <section className="bg-obsidian px-6 sm:px-10 lg:px-16 py-20 md:py-28 relative overflow-hidden">
+        <section className="bg-obsidian py-20 md:py-28 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.04)_1px,transparent_0)] bg-[size:48px_48px] pointer-events-none" />
           <div className="absolute -top-24 right-1/4 w-[600px] h-[400px] rounded-full blur-[180px] pointer-events-none" style={{ background: "rgba(26,63,216,0.18)" }} />
-          <div className="relative z-10 max-w-[820px] mx-auto">
+          <div className={cn(siteContainerClass, "relative z-10")}>
+            <div className="max-w-[820px] mx-auto">
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-[#60A5FA] mb-4">
               Where We&rsquo;re Headed
             </span>
@@ -128,17 +132,19 @@ export default function AboutPage() {
                 Every CMS has performance gaps. Every content team needs real SEO visibility. Every
                 engineering team manages a fleet of sites they&rsquo;d rather not babysit. We&rsquo;re
                 building the infrastructure layer for all of them. The static delivery model, the SEO
-                operations console, the media pipeline — these tools are designed to travel. WordPress
+                operations console, the media pipeline, these tools are designed to travel. WordPress
                 is where we start because we know it inside out. The rest of the web is where
                 we&rsquo;re going.
               </p>
+            </div>
             </div>
           </div>
         </section>
 
         {/* Values */}
-        <section className="bg-[#F4F7FB] px-6 sm:px-10 lg:px-16 py-20 md:py-28">
-          <div className="max-w-[1100px] mx-auto">
+        <section className="bg-[#F4F7FB]  py-20 md:py-28">
+          <div className={siteContainerClass}>
+            <div className="max-w-[1100px] mx-auto">
             <div className="text-center max-w-[640px] mx-auto mb-14">
               <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4">What We Believe</span>
               <h2 className="text-[30px] md:text-[42px] font-extrabold text-obsidian leading-[1.1] tracking-[-0.035em]">
@@ -156,12 +162,14 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+            </div>
           </div>
         </section>
 
         {/* Products */}
-        <section className="px-6 sm:px-10 lg:px-16 py-20 md:py-28">
-          <div className="max-w-[1100px] mx-auto">
+        <section className=" py-20 md:py-28">
+          <div className={siteContainerClass}>
+            <div className="max-w-[1100px] mx-auto">
             <div className="max-w-[640px] mb-12">
               <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4">The Platform</span>
               <h2 className="text-[30px] md:text-[42px] font-extrabold text-obsidian leading-[1.1] tracking-[-0.035em] mb-4">
@@ -186,12 +194,14 @@ export default function AboutPage() {
                 </Link>
               ))}
             </div>
+            </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="bg-brand px-6 sm:px-10 lg:px-16 py-16 md:py-20 text-center">
-          <div className="max-w-[640px] mx-auto">
+        <section className="bg-brand  py-16 md:py-20 text-center">
+          <div className={siteContainerClass}>
+            <div className="max-w-[640px] mx-auto">
             <h2 className="text-[28px] md:text-[40px] font-extrabold text-white leading-[1.1] tracking-[-0.035em] mb-5">
               Your platform. At its best.
             </h2>
@@ -204,10 +214,9 @@ export default function AboutPage() {
                 Talk to us
               </Link>
             </div>
+            </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </MarketingLayout>
   );
 }

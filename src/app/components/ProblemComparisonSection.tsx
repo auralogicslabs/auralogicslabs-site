@@ -75,7 +75,7 @@ export function ProblemComparisonSection() {
   return (
     <section className="relative overflow-hidden bg-slate-50 px-6 py-24 lg:px-8">
       <div className="pointer-events-none absolute left-0 top-10 h-64 w-64 rounded-full bg-[#1A3FD8]/8 blur-3xl" />
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-site">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -10,14 +10,16 @@ import {
 } from "@/components/ui/accordion";
 import { Plus, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
 export function FAQ() {
   return (
-    <section id="faq" className="bg-white py-32 px-8 lg:px-24 border-t border-border relative overflow-hidden flex justify-center">
+    <section id="faq" className="bg-white py-32 border-t border-border relative overflow-hidden flex justify-center">
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
           
           {/* Left Column: Heading */}

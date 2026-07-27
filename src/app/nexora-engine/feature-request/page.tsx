@@ -1,9 +1,8 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { sendFeatureRequest } from "@/app/actions/email";
 import {
   Lightbulb, CheckCircle2, ArrowRight, ThumbsUp,
@@ -98,11 +97,8 @@ export default function FeatureRequestPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFF]">
-      <Header />
-
-      <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1600px] mx-auto">
+      <div className="pt-40 pb-32">
+        <div className={siteContainerClass}>
 
           {/* Hero */}
           <motion.div
@@ -269,9 +265,6 @@ export default function FeatureRequestPage() {
           </div>
 
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
   );
 }

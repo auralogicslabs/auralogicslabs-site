@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Zap, Stethoscope, ImageIcon, LayoutDashboard } from "lucide-react";
 import { motion } from "motion/react";
+import { siteContainerClass } from "@/lib/site-layout";
 
 const products = [
   { name: "Nexora Engine", href: "/products/nexora-engine", icon: Zap, status: "Live", accent: "#1A3FD8" },
@@ -13,8 +14,8 @@ const products = [
 
 export function CompanyIntro() {
   return (
-    <section className="relative bg-white border-b border-slate-100 px-6 py-10 lg:px-16">
-      <div className="w-full max-w-[1500px] mx-auto">
+    <section className="relative bg-white border-b border-slate-100 py-10">
+      <div className={siteContainerClass}>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +26,7 @@ export function CompanyIntro() {
           <p className="text-[15px] font-medium text-slate-600 max-w-[480px] leading-relaxed flex-shrink-0">
             Auralogics Labs makes the{" "}
             <span className="font-bold text-slate-900">Nexora suite</span>{" "}
-            — four focused WordPress tools for performance, SEO, media, and fleet control.
+           , four focused WordPress tools for performance, SEO, media, and fleet control.
             Built for teams who don&apos;t need a rebuild. They just need better infrastructure.
           </p>
 

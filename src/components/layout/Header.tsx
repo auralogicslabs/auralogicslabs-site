@@ -2,47 +2,131 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "motion/react";
-import { Menu, X, ArrowRight, ChevronDown, Zap, ImageIcon, Stethoscope, LayoutDashboard, ArrowUpRight } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import {
+  Menu,
+  X,
+  ArrowRight,
+  ChevronDown,
+  Zap,
+  ImageIcon,
+  Stethoscope,
+  LayoutDashboard,
+} from "lucide-react";
 import Link from "next/link";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
-const products = [
+type MegaLink = {
+  name: string;
+  description: string;
+  href: string;
+  badge?: string;
+};
+
+type MegaColumn = {
+  title: string;
+  items: MegaLink[];
+};
+
+const navLinks = [
+  { label: "Insights", href: "/insights" },
+  { label: "Docs", href: "/docs" },
+  { label: "Demo", href: "/nexora-engine/demo" },
+  { label: "Downloads", href: "/downloads" },
+  { label: "Support", href: "/support" },
+];
+
+const productColumns: MegaColumn[] = [
   {
-    name: "Nexora Engine",
-    tagline: "22ms WordPress. No rebuild, no headless.",
-    href: "/products/nexora-engine",
-    icon: Zap,
-    status: "Live",
-    statusColor: "text-emerald-400",
-    accent: "#1A3FD8",
+    title: "Deliver",
+    items: [
+      {
+        name: "Nexora Engine",
+        description: "Static-speed WordPress. No rebuild, no headless.",
+        href: "/products/nexora-engine",
+        badge: "Live",
+      },
+      {
+        name: "Live Demo",
+        description: "See 22ms delivery on a real WordPress stack.",
+        href: "/nexora-engine/demo",
+      },
+    ],
   },
   {
-    name: "Nexora Media",
-    tagline: "Auto AVIF/WebP. Up to 70% smaller images.",
-    href: "/products/nexora-media",
-    icon: ImageIcon,
-    status: "Live",
-    statusColor: "text-emerald-400",
-    accent: "#059669",
+    title: "Optimize",
+    items: [
+      {
+        name: "Nexora Media",
+        description: "Auto AVIF/WebP. Up to 70% smaller images.",
+        href: "/products/nexora-media",
+        badge: "Live",
+      },
+      {
+        name: "Nexora Pulse",
+        description: "Free SEO console with real Google verdicts.",
+        href: "/products/nexora-pulse",
+        badge: "Free",
+      },
+    ],
   },
   {
-    name: "Nexora Pulse",
-    tagline: "Free SEO console with real Google verdicts.",
-    href: "/products/nexora-pulse",
-    icon: Stethoscope,
-    status: "Live",
-    statusColor: "text-emerald-400",
-    accent: "#13716A",
+    title: "Manage & scale",
+    items: [
+      {
+        name: "Auralogics Portal",
+        description: "One dashboard for your entire WordPress fleet.",
+        href: "/portal",
+        badge: "Live",
+      },
+      {
+        name: "All products",
+        description: "Compare the full Nexora suite in one view.",
+        href: "/products",
+      },
+    ],
+  },
+];
+
+const companyColumns: MegaColumn[] = [
+  {
+    title: "Company",
+    items: [
+      {
+        name: "About Us",
+        description: "Who we are and why we build the Nexora suite.",
+        href: "/about",
+      },
+      {
+        name: "Careers",
+        description: "Help us build the next generation of WordPress tooling.",
+        href: "/careers",
+      },
+    ],
   },
   {
-    name: "Auralogics Portal",
-    tagline: "One dashboard for your entire WP fleet",
-    href: "/portal",
-    icon: LayoutDashboard,
-    status: "Live",
-    statusColor: "text-emerald-400",
-    accent: "#7C3AED",
+    title: "Connect",
+    items: [
+      {
+        name: "Contact",
+        description: "Talk to our team about products or partnerships.",
+        href: "/contact",
+      },
+      {
+        name: "Insights",
+        description: "Engineering notes on WordPress performance and SEO.",
+        href: "/insights",
+      },
+    ],
   },
+];
+
+const mobileProducts = [
+  { name: "Nexora Engine", tagline: "Static-speed WordPress", href: "/products/nexora-engine", icon: Zap, accent: "#1A3FD8" },
+  { name: "Nexora Media", tagline: "Auto AVIF/WebP images", href: "/products/nexora-media", icon: ImageIcon, accent: "#059669" },
+  { name: "Nexora Pulse", tagline: "Free SEO console", href: "/products/nexora-pulse", icon: Stethoscope, accent: "#13716A" },
+  { name: "Auralogics Portal", tagline: "Fleet dashboard", href: "/portal", icon: LayoutDashboard, accent: "#7C3AED" },
 ];
 
 function ScrollProgressBar() {
@@ -62,81 +146,140 @@ function ScrollProgressBar() {
   );
 }
 
-function ProductsDropdown({ open, dark }: { open: boolean; dark: boolean }) {
+function MegaBadge({ label }: { label: string }) {
+  const isFree = label.toLowerCase() === "free";
+  return (
+    <span
+      className={cn(
+        "rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide",
+        isFree ? "bg-emerald-500/10 text-emerald-700" : "bg-brand/10 text-brand"
+      )}
+    >
+      {label}
+    </span>
+  );
+}
+
+function MegaLinkItem({ item }: { item: MegaLink }) {
+  return (
+    <Link
+      href={item.href}
+      className="group block rounded-lg py-3 pr-2 transition-colors hover:bg-surface-soft/80"
+    >
+      <div className="flex items-center gap-2">
+        <span className="text-[15px] font-semibold text-obsidian group-hover:text-brand transition-colors">
+          {item.name}
+        </span>
+        {item.badge && <MegaBadge label={item.badge} />}
+      </div>
+      <p className="mt-1 text-[13px] leading-snug text-text-muted font-medium">{item.description}</p>
+    </Link>
+  );
+}
+
+function MegaColumns({ columns }: { columns: MegaColumn[] }) {
+  return (
+    <div className={cn("grid gap-8", columns.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2")}>
+      {columns.map((col) => (
+        <div key={col.title}>
+          <h4 className="mb-1 text-[13px] font-semibold text-text-muted">{col.title}</h4>
+          <div className="flex flex-col">
+            {col.items.map((item) => (
+              <MegaLinkItem key={item.name} item={item} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function MegaMenuSidebar({
+  eyebrow,
+  title,
+  description,
+  ctaLabel,
+  ctaHref,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref: string;
+}) {
+  return (
+    <div className="flex flex-col border-border md:border-r md:pr-10 lg:pr-12">
+      <span className="text-[12px] font-semibold text-text-muted">{eyebrow}</span>
+      <h3 className="mt-2 text-[22px] font-bold tracking-[-0.02em] text-obsidian leading-tight">{title}</h3>
+      <p className="mt-3 text-[14px] leading-relaxed text-text-secondary font-medium">{description}</p>
+      <Link
+        href={ctaHref}
+        className="mt-6 inline-flex w-fit items-center justify-center rounded-lg bg-obsidian px-5 py-2.5 text-[14px] font-bold text-white transition-colors hover:bg-obsidian/90"
+      >
+        {ctaLabel}
+      </Link>
+    </div>
+  );
+}
+
+function MegaMenuFeatured({
+  icon: Icon,
+  title,
+  description,
+  href,
+  accent,
+}: {
+  icon: typeof Zap;
+  title: string;
+  description: string;
+  href: string;
+  accent: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group flex items-start gap-4 rounded-xl border border-border bg-surface-soft/40 p-4 transition-all hover:border-border hover:bg-white hover:shadow-[0_8px_30px_rgba(2,6,23,0.06)]"
+    >
+      <div
+        className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg"
+        style={{ background: `${accent}14`, border: `1px solid ${accent}28` }}
+      >
+        <Icon className="h-5 w-5" style={{ color: accent }} />
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="text-[15px] font-bold text-obsidian group-hover:text-brand transition-colors">{title}</p>
+        <p className="mt-0.5 text-[13px] text-text-muted font-medium leading-snug">{description}</p>
+      </div>
+      <ArrowRight className="mt-1 h-4 w-4 flex-shrink-0 text-text-muted opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100 group-hover:text-brand" />
+    </Link>
+  );
+}
+
+function MegaMenuPanel({
+  open,
+  onMouseEnter,
+  onMouseLeave,
+  children,
+}: {
+  open: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  children: React.ReactNode;
+}) {
   return (
     <AnimatePresence>
       {open && (
         <motion.div
-          initial={{ opacity: 0, y: 12, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 8, scale: 0.97 }}
-          transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[480px] z-50"
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed left-0 right-0 top-[68px] z-50 pointer-events-auto"
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         >
-          {/* Arrow tip */}
-          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-white border-l border-t border-border z-10" />
-
-          <div className="relative bg-white rounded-[24px] border border-border shadow-[0_32px_80px_rgba(2,6,23,0.16),0_8px_24px_rgba(2,6,23,0.08)] overflow-hidden">
-            {/* Header strip */}
-            <div className="px-6 pt-5 pb-3 border-b border-border/60">
-              <span className="text-[10px] font-black uppercase tracking-[0.35em] text-text-muted">Product Suite</span>
-            </div>
-
-            {/* Product rows */}
-            <div className="p-3">
-              {products.map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <motion.div
-                    key={p.name}
-                    initial={{ opacity: 0, x: -8 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.18, delay: i * 0.04 }}
-                  >
-                    <Link
-                      href={p.href}
-                      className="flex items-center gap-4 px-4 py-3.5 rounded-[14px] hover:bg-surface-soft transition-all duration-200 group"
-                    >
-                      <div
-                        className="h-10 w-10 rounded-[12px] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
-                        style={{
-                          background: `${p.accent}12`,
-                          border: `1.5px solid ${p.accent}25`,
-                        }}
-                      >
-                        <Icon className="h-4 w-4" style={{ color: p.accent }} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <span className="text-[14px] font-bold text-obsidian tracking-tight">{p.name}</span>
-                        </div>
-                        <span className="text-[12px] text-text-muted font-medium">{p.tagline}</span>
-                      </div>
-                      <div className="flex-shrink-0">
-                        <ArrowUpRight
-                          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
-                          style={{ color: p.accent }}
-                        />
-                      </div>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Footer strip */}
-            <div className="px-6 py-3 bg-surface-soft/60 border-t border-border/60 flex items-center justify-between">
-              <span className="text-[10px] text-text-muted font-bold uppercase tracking-[0.2em]">
-                Auralogics Labs
-              </span>
-              <Link
-                href="/products"
-                className="text-[11px] font-bold text-brand hover:text-obsidian transition-colors flex items-center gap-1 group"
-              >
-                All products
-                <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            </div>
+          <div className="border-b border-border bg-white shadow-[0_20px_60px_rgba(2,6,23,0.10)]">
+            <div className={cn(siteContainerClass, "py-8 lg:py-10")}>{children}</div>
           </div>
         </motion.div>
       )}
@@ -144,12 +287,104 @@ function ProductsDropdown({ open, dark }: { open: boolean; dark: boolean }) {
   );
 }
 
+function ProductsMegaMenu({
+  open,
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  open: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  return (
+    <MegaMenuPanel open={open} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <div className="grid gap-10 lg:grid-cols-[minmax(240px,280px)_1fr] lg:gap-12">
+        <MegaMenuSidebar
+          eyebrow="Nexora Suite"
+          title="Everything for faster WordPress"
+          description="Performance delivery, SEO diagnostics, media optimization, and fleet control, drop-in plugins with no rebuild."
+          ctaLabel="Get started free"
+          ctaHref="/docs/nexora-engine/getting-started"
+        />
+        <MegaColumns columns={productColumns} />
+      </div>
+      <div className="mt-8 border-t border-border pt-6">
+        <MegaMenuFeatured
+          icon={Zap}
+          title="Start with Nexora Engine"
+          description="Install in minutes. Static-speed delivery with WooCommerce-safe caching and Ghost Protocol security."
+          href="/products/nexora-engine"
+          accent="#1A3FD8"
+        />
+      </div>
+    </MegaMenuPanel>
+  );
+}
+
+function CompanyMegaMenu({
+  open,
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  open: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  return (
+    <MegaMenuPanel open={open} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <div className="grid gap-10 lg:grid-cols-[minmax(240px,280px)_1fr] lg:gap-12">
+        <MegaMenuSidebar
+          eyebrow="Auralogics Labs"
+          title="Infrastructure intelligence for WordPress"
+          description="We build focused tools that close the gap between how your platform performs today and how it should."
+          ctaLabel="Contact us"
+          ctaHref="/contact"
+        />
+        <MegaColumns columns={companyColumns} />
+      </div>
+    </MegaMenuPanel>
+  );
+}
+
+function NavTrigger({
+  label,
+  href,
+  open,
+  isDark,
+  onMouseEnter,
+}: {
+  label: string;
+  href: string;
+  open: boolean;
+  isDark: boolean;
+  onMouseEnter: () => void;
+}) {
+  return (
+    <div className="relative" onMouseEnter={onMouseEnter}>
+      <Link
+        href={href}
+        className={cn(
+          "relative flex items-center gap-1.5 px-3.5 py-2.5 rounded-full text-[14.5px] font-semibold tracking-[-0.01em] transition-all duration-200",
+          isDark ? "text-white/85 hover:text-white hover:bg-white/8" : "text-obsidian/75 hover:text-obsidian hover:bg-surface-soft"
+        )}
+      >
+        {label}
+        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
+          <ChevronDown className="opacity-50" style={{ width: 16, height: 16 }} />
+        </motion.div>
+      </Link>
+    </div>
+  );
+}
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const productsRef = useRef<HTMLDivElement>(null);
+  const [companyOpen, setCompanyOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
@@ -159,8 +394,10 @@ export function Header() {
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (productsRef.current && !productsRef.current.contains(e.target as Node))
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setProductsOpen(false);
+        setCompanyOpen(false);
+      }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -168,147 +405,121 @@ export function Header() {
 
   const pathname = usePathname();
   const hasDarkHero = pathname === "/";
-  const isDark = hasDarkHero && !scrolled;
+  const menuOpen = productsOpen || companyOpen;
+  const showSolidHeader = scrolled || menuOpen;
+  const isDark = hasDarkHero && !showSolidHeader;
+
+  const closeMenus = () => {
+    setProductsOpen(false);
+    setCompanyOpen(false);
+  };
+
+  const openProducts = () => {
+    setCompanyOpen(false);
+    setProductsOpen(true);
+  };
+
+  const openCompany = () => {
+    setProductsOpen(false);
+    setCompanyOpen(true);
+  };
 
   return (
     <>
       <ScrollProgressBar />
-      <header className="fixed top-0 z-50 w-full pointer-events-none">
-        {/* Full-width background bar. appears on scroll, spans edge to edge */}
+      <header ref={headerRef} className="fixed top-0 z-50 w-full pointer-events-none">
         <motion.div
           initial={false}
           animate={{
-            backgroundColor: scrolled ? "rgba(255,255,255,0.97)" : "rgba(0,0,0,0)",
-            borderColor: scrolled ? "rgba(226,232,240,1)" : "rgba(0,0,0,0)",
-            boxShadow: scrolled
-              ? "0 4px 6px rgba(2,6,23,0.04), 0 8px 30px rgba(2,6,23,0.07)"
-              : "none",
+            backgroundColor: showSolidHeader ? "rgba(255,255,255,0.98)" : "rgba(0,0,0,0)",
+            borderColor: showSolidHeader ? "rgba(226,232,240,1)" : "rgba(0,0,0,0)",
+            boxShadow: showSolidHeader ? "0 4px 6px rgba(2,6,23,0.04), 0 8px 30px rgba(2,6,23,0.07)" : "none",
           }}
           transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
           className="absolute inset-0 border-b backdrop-blur-2xl"
         />
 
-        {/* Content. stays aligned to the body container */}
-        <div className="relative w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pointer-events-auto">
-          <div className="flex h-[76px] items-center justify-between">
-
-            {/* ── Logo ── */}
-            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+        <div className={cn(siteContainerClass, "relative pointer-events-auto")}>
+          <div className="flex h-[76px] items-center justify-between gap-4">
+            <Link href="/" className="flex flex-shrink-0 items-center gap-2.5 group">
               <motion.img
                 src="/auralogicslabs.svg"
                 alt="Auralogics Labs"
-                className={`h-10 w-auto transition-all duration-300 ${isDark ? "brightness-0 invert" : ""}`}
+                className={cn("h-10 w-auto transition-all duration-300", isDark && "brightness-0 invert")}
                 whileHover={{ scale: 1.04 }}
                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
               />
             </Link>
 
-            {/* ── Desktop nav ── */}
-            <nav className="hidden md:flex items-center gap-1">
-              {/* Products dropdown trigger */}
-              <div
-                ref={productsRef}
-                className="relative"
-                onMouseEnter={() => setProductsOpen(true)}
-                onMouseLeave={() => setProductsOpen(false)}
-              >
-                <Link
-                  href="/products"
-                  className={`relative flex items-center gap-2 px-4 py-2.5 rounded-full text-[15px] font-semibold tracking-[-0.01em] transition-all duration-200 ${
-                    isDark
-                      ? "text-white/85 hover:text-white hover:bg-white/8"
-                      : "text-obsidian/75 hover:text-obsidian hover:bg-surface-soft"
-                  }`}
-                >
-                  Products
-                  <motion.div
-                    animate={{ rotate: productsOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                  >
-                    <ChevronDown className="h-4.5 w-4.5 opacity-50" style={{ width: 18, height: 18 }} />
-                  </motion.div>
-                </Link>
-                <ProductsDropdown open={productsOpen} dark={isDark} />
-              </div>
+            <nav className="hidden lg:flex items-center gap-0.5">
+              <NavTrigger
+                label="Products"
+                href="/products"
+                open={productsOpen}
+                isDark={isDark}
+                onMouseEnter={openProducts}
+              />
+              <NavTrigger
+                label="Company"
+                href="/about"
+                open={companyOpen}
+                isDark={isDark}
+                onMouseEnter={openCompany}
+              />
 
-              {[
-                { label: "Insights", href: "/insights" },
-                { label: "Docs", href: "/nexora-engine/docs" },
-                { label: "Demo", href: "/nexora-engine/demo" },
-              ].map((item) => (
-                <a
+              {navLinks.map((item) => (
+                <Link
                   key={item.label}
                   href={item.href}
-                  className={`px-4 py-2.5 rounded-full text-[15px] font-semibold tracking-[-0.01em] transition-all duration-200 ${
-                    isDark
-                      ? "text-white/85 hover:text-white hover:bg-white/8"
-                      : "text-obsidian/75 hover:text-obsidian hover:bg-surface-soft"
-                  }`}
+                  onMouseEnter={closeMenus}
+                  className={cn(
+                    "px-3.5 py-2.5 rounded-full text-[14.5px] font-semibold tracking-[-0.01em] transition-all duration-200",
+                    isDark ? "text-white/85 hover:text-white hover:bg-white/8" : "text-obsidian/75 hover:text-obsidian hover:bg-surface-soft"
+                  )}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
-            {/* ── CTAs ── */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2 flex-shrink-0">
               <Link
                 href="/portal"
-                className={`px-4 py-2.5 rounded-full text-[14.5px] font-semibold tracking-[-0.01em] transition-all duration-200 ${
-                  isDark
-                    ? "text-white/60 hover:text-white hover:bg-white/8"
-                    : "text-obsidian/60 hover:text-obsidian hover:bg-surface-soft"
-                }`}
+                onMouseEnter={closeMenus}
+                className={cn(
+                  "px-4 py-2.5 rounded-full text-[14px] font-semibold tracking-[-0.01em] transition-all duration-200",
+                  isDark ? "text-white/60 hover:text-white hover:bg-white/8" : "text-obsidian/60 hover:text-obsidian hover:bg-surface-soft"
+                )}
               >
                 Sign In
               </Link>
-
               <Link
-                href="/nexora-engine/docs/getting-started"
-                className="group relative flex items-center gap-2 px-6 py-2.5 rounded-full text-[14.5px] font-bold tracking-[-0.01em] text-white transition-all duration-200 overflow-hidden"
-                style={{
-                  background: "#1A3FD8",
-                  boxShadow: "0 6px 18px rgba(26,63,216,0.4)",
-                }}
+                href="/docs/nexora-engine/getting-started"
+                onMouseEnter={closeMenus}
+                className="group relative flex items-center gap-2 overflow-hidden rounded-full px-5 py-2.5 text-[14px] font-bold tracking-[-0.01em] text-white transition-all duration-200"
+                style={{ background: "#1A3FD8", boxShadow: "0 6px 18px rgba(26,63,216,0.4)" }}
               >
                 <span className="relative z-10">Get Started</span>
-                <ArrowRight className="h-4 w-4 relative z-10 group-hover:translate-x-0.5 transition-transform duration-200" />
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "#1535B8" }}
-                />
+                <ArrowRight className="relative z-10 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: "#1535B8" }} />
               </Link>
             </div>
 
-            {/* ── Mobile hamburger ── */}
             <button
-              className={`md:hidden p-2 rounded-[10px] transition-all duration-200 ${
-                isDark
-                  ? "text-white hover:bg-white/10"
-                  : "text-obsidian hover:bg-surface-soft"
-              }`}
+              className={cn(
+                "md:hidden p-2 rounded-[10px] transition-all duration-200",
+                isDark ? "text-white hover:bg-white/10" : "text-obsidian hover:bg-surface-soft"
+              )}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {mobileOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
+                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
                     <X size={20} />
                   </motion.div>
                 ) : (
-                  <motion.div
-                    key="open"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
+                  <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
                     <Menu size={20} />
                   </motion.div>
                 )}
@@ -316,7 +527,6 @@ export function Header() {
             </button>
           </div>
 
-          {/* ── Mobile drawer ── */}
           <AnimatePresence>
             {mobileOpen && (
               <motion.div
@@ -324,91 +534,68 @@ export function Header() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -8, scale: 0.98 }}
                 transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                className="mt-2 rounded-[20px] bg-white border border-border shadow-[0_24px_60px_rgba(2,6,23,0.14)] overflow-hidden"
+                className="mt-2 overflow-hidden rounded-[20px] border border-border bg-white shadow-[0_24px_60px_rgba(2,6,23,0.14)] md:mb-3"
               >
                 <nav className="flex flex-col gap-0.5 p-3">
-                  {/* Products accordion */}
-                  <button
-                    className="flex items-center justify-between text-[15px] font-bold text-obsidian px-4 py-3 rounded-[12px] hover:bg-surface-soft transition-colors"
-                    onClick={() => setMobileProductsOpen((v) => !v)}
-                  >
-                    Products
-                    <motion.div
-                      animate={{ rotate: mobileProductsOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <ChevronDown className="h-4 w-4 text-text-muted" />
-                    </motion.div>
-                  </button>
+                  <MobileAccordion label="Products" open={mobileProductsOpen} onToggle={() => setMobileProductsOpen((v) => !v)}>
+                    {mobileProducts.map((p) => {
+                      const Icon = p.icon;
+                      return (
+                        <Link
+                          key={p.name}
+                          href={p.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center gap-3 rounded-[10px] px-3 py-2.5 transition-colors hover:bg-surface-soft"
+                        >
+                          <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-[10px]" style={{ background: `${p.accent}12`, border: `1px solid ${p.accent}20` }}>
+                            <Icon className="h-3.5 w-3.5" style={{ color: p.accent }} />
+                          </div>
+                          <div>
+                            <div className="text-[14px] font-bold text-obsidian">{p.name}</div>
+                            <div className="text-[11px] font-medium text-text-muted">{p.tagline}</div>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </MobileAccordion>
 
-                  <AnimatePresence>
-                    {mobileProductsOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2, ease: "easeInOut" }}
-                        className="overflow-hidden"
+                  <MobileAccordion label="Company" open={mobileCompanyOpen} onToggle={() => setMobileCompanyOpen((v) => !v)}>
+                    {[...companyColumns.flatMap((c) => c.items)].map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block rounded-[10px] px-3 py-2.5 transition-colors hover:bg-surface-soft"
                       >
-                        <div className="ml-2 pl-4 border-l-2 border-border mb-1 flex flex-col gap-0.5">
-                          {products.map((p) => {
-                            const Icon = p.icon;
-                            return (
-                              <Link
-                                key={p.name}
-                                href={p.href}
-                                onClick={() => setMobileOpen(false)}
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-[10px] hover:bg-surface-soft transition-colors group"
-                              >
-                                <div
-                                  className="h-8 w-8 rounded-[10px] flex items-center justify-center flex-shrink-0"
-                                  style={{ background: `${p.accent}12`, border: `1px solid ${p.accent}20` }}
-                                >
-                                  <Icon className="h-3.5 w-3.5" style={{ color: p.accent }} />
-                                </div>
-                                <div>
-                                  <div className="text-[14px] font-bold text-obsidian">{p.name}</div>
-                                  <div className="text-[11px] text-text-muted font-medium">{p.tagline}</div>
-                                </div>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        <div className="text-[14px] font-bold text-obsidian">{item.name}</div>
+                        <div className="text-[11px] font-medium text-text-muted">{item.description}</div>
+                      </Link>
+                    ))}
+                  </MobileAccordion>
 
-                  {[
-                    { label: "Insights", href: "/insights" },
-                    { label: "Docs", href: "/nexora-engine/docs" },
-                    { label: "Demo", href: "/nexora-engine/demo" },
-                  ].map((item) => (
-                    <a
+                  {navLinks.map((item) => (
+                    <Link
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="text-[15px] font-bold text-obsidian px-4 py-3 rounded-[12px] hover:bg-surface-soft transition-colors"
+                      className="rounded-[12px] px-4 py-3 text-[15px] font-bold text-obsidian transition-colors hover:bg-surface-soft"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   ))}
 
-                  <div className="p-2 pt-3 mt-1 border-t border-border flex flex-col gap-2">
-                    <Link
-                      href="/portal"
-                      onClick={() => setMobileOpen(false)}
-                      className="w-full rounded-[12px] border border-border py-3 text-center text-[15px] font-bold text-obsidian hover:bg-surface-soft transition-colors"
-                    >
+                  <div className="mt-1 flex flex-col gap-2 border-t border-border p-2 pt-3">
+                    <Link href="/portal" onClick={() => setMobileOpen(false)} className="w-full rounded-[12px] border border-border py-3 text-center text-[15px] font-bold text-obsidian transition-colors hover:bg-surface-soft">
                       Sign In
                     </Link>
                     <Link
-                      href="/nexora-engine/docs/getting-started"
+                      href="/docs/nexora-engine/getting-started"
                       onClick={() => setMobileOpen(false)}
-                      className="w-full rounded-[12px] py-3 text-center text-[15px] font-black text-white flex items-center justify-center gap-2 group transition-colors duration-300"
+                      className="group flex w-full items-center justify-center gap-2 rounded-[12px] py-3 text-center text-[15px] font-black text-white transition-colors duration-300"
                       style={{ background: "#1A3FD8", boxShadow: "0 4px 16px rgba(26,63,216,0.4)" }}
                     >
                       Get Started Free
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   </div>
                 </nav>
@@ -416,7 +603,58 @@ export function Header() {
             )}
           </AnimatePresence>
         </div>
+
+        <ProductsMegaMenu
+          open={productsOpen}
+          onMouseEnter={openProducts}
+          onMouseLeave={() => setProductsOpen(false)}
+        />
+        <CompanyMegaMenu
+          open={companyOpen}
+          onMouseEnter={openCompany}
+          onMouseLeave={() => setCompanyOpen(false)}
+        />
       </header>
+    </>
+  );
+}
+
+function MobileAccordion({
+  label,
+  open,
+  onToggle,
+  children,
+}: {
+  label: string;
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      <button
+        type="button"
+        className="flex items-center justify-between rounded-[12px] px-4 py-3 text-[15px] font-bold text-obsidian transition-colors hover:bg-surface-soft"
+        onClick={onToggle}
+      >
+        {label}
+        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <ChevronDown className="h-4 w-4 text-text-muted" />
+        </motion.div>
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="mb-1 ml-2 flex flex-col gap-0.5 border-l-2 border-border pl-4">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

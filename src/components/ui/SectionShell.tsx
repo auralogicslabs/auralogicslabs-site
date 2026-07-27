@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/app/components/ui/utils";
+import { siteContainerClass } from "@/lib/site-layout";
 
 export type SectionTone = "white" | "soft" | "dark" | "brand" | "ink";
 
@@ -36,7 +37,7 @@ export function FullWidthSection({
     <section id={id} className={cn("relative w-full", toneStyles[tone], className)}>
       <div
         className={cn(
-          "w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16",
+          siteContainerClass,
           compact ? "py-16 md:py-20" : "py-20 md:py-28 lg:py-32",
           innerClassName
         )}

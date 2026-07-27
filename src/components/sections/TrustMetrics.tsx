@@ -1,4 +1,5 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
 
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -48,8 +49,8 @@ export function TrustMetrics() {
   }, []);
 
   return (
-    <section ref={ref} className="relative bg-obsidian pt-10 pb-16 px-8 lg:px-24">
-      <div className="w-full max-w-[1600px] mx-auto">
+    <section ref={ref} className="relative bg-obsidian pt-10 pb-16">
+      <div className={siteContainerClass}>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-white/8">
           {stats.map((s, i) => (
             <motion.div

@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Zap, Shield, Globe, TrendingUp, Gauge, Layers } from "lucide-react";
@@ -29,7 +31,7 @@ export function BrandPromise() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-white to-slate-50 overflow-hidden py-24 md:py-40 px-8 lg:px-24">
+    <section className="relative bg-gradient-to-b from-white to-slate-50 overflow-hidden py-24 md:py-40">
       {/* Enhanced background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-brand/5 blur-[180px] rounded-full" />
@@ -37,7 +39,7 @@ export function BrandPromise() {
         <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-emerald-500/4 blur-[150px] rounded-full" />
       </div>
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}

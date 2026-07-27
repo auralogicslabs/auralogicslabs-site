@@ -24,7 +24,7 @@ function FreeTrialBanner() {
       const data = await res.json().catch(() => ({}));
       if (res.ok && data?.success) {
         setStatus("success");
-        setMessage("Thanks! Check your inbox. We'll be in touch shortly.");
+        setMessage("Thanks! We'll send your download links shortly.");
         setEmail("");
       } else {
         setStatus("error");
@@ -46,10 +46,10 @@ function FreeTrialBanner() {
         {/* Left. heading */}
         <div className="flex-shrink-0 lg:max-w-[360px]">
           <h3 className="text-[28px] md:text-[34px] font-extrabold text-white leading-[1.05] tracking-[-0.03em] mb-2.5">
-            Start your 14-day free trial
+            Start with the free plugins
           </h3>
           <p className="text-[15px] text-white/55 font-medium leading-relaxed">
-            Full platform access on your own site. No credit card. No commitment. See the speed difference for yourself.
+            Install on your own site in minutes, no account and no time limit. Turn on Pro in place only when you need more.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ function FreeTrialBanner() {
                 disabled={status === "loading"}
                 className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-brand px-6 py-3.5 text-[14px] font-bold text-white hover:bg-brand-bright transition-colors whitespace-nowrap disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {status === "loading" ? "Submitting…" : "Start a Free Trial"}
+                {status === "loading" ? "Submitting…" : "Email me the links"}
                 {status !== "loading" && <ArrowUpRight className="h-4 w-4" />}
               </button>
             </form>
@@ -95,7 +95,7 @@ function FreeTrialBanner() {
 
           {status !== "success" && (
             <div className="flex flex-wrap items-center gap-x-7 gap-y-2 mt-4 pl-1">
-              {["14 days free trial", "Cancel any time", "No card required"].map((t) => (
+              {["Free & GPL core", "No credit card", "Upgrade in place anytime"].map((t) => (
                 <span key={t} className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-white/55">
                   <Check className="h-3.5 w-3.5 text-emerald-400" strokeWidth={3} />
                   {t}
@@ -130,7 +130,7 @@ export function FinalCTA() {
             Your site could be running at static speed today.
           </h2>
           <p className="text-[17px] text-white/65 leading-relaxed mb-10 font-medium max-w-[460px] mx-auto">
-            Install a plugin. Flip a toggle. Every page loads before PHP even boots. No rebuild, no migration, no new workflow to learn.
+            Install a plugin. Flip a toggle. Every page loads before PHP even boots.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

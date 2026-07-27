@@ -1,6 +1,7 @@
-﻿import type { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import type { Metadata } from "next";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
+import { MarketingLayout } from "@/components/layout/MarketingLayout";
 import { ContactForm } from "./ContactForm";
 import { Mail, MessageSquare, LifeBuoy, Building2 } from "lucide-react";
 
@@ -43,14 +44,13 @@ const channels = [
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
+    <MarketingLayout className="bg-white">
         {/* Header band. light, matches header */}
-        <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-16 md:pt-44 md:pb-20 px-6 sm:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#F4F7FB] border-b border-border pt-36 pb-16 md:pt-44 md:pb-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#CBD5E1_1px,transparent_0)] bg-[size:48px_48px] opacity-30 pointer-events-none" />
           <div className="absolute -top-24 left-1/3 w-[600px] h-[400px] rounded-full blur-[180px] pointer-events-none" style={{ background: "rgba(26,63,216,0.08)" }} />
-          <div className="relative z-10 max-w-[860px] mx-auto">
+          <div className={cn(siteContainerClass, "relative z-10")}>
+            <div className="max-w-[860px]">
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.3em] text-brand mb-4">
               Contact
             </span>
@@ -61,12 +61,13 @@ export default function ContactPage() {
               Whether you&apos;re evaluating the platform, need a hand with a product, or just have a
               question, we&apos;d love to hear from you. We typically reply within one business day.
             </p>
+            </div>
           </div>
         </section>
 
         {/* Body */}
-        <section className="px-6 sm:px-10 lg:px-16 py-16 md:py-24">
-          <div className="max-w-[1100px] mx-auto grid lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-16">
+        <section className="py-16 md:py-24">
+          <div className={cn(siteContainerClass, "grid lg:grid-cols-[1fr_1.3fr] gap-10 lg:gap-16")}>
             {/* Left. channels */}
             <div>
               <h2 className="text-[22px] font-extrabold text-obsidian mb-2">Other ways to reach us</h2>
@@ -108,8 +109,6 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </MarketingLayout>
   );
 }

@@ -3,18 +3,21 @@
 import { motion } from "motion/react";
 import { Download, ArrowRight, Stethoscope } from "lucide-react";
 import Link from "next/link";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
 const TEAL = "#13716A";
 
 export function PulseFinalCTA() {
   return (
-    <section className="relative py-32 px-8 lg:px-24 overflow-hidden" style={{ background: "linear-gradient(135deg, #0E4D4D 0%, #13716A 100%)" }}>
+    <section className="relative py-32 overflow-hidden" style={{ background: "linear-gradient(135deg, #0E4D4D 0%, #13716A 100%)" }}>
       {/* Atmosphere */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px]" style={{ background: "rgba(249,115,22,0.18)", transform: "translate(120px,-120px)" }} />
       <div className="absolute bottom-0 left-0 w-[360px] h-[360px] rounded-full blur-[120px]" style={{ background: "rgba(31,142,132,0.3)", transform: "translate(-100px,100px)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#ffffff_1px,transparent_0)] bg-[size:40px_40px] opacity-[0.04] pointer-events-none" />
 
-      <div className="w-full max-w-[820px] mx-auto relative z-10 text-center">
+      <div className={cn(siteContainerClass, "relative z-10 text-center")}>
+        <div className="max-w-[820px] mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -71,6 +74,7 @@ export function PulseFinalCTA() {
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -73,7 +73,7 @@ export function CookieBanner() {
           <div className="flex-1 min-w-0 mb-5 sm:mb-0">
             <p className="text-[14px] font-semibold text-white leading-relaxed">
               We use cookies to measure site performance and improve your experience.
-              Analytics cookies are optional — necessary cookies keep the site working.{" "}
+              Analytics cookies are optional, necessary cookies keep the site working.{" "}
               <Link
                 href="/cookies"
                 className="text-brand-soft underline underline-offset-2 hover:text-white transition-colors"

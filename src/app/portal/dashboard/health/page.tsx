@@ -144,7 +144,7 @@ export default function HealthPage() {
                       )}
                       <div className="text-center">
                         <div className="text-[13px] font-bold text-obsidian">
-                          {site.pluginVersion === 'Not Detected' ? '—' : `v${site.pluginVersion}`}
+                          {site.pluginVersion === 'Not Detected' ? '-' : `v${site.pluginVersion}`}
                         </div>
                         <div className="text-[10px] font-bold text-text-muted uppercase tracking-widest">Plugin</div>
                       </div>

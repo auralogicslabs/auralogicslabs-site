@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
 import { Cpu, Shield, Zap, RefreshCcw, Lock, Search, Activity, Layers, Terminal, Database, Code2 } from "lucide-react";
@@ -36,11 +38,11 @@ const methodology = [
 
 export function MethodologyDetail() {
   return (
-    <section id="methodology" className="bg-[#F8FAFF] py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+    <section id="methodology" className="bg-[#F8FAFF] py-32 border-y border-border relative overflow-hidden">
       {/* Background Architectural Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-10 pointer-events-none" />
       
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <div className="grid lg:grid-cols-2 gap-24 items-start">
           
           {/* Left: The Narrative */}

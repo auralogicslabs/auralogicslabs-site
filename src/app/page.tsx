@@ -1,14 +1,14 @@
-﻿import { Header } from '@/components/layout/Header';
+import { MarketingLayout } from '@/components/layout/MarketingLayout';
 import { Hero } from '@/components/sections/Hero';
-import { ProblemComparison } from '@/components/sections/ProblemComparison';
-import { PlatformShowcase } from '@/components/sections/PlatformShowcase';
-import { PlatformFeatures } from '@/components/sections/PlatformFeatures';
-import { FeatureTeaser } from '@/components/sections/FeatureTeaser';
-import { TrustSection } from '@/components/sections/TrustSection';
+import { SuiteShowcase } from '@/components/sections/home/SuiteShowcase';
+import { HouseAdvantage } from '@/components/sections/home/HouseAdvantage';
+import { PlatformStack } from '@/components/sections/home/PlatformStack';
+import { WhyItMatters } from '@/components/sections/home/WhyItMatters';
+import { WorksWith } from '@/components/sections/home/WorksWith';
+import { SuiteComparison } from '@/components/sections/home/SuiteComparison';
+import { CorporateShowcase } from '@/components/sections/CorporateShowcase';
 import { BlogPreview } from '@/components/sections/BlogPreview';
 import { FinalCTA } from '@/components/sections/FinalCTA';
-import { Footer } from '@/components/layout/Footer';
-import { CompanyIntro } from '@/components/sections/CompanyIntro';
 import { getFeaturedPost, getRecentPosts } from '@/data/blog';
 
 export default function Home() {
@@ -16,29 +16,27 @@ export default function Home() {
   const posts = getRecentPosts(4);
 
   return (
-    <div className="min-h-screen bg-[#050B25]">
-      <Header />
-      <main className="overflow-x-clip">
-        {/* 1. The promise */}
-        <Hero />
-        {/* 1b. Who we are — company identity bridge */}
-        <CompanyIntro />
-        {/* 2. The problem we exist to solve */}
-        <ProblemComparison />
-        {/* 3. The platform. four products, one ecosystem */}
-        <PlatformShowcase />
-        {/* 4. Under the hood. the capabilities that power it */}
-        <PlatformFeatures />
-        {/* 5. How it works. install, activate, it runs */}
-        <FeatureTeaser />
-        {/* 5. Who it's for + compatibility */}
-        <TrustSection />
-        {/* 6. Proof & perspective */}
-        <BlogPreview featured={featured} posts={posts} />
-        {/* 7. Act */}
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <MarketingLayout className="bg-white">
+      {/* 1. The promise (one dark, dramatic opener) */}
+      <Hero />
+      {/* 2. The suite, shown with real product screenshots */}
+      <SuiteShowcase />
+      {/* 3. Why one platform, not a pile of plugins */}
+      <HouseAdvantage />
+      {/* 4. How it fits together */}
+      <PlatformStack />
+      {/* 5. Proof metrics */}
+      <WhyItMatters />
+      {/* 6. Works with your stack */}
+      <WorksWith />
+      {/* 7. Suite vs separate plugins */}
+      <SuiteComparison />
+      {/* 8. Built for real teams (corporate, real photos) */}
+      <CorporateShowcase />
+      {/* 9. Insights */}
+      <BlogPreview featured={featured} posts={posts} />
+      {/* 10. Final CTA */}
+      <FinalCTA />
+    </MarketingLayout>
   );
 }

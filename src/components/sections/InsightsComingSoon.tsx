@@ -1,3 +1,5 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 ﻿"use client";
 
 import { motion } from "motion/react";
@@ -88,7 +90,7 @@ export function InsightsComingSoon() {
           />
         </div>
 
-        <div className="w-full max-w-[1100px] mx-auto px-8 lg:px-24 relative z-10 flex flex-col items-center text-center">
+        <div className={cn(siteContainerClass, "relative z-10 flex flex-col items-center text-center")}>
 
           {/* Product pill */}
           <motion.div
@@ -206,10 +208,10 @@ export function InsightsComingSoon() {
       </section>
 
       {/* ── Feature preview grid ── */}
-      <section className="bg-surface-soft/50 py-32 px-8 lg:px-24 border-y border-border relative overflow-hidden">
+      <section className="bg-surface-soft/50 py-32 border-y border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,var(--color-border)_1px,transparent_0)] bg-[size:64px_64px] opacity-20 pointer-events-none" />
 
-        <div className="w-full max-w-[1600px] mx-auto relative z-10">
+        <div className={cn(siteContainerClass, "relative z-10")}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -273,8 +275,8 @@ export function InsightsComingSoon() {
       </section>
 
       {/* ── Integration CTA strip ── */}
-      <section className="bg-white py-24 px-8 lg:px-24 border-b border-border">
-        <div className="w-full max-w-[1600px] mx-auto">
+      <section className="bg-white py-24 border-b border-border">
+        <div className={siteContainerClass}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -1,3 +1,5 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 ﻿"use client";
 
 import { motion } from "motion/react";
@@ -19,7 +21,7 @@ export function ProductSuite() {
   return (
     <section
       id="products"
-      className="bg-white py-32 px-8 lg:px-24 border-b border-border relative overflow-hidden"
+      className="bg-white py-32 border-b border-border relative overflow-hidden"
     >
       {/* Dot-grid texture */}
       <div
@@ -32,7 +34,7 @@ export function ProductSuite() {
       {/* Subtle brand glow */}
       <div className="absolute top-0 right-0 w-[600px] h-[500px] bg-brand/4 blur-[160px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
 
         {/* Section header */}
         <motion.div

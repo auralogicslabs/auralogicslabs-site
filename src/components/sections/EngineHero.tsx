@@ -1,8 +1,9 @@
-﻿"use client";
+"use client";
 
 import { motion } from "motion/react";
 import { ArrowRight, ChevronRight, Code2, Zap } from "lucide-react";
-
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 import { Button } from "@/components/ui/Button";
 
 export function EngineHero() {
@@ -23,7 +24,7 @@ export function EngineHero() {
         />
       </div>
 
-      <div className="w-full max-w-[1100px] mx-auto px-8 lg:px-24 relative z-10 flex flex-col items-center text-center">
+      <div className={cn(siteContainerClass, "relative z-10 flex flex-col items-center text-center")}>
 
         {/* Product pill */}
         <motion.div
@@ -69,7 +70,7 @@ export function EngineHero() {
           transition={{ duration: 0.6, delay: 0.24 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-16"
         >
-          <Button href="/nexora-engine/docs/getting-started" variant="primary" size="lg" className="group">
+          <Button href="/docs/nexora-engine/getting-started" variant="primary" size="lg" className="group">
             <Code2 className="h-5 w-5" />
             Get Started Free
             <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />

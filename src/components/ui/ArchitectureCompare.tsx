@@ -122,7 +122,7 @@ export function ArchitectureCompare() {
             <Node icon={Zap} label="Static HTML" tone="blue" delay={0.2} />
           </div>
           <p className="mt-4 text-[12.5px] leading-relaxed text-slate-500">
-            Pre-rendered HTML served from disk before WordPress boots — the same
+            Pre-rendered HTML served from disk before WordPress boots, the same
             page, delivered in a fraction of the time.
           </p>
         </div>

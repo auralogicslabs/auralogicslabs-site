@@ -1,4 +1,5 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -39,8 +40,8 @@ export default function DemoPage() {
     <div className="min-h-screen bg-[#F8FAFF]">
       <Header />
       
-      <main className="pt-40 pb-32 px-8 lg:px-24">
-        <div className="w-full max-w-[1600px] mx-auto">
+      <main className="pt-40 pb-32">
+        <div className={siteContainerClass}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

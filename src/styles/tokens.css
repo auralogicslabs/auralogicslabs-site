@@ -44,4 +44,8 @@
   --font-display: "Plus Jakarta Sans", sans-serif;
   --font-sans: "Inter", sans-serif;
   --font-mono: "Geist Mono", monospace;
+
+  /* Site layout — single max content width for pages and sections.
+     One knob for the whole site; keep SITE_MAX_WIDTH_PX in lib/site-layout.ts in sync. */
+  --max-width-site: 1600px;
 }

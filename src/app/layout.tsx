@@ -24,15 +24,15 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Auralogics Labs — Tools That Solve Real Problems for Web Teams",
+  title: "Auralogics Labs, Tools That Solve Real Problems for Web Teams",
   description:
-    "Auralogics Labs makes the Nexora suite — drop-in WordPress tools for static-speed delivery, SEO diagnostics, and image optimisation. No rebuild. No migration. WordPress today, any platform tomorrow.",
+    "Auralogics Labs makes the Nexora suite, drop-in WordPress tools for static-speed delivery, SEO diagnostics, and image optimisation. No rebuild. No migration. WordPress today, any platform tomorrow.",
   metadataBase: new URL("https://auralogicslabs.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Auralogics Labs — Tools That Solve Real Problems for Web Teams",
+    title: "Auralogics Labs, Tools That Solve Real Problems for Web Teams",
     description:
       "We build focused, drop-in tools that close the gap between how your platform performs today and how it should. Starting with WordPress. Built to scale to every platform that comes next.",
     url: "https://auralogicslabs.com",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auralogics Labs — Tools That Solve Real Problems for Web Teams",
+    title: "Auralogics Labs, Tools That Solve Real Problems for Web Teams",
     description:
       "Drop-in WordPress tools for static-speed delivery, SEO diagnostics, and image optimisation. No rebuild. No migration. WordPress today, any platform tomorrow.",
   },
@@ -84,7 +84,7 @@ export default function RootLayout({
           "width": 200,
           "height": 200
         },
-        "description": "We build focused, drop-in tools that close the gap between how web platforms perform and how they should. The Nexora suite starts with WordPress — performance, SEO, media, and fleet control. WordPress today, any platform tomorrow.",
+        "description": "We build focused, drop-in tools that close the gap between how web platforms perform and how they should. The Nexora suite starts with WordPress, performance, SEO, media, and fleet control. WordPress today, any platform tomorrow.",
         "email": "hello@auralogicslabs.com",
         "contactPoint": {
           "@type": "ContactPoint",
@@ -121,7 +121,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Plausible Analytics — cookie-free, no consent required */}
+        {/* Plausible Analytics, cookie-free, no consent required */}
         <Script defer data-domain="auralogicslabs.com" src="https://plausible.io/js/script.js" />
         {/* GTM is loaded conditionally by CookieBanner after user consent */}
       </body>

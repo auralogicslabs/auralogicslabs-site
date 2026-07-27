@@ -1,4 +1,6 @@
 "use client";
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
@@ -17,7 +19,7 @@ export function WhyNexora() {
   return (
     <section
       id="why-nexora"
-      className="bg-white py-32 px-8 lg:px-24 overflow-hidden relative border-y border-border"
+      className="bg-white py-32 overflow-hidden relative border-y border-border"
     >
       {/* Architectural grid */}
       <div
@@ -41,7 +43,7 @@ export function WhyNexora() {
         />
       </AnimatePresence>
 
-      <div className="w-full max-w-[1600px] mx-auto relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10")}>
         <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* ── Left: Narrative ── */}

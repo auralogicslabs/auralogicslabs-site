@@ -148,7 +148,7 @@ export function Header() {
                        <h3 className="text-[15px] font-black text-obsidian">Assistance</h3>
                     </div>
                     <div className="p-2 space-y-1">
-                       <a href="/nexora-engine/docs" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
+                       <a href="/docs/nexora-engine" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">
                           <BookOpen size={16} className="text-brand" /> Documentation
                        </a>
                        <a href="/nexora-engine/support" className="flex items-center gap-3 px-4 py-3 text-[13px] font-bold text-obsidian hover:bg-surface-soft rounded-2xl transition-all">

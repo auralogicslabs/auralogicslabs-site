@@ -146,7 +146,7 @@ export default function SitesPage() {
                 <div className="flex items-center gap-2">
                   <Cpu size={14} className="text-text-muted" />
                   <span className="text-[14px] font-black text-obsidian">
-                    {site.pluginVersion === 'Not Detected' ? '—' : `v${site.pluginVersion}`}
+                    {site.pluginVersion === 'Not Detected' ? '-' : `v${site.pluginVersion}`}
                   </span>
                 </div>
               </div>

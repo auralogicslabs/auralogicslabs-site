@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { Plus } from "lucide-react";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
 const TEAL = "#13716A";
 
@@ -37,8 +39,9 @@ export function PulseFAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-white py-32 px-8 lg:px-24 relative overflow-hidden">
-      <div className="w-full max-w-[860px] mx-auto relative z-10">
+    <section className="bg-white py-32 relative overflow-hidden">
+      <div className={siteContainerClass}>
+        <div className="max-w-[860px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,6 +96,7 @@ export function PulseFAQ() {
               </AnimatePresence>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>

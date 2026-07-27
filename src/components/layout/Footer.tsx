@@ -1,5 +1,7 @@
 ﻿import { ArrowUpRight, Twitter, Facebook, Youtube, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 
 export function Footer() {
   const footerLinks = {
@@ -11,8 +13,8 @@ export function Footer() {
       { label: 'All products', href: '/products' },
     ],
     Resources: [
-      { label: 'Getting Started', href: '/nexora-engine/docs/getting-started' },
-      { label: 'Documentation', href: '/nexora-engine/docs' },
+      { label: 'Getting Started', href: '/docs/nexora-engine/getting-started' },
+      { label: 'Documentation', href: '/docs' },
       { label: 'Feature Request', href: '/nexora-engine/feature-request' },
       { label: 'Support', href: '/nexora-engine/support' },
       { label: 'Live Demo', href: '/nexora-engine/demo' },
@@ -55,7 +57,7 @@ export function Footer() {
         <img src="/nexora.svg" alt="" className="w-full h-full object-contain" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 pt-20 md:pt-24 pb-10">
+      <div className={cn(siteContainerClass, "relative z-10 pt-20 md:pt-24 pb-10")}>
         {/* ── Main grid: brand + 3 link columns ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 md:pb-20 border-b border-white/[0.08]">
           {/* Brand column */}
@@ -70,7 +72,7 @@ export function Footer() {
             </Link>
             <p className="text-[16px] md:text-[17px] text-white/45 leading-[1.65] font-medium max-w-[400px] mb-8">
               We build tools that solve real problems for web teams. The Nexora suite closes
-              the performance, SEO, and media gaps your platform leaves open — starting with WordPress.
+              the performance, SEO, and media gaps your platform leaves open, starting with WordPress.
             </p>
 
             {/* Email pill */}

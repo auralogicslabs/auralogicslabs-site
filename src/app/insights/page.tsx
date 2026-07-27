@@ -1,8 +1,9 @@
+import { siteContainerClass } from '@/lib/site-layout';
+import { cn } from '@/app/components/ui/utils';
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { MarketingLayout } from "@/components/layout/MarketingLayout";
 import { BlogCoverImage } from "@/components/blog/BlogCoverImage";
 import { BlogListingJsonLd } from "@/components/blog/BlogJsonLd";
 import { getAllPosts } from "@/data/blog";
@@ -10,7 +11,7 @@ import { getAllPosts } from "@/data/blog";
 export const metadata: Metadata = {
   title: "WordPress Performance & SEO Blog | Auralogics Labs",
   description:
-    "Technical guides on WordPress TTFB, Core Web Vitals, static delivery, SEO indexing fixes, image optimisation, and internal linking — written by the Auralogics Labs team.",
+    "Technical guides on WordPress TTFB, Core Web Vitals, static delivery, SEO indexing fixes, image optimisation, and internal linking, written by the Auralogics Labs team.",
   alternates: { canonical: "/insights" },
   openGraph: {
     title: "WordPress Performance & SEO Blog | Auralogics Labs",
@@ -34,17 +35,14 @@ export default function BlogPage() {
   const [featured, ...rest] = posts;
 
   return (
-    <div className="min-h-screen bg-white">
+    <MarketingLayout className="bg-white">
       <BlogListingJsonLd posts={posts} />
-      <Header />
-
-      <main>
         <section className="relative bg-[#F4F7FB] overflow-hidden pt-[120px] pb-24 md:pb-32">
           <div
             className="absolute top-0 right-0 w-[600px] h-[400px] pointer-events-none"
             style={{ background: "radial-gradient(ellipse at top right, rgba(26,63,216,0.07) 0%, transparent 70%)" }}
           />
-          <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
+          <div className={cn(siteContainerClass, "relative z-10")}>
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.32em] text-brand mb-5">
               Engineering Notes
             </span>
@@ -64,8 +62,8 @@ export default function BlogPage() {
         </section>
 
         {featured && (
-          <section className="relative -mt-10 md:-mt-14 z-10 px-6 sm:px-10 lg:px-16">
-            <div className="w-full max-w-[1600px] mx-auto">
+          <section className="relative -mt-10 md:-mt-14 z-10">
+            <div className={siteContainerClass}>
               <Link
                 href={`/insights/${featured.slug}`}
                 className="group grid lg:grid-cols-2 gap-0 rounded-[28px] md:rounded-[36px] overflow-hidden border border-border/60 bg-white shadow-[0_32px_80px_rgba(2,6,23,0.12)] hover:shadow-[0_40px_100px_rgba(26,63,216,0.14)] transition-shadow duration-500"
@@ -102,7 +100,7 @@ export default function BlogPage() {
           </section>
         )}
 
-        <section className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-16 md:py-24 lg:py-28">
+        <section className={cn(siteContainerClass, "py-16 md:py-24 lg:py-28")}>
           <div className="flex items-center justify-between mb-10 md:mb-14 border-b border-border/60 pb-6">
             <h2 className="text-[13px] font-black uppercase tracking-[0.28em] text-text-muted">All articles</h2>
             <span className="text-[13px] font-bold text-text-muted">{posts.length} posts</span>
@@ -151,9 +149,6 @@ export default function BlogPage() {
             ))}
           </div>
         </section>
-      </main>
-
-      <Footer />
-    </div>
+    </MarketingLayout>
   );
 }

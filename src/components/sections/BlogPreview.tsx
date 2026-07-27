@@ -5,6 +5,8 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/SectionShell";
 import { BlogCoverImage } from "@/components/blog/BlogCoverImage";
 import type { BlogPost } from "@/data/blog";
+import { siteContainerClass } from "@/lib/site-layout";
+import { cn } from "@/app/components/ui/utils";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -127,7 +129,7 @@ export function BlogPreview({
     <section id="insights" className="relative bg-[#F4F7FB] overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[400px] bg-brand/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16 py-20 md:py-28 lg:py-32 relative z-10">
+      <div className={cn(siteContainerClass, "relative z-10 py-20 md:py-28 lg:py-32")}>
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 md:mb-16">
           <ScrollReveal>
             <span className="inline-block text-[11px] font-black uppercase tracking-[0.32em] text-brand mb-4">
@@ -143,7 +145,7 @@ export function BlogPreview({
               </span>
             </h2>
             <p className="mt-4 text-[17px] text-text-secondary font-medium leading-relaxed max-w-[520px]">
-              Deep dives on static delivery, SEO indexing, image optimisation, and security — written for teams who take WordPress performance seriously.
+              Deep dives on static delivery, SEO indexing, image optimisation, and security, written for teams who take WordPress performance seriously.
             </p>
           </ScrollReveal>
 
