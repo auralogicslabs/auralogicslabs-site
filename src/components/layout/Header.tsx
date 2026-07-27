@@ -39,46 +39,47 @@ const navLinks = [
 
 const productColumns: MegaColumn[] = [
   {
-    title: "Deliver",
+    title: "Plugins",
     items: [
       {
         name: "Nexora Engine",
-        description: "Static-speed WordPress. No rebuild, no headless.",
+        description: "Static-speed delivery plus Ghost Protocol cloaking.",
         href: "/products/nexora-engine",
-        badge: "Live",
       },
       {
-        name: "Live Demo",
-        description: "See 22ms delivery on a real WordPress stack.",
-        href: "/nexora-engine/demo",
+        name: "Nexora Pulse",
+        description: "SEO operations console with real Google verdicts.",
+        href: "/products/nexora-pulse",
       },
-    ],
-  },
-  {
-    title: "Optimize",
-    items: [
       {
         name: "Nexora Media",
         description: "Auto AVIF/WebP. Up to 70% smaller images.",
         href: "/products/nexora-media",
-        badge: "Live",
-      },
-      {
-        name: "Nexora Pulse",
-        description: "Free SEO console with real Google verdicts.",
-        href: "/products/nexora-pulse",
-        badge: "Free",
       },
     ],
   },
   {
-    title: "Manage & scale",
+    title: "More plugins",
+    items: [
+      {
+        name: "Nexora Architect",
+        description: "A faster, cleaner visual building experience.",
+        href: "/products/nexora-architect",
+      },
+      {
+        name: "Nexora Shield",
+        description: "Security hardening built for the Nexora stack.",
+        href: "/products/nexora-shield",
+      },
+    ],
+  },
+  {
+    title: "Manage & explore",
     items: [
       {
         name: "Auralogics Portal",
         description: "One dashboard for your entire WordPress fleet.",
         href: "/portal",
-        badge: "Live",
       },
       {
         name: "All products",
@@ -124,9 +125,11 @@ const companyColumns: MegaColumn[] = [
 
 const mobileProducts = [
   { name: "Nexora Engine", tagline: "Static-speed WordPress", href: "/products/nexora-engine", icon: Zap, accent: "#1A3FD8" },
+  { name: "Nexora Pulse", tagline: "SEO operations console", href: "/products/nexora-pulse", icon: Stethoscope, accent: "#13716A" },
   { name: "Nexora Media", tagline: "Auto AVIF/WebP images", href: "/products/nexora-media", icon: ImageIcon, accent: "#059669" },
-  { name: "Nexora Pulse", tagline: "Free SEO console", href: "/products/nexora-pulse", icon: Stethoscope, accent: "#13716A" },
-  { name: "Auralogics Portal", tagline: "Fleet dashboard", href: "/portal", icon: LayoutDashboard, accent: "#7C3AED" },
+  { name: "Nexora Architect", tagline: "Visual building experience", href: "/products/nexora-architect", icon: LayoutDashboard, accent: "#7C3AED" },
+  { name: "Nexora Shield", tagline: "Security hardening", href: "/products/nexora-shield", icon: Zap, accent: "#DC2626" },
+  { name: "Auralogics Portal", tagline: "Fleet dashboard", href: "/portal", icon: LayoutDashboard, accent: "#F39A09" },
 ];
 
 function ScrollProgressBar() {

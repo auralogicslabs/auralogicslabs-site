@@ -38,7 +38,7 @@ export function EngineHero() {
           </div>
           <span className="text-[11px] font-bold text-obsidian uppercase tracking-[0.22em]">Nexora Engine</span>
           <span className="text-border-strong mx-1">·</span>
-          <span className="text-[11px] font-semibold text-text-muted uppercase tracking-[0.16em]">Static Infrastructure</span>
+          <span className="text-[11px] font-semibold text-text-muted uppercase tracking-[0.16em]">Static &amp; Invisible Infrastructure</span>
         </motion.div>
 
         {/* Headline */}
@@ -48,8 +48,8 @@ export function EngineHero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-[48px] md:text-[68px] lg:text-[82px] font-extrabold text-obsidian leading-[0.95] tracking-[-0.04em] mb-8 max-w-[960px]"
         >
-          The performance layer <br className="hidden md:block" />
-          <span className="text-brand">WordPress never had.</span>
+          Make WordPress fast <br className="hidden md:block" />
+          <span className="text-brand">&mdash; and invisible.</span>
         </motion.h1>
 
         {/* Subhead */}
@@ -57,10 +57,11 @@ export function EngineHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-[17px] md:text-[19px] text-text-secondary max-w-[600px] leading-[1.7] mb-12 font-medium"
+          className="text-[17px] md:text-[19px] text-text-secondary max-w-[640px] leading-[1.7] mb-12 font-medium"
         >
-          Pre-renders every WordPress page into flat HTML, served to visitors before PHP boots.
-          Drop-in installation. No headless migration, no new frontend, no DevOps.
+          Static-speed delivery plus Ghost Protocol: pages are pre-rendered to flat HTML
+          served before PHP boots, and your WordPress fingerprint is stripped so scanners and
+          bots like Wappalyzer can&apos;t tell it&apos;s WordPress. No headless rebuild, no DevOps.
         </motion.p>
 
         {/* CTAs */}
@@ -70,14 +71,14 @@ export function EngineHero() {
           transition={{ duration: 0.6, delay: 0.24 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-16"
         >
-          <Button href="/docs/nexora-engine/getting-started" variant="primary" size="lg" className="group">
+          <Button href="https://wordpress.org/plugins/nexora-engine" variant="primary" size="lg" className="group" target="_blank" rel="noopener noreferrer">
             <Code2 className="h-5 w-5" />
-            Get Started Free
+            Get It Free
             <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
           </Button>
-          <Button href="/portal" variant="secondary" size="lg" className="group">
+          <Button href="#pricing" variant="secondary" size="lg" className="group">
             <Zap className="h-4 w-4 text-brand" />
-            Get Pro License
+            See Pro Pricing
             <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
           </Button>
         </motion.div>
@@ -90,8 +91,8 @@ export function EngineHero() {
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3"
         >
           {[
-            { v: "22ms", l: "TTFB" },
-            { v: "100%", l: "Static cache hit" },
+            { v: "Invisible", l: "Wappalyzer can't detect WordPress" },
+            { v: "22ms", l: "TTFB on cache hit" },
             { v: "0", l: "PHP on cache hit" },
             { v: "All hosts", l: "Apache · Nginx · LiteSpeed · IIS" },
           ].map((m) => (

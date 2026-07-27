@@ -35,7 +35,7 @@ const plans = [
     price: "49",
     period: "/year",
     lifetime: "149",
-    description: "Everything in Free plus advanced cloaking, automatic rebuilds, real-user Core Web Vitals, SEO intelligence, CDN purge, and agency white-labeling. Includes a 14-day free trial — no card required.",
+    description: "Everything in Free plus advanced cloaking, automatic rebuilds, real-user Core Web Vitals, SEO intelligence, CDN purge, and agency white-labeling. Includes a 14-day free trial, no card required.",
     features: [
       "Everything in Free",
       "Advanced Ghost Protocol (Full Cloaking)",

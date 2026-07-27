@@ -12,7 +12,7 @@ export function SecurityGhost() {
   const securityFeatures = [
     { text: "Generator meta and version strings stripped", icon: EyeOff },
     { text: "REST API discovery removed from <head>", icon: EyeOff },
-    { text: "window.wp namespace cloaked to window.ncx", icon: Code2 },
+    { text: "window.wp namespace cloaked to a neutral name", icon: Code2 },
     { text: "Asset path masking (optional proxy mode)", icon: Shield },
     { text: "HMAC-signed internal capture protocol", icon: Lock },
     { text: "Inline-script malicious-pattern scanning", icon: ShieldAlert },

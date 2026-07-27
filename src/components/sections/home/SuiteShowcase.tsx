@@ -90,8 +90,7 @@ export function SuiteShowcase() {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className={cn(flip && 'lg:order-1')}
                 >
-                  {/* Add the real screenshot: src={`/screenshots/${p.slug}.png`} */}
-                  <ScreenshotFrame alt={`${p.name} dashboard`} accent={p.accent} label={p.name} icon={p.icon} />
+                  <ScreenshotFrame src={`/screenshots/${p.slug}.png`} alt={`${p.name} dashboard`} accent={p.accent} label={p.name} icon={p.icon} />
                 </motion.div>
               </div>
             );

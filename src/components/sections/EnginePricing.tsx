@@ -12,7 +12,7 @@ const CHECKOUT_URL = "https://checkout.freemius.com/plugin/29612/plan/48706/";
 const freeFeatures = [
   "Static HTML delivery (SSG) + drop-in cache",
   "SPA navigation between static pages",
-  "Ghost Protocol — core fingerprint hiding",
+  "Ghost Protocol core fingerprint hiding",
   "Elementor & Gutenberg compatible",
   "Delivery diagnostics dashboard",
   "Cache-hit tracking & basic analytics",
@@ -21,7 +21,7 @@ const freeFeatures = [
 
 const proFeatures = [
   "Everything in Free",
-  "Advanced Ghost Protocol — full cloaking",
+  "Advanced Ghost Protocol full cloaking",
   "Auto-rebuild on publish & update",
   "Core Web Vitals tracking (LCP / INP / CLS)",
   "SEO intelligence & on-page scoring",
@@ -55,7 +55,7 @@ export function EnginePricing() {
             Start free. Scale when you&apos;re ready.
           </h2>
           <p className="mx-auto max-w-[640px] text-[18px] text-text-secondary leading-[1.6]">
-            The free tier is genuinely free — full static delivery and core Ghost
+            The free tier is genuinely free: full static delivery and core Ghost
             Protocol, live on the WordPress.org directory. Upgrade to Pro for
             advanced cloaking, automatic rebuilds, and agency features.
           </p>

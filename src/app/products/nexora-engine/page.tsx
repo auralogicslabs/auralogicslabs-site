@@ -4,6 +4,7 @@ import { EngineHero } from '@/components/sections/EngineHero';
 import { TrustMetrics } from '@/components/sections/TrustMetrics';
 import { PlatformOverview } from '@/components/sections/PlatformOverview';
 import { ProblemComparison } from '@/components/sections/ProblemComparison';
+import { SecurityGhost } from '@/components/sections/SecurityGhost';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { PerformanceAudit } from '@/components/sections/PerformanceAudit';
 import { Compatibility } from '@/components/sections/Compatibility';
@@ -16,21 +17,21 @@ import { getProduct } from '@/data/products';
 import { faqData } from '@/data/faq';
 
 export const metadata: Metadata = {
-  title: 'Nexora Engine | WordPress Static Cache Plugin | 22ms TTFB',
+  title: 'Nexora Engine | Make WordPress Fast & Invisible | Ghost Protocol',
   description:
-    'Pre-render every WordPress page into flat HTML delivered before PHP boots. 22ms TTFB, 100% static cache hits, drop-in installation. Works with Elementor, WooCommerce, and every WordPress host.',
+    'Static-speed delivery plus Ghost Protocol: pre-render WordPress to flat HTML for 22ms TTFB, and strip the WordPress fingerprint so scanners like Wappalyzer can’t detect it. Drop-in install, no headless rebuild.',
   alternates: { canonical: '/products/nexora-engine' },
-  keywords: ['WordPress static cache plugin', 'WordPress TTFB optimization', 'WordPress speed plugin', 'WordPress Core Web Vitals', 'static HTML WordPress cache', 'WordPress performance plugin', 'WooCommerce speed'],
+  keywords: ['hide WordPress from scanners', 'WordPress fingerprint hiding', 'Ghost Protocol WordPress', 'make WordPress invisible', 'WordPress static cache plugin', 'WordPress TTFB optimization', 'WordPress security hardening', 'Wappalyzer WordPress'],
   openGraph: {
-    title: 'Nexora Engine | WordPress Static Cache Plugin | 22ms TTFB',
-    description: 'Pre-render WordPress pages into flat HTML. 22ms TTFB, zero PHP execution on cache hit, drop-in installation. No headless migration required.',
+    title: 'Nexora Engine | Make WordPress Fast & Invisible',
+    description: 'Static-speed delivery plus Ghost Protocol: your site stops looking like WordPress to scanners and bots. 22ms TTFB, drop-in install, no headless rebuild.',
     url: 'https://auralogicslabs.com/products/nexora-engine',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexora Engine | WordPress Static Cache Plugin',
-    description: 'Pre-render WordPress pages into flat HTML. 22ms TTFB, drop-in installation, zero plugin conflict.',
+    title: 'Nexora Engine | Make WordPress Fast & Invisible',
+    description: 'Static-speed delivery plus Ghost Protocol fingerprint hiding. Scanners can’t tell it’s WordPress. 22ms TTFB, drop-in install.',
   },
 };
 
@@ -42,7 +43,7 @@ export default function NexoraEnginePage() {
         '@type': 'SoftwareApplication',
         '@id': 'https://auralogicslabs.com/products/nexora-engine#software',
         name: 'Nexora Engine',
-        description: 'Static cache plugin for WordPress. Pre-renders every page into flat HTML delivered before PHP boots, achieving 22ms TTFB with zero plugin conflict.',
+        description: 'WordPress static delivery and fingerprint-hiding plugin. Pre-renders every page into flat HTML for 22ms TTFB, and strips the WordPress fingerprint (Ghost Protocol) so vulnerability scanners and tools like Wappalyzer can’t identify the site as WordPress, without a headless rebuild.',
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'WordPress',
         url: 'https://auralogicslabs.com/products/nexora-engine',
@@ -93,6 +94,7 @@ export default function NexoraEnginePage() {
       <EngineHero />
       <TrustMetrics />
       <ProblemComparison />
+      <SecurityGhost />
       <PlatformOverview />
       <HowItWorks />
       <PerformanceAudit />
