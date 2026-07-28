@@ -239,19 +239,21 @@ export default function DemoPage() {
                       <div>
                          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full mb-6">
                             <Globe size={12} className="text-brand" />
-                            <span className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em]">Global Command Console</span>
+                            <span className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em]">Static-Speed Delivery</span>
                          </div>
-                         <h4 className="text-[24px] font-bold mb-4 tracking-tight">Your Infrastructure, Unified.</h4>
+                         <h4 className="text-[24px] font-bold mb-4 tracking-tight">Your WordPress, Invisible & Fast.</h4>
                          <p className="text-white/40 text-[15px] font-medium leading-relaxed max-w-[400px]">
-                           Every node you connect surfaces in your Command Portal. Manage performance across your entire fleet from one place.
+                           Nexora Engine pre-renders every page to static HTML and hides the WordPress fingerprint. Drop it in, no rebuild, no migration.
                          </p>
                       </div>
                       <div className="flex gap-4">
                          <Link
-                           href="/portal"
+                           href="https://wordpress.org/plugins/nexora-engine"
+                           target="_blank"
+                           rel="noopener noreferrer"
                            className="bg-brand text-white px-10 py-5 rounded-2xl font-bold text-[15px] shadow-xl hover:scale-105 transition-transform"
                          >
-                            Open Portal
+                            Get It Free
                          </Link>
                          <Link
                            href="/docs/nexora-engine"

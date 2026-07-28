@@ -431,14 +431,11 @@ export function PerformanceAudit() {
                   </div>
                   
                   <div className="space-y-4 relative z-10">
-                    <button className="w-full bg-white text-brand py-5 rounded-full font-black text-[16px] shadow-2xl hover:-translate-y-0.5 transition-transform">
-                      Download Core (.zip)
-                    </button>
                     <button
-                      onClick={() => window.location.href = '/portal'}
-                      className="w-full bg-transparent border border-white/30 text-white py-4 rounded-full font-bold text-[15px] hover:bg-white/10 transition-colors"
+                      onClick={() => window.open('https://wordpress.org/plugins/nexora-engine', '_blank', 'noopener,noreferrer')}
+                      className="w-full bg-white text-brand py-5 rounded-full font-black text-[16px] shadow-2xl hover:-translate-y-0.5 transition-transform"
                     >
-                      Open Control Portal
+                      Get It Free on WordPress.org
                     </button>
                   </div>
                 </div>

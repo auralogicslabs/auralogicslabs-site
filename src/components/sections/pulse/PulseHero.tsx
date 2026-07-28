@@ -3,7 +3,7 @@ import { siteContainerClass } from '@/lib/site-layout';
 import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
-import { ArrowRight, ChevronRight, Stethoscope, Download } from "lucide-react";
+import { ArrowRight, ChevronRight, Stethoscope, Download, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const TEAL = "#13716A";
@@ -80,6 +80,10 @@ export function PulseHero() {
             <Stethoscope className="h-4 w-4" style={{ color: TEAL }} />
             See what it does
             <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
+          <Button href="/products/nexora-pulse/demo" variant="ghost" size="lg" className="group">
+            <Play className="h-4 w-4" style={{ color: TEAL }} />
+            Live Demo
           </Button>
         </motion.div>
 

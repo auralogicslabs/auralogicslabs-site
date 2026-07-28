@@ -41,13 +41,6 @@ export default function ProductsPage() {
         description: p.tagline,
         url: `${SITE}/products/${p.slug}`,
       })),
-      {
-        '@type': 'ListItem',
-        position: products.length + 1,
-        name: 'Auralogics Portal',
-        description: 'Fleet management portal, licenses, deployments and runtime config across every site running the Nexora suite.',
-        url: `${SITE}/portal`,
-      },
     ],
   };
 

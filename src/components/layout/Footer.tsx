@@ -9,7 +9,8 @@ export function Footer() {
       { label: 'Nexora Engine', href: '/products/nexora-engine' },
       { label: 'Nexora Pulse', href: '/products/nexora-pulse' },
       { label: 'Nexora Media', href: '/products/nexora-media' },
-      { label: 'Auralogics Portal', href: '/portal' },
+      { label: 'Nexora Architect', href: '/products/nexora-architect' },
+      { label: 'Nexora Shield', href: '/products/nexora-shield' },
       { label: 'All products', href: '/products' },
     ],
     Resources: [
@@ -17,12 +18,12 @@ export function Footer() {
       { label: 'Documentation', href: '/docs' },
       { label: 'Feature Request', href: '/nexora-engine/feature-request' },
       { label: 'Support', href: '/nexora-engine/support' },
-      { label: 'Live Demo', href: '/nexora-engine/demo' },
+      { label: 'Live Demo', href: '/demo' },
     ],
     Company: [
       { label: 'About Us', href: '/about' },
       { label: 'Insights', href: '/insights' },
-      { label: 'Portal', href: '/portal' },
+      { label: 'Careers', href: '/careers' },
       { label: 'Contact', href: '/contact' },
     ],
     Legal: [

@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/demo",
-        destination: "/nexora-engine/demo",
-        permanent: true,
-      },
-      {
         source: "/nexora-engine/docs",
         destination: "/docs/nexora-engine/getting-started",
         permanent: true,

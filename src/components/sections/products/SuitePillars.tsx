@@ -12,7 +12,7 @@ const pillars = [
     headline: "Static-speed WordPress without a rebuild.",
     items: [
       { name: "Nexora Engine", href: "/products/nexora-engine", icon: Zap, accent: "#1A3FD8" },
-      { name: "Auralogics Portal", href: "/portal", icon: LayoutDashboard, accent: "#F39A09" },
+      { name: "Nexora Architect", href: "/products/nexora-architect", icon: LayoutDashboard, accent: "#7C3AED" },
     ],
   },
   {

@@ -32,7 +32,7 @@ type MegaColumn = {
 const navLinks = [
   { label: "Insights", href: "/insights" },
   { label: "Docs", href: "/docs" },
-  { label: "Demo", href: "/nexora-engine/demo" },
+  { label: "Demo", href: "/demo" },
   { label: "Downloads", href: "/downloads" },
   { label: "Support", href: "/support" },
 ];
@@ -70,16 +70,6 @@ const productColumns: MegaColumn[] = [
         name: "Nexora Shield",
         description: "Security hardening built for the Nexora stack.",
         href: "/products/nexora-shield",
-      },
-    ],
-  },
-  {
-    title: "Manage & explore",
-    items: [
-      {
-        name: "Auralogics Portal",
-        description: "One dashboard for your entire WordPress fleet.",
-        href: "/portal",
       },
       {
         name: "All products",
@@ -129,7 +119,6 @@ const mobileProducts = [
   { name: "Nexora Media", tagline: "Auto AVIF/WebP images", href: "/products/nexora-media", icon: ImageIcon, accent: "#059669" },
   { name: "Nexora Architect", tagline: "Visual building experience", href: "/products/nexora-architect", icon: LayoutDashboard, accent: "#7C3AED" },
   { name: "Nexora Shield", tagline: "Security hardening", href: "/products/nexora-shield", icon: Zap, accent: "#DC2626" },
-  { name: "Auralogics Portal", tagline: "Fleet dashboard", href: "/portal", icon: LayoutDashboard, accent: "#F39A09" },
 ];
 
 function ScrollProgressBar() {
@@ -487,16 +476,6 @@ export function Header() {
 
             <div className="hidden md:flex items-center gap-2 flex-shrink-0">
               <Link
-                href="/portal"
-                onMouseEnter={closeMenus}
-                className={cn(
-                  "px-4 py-2.5 rounded-full text-[14px] font-semibold tracking-[-0.01em] transition-all duration-200",
-                  isDark ? "text-white/60 hover:text-white hover:bg-white/8" : "text-obsidian/60 hover:text-obsidian hover:bg-surface-soft"
-                )}
-              >
-                Sign In
-              </Link>
-              <Link
                 href="/docs/nexora-engine/getting-started"
                 onMouseEnter={closeMenus}
                 className="group relative flex items-center gap-2 overflow-hidden rounded-full px-5 py-2.5 text-[14px] font-bold tracking-[-0.01em] text-white transition-all duration-200"
@@ -588,9 +567,6 @@ export function Header() {
                   ))}
 
                   <div className="mt-1 flex flex-col gap-2 border-t border-border p-2 pt-3">
-                    <Link href="/portal" onClick={() => setMobileOpen(false)} className="w-full rounded-[12px] border border-border py-3 text-center text-[15px] font-bold text-obsidian transition-colors hover:bg-surface-soft">
-                      Sign In
-                    </Link>
                     <Link
                       href="/docs/nexora-engine/getting-started"
                       onClick={() => setMobileOpen(false)}

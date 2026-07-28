@@ -106,6 +106,26 @@ export function DocsArticleContent({ blocks }: { blocks: DocContentBlock[] }) {
                 ))}
               </div>
             );
+          case 'image':
+            return (
+              <figure key={i} className="my-8">
+                <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-[0_20px_50px_rgba(2,6,23,0.08)]">
+                  {/* Window chrome bar */}
+                  <div className="flex items-center gap-1.5 border-b border-border bg-surface-soft/70 px-4 py-2.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={block.src} alt={block.alt} loading="lazy" className="block w-full" />
+                </div>
+                {block.caption && (
+                  <figcaption className="mt-3 text-center text-[13px] font-medium text-text-muted">
+                    {block.caption}
+                  </figcaption>
+                )}
+              </figure>
+            );
           case 'steps':
             return (
               <div key={i} className="mb-10 space-y-5">
@@ -114,7 +134,7 @@ export function DocsArticleContent({ blocks }: { blocks: DocContentBlock[] }) {
                     key={j}
                     className="rounded-2xl border border-border bg-white p-6 md:grid md:grid-cols-12 md:gap-6 md:p-7"
                   >
-                    <div className="md:col-span-8">
+                    <div className="md:col-span-7">
                       <p className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-text-muted mb-2">
                         Step {String(j + 1).padStart(2, '0')}
                       </p>
@@ -122,8 +142,8 @@ export function DocsArticleContent({ blocks }: { blocks: DocContentBlock[] }) {
                       <p className="text-[15px] text-text-secondary leading-relaxed font-medium">{step.body}</p>
                     </div>
                     {step.code && (
-                      <div className="mt-4 md:col-span-4 md:mt-0">
-                        <pre className="h-full rounded-xl bg-obsidian px-4 py-3 font-mono text-[12px] leading-relaxed text-emerald-400">
+                      <div className="mt-4 min-w-0 md:col-span-5 md:mt-0">
+                        <pre className="h-full overflow-x-auto whitespace-pre-wrap break-words rounded-xl bg-obsidian px-4 py-3 font-mono text-[12px] leading-relaxed text-emerald-400">
                           {step.code}
                         </pre>
                       </div>

@@ -26,16 +26,11 @@ export function DocsShell({
   docs: ProductDocs;
   children: React.ReactNode;
 }) {
+  // Hooks must run unconditionally and before any early return (Rules of Hooks).
   const product = getProduct(productSlug);
-  if (!product) return null;
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const navGroups = getDocNavGroups(docs);
-  const allDocs = getAllProductDocs();
-  const Icon = product.icon;
-  const isChangelog = pathname.startsWith(`/changelog/${product.slug}`);
-  const articleSlug = pathname.replace(`/docs/${product.slug}/`, '').replace(/\/$/, '');
 
   useEffect(() => {
     setMobileOpen(false);
@@ -47,6 +42,14 @@ export function DocsShell({
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  if (!product) return null;
+
+  const navGroups = getDocNavGroups(docs);
+  const allDocs = getAllProductDocs();
+  const Icon = product.icon;
+  const isChangelog = pathname.startsWith(`/changelog/${product.slug}`);
+  const articleSlug = pathname.replace(`/docs/${product.slug}/`, '').replace(/\/$/, '');
 
   const sidebar = (
     <nav className="flex flex-col gap-8">

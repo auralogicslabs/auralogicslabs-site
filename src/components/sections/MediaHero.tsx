@@ -3,7 +3,7 @@ import { siteContainerClass } from '@/lib/site-layout';
 import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
-import { ArrowRight, ChevronRight, ImageIcon, Zap, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ChevronRight, ImageIcon, Zap, CheckCircle2, Play } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export function MediaHero() {
@@ -95,6 +95,10 @@ export function MediaHero() {
             <Zap className="h-4 w-4 text-brand" />
             Pair with Nexora Engine
             <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
+          <Button href="/products/nexora-media/demo" variant="ghost" size="lg" className="group">
+            <Play className="h-4 w-4" style={{ color: "#059669" }} />
+            Live Demo
           </Button>
         </motion.div>
 

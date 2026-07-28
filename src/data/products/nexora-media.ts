@@ -159,6 +159,7 @@ export const nexoraMedia: Product = {
 
   links: {
     docs: '/docs/nexora-media',
+    demo: '/products/nexora-media/demo',
     support: '/contact',
     changelog: '/changelog/nexora-media',
   },

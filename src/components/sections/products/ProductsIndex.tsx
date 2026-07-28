@@ -3,7 +3,7 @@ import { siteContainerClass } from '@/lib/site-layout';
 import { cn } from '@/app/components/ui/utils';
 
 import { motion } from "motion/react";
-import { LayoutDashboard, ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { getAllProducts } from "@/data/products";
 import type { Product, ProductStatus } from "@/types/product";
@@ -89,30 +89,6 @@ export function ProductsIndex() {
           {products.map((p, i) => (
             <ProductCard key={p.slug} p={p} index={i} />
           ))}
-        </div>
-
-        {/* Portal, the cloud/management layer, shown distinctly from the plugins. */}
-        <div className="mt-6 rounded-[32px] border border-border bg-white p-8 lg:p-10 relative overflow-hidden">
-          <div className="absolute top-0 left-0 right-0 h-1 opacity-80" style={{ background: "linear-gradient(90deg, #F39A09, transparent)" }} />
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex items-start gap-5">
-              <div className="h-14 w-14 flex-shrink-0 rounded-2xl flex items-center justify-center" style={{ background: "#F39A0912", border: "1.5px solid #F39A0926" }}>
-                <LayoutDashboard className="h-7 w-7" style={{ color: "#F39A09" }} strokeWidth={2} />
-              </div>
-              <div>
-                <span className="text-[11px] font-black uppercase tracking-[0.2em]" style={{ color: "#F39A09" }}>The cloud layer</span>
-                <h3 className="mt-1 text-[24px] font-extrabold text-obsidian tracking-[-0.03em]">Auralogics Portal</h3>
-                <p className="mt-2 max-w-xl text-[15px] text-text-secondary font-medium leading-[1.65]">
-                  One control plane for your whole fleet, licenses, deployments and runtime config across every
-                  site running the Nexora suite. Not a plugin: the management layer that ties them together.
-                </p>
-              </div>
-            </div>
-            <Link href="/portal" className="inline-flex flex-shrink-0 items-center gap-2 rounded-2xl px-6 py-3 text-[14px] font-bold text-white transition-all duration-300 group/btn" style={{ background: "#F39A09" }}>
-              Open the Portal
-              <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

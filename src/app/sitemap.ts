@@ -58,7 +58,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   }));
 
-
+  // Registry-driven demo pages (skip Engine's, listed explicitly below).
+  const demoRoutes: MetadataRoute.Sitemap = getAllProducts()
+    .filter((p) => p.links?.demo && p.links.demo.startsWith('/products/'))
+    .map((p) => ({
+      url: `${base}${p.links!.demo}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
 
   return [
 
@@ -115,6 +123,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 
     { url: `${base}/demo`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+
+    ...demoRoutes,
 
 
 

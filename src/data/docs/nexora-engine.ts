@@ -41,6 +41,12 @@ export const nexoraEngineDocs: ProductDocs = {
         },
         { type: 'h2', id: 'install', text: 'Installing the plugin' },
         {
+          type: 'image',
+          src: '/screenshots/docs/nexora-engine/screenshot-5.png',
+          alt: 'Nexora Engine Setup Wizard verifying compatibility and enabling static delivery',
+          caption: 'The Setup Wizard verifies compatibility, enables static delivery, builds the first mirror, and confirms serving, all in one guided flow.',
+        },
+        {
           type: 'steps',
           items: [
             {
@@ -77,6 +83,12 @@ export const nexoraEngineDocs: ProductDocs = {
           ],
         },
         {
+          type: 'image',
+          src: '/screenshots/docs/nexora-engine/screenshot-1.png',
+          alt: 'Nexora Engine dashboard showing cache hit ratio, TTFB, Core Web Vitals, and Stealth Score',
+          caption: 'Once serving is live, the dashboard shows cache hit ratio, real time-to-first-byte, Core Web Vitals, static file count, mirror freshness, and your live Stealth Score at a glance.',
+        },
+        {
           type: 'callout',
           title: 'Need help?',
           text: 'Open a support ticket or watch the video tutorial library if any step fails. Most issues trace back to PHP limits or blocked loopback requests.',
@@ -98,6 +110,18 @@ export const nexoraEngineDocs: ProductDocs = {
         {
           type: 'p',
           text: 'When you publish or bulk-regenerate, Nexora issues an internal loopback request signed with HMAC-SHA256. The response DOM is written atomically to disk so visitors always receive a complete file or the previous snapshot.',
+        },
+        {
+          type: 'image',
+          src: '/screenshots/docs/nexora-engine/screenshot-2.png',
+          alt: 'Nexora Engine Static Delivery screen with per-page capture status and Mirror Build Control',
+          caption: 'The Static Delivery screen: per-page capture status, delivery mode, and the Mirror Build Control panel with live build progress.',
+        },
+        {
+          type: 'callout',
+          title: 'Free vs Pro rebuilds',
+          text: 'On the free version, any change to a page, post, or public category/tag is tracked and added to a Pending list, you rebuild the mirror with one click from Static Delivery. Pro adds automatic rebuild on publish and update, so every change mirrors in the background with no manual step.',
+          variant: 'info',
         },
         { type: 'h2', id: 'drop-in', text: 'advanced-cache.php drop-in' },
         {
@@ -137,9 +161,29 @@ export const nexoraEngineDocs: ProductDocs = {
           ],
         },
         {
+          type: 'image',
+          src: '/screenshots/docs/nexora-engine/screenshot-3.png',
+          alt: 'Nexora Engine Security screen showing the Stealth Score breakdown and hardening guards',
+          caption: 'The Security screen breaks down your Stealth Score, showing exactly which WordPress fingerprints are hidden, alongside the free hardening guards.',
+        },
+        { type: 'h2', id: 'hardening', text: 'Free hardening guards' },
+        {
+          type: 'p',
+          text: 'Beyond fingerprint stripping, the free tier ships active hardening you can toggle from the Security screen. These reduce the automated-attack surface without touching your theme or content.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Login rate limiting to blunt brute-force attempts',
+            'XML-RPC controls to close a common abuse vector',
+            'User enumeration blocks so author IDs stop leaking usernames',
+            'Generator and version stripping across HTML and headers',
+          ],
+        },
+        {
           type: 'callout',
           title: 'Pro feature',
-          text: 'Full Stealth Proxy mode is available on Nexora Engine Pro. Free tier includes core fingerprint stripping.',
+          text: 'Full Stealth Proxy mode is available on Nexora Engine Pro. Free tier includes core fingerprint stripping and the hardening guards above.',
           variant: 'info',
         },
       ],
@@ -155,6 +199,12 @@ export const nexoraEngineDocs: ProductDocs = {
         {
           type: 'p',
           text: 'Nexora Engine → Tools → Run Diagnostic produces structured JSON describing drop-in status, loopback health, snapshot counts, and server compatibility.',
+        },
+        {
+          type: 'image',
+          src: '/screenshots/docs/nexora-engine/screenshot-4.png',
+          alt: 'Nexora Engine Tools screen with system status, rewrite flush, export/import, and factory reset',
+          caption: 'The Tools screen: system status, rewrite-rule flush, configuration export/import, and a guided factory reset when you need to start clean.',
         },
         { type: 'h2', id: 'conflicts', text: 'Plugin conflicts' },
         {

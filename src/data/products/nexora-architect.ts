@@ -27,7 +27,7 @@ export const nexoraArchitect: Product = {
   description:
     'Nexora Architect is an intelligent visual website operating system with a compile-on-publish architecture. Design visually in a modern editor, and Architect compiles your pages to production-grade HTML and CSS, zero runtime frontend, no bloat. A schema-driven document model, the Structura Compiler, a fluid design-token system and optional Nexora Engine integration give you builder convenience with hand-coded output quality. Currently in active beta.',
   status: 'beta',
-  hidden: true, // In progress, hidden across the site until ready to publish.
+  hidden: false, // Live: full product page renders with a Beta badge + coming-soon band.
   icon: DraftingCompass,
   accent: '#7C3AED',
   category: 'Builder',
@@ -43,15 +43,10 @@ export const nexoraArchitect: Product = {
   version: '0.10.0',
   releaseDate: '2026-06-11',
   compatibility,
-  releases: [
-    {
-      version: '0.10.0',
-      date: '2026-06-11',
-      file: 'nexora-architect/nexora-architect-0.10.0.zip',
-      prerelease: true,
-      compatibility,
-    },
-  ],
+  // Beta/in-development: no public downloadable release yet, so the product page
+  // shows the "coming soon" launch band and a Beta status badge (no broken
+  // download link). Version history lives in `changelog` below.
+  releases: [],
 
   keyBenefits: [
     {

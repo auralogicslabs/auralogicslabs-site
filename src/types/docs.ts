@@ -8,7 +8,8 @@ export type DocContentBlock =
   | { type: 'code'; code: string; language?: string }
   | { type: 'callout'; title: string; text: string; variant?: 'info' | 'warning' }
   | { type: 'requirements'; items: { label: string; value: string }[] }
-  | { type: 'steps'; items: { title: string; body: string; code?: string }[] };
+  | { type: 'steps'; items: { title: string; body: string; code?: string }[] }
+  | { type: 'image'; src: string; alt: string; caption?: string };
 
 export interface DocArticle {
   slug: string;

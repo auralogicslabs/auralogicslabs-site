@@ -30,7 +30,7 @@ export const nexoraShield: Product = {
   description:
     'Nexora Shield is a complete WordPress security, firewall and compliance platform, built for classic WordPress, headless sites, Nexora Engine and enterprise compliance. A web application firewall, malware and vulnerability scanning, login hardening, two-factor authentication, audit logging and a live security score work together to protect your site and prove it. Launching soon.',
   status: 'coming-soon',
-  hidden: true, // In progress, hidden across the site until ready to publish.
+  hidden: false, // Live: full product page renders with a Coming soon badge + launch band.
   icon: ShieldHalf,
   accent: '#DC2626',
   category: 'Security',

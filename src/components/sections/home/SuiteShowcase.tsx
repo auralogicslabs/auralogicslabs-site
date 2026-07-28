@@ -8,8 +8,11 @@ import { siteContainerClass } from '@/lib/site-layout';
 import { cn } from '@/app/components/ui/utils';
 import { ScreenshotFrame } from '@/components/marketing/ScreenshotFrame';
 
-// Only the shipping products, shown with their real admin UI.
-const products = getAllProducts().filter((p) => p.releases.length > 0);
+// Only the shipping products (a real, non-prerelease release), shown with their
+// real admin UI. Beta/coming-soon products live on /products, not this showcase.
+const products = getAllProducts().filter((p) =>
+  p.releases.some((r) => !r.prerelease),
+);
 
 export function SuiteShowcase() {
   return (

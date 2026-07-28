@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight, ChevronRight, Code2, Zap } from "lucide-react";
+import { ArrowRight, ChevronRight, Code2, Zap, Play } from "lucide-react";
 import { siteContainerClass } from "@/lib/site-layout";
 import { cn } from "@/app/components/ui/utils";
 import { Button } from "@/components/ui/Button";
@@ -80,6 +80,10 @@ export function EngineHero() {
             <Zap className="h-4 w-4 text-brand" />
             See Pro Pricing
             <ChevronRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Button>
+          <Button href="/nexora-engine/demo" variant="ghost" size="lg" className="group">
+            <Play className="h-4 w-4 text-brand" />
+            Live Demo
           </Button>
         </motion.div>
 

@@ -149,6 +149,7 @@ export const nexoraPulse: Product = {
 
   links: {
     docs: '/docs/nexora-pulse',
+    demo: '/products/nexora-pulse/demo',
     support: '/contact',
     changelog: '/changelog/nexora-pulse',
   },

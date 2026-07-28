@@ -3,7 +3,7 @@ import Link from "next/link";
 import { siteContainerClass } from "@/lib/site-layout";
 import { cn } from "@/app/components/ui/utils";
 import { MarketingLayout } from "@/components/layout/MarketingLayout";
-import { Zap, Stethoscope, ImageIcon, LayoutDashboard, Target, Compass, Shield, ArrowRight } from "lucide-react";
+import { Zap, Stethoscope, ImageIcon, Target, Compass, Shield, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Auralogics Labs, Tools for the Real Problems Web Teams Face",
@@ -40,7 +40,8 @@ const products = [
   { icon: Zap, name: "Nexora Engine", tagline: "Static-speed delivery", accent: "#1A3FD8", href: "/products/nexora-engine" },
   { icon: Stethoscope, name: "Nexora Pulse", tagline: "SEO operations console", accent: "#13716A", href: "/products/nexora-pulse" },
   { icon: ImageIcon, name: "Nexora Media", tagline: "Safe AVIF & WebP images", accent: "#059669", href: "/products/nexora-media" },
-  { icon: LayoutDashboard, name: "Auralogics Portal", tagline: "Fleet command center", accent: "#7C3AED", href: "/portal" },
+  { icon: Compass, name: "Nexora Architect", tagline: "Compile-on-publish builder", accent: "#7C3AED", href: "/products/nexora-architect" },
+  { icon: Shield, name: "Nexora Shield", tagline: "Security by design", accent: "#DC2626", href: "/products/nexora-shield" },
 ];
 
 export default function AboutPage() {

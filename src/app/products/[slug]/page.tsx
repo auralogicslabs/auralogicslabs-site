@@ -2,7 +2,7 @@ import { siteContainerClass } from '@/lib/site-layout';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Download, BookOpen } from 'lucide-react';
+import { Download, BookOpen, Play } from 'lucide-react';
 
 import { MarketingLayout } from '@/components/layout/MarketingLayout';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -140,6 +140,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   style={{ background: product.accent }}
                 >
                   Notify me at launch
+                </Link>
+              )}
+              {product.links?.demo && (
+                <Link
+                  href={product.links.demo}
+                  className="inline-flex items-center gap-2 rounded-full border-2 px-6 py-3 text-[15px] font-bold transition-colors"
+                  style={{ borderColor: `${product.accent}40`, color: product.accent }}
+                >
+                  <Play className="h-4 w-4" />
+                  Live Demo
                 </Link>
               )}
               {product.links?.docs && (
