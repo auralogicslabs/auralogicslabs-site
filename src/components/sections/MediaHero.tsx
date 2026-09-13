@@ -86,9 +86,9 @@ export function MediaHero() {
           transition={{ duration: 0.6, delay: 0.28 }}
           className="flex flex-col sm:flex-row items-center gap-4 mb-16"
         >
-          <Button href="/api/download/nexora-media" variant="primary" size="lg" className="group">
+          <Button href="https://wordpress.org/plugins/nexora-media/" variant="primary" size="lg" className="group" target="_blank" rel="noopener noreferrer">
             <ImageIcon className="h-5 w-5" />
-            Download Nexora Media
+            Get Nexora Media Free
             <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
           </Button>
           <Button href="/products/nexora-engine" variant="secondary" size="lg" className="group">

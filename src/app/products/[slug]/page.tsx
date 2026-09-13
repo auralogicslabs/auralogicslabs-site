@@ -70,7 +70,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         applicationCategory: 'BusinessApplication',
         operatingSystem: 'WordPress',
         url: `${SITE}/products/${product.slug}`,
-        ...(stable ? { softwareVersion: stable.version, downloadUrl: `${SITE}/api/download/${product.slug}` } : {}),
+        ...(stable
+          ? {
+              softwareVersion: stable.version,
+              // Point at the source the CTA actually uses.
+              downloadUrl: product.links?.wporg ?? `${SITE}/api/download/${product.slug}`,
+            }
+          : {}),
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -126,12 +132,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               {stable ? (
                 <a
-                  href={`/api/download/${product.slug}`}
+                  href={product.links?.wporg ?? `/api/download/${product.slug}`}
+                  {...(product.links?.wporg
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
                   className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-bold text-white transition-opacity hover:opacity-90"
                   style={{ background: product.accent }}
                 >
                   <Download className="h-4 w-4" />
-                  Download Free
+                  {product.links?.wporg ? 'Get it on WordPress.org' : 'Download Free'}
                 </a>
               ) : (
                 <Link

@@ -9,9 +9,14 @@ import { getStorage } from '@/lib/storage';
  *   GET /api/download/<product>          → latest stable release
  *   GET /api/download/<product>?v=1.0.0  → a specific version
  *
- * The URL contract is permanent. Where the bytes actually live (in-repo /public
- * today, Azure Blob later) is decided by the storage adapter, so this URL never
- * has to change. We 302-redirect to the resolved artifact URL.
+ * The URL contract is permanent. Where the bytes actually live is decided
+ * elsewhere, so this URL never has to change. We 302-redirect to the resolved
+ * target.
+ *
+ * Free builds of published plugins are distributed by WordPress.org, which is
+ * their canonical home and what the directory guidelines expect. When a product
+ * declares `links.wporg` we redirect there and never touch storage. Only
+ * products not on the directory fall through to the storage adapter.
  */
 export async function GET(
   request: NextRequest,
@@ -22,6 +27,14 @@ export async function GET(
 
   if (!product || product.hidden) {
     return NextResponse.json({ error: 'Product not found' }, { status: 404 });
+  }
+
+  // WordPress.org is the canonical source for published free builds. Redirect
+  // before the release lookup: the directory serves every version itself, so a
+  // `?v=` request is satisfied there too.
+  const wporg = product.links?.wporg;
+  if (wporg) {
+    return NextResponse.redirect(wporg, 302);
   }
 
   const requested = request.nextUrl.searchParams.get('v');

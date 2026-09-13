@@ -54,7 +54,10 @@ export default function DownloadsPage() {
             operatingSystem: 'WordPress',
             softwareVersion: stable?.version,
             url: `https://auralogicslabs.com/products/${p.slug}`,
-            downloadUrl: `https://auralogicslabs.com/api/download/${p.slug}`,
+            // Advertise the real distribution source, so the structured data
+            // matches where the button actually sends people.
+            downloadUrl:
+              p.links?.wporg ?? `https://auralogicslabs.com/api/download/${p.slug}`,
             offers: {
               '@type': 'Offer',
               price: '0',

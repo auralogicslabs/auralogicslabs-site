@@ -28,6 +28,9 @@ export function ProductDownloadBand({ product }: { product: Product }) {
   const isFree = (product.pricingModel ?? 'free') === 'free';
   const docsHref = product.links?.docs;
   const changelogHref = product.links?.changelog ?? `/changelog/${product.slug}`;
+  // Published plugins live on WordPress.org; everything else uses /api/download.
+  const wporgHref = product.links?.wporg;
+  const downloadHref = wporgHref ?? `/api/download/${product.slug}`;
 
   return (
     <section id="download" className="bg-surface-soft/60 py-20">
@@ -51,12 +54,13 @@ export function ProductDownloadBand({ product }: { product: Product }) {
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a
-                  href={`/api/download/${product.slug}`}
+                  href={downloadHref}
+                  {...(wporgHref ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-bold text-white transition-opacity hover:opacity-90"
                   style={{ background: product.accent }}
                 >
                   <Download className="h-4.5 w-4.5" style={{ width: 18, height: 18 }} />
-                  Download Free
+                  {wporgHref ? 'Get it on WordPress.org' : 'Download Free'}
                 </a>
                 {docsHref && (
                   <Link

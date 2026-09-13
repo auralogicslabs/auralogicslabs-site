@@ -59,14 +59,16 @@ export function ArchitectHero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="/api/download/nexora-architect"
+            {/* Architect has no public release yet, so the CTA collects interest
+                rather than linking a download that does not exist. */}
+            <Link
+              href="/contact?product=nexora-architect"
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-bold text-white transition-opacity hover:opacity-90"
               style={{ background: ACCENT }}
             >
               <DraftingCompass className="h-4.5 w-4.5" style={{ width: 18, height: 18 }} />
-              Download Beta
-            </a>
+              Request Beta Access
+            </Link>
             <Link
               href="/docs/nexora-architect"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-6 py-3 text-[15px] font-bold text-obsidian transition-colors hover:bg-surface-soft"

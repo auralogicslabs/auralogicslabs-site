@@ -145,7 +145,8 @@ export const nexoraEngine: Product = {
     demo: '/nexora-engine/demo',
     featureRequest: '/nexora-engine/feature-request',
     changelog: '/changelog/nexora-engine',
-    // checkout: '<freemius-checkout-url>', // Freemius extension point
+    wporg: 'https://wordpress.org/plugins/nexora-engine/',
+    checkout: 'https://checkout.freemius.com/plugin/29612/plan/48706/',
   },
   relatedSlugs: ['nexora-pulse', 'nexora-media'],
 

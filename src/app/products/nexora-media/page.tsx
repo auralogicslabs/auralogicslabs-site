@@ -53,7 +53,7 @@ export default function NexoraMediaPage() {
         operatingSystem: 'WordPress',
         url: `${SITE}/products/nexora-media`,
         softwareVersion: product.version,
-        downloadUrl: `${SITE}/api/download/nexora-media`,
+        downloadUrl: 'https://wordpress.org/plugins/nexora-media/',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
         featureList: (product.features ?? []).map((f) => f.title),
       },

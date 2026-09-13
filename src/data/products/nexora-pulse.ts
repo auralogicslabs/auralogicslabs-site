@@ -152,6 +152,7 @@ export const nexoraPulse: Product = {
     demo: '/products/nexora-pulse/demo',
     support: '/contact',
     changelog: '/changelog/nexora-pulse',
+    wporg: 'https://wordpress.org/plugins/nexora-pulse/',
   },
   relatedSlugs: ['nexora-engine', 'nexora-media'],
   hasCustomPage: true,

@@ -46,7 +46,7 @@ export default function NexoraPulsePage() {
         operatingSystem: 'WordPress',
         url: `${SITE}/products/nexora-pulse`,
         softwareVersion: product.version,
-        downloadUrl: `${SITE}/api/download/nexora-pulse`,
+        downloadUrl: 'https://wordpress.org/plugins/nexora-pulse/',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
         featureList: (product.features ?? []).map((f) => f.title),
       },

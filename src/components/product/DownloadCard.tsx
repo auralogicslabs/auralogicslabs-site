@@ -28,6 +28,13 @@ export function DownloadCard({ product }: { product: Product }) {
   const compat = stable?.compatibility ?? product.compatibility;
   const changelogHref = product.links?.changelog ?? `/changelog/${product.slug}`;
   const docsHref = product.links?.docs;
+  // Published plugins are downloaded from WordPress.org, their canonical home.
+  // Anything not on the directory keeps the in-house /api/download endpoint.
+  const wporgHref = product.links?.wporg;
+  const downloadHref = wporgHref ?? `/api/download/${product.slug}`;
+  const proHref = product.pricingModel === 'freemium'
+    ? (product.links?.checkout ?? `/products/${product.slug}#pricing`)
+    : undefined;
 
   return (
     <div className="flex flex-col rounded-card border border-border bg-bg p-6 shadow-card transition-shadow hover:shadow-hover">
@@ -66,13 +73,26 @@ export function DownloadCard({ product }: { product: Product }) {
           {/* Primary actions */}
           <div className="mt-5 flex flex-col gap-2">
             <a
-              href={`/api/download/${product.slug}`}
+              href={downloadHref}
+              {...(wporgHref ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[14.5px] font-bold text-white transition-colors"
               style={{ background: product.accent }}
             >
               <Download className="h-4 w-4" />
-              Download Free
+              {wporgHref ? 'Get it on WordPress.org' : 'Download Free'}
             </a>
+            {proHref && (
+              <a
+                href={proHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border px-5 py-2.5 text-[14px] font-bold transition-colors hover:bg-surface-soft"
+                style={{ borderColor: `${product.accent}45`, color: product.accent }}
+              >
+                Get Pro
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            )}
             <div className="grid grid-cols-2 gap-2">
               <Link
                 href={changelogHref}
@@ -101,7 +121,7 @@ export function DownloadCard({ product }: { product: Product }) {
             </div>
           </div>
 
-          <PreviousVersions slug={product.slug} releases={previous} />
+          <PreviousVersions slug={product.slug} releases={previous} wporgHref={wporgHref} />
         </>
       ) : (
         /* Pre-launch state, no downloadable release yet */

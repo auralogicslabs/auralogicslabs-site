@@ -10,9 +10,12 @@ import { formatDate } from '@/lib/format';
 export function PreviousVersions({
   slug,
   releases,
+  wporgHref,
 }: {
   slug: string;
   releases: ReleaseAsset[];
+  /** wp.org listing, when the directory distributes this product. */
+  wporgHref?: string;
 }) {
   const [open, setOpen] = useState(false);
   if (releases.length === 0) return null;
@@ -58,7 +61,12 @@ export function PreviousVersions({
                   )}
                 </div>
                 <a
-                  href={`/api/download/${slug}?v=${encodeURIComponent(r.version)}`}
+                  href={
+                    wporgHref
+                      ? `${wporgHref.replace(/\/+$/, '')}/advanced/`
+                      : `/api/download/${slug}?v=${encodeURIComponent(r.version)}`
+                  }
+                  {...(wporgHref ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="inline-flex items-center gap-1.5 font-semibold text-brand transition-colors hover:text-obsidian"
                 >
                   <Download className="h-3.5 w-3.5" />
